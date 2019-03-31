@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TCF_Demo_GunMaterial
+  m_Shader: {fileID: 4800000, guid: 81ae609a37b59f043ac4256abae11b2e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: e9150748290dbc94d8bda1f5c80bd5f9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Ramp:
+        m_Texture: {fileID: 2800000, guid: 4a056241e2722dc46a7262a8e7073fd9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _RimMax: 1
+    - _RimMin: 0.19642857
+    - _Shininess: 0.45953777
+    m_Colors:
+    - _Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+    - _HColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0.85882354, g: 0.6697876, b: 0.4209919, a: 0.4117647}
+    - _SColor: {r: 0.6102941, g: 0.6102941, b: 0.6102941, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}

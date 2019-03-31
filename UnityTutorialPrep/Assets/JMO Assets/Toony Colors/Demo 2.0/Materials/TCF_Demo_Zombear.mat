@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TCF_Demo_Zombear
+  m_Shader: {fileID: 4800000, guid: 81ae609a37b59f043ac4256abae11b2e, type: 3}
+  m_ShaderKeywords: TCP2_BUMP TCP2_RIM TCP2_SPEC
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: e37ef2d95dba2694a8557b9c34370f69, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Ramp:
+        m_Texture: {fileID: 2800000, guid: 4a056241e2722dc46a7262a8e7073fd9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _RampSmooth: 0.05
+    - _RampThreshold: 0.5
+    - _RimMax: 1
+    - _RimMin: 0.35714287
+    - _RimPower: 2.375
+    - _Shininess: 0.15077282
+    - _SpecSmooth: 0.05
+    m_Colors:
+    - _Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+    - _HColor: {r: 1, g: 0.93951607, b: 0.80784315, a: 1}
+    - _LColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _RimColor: {r: 0.73022294, g: 0.7205882, b: 1, a: 0.28235295}
+    - _RimDir: {r: 0, g: 0, b: 1, a: 0}
+    - _SColor: {r: 0.53103447, g: 0, b: 1, a: 0.7921569}
+    - _SpecColor: {r: 0.283737, g: 0.2845931, b: 0.30147058, a: 1}

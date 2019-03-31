@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Body_01
+  m_Shader: {fileID: 23, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: b7962e4d69e932c498775fe53fe19305, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cube:
+        m_Texture: {fileID: 8900000, guid: 526f476039ebee544874f76e9bc8b3ce, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: c4772712b065971448eb46d50d6e9a7b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Shininess: 0.18036382
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ReflectColor: {r: 0.4957117, g: 0.49880204, b: 0.51492536, a: 0.21568628}
+    - _SpecColor: {r: 0.39095566, g: 0.48874, b: 0.8731343, a: 1}
+--- !u!1002 &2100001
+EditorExtensionImpl:
+  serializedVersion: 6
