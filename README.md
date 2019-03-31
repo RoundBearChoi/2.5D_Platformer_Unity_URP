@@ -1,6 +1,7 @@
 # 2.5D_Platformer_Unity_Tutorial
-## by Roundbeargames
-<br>
+
+by Roundbeargames
+
 discord: https://discord.gg/RbxjBu3
 
 blog: https://busy.org/@roundbeargames
