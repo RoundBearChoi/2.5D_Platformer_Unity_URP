@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RoundBearGames_ObstacleCourse {
+namespace roundbeargames_tutorial_1
+{
 	public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
 		private static T _instance;
 

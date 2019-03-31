@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace RoundBearGames_ObstacleCourse
+namespace roundbeargames_tutorial_1
 {
     [CustomEditor(typeof(CharacterControl))]
     public class MaterialChanger : Editor

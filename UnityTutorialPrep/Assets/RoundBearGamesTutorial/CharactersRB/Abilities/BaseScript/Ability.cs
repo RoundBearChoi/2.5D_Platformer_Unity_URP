@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RoundBearGames_ObstacleCourse
+namespace roundbeargames_tutorial_1
 {
     public abstract class Ability : MonoBehaviour
     {
