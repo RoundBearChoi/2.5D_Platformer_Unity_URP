@@ -9,9 +9,9 @@ namespace roundbeargames_tutorial
     {
         public float Speed;
 
-        public override void UpdateAbility(CharacterStateBase characterStateBase, Animator animator)
+        public override void UpdateAbility(CharacterState characterState, Animator animator)
         {
-            CharacterControl c = characterStateBase.GetCharacterControl(animator);
+            CharacterControl c = characterState.GetCharacterControl(animator);
 
             if (VirtualInputManager.Instance.MoveRight && VirtualInputManager.Instance.MoveLeft)
             {

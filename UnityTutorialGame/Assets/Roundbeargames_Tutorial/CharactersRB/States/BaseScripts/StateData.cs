@@ -8,6 +8,6 @@ namespace roundbeargames_tutorial
     {
         public float Duration;
 
-        public abstract void UpdateAbility(CharacterStateBase characterStateBase, Animator animator);
+        public abstract void UpdateAbility(CharacterState characterState, Animator animator);
     }
 }

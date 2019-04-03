@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace roundbeargames_tutorial
 {
-    public class CharacterStateBase : StateMachineBehaviour
+    public class CharacterState : StateMachineBehaviour
     {
         public List<StateData> ListAbilityData = new List<StateData>();
 
-        public void UpdateAll(CharacterStateBase characterStateBase, Animator animator)
+        public void UpdateAll(CharacterState characterState, Animator animator)
         {
             foreach(StateData d in ListAbilityData)
             {
-                d.UpdateAbility(characterStateBase, animator);
+                d.UpdateAbility(characterState, animator);
             }
         }
 

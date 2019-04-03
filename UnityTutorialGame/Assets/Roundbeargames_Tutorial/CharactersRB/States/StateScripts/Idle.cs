@@ -7,7 +7,7 @@ namespace roundbeargames_tutorial
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/Idle")]
     public class Idle : StateData
     {
-        public override void UpdateAbility(CharacterStateBase characterStateBase, Animator animator)
+        public override void UpdateAbility(CharacterState characterState, Animator animator)
         {
             if (VirtualInputManager.Instance.MoveRight)
             {
