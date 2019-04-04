@@ -11,30 +11,30 @@ namespace roundbeargames_tutorial
 
         public override void UpdateAbility(CharacterState characterState, Animator animator)
         {
-            CharacterControl c = characterState.GetCharacterControl(animator);
+            CharacterControl control = characterState.GetCharacterControl(animator);
 
-            if (VirtualInputManager.Instance.MoveRight && VirtualInputManager.Instance.MoveLeft)
+            if (control.MoveRight && control.MoveLeft)
             {
                 animator.SetBool(TransitionParameter.Move.ToString(), false);
                 return;
             }
 
-            if (!VirtualInputManager.Instance.MoveRight && !VirtualInputManager.Instance.MoveLeft)
+            if (!control.MoveRight && !control.MoveLeft)
             {
                 animator.SetBool(TransitionParameter.Move.ToString(), false);
                 return;
             }
 
-            if (VirtualInputManager.Instance.MoveRight)
+            if (control.MoveRight)
             {
-                c.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-                c.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                control.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+                control.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             }
 
             if (VirtualInputManager.Instance.MoveLeft)
             {
-                c.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-                c.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                control.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+                control.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
             }
         }
     }

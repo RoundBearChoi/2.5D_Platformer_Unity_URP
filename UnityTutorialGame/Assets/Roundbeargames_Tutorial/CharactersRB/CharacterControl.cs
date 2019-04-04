@@ -13,5 +13,7 @@ namespace roundbeargames_tutorial
     {
         public float Speed;
         public Animator animator;
+        public bool MoveRight;
+        public bool MoveLeft;
     }
 }

@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 65458319998546448}
   - component: {fileID: 114410094365959340}
   - component: {fileID: 1116076010}
+  - component: {fileID: 1340567624}
   m_Layer: 0
   m_Name: SuitedMan
   m_TagString: Untagged
@@ -633,6 +634,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1.81
   animator: {fileID: 95419912989869330}
+  MoveRight: 0
+  MoveLeft: 0
 --- !u!114 &1116076010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,6 +653,18 @@ MonoBehaviour:
   - {fileID: 1057053213124454}
   NewMaterials:
   - {fileID: 0}
+--- !u!114 &1340567624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198588639962040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 535d000348085b545a007c16dc5c17b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1210759542931612
 GameObject:
   m_ObjectHideFlags: 0
