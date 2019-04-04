@@ -7,7 +7,7 @@ namespace RoundBearGames_ObstacleCourse
     public class MaterialChanger : MonoBehaviour
     {
         public Material material;
-        public List<GameObject> CurrentMaterials = new List<GameObject>();
+        public List<GameObject> CurrentObjects = new List<GameObject>();
         public List<Material> NewMaterials = new List<Material>();
 
         public void ChangeMaterial()
@@ -41,14 +41,14 @@ namespace RoundBearGames_ObstacleCourse
             {
                 if (r.gameObject != this.gameObject)
                 {
-                    for (int i = 0; i < CurrentMaterials.Count; i++)
+                    for (int i = 0; i < CurrentObjects.Count; i++)
                     {
                         if (NewMaterials[i] == null)
                         {
                             Debug.LogError("New Material is empty: " + "index " + i);
                             continue;
                         }
-                        else if (r.sharedMaterial == CurrentMaterials[i].GetComponent<Renderer>().sharedMaterial)
+                        else if (r.sharedMaterial == CurrentObjects[i].GetComponent<Renderer>().sharedMaterial)
                         {
                             Debug.Log("Change schedule: " + r.gameObject.name + " / " + NewMaterials[i].name);
                             ChangeSchedule.Add(r.gameObject, i);
@@ -75,7 +75,7 @@ namespace RoundBearGames_ObstacleCourse
 
                 if (r.gameObject != this.gameObject)
                 {
-                    foreach(GameObject obj in CurrentMaterials)
+                    foreach(GameObject obj in CurrentObjects)
                     {
                         if (obj.GetComponent<Renderer>().sharedMaterial == r.sharedMaterial)
                         {
@@ -86,7 +86,7 @@ namespace RoundBearGames_ObstacleCourse
 
                     if (!skip)
                     {
-                        CurrentMaterials.Add(r.gameObject);
+                        CurrentObjects.Add(r.gameObject);
                         NewMaterials.Add(null);
                     }
                 }

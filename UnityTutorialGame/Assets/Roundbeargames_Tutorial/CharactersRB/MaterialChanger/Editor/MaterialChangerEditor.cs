@@ -9,13 +9,13 @@ namespace RoundBearGames_ObstacleCourse
     public class MaterialChangerEditor : Editor
     {
         SerializedProperty material;
-        SerializedProperty CurrentMaterials;
+        SerializedProperty CurrentObjects;
         SerializedProperty NewMaterials;
 
         private void OnEnable()
         {
             material = serializedObject.FindProperty("material");
-            CurrentMaterials = serializedObject.FindProperty("CurrentMaterials");
+            CurrentObjects = serializedObject.FindProperty("CurrentObjects");
             NewMaterials = serializedObject.FindProperty("NewMaterials");
         }
 
@@ -68,9 +68,9 @@ namespace RoundBearGames_ObstacleCourse
 
             if (GUILayout.Button("Identify Current Materials"))
             {
-                if (CurrentMaterials.arraySize != 0 || NewMaterials.arraySize != 0)
+                if (CurrentObjects.arraySize != 0 || NewMaterials.arraySize != 0)
                 {
-                    CurrentMaterials.ClearArray();
+                    CurrentObjects.ClearArray();
                     NewMaterials.ClearArray();
                 }
                 else
@@ -84,7 +84,7 @@ namespace RoundBearGames_ObstacleCourse
             GUILayout.BeginHorizontal("box");
 
             GUILayout.BeginVertical("box");
-            foreach(SerializedProperty s in CurrentMaterials)
+            foreach(SerializedProperty s in CurrentObjects)
             {
                 EditorGUILayout.PropertyField(s);
             }
@@ -104,12 +104,12 @@ namespace RoundBearGames_ObstacleCourse
 
             if (GUILayout.Button("Switch Materials"))
             {
-                if (CurrentMaterials.arraySize != NewMaterials.arraySize)
+                if (CurrentObjects.arraySize != NewMaterials.arraySize)
                 {
-                    CurrentMaterials.ClearArray();
+                    CurrentObjects.ClearArray();
                     NewMaterials.ClearArray();
                 }
-                else if (CurrentMaterials.arraySize == 0)
+                else if (CurrentObjects.arraySize == 0)
                 {
                     Debug.Log("List is empty");
                 }
