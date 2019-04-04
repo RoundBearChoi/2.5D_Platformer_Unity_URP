@@ -28,7 +28,7 @@ namespace RoundBearGames_ObstacleCourse
 
             //Simple Material Changer
 
-            EditorGUILayout.Space();
+            /*EditorGUILayout.Space();
 
             GUILayout.BeginVertical("box");
 
@@ -53,7 +53,7 @@ namespace RoundBearGames_ObstacleCourse
 
             EditorGUILayout.Space();
             EditorGUILayout.Space();
-            EditorGUILayout.Space();
+            EditorGUILayout.Space();*/
 
             // Complext Material Changer
 
@@ -63,9 +63,8 @@ namespace RoundBearGames_ObstacleCourse
 
             EditorGUILayout.Space();
 
-            EditorGUILayout.HelpBox("Use this if character has multiple materials", MessageType.Info);
-
-            EditorGUILayout.Space();
+            //EditorGUILayout.HelpBox("Use this if character has multiple materials", MessageType.Info);
+            //EditorGUILayout.Space();
 
             if (GUILayout.Button("Identify Current Materials"))
             {
@@ -103,7 +102,7 @@ namespace RoundBearGames_ObstacleCourse
 
             EditorGUILayout.Space();
 
-            if (GUILayout.Button("Change Complex Material"))
+            if (GUILayout.Button("Switch Materials"))
             {
                 if (CurrentMaterials.arraySize != NewMaterials.arraySize)
                 {
