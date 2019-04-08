@@ -25,6 +25,15 @@ namespace roundbeargames_tutorial
             {
                 VirtualInputManager.Instance.MoveLeft = false;
             }
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                VirtualInputManager.Instance.Jump = true;
+            }
+            else
+            {
+                VirtualInputManager.Instance.Jump = false;
+            }
         }
     }
 }

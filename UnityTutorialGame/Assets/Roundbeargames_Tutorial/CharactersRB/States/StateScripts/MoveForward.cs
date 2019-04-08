@@ -9,7 +9,12 @@ namespace roundbeargames_tutorial
     {
         public float Speed;
 
-        public override void UpdateAbility(CharacterState characterState, Animator animator)
+        public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
+        {
+
+        }
+
+        public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             CharacterControl control = characterState.GetCharacterControl(animator);
 
@@ -36,6 +41,11 @@ namespace roundbeargames_tutorial
                 control.transform.Translate(Vector3.forward * Speed * Time.deltaTime);
                 control.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
             }
+        }
+
+        public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
+        {
+
         }
     }
 }

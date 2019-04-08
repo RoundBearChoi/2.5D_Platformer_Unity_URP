@@ -7,6 +7,8 @@ namespace roundbeargames_tutorial
     public enum TransitionParameter
     {
         Move,
+        Jump,
+        ForceTransition,
     }
 
     public class CharacterControl : MonoBehaviour
@@ -15,5 +17,6 @@ namespace roundbeargames_tutorial
         public Animator animator;
         public bool MoveRight;
         public bool MoveLeft;
+        public bool Jump;
     }
 }
