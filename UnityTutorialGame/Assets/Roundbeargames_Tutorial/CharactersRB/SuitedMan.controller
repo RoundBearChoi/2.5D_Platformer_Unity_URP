@@ -27,6 +27,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: Grounded
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -54,6 +60,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListAbilityData:
   - {fileID: 11400000, guid: 5cd48c8259f52d44583d43f3440b3168, type: 2}
+--- !u!114 &114334630466715768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2112a3b23010d19469bc50211b6a226e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListAbilityData:
+  - {fileID: 11400000, guid: 9b42aa22bca7a6440bcf8e2e473741c1, type: 2}
+  - {fileID: 11400000, guid: 93c23991ef64ccd4281c180af3838788, type: 2}
 --- !u!114 &114567564550565704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,7 +175,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Grounded
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102497448831971730}
   m_Solo: 0
@@ -164,7 +188,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.05452308
   m_TransitionOffset: 0
   m_ExitTime: 0.93015736
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -256,7 +280,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101393207580036788}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 114334630466715768}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
   m_WriteDefaultValues: 1
@@ -407,7 +432,7 @@ AnimatorStateMachine:
     m_Position: {x: 348, y: -144, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102497448831971730}
-    m_Position: {x: 180, y: -204, z: 0}
+    m_Position: {x: 156, y: -276, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
