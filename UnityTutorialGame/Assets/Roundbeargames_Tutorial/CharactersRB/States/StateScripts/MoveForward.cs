@@ -46,7 +46,7 @@ namespace roundbeargames_tutorial
                 }
             }
 
-            if (VirtualInputManager.Instance.MoveLeft)
+            if (control.MoveLeft)
             {
                 if (!CheckFront(control))
                 {
