@@ -20,6 +20,7 @@ namespace roundbeargames_tutorial
         public bool Jump;
         public GameObject ColliderEdgePrefab;
         public List<GameObject> BottomSpheres = new List<GameObject>();
+        public List<GameObject> FrontSpheres = new List<GameObject>();
 
         private Rigidbody rigid;
         public Rigidbody RIGID_BODY
@@ -45,22 +46,34 @@ namespace roundbeargames_tutorial
 
             GameObject bottomFront = CreateEdgeSphere(new Vector3(0f, bottom, front));
             GameObject bottomBack = CreateEdgeSphere(new Vector3(0f, bottom, back));
+            GameObject topFront = CreateEdgeSphere(new Vector3(0f, top, front));
 
             bottomFront.transform.parent = this.transform;
             bottomBack.transform.parent = this.transform;
+            topFront.transform.parent = this.transform;
 
             BottomSpheres.Add(bottomFront);
             BottomSpheres.Add(bottomBack);
 
-            float sec = (bottomFront.transform.position - bottomBack.transform.position).magnitude / 5f;
+            FrontSpheres.Add(bottomFront);
+            FrontSpheres.Add(topFront);
 
-            for (int i = 0; i < 4; i++)
+            float horSec = (bottomFront.transform.position - bottomBack.transform.position).magnitude / 5f;
+            CreateMiddleSpheres(bottomFront, -this.transform.forward, horSec, 4, BottomSpheres);
+
+            float verSec = (bottomFront.transform.position - topFront.transform.position).magnitude / 10f;
+            CreateMiddleSpheres(bottomFront, this.transform.up, verSec, 9, FrontSpheres);
+        }
+
+        public void CreateMiddleSpheres(GameObject start, Vector3 dir, float sec, int interations, List<GameObject> spheresList)
+        {
+            for (int i = 0; i < interations; i++)
             {
-                Vector3 pos = bottomBack.transform.position + (Vector3.forward * sec * (i + 1));
+                Vector3 pos = start.transform.position + (dir * sec * (i + 1));
 
                 GameObject newObj = CreateEdgeSphere(pos);
                 newObj.transform.parent = this.transform;
-                BottomSpheres.Add(newObj);
+                spheresList.Add(newObj);
             }
         }
 

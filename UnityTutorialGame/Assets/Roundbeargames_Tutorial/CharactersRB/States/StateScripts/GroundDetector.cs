@@ -40,18 +40,21 @@ namespace roundbeargames_tutorial
 
         bool IsGrounded(CharacterControl control)
         {
-            if (control.RIGID_BODY.velocity.y > -0.01f && control.RIGID_BODY.velocity.y <= 0f)
+            if (control.RIGID_BODY.velocity.y > -0.001f && control.RIGID_BODY.velocity.y <= 0f)
             {
                 return true;
             }
 
-            foreach(GameObject o in control.BottomSpheres)
+            if (control.RIGID_BODY.velocity.y < 0f)
             {
-                Debug.DrawRay(o.transform.position, -Vector3.up * 0.7f, Color.yellow);
-                RaycastHit hit;
-                if (Physics.Raycast(o.transform.position, -Vector3.up, out hit, Distance))
+                foreach (GameObject o in control.BottomSpheres)
                 {
-                    return true;
+                    Debug.DrawRay(o.transform.position, -Vector3.up * 0.7f, Color.yellow);
+                    RaycastHit hit;
+                    if (Physics.Raycast(o.transform.position, -Vector3.up, out hit, Distance))
+                    {
+                        return true;
+                    }
                 }
             }
 
