@@ -22,6 +22,9 @@ namespace roundbeargames_tutorial
         public List<GameObject> BottomSpheres = new List<GameObject>();
         public List<GameObject> FrontSpheres = new List<GameObject>();
 
+        public float GravityMultiplier;
+        public float PullMultiplier;
+
         private Rigidbody rigid;
         public Rigidbody RIGID_BODY
         {
@@ -63,6 +66,19 @@ namespace roundbeargames_tutorial
 
             float verSec = (bottomFront.transform.position - topFront.transform.position).magnitude / 10f;
             CreateMiddleSpheres(bottomFront, this.transform.up, verSec, 9, FrontSpheres);
+        }
+
+        private void FixedUpdate()
+        {
+            if (RIGID_BODY.velocity.y < 0f)
+            {
+                RIGID_BODY.velocity += (-Vector3.up * GravityMultiplier);
+            }
+
+            if (RIGID_BODY.velocity.y > 0f && !Jump)
+            {
+                RIGID_BODY.velocity += (-Vector3.up * PullMultiplier);
+            }
         }
 
         public void CreateMiddleSpheres(GameObject start, Vector3 dir, float sec, int interations, List<GameObject> spheresList)
