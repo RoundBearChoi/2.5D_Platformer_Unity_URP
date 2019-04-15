@@ -10,6 +10,7 @@ namespace roundbeargames_tutorial
         public AnimationCurve SpeedGraph;
         public float Speed;
         public float BlockDistance;
+        private bool Self;
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
@@ -65,11 +66,25 @@ namespace roundbeargames_tutorial
         {
             foreach (GameObject o in control.FrontSpheres)
             {
+                Self = false;
+
                 Debug.DrawRay(o.transform.position, control.transform.forward * 0.3f, Color.yellow);
                 RaycastHit hit;
                 if (Physics.Raycast(o.transform.position, control.transform.forward, out hit, BlockDistance))
                 {
-                    return true;
+                    foreach(Collider c in control.RagdollParts)
+                    {
+                        if (c.gameObject == hit.collider.gameObject)
+                        {
+                            Self = true;
+                            break;
+                        }
+                    }
+
+                    if (!Self)
+                    {
+                        return true;
+                    }
                 }
             }
 
