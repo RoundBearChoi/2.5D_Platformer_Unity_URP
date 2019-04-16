@@ -16,6 +16,11 @@ namespace roundbeargames_tutorial
         {
             CharacterControl control = characterState.GetCharacterControl(animator);
 
+            if (control.Attack)
+            {
+                animator.SetBool(TransitionParameter.Attack.ToString(), true);
+            }
+
             if (control.Jump)
             {
                 animator.SetBool(TransitionParameter.Jump.ToString(), true);

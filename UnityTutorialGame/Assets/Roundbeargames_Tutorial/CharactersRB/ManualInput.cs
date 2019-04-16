@@ -41,6 +41,15 @@ namespace roundbeargames_tutorial
             {
                 characterControl.Jump = false;
             }
+
+            if (VirtualInputManager.Instance.Attack)
+            {
+                characterControl.Attack = true;
+            }
+            else
+            {
+                characterControl.Attack = false;
+            }
         }
     }
 }
