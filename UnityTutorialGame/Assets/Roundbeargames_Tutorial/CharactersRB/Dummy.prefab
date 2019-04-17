@@ -844,7 +844,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.20417088, y: 0.38505796, z: 0.0034643281}
+  m_ConnectedAnchor: {x: 0.20417088, y: 0.38505796, z: 0.003464209}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -1105,7 +1105,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000100543836, y: 0.5581347, z: 0.02487719}
+  m_ConnectedAnchor: {x: 0.00000010054386, y: 0.5581347, z: 0.02487731}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1339,7 +1339,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.20417072, y: 0.3850612, z: 0.0034645125}
+  m_ConnectedAnchor: {x: -0.20417072, y: 0.3850612, z: 0.0034646317}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1589,7 +1589,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.44590634, y: 0.00000008940698, z: -0.0000000055879354}
+  m_ConnectedAnchor: {x: 0.44590634, y: -0.000000029802326, z: -0.000000009313226}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -2584,7 +2584,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.27103955, y: -0.00000536372, z: -0.0000004667382}
+  m_ConnectedAnchor: {x: 0.27103955, y: -0.00000536372, z: -0.0000005859184}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -3290,7 +3290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24671c8dcb05f15478f33566393735c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 8112473900086171651}
+  SkinnedMeshAnimator: {fileID: 8112473900086171651}
   MoveRight: 0
   MoveLeft: 0
   Jump: 0
@@ -3300,6 +3300,7 @@ MonoBehaviour:
   BottomSpheres: []
   FrontSpheres: []
   RagdollParts: []
+  CollidingParts: []
   GravityMultiplier: 0
   PullMultiplier: 0
 --- !u!114 &8198719422521993979
@@ -3582,7 +3583,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.44590655, y: -0.00000005960465, z: -0.000000007450581}
+  m_ConnectedAnchor: {x: -0.44590655, y: 0.00000005960465, z: -0.000000004656613}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -3939,7 +3940,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.27104145, y: -0.000000087893575, z: -0.000000018044377}
+  m_ConnectedAnchor: {x: -0.27104145, y: -0.000000087893575, z: 0.00000010116493}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:

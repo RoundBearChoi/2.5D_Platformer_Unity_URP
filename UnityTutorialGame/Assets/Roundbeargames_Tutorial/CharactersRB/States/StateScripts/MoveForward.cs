@@ -45,7 +45,7 @@ namespace roundbeargames_tutorial
         {
             if (!CheckFront(control))
             {
-                control.transform.Translate(Vector3.forward * Speed * SpeedGraph.Evaluate(stateInfo.normalizedTime) * Time.deltaTime);
+                control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
             }
         }
 
@@ -68,7 +68,7 @@ namespace roundbeargames_tutorial
                 control.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 if (!CheckFront(control))
                 {
-                    control.transform.Translate(Vector3.forward * Speed * SpeedGraph.Evaluate(stateInfo.normalizedTime) * Time.deltaTime);
+                    control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
                 }
             }
 
@@ -77,7 +77,7 @@ namespace roundbeargames_tutorial
                 control.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 if (!CheckFront(control))
                 {
-                    control.transform.Translate(Vector3.forward * Speed * SpeedGraph.Evaluate(stateInfo.normalizedTime) * Time.deltaTime);
+                    control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
                 }
             }
         }
