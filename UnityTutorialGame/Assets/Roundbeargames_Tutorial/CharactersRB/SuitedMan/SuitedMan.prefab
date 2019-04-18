@@ -728,6 +728,7 @@ GameObject:
   - component: {fileID: 1116076010}
   - component: {fileID: 1340567624}
   - component: {fileID: 9019976113325085649}
+  - component: {fileID: 5517950020053244441}
   m_Layer: 0
   m_Name: SuitedMan
   m_TagString: Untagged
@@ -878,6 +879,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &5517950020053244441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198588639962040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3620e092df5e304586a7e2924eb9a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1210759542931612
 GameObject:
   m_ObjectHideFlags: 0
