@@ -850,9 +850,9 @@ MonoBehaviour:
   CurrentObjects:
   - {fileID: 1057053213124454}
   CurrentMaterials:
-  - {fileID: 2100000, guid: a5a9423d9d457d941809bb8134d12dda, type: 2}
-  NewMaterials:
   - {fileID: 2100000, guid: 047aba1283c235a4b9035d3fa43961c7, type: 2}
+  NewMaterials:
+  - {fileID: 0}
 --- !u!114 &1340567624
 MonoBehaviour:
   m_ObjectHideFlags: 0
