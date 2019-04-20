@@ -17,17 +17,17 @@ namespace roundbeargames_tutorial
         public bool isRegisterd;
         public bool isFinished;
 
-        public void ResetInfo(Attack attack)
+        public void ResetInfo(Attack attack, CharacterControl attacker)
         {
             isRegisterd = false;
             isFinished = false;
             AttackAbility = attack;
+            Attacker = attacker;
         }
 
-        public void Register(Attack attack, CharacterControl attacker)
+        public void Register(Attack attack)
         {
             isRegisterd = true;
-            Attacker = attacker;
 
             AttackAbility = attack;
             ColliderNames = attack.ColliderNames;

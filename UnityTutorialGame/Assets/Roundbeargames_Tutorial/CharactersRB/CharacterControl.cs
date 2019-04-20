@@ -71,39 +71,6 @@ namespace roundbeargames_tutorial
             TurnOnRagdoll();
         }*/
 
-        private void OnTriggerEnter(Collider col)
-        {
-            if (RagdollParts.Contains(col))
-            {
-                return;
-            }
-
-            CharacterControl control = col.transform.root.GetComponent<CharacterControl>();
-
-            if (control == null)
-            {
-                return;
-            }
-
-            if (col.gameObject == control.gameObject)
-            {
-                return;
-            }
-
-            if (!CollidingParts.Contains(col))
-            {
-                CollidingParts.Add(col);
-            }
-        }
-
-        private void OnTriggerExit(Collider col)
-        {
-            if (CollidingParts.Contains(col))
-            {
-                CollidingParts.Remove(col);
-            }
-        }
-
         private void SetRagdollParts()
         {
             Collider[] colliders = this.gameObject.GetComponentsInChildren<Collider>();
@@ -114,6 +81,7 @@ namespace roundbeargames_tutorial
                 {
                     c.isTrigger = true;
                     RagdollParts.Add(c);
+                    c.gameObject.AddComponent<TriggerDetector>();
                 }
             }
         }

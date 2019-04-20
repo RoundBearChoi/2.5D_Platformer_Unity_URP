@@ -23,7 +23,7 @@ namespace roundbeargames_tutorial
             GameObject obj = Instantiate(Resources.Load("AttackInfo", typeof(GameObject))) as GameObject;
             AttackInfo info = obj.GetComponent<AttackInfo>();
 
-            info.ResetInfo(this);
+            info.ResetInfo(this, characterState.GetCharacterControl(animator));
 
             if (!AttackManager.Instance.CurrentAttacks.Contains(info))
             {
@@ -50,7 +50,7 @@ namespace roundbeargames_tutorial
 
                     if (!info.isRegisterd && info.AttackAbility == this)
                     {
-                        info.Register(this, characterState.GetCharacterControl(animator));
+                        info.Register(this);
                     }
                 }
             }

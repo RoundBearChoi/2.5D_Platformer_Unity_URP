@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223373fed4d14a94588b3694fc5a992e, type: 3}
   m_Name: Player_LeadJab
   m_EditorClassIdentifier: 
-  StartAttackTime: 0.2
-  EndAttackTime: 0.3
+  StartAttackTime: 0.15
+  EndAttackTime: 0.52
   ColliderNames:
   - LeftHand
   MustCollide: 1
