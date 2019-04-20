@@ -53,7 +53,10 @@ namespace roundbeargames_tutorial
                     RaycastHit hit;
                     if (Physics.Raycast(o.transform.position, -Vector3.up, out hit, Distance))
                     {
-                        return true;
+                        if (!control.RagdollParts.Contains(hit.collider))
+                        {
+                            return true;
+                        }
                     }
                 }
             }
