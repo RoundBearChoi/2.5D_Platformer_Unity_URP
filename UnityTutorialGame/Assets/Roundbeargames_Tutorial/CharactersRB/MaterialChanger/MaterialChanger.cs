@@ -8,6 +8,7 @@ namespace RoundBearGames_ObstacleCourse
     {
         public Material material;
         public List<GameObject> CurrentObjects = new List<GameObject>();
+        public List<Material> CurrentMaterials = new List<Material>();
         public List<Material> NewMaterials = new List<Material>();
 
         public void ChangeMaterial()
@@ -87,6 +88,7 @@ namespace RoundBearGames_ObstacleCourse
                     if (!skip)
                     {
                         CurrentObjects.Add(r.gameObject);
+                        CurrentMaterials.Add(r.sharedMaterial);
                         NewMaterials.Add(null);
                     }
                 }

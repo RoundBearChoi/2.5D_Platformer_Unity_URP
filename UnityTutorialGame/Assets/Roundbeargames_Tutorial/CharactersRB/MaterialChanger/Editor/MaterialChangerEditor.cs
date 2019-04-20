@@ -10,12 +10,14 @@ namespace RoundBearGames_ObstacleCourse
     {
         SerializedProperty material;
         SerializedProperty CurrentObjects;
+        SerializedProperty CurrentMaterials;
         SerializedProperty NewMaterials;
 
         private void OnEnable()
         {
             material = serializedObject.FindProperty("material");
             CurrentObjects = serializedObject.FindProperty("CurrentObjects");
+            CurrentMaterials = serializedObject.FindProperty("CurrentMaterials");
             NewMaterials = serializedObject.FindProperty("NewMaterials");
         }
 
@@ -71,6 +73,7 @@ namespace RoundBearGames_ObstacleCourse
                 if (CurrentObjects.arraySize != 0 || NewMaterials.arraySize != 0)
                 {
                     CurrentObjects.ClearArray();
+                    CurrentMaterials.ClearArray();
                     NewMaterials.ClearArray();
                 }
                 else
@@ -86,14 +89,21 @@ namespace RoundBearGames_ObstacleCourse
             GUILayout.BeginVertical("box");
             foreach(SerializedProperty s in CurrentObjects)
             {
-                EditorGUILayout.PropertyField(s);
+                EditorGUILayout.PropertyField(s, new GUIContent(""));
+            }
+            GUILayout.EndVertical();
+
+            GUILayout.BeginVertical("box");
+            foreach (SerializedProperty s in CurrentMaterials)
+            {
+                EditorGUILayout.PropertyField(s, new GUIContent(""));
             }
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("box");
             foreach (SerializedProperty s in NewMaterials)
             {
-                EditorGUILayout.PropertyField(s);
+                EditorGUILayout.PropertyField(s, new GUIContent(""));
             }
             GUILayout.EndVertical();
 
@@ -107,6 +117,7 @@ namespace RoundBearGames_ObstacleCourse
                 if (CurrentObjects.arraySize != NewMaterials.arraySize)
                 {
                     CurrentObjects.ClearArray();
+                    CurrentMaterials.ClearArray();
                     NewMaterials.ClearArray();
                 }
                 else if (CurrentObjects.arraySize == 0)
