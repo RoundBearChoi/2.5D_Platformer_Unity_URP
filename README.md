@@ -15,7 +15,7 @@ Create a brand new project and import the package
 
 ----
 
-Contact:
+**Contact:**
 
 discord: https://discord.gg/RbxjBu3
 
