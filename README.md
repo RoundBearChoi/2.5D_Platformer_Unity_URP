@@ -2,7 +2,7 @@
 
 Installing:
 
-1. "Download ZIP" and open project with Unity
+1. "Download ZIP" and open project in Unity
 2. Open "TutorialScene"
 
 ----
