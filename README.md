@@ -1,6 +1,6 @@
 # 2.5D_Platformer_Unity_Tutorial
 
-> by Roundbeargames
+by Roundbeargames
 
 ----
 
