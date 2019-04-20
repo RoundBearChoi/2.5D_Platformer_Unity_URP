@@ -1,10 +1,8 @@
 # 2.5D_Platformer_Unity_Tutorial
 
-----
-
 Installing:
 
-1. Download ZIP and open project with Unity.
+1. "Download ZIP" and open project with Unity
 2. Open "TutorialScene"
 
 ----
