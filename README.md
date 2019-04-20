@@ -2,6 +2,8 @@
 
 > by Roundbeargames
 
+----
+
 Instructions:
 
 1. Download ZIP and open project with Unity.
