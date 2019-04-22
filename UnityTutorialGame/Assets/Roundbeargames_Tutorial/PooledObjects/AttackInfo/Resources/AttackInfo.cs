@@ -37,5 +37,10 @@ namespace roundbeargames_tutorial
             MaxHits = attack.MaxHits;
             CurrentHits = 0;
         }
+
+        private void OnDisable()
+        {
+            isFinished = true;
+        }
     }
 }
