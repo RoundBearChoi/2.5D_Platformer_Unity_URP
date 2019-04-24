@@ -4,8 +4,19 @@ using UnityEngine;
 
 namespace roundbeargames_tutorial
 {
+    public enum GeneralBodyPart
+    {
+        Upper,
+        Lower,
+        Arm,
+        Leg,
+    }
+
     public class TriggerDetector : MonoBehaviour
     {
+        public GeneralBodyPart generalBodyPart;
+
+        public List<Collider> CollidingParts = new List<Collider>();
         private CharacterControl owner;
 
         private void Awake()
@@ -32,17 +43,17 @@ namespace roundbeargames_tutorial
                 return;
             }
 
-            if (!owner.CollidingParts.Contains(col))
+            if (!CollidingParts.Contains(col))
             {
-                owner.CollidingParts.Add(col);
+                CollidingParts.Add(col);
             }
         }
 
         private void OnTriggerExit(Collider attacker)
         {
-            if (owner.CollidingParts.Contains(attacker))
+            if (CollidingParts.Contains(attacker))
             {
-                owner.CollidingParts.Remove(attacker);
+                CollidingParts.Remove(attacker);
             }
         }
     }

@@ -7,6 +7,7 @@ namespace roundbeargames_tutorial
     public class DamageDetector : MonoBehaviour
     {
         CharacterControl control;
+        GeneralBodyPart DamagedPart;
 
         private void Awake()
         {
@@ -62,13 +63,17 @@ namespace roundbeargames_tutorial
 
         private bool IsCollided(AttackInfo info)
         {
-            foreach(Collider collider in control.CollidingParts)
+            foreach(TriggerDetector trigger in control.GetAllTriggers())
             {
-                foreach(string name in info.ColliderNames)
+                foreach (Collider collider in trigger.CollidingParts)
                 {
-                    if (name == collider.gameObject.name)
+                    foreach (string name in info.ColliderNames)
                     {
-                        return true;
+                        if (name == collider.gameObject.name)
+                        {
+                            DamagedPart = trigger.generalBodyPart;
+                            return true;
+                        }
                     }
                 }
             }
@@ -79,6 +84,8 @@ namespace roundbeargames_tutorial
         private void TakeDamage(AttackInfo info)
         {
             Debug.Log(info.Attacker.gameObject.name + " hits: " + this.gameObject.name);
+            Debug.Log(this.gameObject.name + " hit in " + DamagedPart.ToString());
+
             control.SkinnedMeshAnimator.runtimeAnimatorController = info.AttackAbility.GetDeathAnimator();
             info.CurrentHits++;
 

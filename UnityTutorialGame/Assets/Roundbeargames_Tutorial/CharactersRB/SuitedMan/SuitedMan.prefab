@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4805448956507304}
   - component: {fileID: 1415195838316420558}
   - component: {fileID: 4105024328832231539}
+  - component: {fileID: 4778752457805341109}
   m_Layer: 0
   m_Name: Hips
   m_TagString: Untagged
@@ -74,7 +75,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039338039105848}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.40834177, y: 0.11724199, z: 0.2509434}
@@ -95,6 +96,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4778752457805341109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039338039105848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 0
+  CollidingParts: []
 --- !u!1 &1055902214435950
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +122,7 @@ GameObject:
   - component: {fileID: 4569715824927799182}
   - component: {fileID: 7886729501576195182}
   - component: {fileID: 4984048687797050355}
+  - component: {fileID: 1019636002709766391}
   m_Layer: 0
   m_Name: LeftForeArm
   m_TagString: Untagged
@@ -138,7 +154,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055902214435950}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.07
   m_Height: 0.25
@@ -171,7 +187,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.27104145, y: -0.000000087893575, z: -0.000000018044377}
+  m_ConnectedAnchor: {x: -0.27104142, y: 0.000000028172511, z: 0.000000022060705}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -205,6 +221,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1019636002709766391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055902214435950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 2
+  CollidingParts: []
 --- !u!1 &1056093337976968
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +525,7 @@ GameObject:
   - component: {fileID: 2661517331563314868}
   - component: {fileID: 4491331912175130354}
   - component: {fileID: 2448809185174533551}
+  - component: {fileID: 7814482498338428127}
   m_Layer: 0
   m_Name: LeftLeg
   m_TagString: Untagged
@@ -527,7 +558,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105292297495214}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.12334274
   m_Height: 0.49337095
@@ -560,7 +591,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.44590655, y: -0.00000005960465, z: -0.000000007450581}
+  m_ConnectedAnchor: {x: -0.44590655, y: 0, z: -0.0000000055879354}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -594,6 +625,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7814482498338428127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105292297495214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 3
+  CollidingParts: []
 --- !u!1 &1163833108302004
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,8 +875,20 @@ MonoBehaviour:
     type: 3}
   BottomSpheres: []
   FrontSpheres: []
-  RagdollParts: []
-  CollidingParts: []
+  RagdollParts:
+  - {fileID: 1415195838316420558}
+  - {fileID: 4541726307100231232}
+  - {fileID: 2661517331563314868}
+  - {fileID: 6383675928137102857}
+  - {fileID: 6849515152568342432}
+  - {fileID: 3447173948095804467}
+  - {fileID: 7060475623774455323}
+  - {fileID: 4569715824927799182}
+  - {fileID: 879601571114458243}
+  - {fileID: 4471102321179333067}
+  - {fileID: 2565551818278268161}
+  - {fileID: 2015063300180001251}
+  - {fileID: 7584897477530530055}
   GravityMultiplier: 0
   PullMultiplier: 0
 --- !u!114 &1116076010
@@ -1239,6 +1296,7 @@ GameObject:
   - component: {fileID: 879601571114458243}
   - component: {fileID: 7219581936624746099}
   - component: {fileID: 2053794467593146168}
+  - component: {fileID: 8630915249095408619}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -1274,7 +1332,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401473001293676}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.09
@@ -1306,7 +1364,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.2827718, y: -0.00000023352925, z: 0.00000018626442}
+  m_ConnectedAnchor: {x: -0.28277177, y: -0.00000012456451, z: 0.00000020116556}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -1340,6 +1398,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &8630915249095408619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401473001293676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 2
+  CollidingParts: []
 --- !u!1 &1405022576152678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,6 +1609,7 @@ GameObject:
   - component: {fileID: 2015063300180001251}
   - component: {fileID: 8983410558112162954}
   - component: {fileID: 6887497303367398534}
+  - component: {fileID: 4728225424559418025}
   m_Layer: 0
   m_Name: RightForeArm
   m_TagString: Untagged
@@ -1568,7 +1641,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487199226654650}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.07
   m_Height: 0.25
@@ -1601,7 +1674,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.27103955, y: -0.00000536372, z: -0.0000004667382}
+  m_ConnectedAnchor: {x: 0.2710396, y: -0.0000052551045, z: -0.00000048763474}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -1635,6 +1708,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &4728225424559418025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487199226654650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 2
+  CollidingParts: []
 --- !u!1 &1487298142699012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,6 +1795,7 @@ GameObject:
   - component: {fileID: 4541726307100231232}
   - component: {fileID: 7385423320426169837}
   - component: {fileID: 6719517695946980304}
+  - component: {fileID: 5417441857485230570}
   m_Layer: 0
   m_Name: LeftUpLeg
   m_TagString: Untagged
@@ -1739,7 +1827,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511510107899936}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.13377197
   m_Height: 0.44590655
@@ -1772,7 +1860,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.119939744, y: 0.00000005960465, z: 0.000000010485467}
+  m_ConnectedAnchor: {x: -0.119939744, y: 0, z: -0.000000004415695}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -1806,6 +1894,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &5417441857485230570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511510107899936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 1
+  CollidingParts: []
 --- !u!1 &1514830619509526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,6 +2419,7 @@ GameObject:
   - component: {fileID: 4471102321179333067}
   - component: {fileID: 5805335761211147192}
   - component: {fileID: 3626804043962117959}
+  - component: {fileID: 8755737449571264429}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -2346,7 +2449,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694625705184286}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.10208544
@@ -2378,7 +2481,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000100543836, y: 0.5581347, z: 0.02487719}
+  m_ConnectedAnchor: {x: 0.00000010054388, y: 0.55813456, z: 0.024877213}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -2412,6 +2515,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &8755737449571264429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694625705184286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 0
+  CollidingParts: []
 --- !u!1 &1703169329167388
 GameObject:
   m_ObjectHideFlags: 0
@@ -2671,6 +2788,7 @@ GameObject:
   - component: {fileID: 6849515152568342432}
   - component: {fileID: 5736867791582596742}
   - component: {fileID: 6190012538415569488}
+  - component: {fileID: 7466776711731478299}
   m_Layer: 0
   m_Name: RightLeg
   m_TagString: Untagged
@@ -2702,7 +2820,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791510220826254}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.12334283
   m_Height: 0.4933713
@@ -2735,7 +2853,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.44590634, y: 0.00000008940698, z: -0.0000000055879354}
+  m_ConnectedAnchor: {x: 0.44590634, y: 0.00000005960465, z: -0.0000000055879354}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -2769,6 +2887,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7466776711731478299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791510220826254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 3
+  CollidingParts: []
 --- !u!1 &1794703154531692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2812,6 +2944,7 @@ GameObject:
   - component: {fileID: 3447173948095804467}
   - component: {fileID: 8110951870667000923}
   - component: {fileID: 2934523266400106196}
+  - component: {fileID: 8658068571659870723}
   m_Layer: 0
   m_Name: Spine
   m_TagString: Untagged
@@ -2843,7 +2976,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800480028196058}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.4083416, y: 0.3850612, z: 0.25105846}
@@ -2909,6 +3042,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &8658068571659870723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800480028196058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 0
+  CollidingParts: []
 --- !u!1 &1825982114170022
 GameObject:
   m_ObjectHideFlags: 0
@@ -2921,6 +3068,7 @@ GameObject:
   - component: {fileID: 7060475623774455323}
   - component: {fileID: 1735697503195900270}
   - component: {fileID: 7208998241124909680}
+  - component: {fileID: 5462356766427647948}
   m_Layer: 0
   m_Name: LeftArm
   m_TagString: Untagged
@@ -2952,7 +3100,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825982114170022}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.06776036
   m_Height: 0.27104145
@@ -3019,6 +3167,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &5462356766427647948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825982114170022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 0
+  CollidingParts: []
 --- !u!1 &1828695420712528
 GameObject:
   m_ObjectHideFlags: 0
@@ -3337,6 +3499,7 @@ GameObject:
   - component: {fileID: 2565551818278268161}
   - component: {fileID: 4065698382047393470}
   - component: {fileID: 5179869296106002230}
+  - component: {fileID: 4761315526514747060}
   m_Layer: 0
   m_Name: RightArm
   m_TagString: Untagged
@@ -3368,7 +3531,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909257870212634}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0677599
   m_Height: 0.2710396
@@ -3401,7 +3564,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.20417088, y: 0.38505796, z: 0.0034643281}
+  m_ConnectedAnchor: {x: 0.20417088, y: 0.38505784, z: 0.0034643058}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -3435,6 +3598,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &4761315526514747060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909257870212634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 0
+  CollidingParts: []
 --- !u!1 &1914458795221822
 GameObject:
   m_ObjectHideFlags: 0
@@ -3539,6 +3716,7 @@ GameObject:
   - component: {fileID: 6383675928137102857}
   - component: {fileID: 5116203473678304625}
   - component: {fileID: 3871218674064264927}
+  - component: {fileID: 6312952268901983676}
   m_Layer: 0
   m_Name: RightUpLeg
   m_TagString: Untagged
@@ -3570,7 +3748,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935766724978844}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.13377191
   m_Height: 0.44590634
@@ -3603,7 +3781,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.11994001, y: 0.00000029802325, z: -0.000000010485489}
+  m_ConnectedAnchor: {x: 0.11994001, y: 0.0000002384186, z: -0.000000025386651}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -3637,6 +3815,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &6312952268901983676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935766724978844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 1
+  CollidingParts: []
 --- !u!1 &1953124587902834
 GameObject:
   m_ObjectHideFlags: 0
@@ -3649,6 +3841,7 @@ GameObject:
   - component: {fileID: 7584897477530530055}
   - component: {fileID: 5252463568360045271}
   - component: {fileID: 2142311333067874551}
+  - component: {fileID: 3324072048966904220}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -3684,7 +3877,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953124587902834}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.09
@@ -3716,7 +3909,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.2827729, y: 0.000003592394, z: 0.0000006705519}
+  m_ConnectedAnchor: {x: 0.28277287, y: 0.0000037083437, z: 0.00000071898063}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -3750,6 +3943,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &3324072048966904220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953124587902834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalBodyPart: 2
+  CollidingParts: []
 --- !u!1 &1975277168080488
 GameObject:
   m_ObjectHideFlags: 0

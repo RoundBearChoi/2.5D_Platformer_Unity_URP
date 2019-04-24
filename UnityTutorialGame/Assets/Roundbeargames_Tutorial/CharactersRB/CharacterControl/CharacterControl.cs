@@ -25,10 +25,12 @@ namespace roundbeargames_tutorial
         public List<GameObject> BottomSpheres = new List<GameObject>();
         public List<GameObject> FrontSpheres = new List<GameObject>();
         public List<Collider> RagdollParts = new List<Collider>();
-        public List<Collider> CollidingParts = new List<Collider>();
+        //public List<Collider> CollidingParts = new List<Collider>();
 
         public float GravityMultiplier;
         public float PullMultiplier;
+
+        private List<TriggerDetector> TriggerDetectors = new List<TriggerDetector>();
 
         private Rigidbody rigid;
         public Rigidbody RIGID_BODY
@@ -54,13 +56,28 @@ namespace roundbeargames_tutorial
 
             FaceForward(true);
 
-            SetRagdollParts();
+            //SetRagdollParts();
             SetColliderSpheres();
 
             if (SwitchBack)
             {
                 FaceForward(false);
             }
+        }
+
+        public List<TriggerDetector> GetAllTriggers()
+        {
+            if (TriggerDetectors.Count == 0)
+            {
+                TriggerDetector[] arr = this.gameObject.GetComponentsInChildren<TriggerDetector>();
+
+                foreach(TriggerDetector d in arr)
+                {
+                    TriggerDetectors.Add(d);
+                }
+            }
+
+            return TriggerDetectors;
         }
 
         /*private IEnumerator Start()
@@ -71,8 +88,10 @@ namespace roundbeargames_tutorial
             TurnOnRagdoll();
         }*/
 
-        private void SetRagdollParts()
+        public void SetRagdollParts()
         {
+            RagdollParts.Clear();
+
             Collider[] colliders = this.gameObject.GetComponentsInChildren<Collider>();
 
             foreach(Collider c in colliders)
@@ -81,7 +100,11 @@ namespace roundbeargames_tutorial
                 {
                     c.isTrigger = true;
                     RagdollParts.Add(c);
-                    c.gameObject.AddComponent<TriggerDetector>();
+
+                    if (c.GetComponent<TriggerDetector>() == null)
+                    {
+                        c.gameObject.AddComponent<TriggerDetector>();
+                    }
                 }
             }
         }
