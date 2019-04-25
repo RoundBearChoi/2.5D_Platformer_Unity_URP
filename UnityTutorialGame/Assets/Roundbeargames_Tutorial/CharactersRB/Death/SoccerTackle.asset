@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3d3e2b944bd434792b5f1ce0232bb2, type: 3}
+  m_Name: SoccerTackle
+  m_EditorClassIdentifier: 
+  GeneralBodyParts: 0100000003000000
+  Animator: {fileID: 9100000, guid: c0957ccb67129ca4a8e8c76bcd148cd4, type: 2}
+  IsFacingAttacker: 1

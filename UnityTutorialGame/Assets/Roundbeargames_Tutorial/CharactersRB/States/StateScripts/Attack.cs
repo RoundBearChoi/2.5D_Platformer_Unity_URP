@@ -14,7 +14,7 @@ namespace roundbeargames_tutorial
         public bool MustFaceAttacker;
         public float LethalRange;
         public int MaxHits;
-        public List<RuntimeAnimatorController> DeathAnimators = new List<RuntimeAnimatorController>();
+        //public List<RuntimeAnimatorController> DeathAnimators = new List<RuntimeAnimatorController>();
 
         private List<AttackInfo> FinishedAttacks = new List<AttackInfo>();
 
@@ -107,10 +107,10 @@ namespace roundbeargames_tutorial
             }
         }
 
-        public RuntimeAnimatorController GetDeathAnimator()
-        {
-            int index = Random.Range(0, DeathAnimators.Count);
-            return DeathAnimators[index];
-        }
+        //public RuntimeAnimatorController GetDeathAnimator()
+        //{
+        //    int index = Random.Range(0, DeathAnimators.Count);
+        //    return DeathAnimators[index];
+        //}
     }
 }
