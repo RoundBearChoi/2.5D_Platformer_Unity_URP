@@ -19,7 +19,7 @@ Note that project settings cannot be included in the packages (render settings/L
 
 ----
 
-**Contact:**
+**Social:**
 
 discord: https://discord.gg/RbxjBu3
 
