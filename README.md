@@ -19,7 +19,7 @@ Note that project settings cannot be included in the packages (render settings/L
 
 ----
 
-**Social:**
+**Social**
 
 youtube: https://youtube.com/channel/UCAoJgVzDHnFDOQwC42raByg
 
