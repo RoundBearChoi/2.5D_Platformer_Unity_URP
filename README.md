@@ -21,6 +21,8 @@ Note that project settings cannot be included in the packages (render settings/L
 
 **Social:**
 
+youtube: https://youtube.com/channel/UCAoJgVzDHnFDOQwC42raByg
+
 discord: https://discord.gg/RbxjBu3
 
 blog: https://busy.org/@roundbeargames
@@ -30,5 +32,3 @@ instagram: https://instagram.com/roundbeargames
 twitter: https://twitter.com/roundbeargames
 
 facebook: https://facebook.com/RoundBearGames17
-
-youtube: https://youtube.com/channel/UCAoJgVzDHnFDOQwC42raByg
