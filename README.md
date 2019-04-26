@@ -9,11 +9,13 @@ Make sure you're using Unity 2019.1
 
 ----
 
-If you're having trouble opening the project, try downloading the latest package here
+You can also download packages that are saved every step.
 https://drive.google.com/drive/folders/1BSFUbX4dAl1dGKvQQBMetVqmlrvhJVki?usp=sharing
 
 Create a brand new project and import the package
 (Assets -> Import Package -> Custom Package)
+
+Note that project settings cannot be included in the packages (render settings/LWRP/etc)
 
 ----
 
