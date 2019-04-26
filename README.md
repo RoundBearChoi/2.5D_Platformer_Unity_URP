@@ -9,7 +9,7 @@
 
 ----
 
-You can also download packages that are saved every step.
+You can also download packages for every step.
 https://drive.google.com/drive/folders/1BSFUbX4dAl1dGKvQQBMetVqmlrvhJVki?usp=sharing
 
 Create a brand new project and import the package
