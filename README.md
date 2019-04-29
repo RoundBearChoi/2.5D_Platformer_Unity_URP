@@ -9,8 +9,9 @@
 
 ----
 
-You can also download packages for every step.
+You can also download Unity packages for every video.
 https://drive.google.com/drive/folders/1BSFUbX4dAl1dGKvQQBMetVqmlrvhJVki?usp=sharing
+https://www.youtube.com/channel/UCAoJgVzDHnFDOQwC42raByg
 
 Create a brand new project and import the package
 (Assets -> Import Package -> Custom Package)
