@@ -16,8 +16,6 @@ https://drive.google.com/drive/folders/1BSFUbX4dAl1dGKvQQBMetVqmlrvhJVki?usp=sha
 Create a brand new project (a Lightweight RP Template) and import the package
 (Assets -> Import Package -> Custom Package)
 
-Note that project settings cannot be included in the packages (render settings/LWRP/etc)
-
 ----
 
 **Social**
