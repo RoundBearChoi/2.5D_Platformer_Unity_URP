@@ -13,7 +13,7 @@ You can also download Unity packages for every video.
 https://www.youtube.com/channel/UCAoJgVzDHnFDOQwC42raByg
 https://drive.google.com/drive/folders/1BSFUbX4dAl1dGKvQQBMetVqmlrvhJVki?usp=sharing
 
-Create a brand new project and import the package
+Create a brand new project (a Lightweight RP Template) and import the package
 (Assets -> Import Package -> Custom Package)
 
 Note that project settings cannot be included in the packages (render settings/LWRP/etc)
