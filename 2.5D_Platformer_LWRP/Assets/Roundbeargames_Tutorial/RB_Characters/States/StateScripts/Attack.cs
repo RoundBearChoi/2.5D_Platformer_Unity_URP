@@ -14,16 +14,14 @@ namespace roundbeargames_tutorial
         public bool MustFaceAttacker;
         public float LethalRange;
         public int MaxHits;
-        //public List<RuntimeAnimatorController> DeathAnimators = new List<RuntimeAnimatorController>();
 
         private List<AttackInfo> FinishedAttacks = new List<AttackInfo>();
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             animator.SetBool(TransitionParameter.Attack.ToString(), false);
-
-            //GameObject obj = Instantiate(Resources.Load("AttackInfo", typeof(GameObject))) as GameObject;
-            GameObject obj = PoolManager.Instance.GetObject(PoolObjectType.ATTACKINFO); //obj.GetComponent<AttackInfo>();
+            
+            GameObject obj = PoolManager.Instance.GetObject(PoolObjectType.ATTACKINFO); 
             AttackInfo info = obj.GetComponent<AttackInfo>();
 
             obj.SetActive(true);
@@ -39,6 +37,7 @@ namespace roundbeargames_tutorial
         {
             RegisterAttack(characterState, animator, stateInfo);
             DeregisterAttack(characterState, animator, stateInfo);
+            CheckCombo(characterState, animator, stateInfo);
         }
 
         public void RegisterAttack(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -75,7 +74,22 @@ namespace roundbeargames_tutorial
                     {
                         info.isFinished = true;
                         info.GetComponent<PoolObject>().TurnOff();
-                        //Destroy(info.gameObject);
+                    }
+                }
+            }
+        }
+
+        public void CheckCombo(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
+        {
+            if (stateInfo.normalizedTime >= StartAttackTime + ((EndAttackTime - StartAttackTime) / 3f))
+            {
+                if (stateInfo.normalizedTime < EndAttackTime + ((EndAttackTime - StartAttackTime) / 2f))
+                {
+                    CharacterControl control = characterState.GetCharacterControl(animator);
+                    if (control.Attack)
+                    {
+                        //Debug.Log("uppercut triggered");
+                        animator.SetBool(TransitionParameter.Attack.ToString(), true);
                     }
                 }
             }
@@ -92,7 +106,7 @@ namespace roundbeargames_tutorial
 
             foreach(AttackInfo info in AttackManager.Instance.CurrentAttacks)
             {
-                if (info == null || info.isFinished)
+                if (info == null || info.AttackAbility == this /*info.isFinished*/)
                 {
                     FinishedAttacks.Add(info);
                 }
@@ -106,11 +120,5 @@ namespace roundbeargames_tutorial
                 }
             }
         }
-
-        //public RuntimeAnimatorController GetDeathAnimator()
-        //{
-        //    int index = Random.Range(0, DeathAnimators.Count);
-        //    return DeathAnimators[index];
-        //}
     }
 }
