@@ -46,3 +46,4 @@ MonoBehaviour:
   DeathAnimationDataList:
   - {fileID: 11400000, guid: 66e833679f577f04fbc8d018171c269e, type: 2}
   - {fileID: 11400000, guid: 754bd558e03394347a5b87098e0420d1, type: 2}
+  - {fileID: 11400000, guid: c40534fd8d933ab409f785095ae4dfef, type: 2}

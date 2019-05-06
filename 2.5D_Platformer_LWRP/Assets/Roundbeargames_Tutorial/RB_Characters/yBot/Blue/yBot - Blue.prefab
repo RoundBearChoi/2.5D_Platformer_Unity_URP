@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 2892793894071088210}
   - component: {fileID: 2892793894295319536}
   - component: {fileID: 6127183319881961577}
-  - component: {fileID: 7257259389258652065}
+  - component: {fileID: 1986568543558168829}
   m_Layer: 0
   m_Name: yBot - Blue
   m_TagString: Untagged
@@ -870,7 +870,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &7257259389258652065
+--- !u!114 &1986568543558168829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -879,7 +879,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2891599738134503424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3620e092df5e304586a7e2924eb9a7f, type: 3}
+  m_Script: {fileID: 11500000, guid: dc5779ac7ef543f4c8ec4af11375e035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2967088815724498382

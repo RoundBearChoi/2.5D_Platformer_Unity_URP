@@ -9,6 +9,7 @@ namespace roundbeargames_tutorial
         public CharacterControl Attacker = null;
         public Attack AttackAbility;
         public List<string> ColliderNames = new List<string>();
+        public bool LaunchIntoAir;
         public bool MustCollide;
         public bool MustFaceAttacker;
         public float LethalRange;
@@ -31,6 +32,7 @@ namespace roundbeargames_tutorial
 
             AttackAbility = attack;
             ColliderNames = attack.ColliderNames;
+            LaunchIntoAir = attack.LaunchIntoAir;
             MustCollide = attack.MustCollide;
             MustFaceAttacker = attack.MustFaceAttacker;
             LethalRange = attack.LethalRange;

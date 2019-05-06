@@ -24,7 +24,7 @@ namespace roundbeargames_tutorial
 
         private void CheckAttack()
         {
-            foreach(AttackInfo info in AttackManager.Instance.CurrentAttacks)
+            foreach (AttackInfo info in AttackManager.Instance.CurrentAttacks)
             {
                 if (info == null)
                 {
@@ -63,7 +63,7 @@ namespace roundbeargames_tutorial
 
         private bool IsCollided(AttackInfo info)
         {
-            foreach(TriggerDetector trigger in control.GetAllTriggers())
+            foreach (TriggerDetector trigger in control.GetAllTriggers())
             {
                 foreach (Collider collider in trigger.CollidingParts)
                 {
@@ -89,7 +89,7 @@ namespace roundbeargames_tutorial
             Debug.Log(this.gameObject.name + " hit in " + DamagedPart.ToString());
 
             //control.SkinnedMeshAnimator.runtimeAnimatorController = info.AttackAbility.GetDeathAnimator();
-            control.SkinnedMeshAnimator.runtimeAnimatorController = DeathAnimationManager.Instance.GetAnimator(DamagedPart);
+            control.SkinnedMeshAnimator.runtimeAnimatorController = DeathAnimationManager.Instance.GetAnimator(DamagedPart, info);
             info.CurrentHits++;
 
             control.GetComponent<BoxCollider>().enabled = false;
