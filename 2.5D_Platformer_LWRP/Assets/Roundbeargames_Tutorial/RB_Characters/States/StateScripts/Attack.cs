@@ -7,6 +7,7 @@ namespace roundbeargames_tutorial
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/Attack")]
     public class Attack : StateData
     {
+        public bool debug;
         public float StartAttackTime;
         public float EndAttackTime;
         public List<string> ColliderNames = new List<string>();
@@ -54,6 +55,10 @@ namespace roundbeargames_tutorial
 
                     if (!info.isRegisterd && info.AttackAbility == this)
                     {
+                        if (debug)
+                        {
+                            Debug.Log(this.name + " registered: " + stateInfo.normalizedTime);
+                        }
                         info.Register(this);
                     }
                 }
@@ -75,6 +80,11 @@ namespace roundbeargames_tutorial
                     {
                         info.isFinished = true;
                         info.GetComponent<PoolObject>().TurnOff();
+
+                        if (debug)
+                        {
+                            Debug.Log(this.name + " de-registered: " + stateInfo.normalizedTime);
+                        }
                     }
                 }
             }
