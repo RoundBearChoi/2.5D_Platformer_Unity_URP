@@ -344,6 +344,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4661700755494929931}
   m_PrefabAsset: {fileID: 0}
+--- !u!115 &481989811
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 5
+  m_Script: 
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_ExecutionOrder: 0
+  m_ClassName: CinemachinePostProcessing
+  m_Namespace: Cinemachine.PostFX
 --- !u!1 &511852815
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +527,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.0039970116, y: -0.65827954, z: 0.0034952443, w: 0.75275487}
+  m_LocalRotation: {x: 0.0039970116, y: -0.65827954, z: 0.0034952436, w: 0.7527549}
   m_LocalPosition: {x: 12.000002, y: 2.2136083, z: -2.9064963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -766,6 +780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 765881199}
   - component: {fileID: 765881198}
+  - component: {fileID: 765881200}
   m_Layer: 0
   m_Name: Default
   m_TagString: Untagged
@@ -817,7 +832,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765881197}
-  m_LocalRotation: {x: 0.0039970116, y: -0.65827954, z: 0.0034952443, w: 0.75275487}
+  m_LocalRotation: {x: 0.0039970116, y: -0.65827954, z: 0.0034952436, w: 0.7527549}
   m_LocalPosition: {x: 12.000002, y: 2.2136083, z: -2.9064963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -825,6 +840,21 @@ Transform:
   m_Father: {fileID: 157634170}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &765881200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765881197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 481989811}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FocusTracksTarget: 0
+  m_FocusOffset: 0
+  m_Profile: {fileID: 11400000, guid: 3e2946be41cb9124fa3bda46b001e9cc, type: 2}
 --- !u!1 &877430849
 GameObject:
   m_ObjectHideFlags: 3
@@ -997,7 +1027,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900611751}
-  m_LocalRotation: {x: 0.003997001, y: -0.65827954, z: 0.0034952536, w: 0.75275487}
+  m_LocalRotation: {x: 0.00399776, y: -0.65811604, z: 0.0034943852, w: 0.75289786}
   m_LocalPosition: {x: 12.000002, y: 2.2136083, z: -2.9064963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
