@@ -108,6 +108,7 @@ namespace roundbeargames_tutorial
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
+            animator.SetBool(TransitionParameter.Attack.ToString(), false);
             ClearAttack();
         }
 
