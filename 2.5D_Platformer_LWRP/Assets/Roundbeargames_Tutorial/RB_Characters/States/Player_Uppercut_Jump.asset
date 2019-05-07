@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player_Uppercut_Jump
   m_EditorClassIdentifier: 
   JumpTiming: 0.2
-  JumpForce: 260
+  JumpForce: 280
   Pull:
     serializedVersion: 2
     m_Curve:
