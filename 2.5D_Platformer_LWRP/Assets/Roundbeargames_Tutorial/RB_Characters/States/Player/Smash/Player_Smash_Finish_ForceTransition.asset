@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a649bbbf780ec943ac92e49df7f17ba, type: 3}
   m_Name: Player_Smash_Finish_ForceTransition
   m_EditorClassIdentifier: 
-  TransitionTiming: 0.5
+  TransitionTiming: 0.8

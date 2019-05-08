@@ -160,6 +160,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListAbilityData:
   - {fileID: 11400000, guid: ca2923006f69ffe4192632741dd9eecb, type: 2}
+  - {fileID: 11400000, guid: 11806980aca9b5e40b1b803e2574eb92, type: 2}
+  - {fileID: 11400000, guid: 5750f0399c7be7d4685af98fe3fa97aa, type: 2}
+  - {fileID: 11400000, guid: 9d7009ad1410824428a00916688de315, type: 2}
 --- !u!114 &-2518707072931492987
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1047,9 +1050,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.08871204
+  m_TransitionDuration: 0.13504815
   m_TransitionOffset: 0
-  m_ExitTime: 0.9667438
+  m_ExitTime: 0.90309405
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

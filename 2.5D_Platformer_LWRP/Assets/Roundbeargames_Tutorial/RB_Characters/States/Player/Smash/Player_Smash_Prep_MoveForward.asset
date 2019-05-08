@@ -9,27 +9,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c7d9b3462a7754da1555b38d8c77c7, type: 3}
-  m_Name: Player_Jump_Normal
+  m_Script: {fileID: 11500000, guid: b16b91d0c5247b442a689768502f9a3b, type: 3}
+  m_Name: Player_Smash_Prep_MoveForward
   m_EditorClassIdentifier: 
-  JumpForce: 400
-  Gravity:
+  Constant: 1
+  SpeedGraph:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 0.1
-      outSlope: 0.1
+      value: 1
+      inSlope: -0.20371242
+      outSlope: -0.20371242
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 0.5557287
+      value: 0.88679117
+      inSlope: -0.5371658
+      outSlope: -0.5371658
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
-      value: 0.1
-      inSlope: 0.1
-      outSlope: 0.1
+      value: 0.5
+      inSlope: -0.87061924
+      outSlope: -0.87061924
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -37,27 +46,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Pull:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.35
-      outSlope: 0.35
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.35
-      inSlope: 0.35
-      outSlope: 0.35
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  Speed: 6
+  BlockDistance: 0.1
