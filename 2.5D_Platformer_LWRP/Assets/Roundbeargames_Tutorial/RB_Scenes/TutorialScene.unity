@@ -215,7 +215,7 @@ MonoBehaviour:
     m_MinDuration: 0
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 0.3
+    m_Time: 0.2
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -527,7 +527,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.0040188674, y: -0.65354276, z: 0.003470089, w: 0.75687104}
+  m_LocalRotation: {x: 0.0040009604, y: -0.6574284, z: 0.0034907213, w: 0.7534984}
   m_LocalPosition: {x: 12.000002, y: 2.2136083, z: -2.9064963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -832,7 +832,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765881197}
-  m_LocalRotation: {x: 0.0040188674, y: -0.65354276, z: 0.003470089, w: 0.75687104}
+  m_LocalRotation: {x: 0.0040009604, y: -0.6574284, z: 0.0034907213, w: 0.7534984}
   m_LocalPosition: {x: 12.000002, y: 2.2136083, z: -2.9064963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -903,7 +903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_AmplitudeGain: 5
-  m_FrequencyGain: 0.045
+  m_FrequencyGain: 0.075
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &877430852
 MonoBehaviour:
@@ -1027,7 +1027,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900611751}
-  m_LocalRotation: {x: 0.0040188585, y: -0.65354276, z: 0.003470102, w: 0.756871}
+  m_LocalRotation: {x: 0.004000954, y: -0.6574284, z: 0.0034907334, w: 0.7534983}
   m_LocalPosition: {x: 12.000002, y: 2.2136083, z: -2.9064963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
