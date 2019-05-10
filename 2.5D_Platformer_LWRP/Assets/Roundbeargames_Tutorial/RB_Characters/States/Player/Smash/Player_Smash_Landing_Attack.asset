@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223373fed4d14a94588b3694fc5a992e, type: 3}
+  m_Name: Player_Smash_Landing_Attack
+  m_EditorClassIdentifier: 
+  debug: 0
+  StartAttackTime: 0.85
+  EndAttackTime: 0.99
+  ColliderNames: []
+  LaunchIntoAir: 0
+  MustCollide: 0
+  MustFaceAttacker: 0
+  LethalRange: 2
+  MaxHits: 10
