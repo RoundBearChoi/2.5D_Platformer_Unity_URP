@@ -9,6 +9,7 @@ namespace roundbeargames_tutorial
         Ray ray;
         RaycastHit hit;
         public PlayableCharacterType selectedCharacterType;
+        public CharacterSelect characterSelect;
 
         void Update()
         {
@@ -23,6 +24,14 @@ namespace roundbeargames_tutorial
                 else
                 {
                     selectedCharacterType = PlayableCharacterType.NONE;
+                }
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (selectedCharacterType != PlayableCharacterType.NONE)
+                {
+                    characterSelect.SelectedCharacterType = selectedCharacterType;
                 }
             }
         }

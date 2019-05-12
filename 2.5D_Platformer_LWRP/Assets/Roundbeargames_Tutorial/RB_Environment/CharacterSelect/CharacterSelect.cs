@@ -12,9 +12,9 @@ namespace roundbeargames_tutorial
         GREEN,
     }
 
-    [CreateAssetMenu(fileName = "CharacterHover", menuName = "Roundbeargames/CharacterSelect/CharacterHover")]
-    public class CharacterHover : ScriptableObject
+    [CreateAssetMenu(fileName = "CharacterSelect", menuName = "Roundbeargames/CharacterSelect/CharacterSelect")]
+    public class CharacterSelect : ScriptableObject
     {
-        public PlayableCharacterType HoveringCharacterType;
+        public PlayableCharacterType SelectedCharacterType;
     }
 }
