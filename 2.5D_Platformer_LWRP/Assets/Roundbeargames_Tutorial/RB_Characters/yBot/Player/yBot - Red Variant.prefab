@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 7200667830176523006, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_Name
-      value: yBot - Red
+      value: yBot - Red Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
@@ -166,11 +166,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: -0.0051704794
-      objectReference: {fileID: 0}
-    - target: {fileID: 7134026025264460630, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
