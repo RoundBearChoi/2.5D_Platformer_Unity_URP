@@ -3024,7 +3024,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.29, y: 1.85, z: 0.4}
+  m_Size: {x: 0.5, y: 1.85, z: 0.4}
   m_Center: {x: 0, y: 0.915, z: 0}
 --- !u!114 &7097633973097604586
 MonoBehaviour:
@@ -3038,6 +3038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24671c8dcb05f15478f33566393735c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playableCharacterType: 1
   SkinnedMeshAnimator: {fileID: 3363093133717548819}
   MoveRight: 0
   MoveLeft: 0

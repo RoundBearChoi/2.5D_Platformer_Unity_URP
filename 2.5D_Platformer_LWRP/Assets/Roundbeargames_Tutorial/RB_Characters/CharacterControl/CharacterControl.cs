@@ -21,6 +21,7 @@ namespace roundbeargames_tutorial
 
     public class CharacterControl : MonoBehaviour
     {
+        public PlayableCharacterType playableCharacterType;
         public Animator SkinnedMeshAnimator;
         public bool MoveRight;
         public bool MoveLeft;
@@ -65,6 +66,16 @@ namespace roundbeargames_tutorial
             if (SwitchBack)
             {
                 FaceForward(false);
+            }
+
+            RegisterCharacter();
+        }
+
+        private void RegisterCharacter()
+        {
+            if (!CharacterManager.Instance.Characters.Contains(this))
+            {
+                CharacterManager.Instance.Characters.Add(this);
             }
         }
 

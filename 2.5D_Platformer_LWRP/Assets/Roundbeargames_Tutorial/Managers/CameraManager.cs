@@ -6,6 +6,8 @@ namespace roundbeargames_tutorial
 {
     public class CameraManager : Singleton<CameraManager>
     {
+        public Camera MainCamera;
+
         private Coroutine routine;
 
         private CameraController cameraController;
@@ -19,6 +21,12 @@ namespace roundbeargames_tutorial
                 }
                 return cameraController;
             }
+        }
+
+        private void Awake()
+        {
+            GameObject obj = GameObject.Find("Main Camera");
+            MainCamera = obj.GetComponent<Camera>();
         }
 
         IEnumerator _CamShake(float sec)
