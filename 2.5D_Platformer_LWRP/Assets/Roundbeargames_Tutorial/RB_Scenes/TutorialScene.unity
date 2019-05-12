@@ -527,7 +527,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.056446586, y: -0.6766586, z: 0.05215931, w: 0.7322748}
+  m_LocalRotation: {x: 0.056446616, y: -0.6766586, z: 0.05215928, w: 0.7322748}
   m_LocalPosition: {x: 13.000002, y: 4.2136083, z: -2.1064963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -588,8 +588,8 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
@@ -784,7 +784,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765881197}
-  m_LocalRotation: {x: 0.056446586, y: -0.6766586, z: 0.05215931, w: 0.7322748}
+  m_LocalRotation: {x: 0.056446616, y: -0.6766586, z: 0.05215928, w: 0.7322748}
   m_LocalPosition: {x: 13.000002, y: 4.2136083, z: -2.1064963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 481989811}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FocusTracksTarget: 0
+  m_FocusTracksTarget: 1
   m_FocusOffset: 0
   m_Profile: {fileID: 11400000, guid: 3e2946be41cb9124fa3bda46b001e9cc, type: 2}
 --- !u!1 &877430849
@@ -980,7 +980,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900611751}
-  m_LocalRotation: {x: 0.05644658, y: -0.6766587, z: 0.052159343, w: 0.7322748}
+  m_LocalRotation: {x: 0.056446627, y: -0.6766587, z: 0.05215928, w: 0.7322748}
   m_LocalPosition: {x: 13.000002, y: 4.2136083, z: -2.1064963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_Script: {fileID: 1372318579}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FocusTracksTarget: 0
+  m_FocusTracksTarget: 1
   m_FocusOffset: 0
   m_Profile: {fileID: 11400000, guid: 3e2946be41cb9124fa3bda46b001e9cc, type: 2}
 --- !u!1 &968786144
