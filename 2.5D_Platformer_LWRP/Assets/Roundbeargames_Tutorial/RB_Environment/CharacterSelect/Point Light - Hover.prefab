@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2042444728609237516}
   - component: {fileID: 8379016182622595095}
   m_Layer: 0
-  m_Name: Point Light - CharacterFocus
+  m_Name: Point Light - Hover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.8
+  m_Intensity: 0.75
   m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -104,6 +104,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b16523b476c184ea421709824fb75b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HoverSelectedCharacter: {fileID: 0}
-  mouseHoverSelect: {fileID: 0}
   Offset: {x: 0, y: 1.8, z: 1}

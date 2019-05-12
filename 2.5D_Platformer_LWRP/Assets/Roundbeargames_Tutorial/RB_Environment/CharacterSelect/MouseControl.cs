@@ -4,16 +4,20 @@ using UnityEngine;
 
 namespace roundbeargames_tutorial
 {
-    public class MouseHoverSelect : MonoBehaviour
+    public class MouseControl : MonoBehaviour
     {
         Ray ray;
         RaycastHit hit;
         public PlayableCharacterType selectedCharacterType;
         public CharacterSelect characterSelect;
+        CharacterSelectLight characterSelectLight;
+        CharacterHoverLight characterHoverLight;
 
         private void Awake()
         {
             characterSelect.SelectedCharacterType = PlayableCharacterType.NONE;
+            characterSelectLight = GameObject.FindObjectOfType<CharacterSelectLight>();
+            characterHoverLight = GameObject.FindObjectOfType<CharacterHoverLight>();
         }
 
         void Update()
@@ -37,6 +41,15 @@ namespace roundbeargames_tutorial
                 if (selectedCharacterType != PlayableCharacterType.NONE)
                 {
                     characterSelect.SelectedCharacterType = selectedCharacterType;
+                    characterSelectLight.HighlightedCharacter = selectedCharacterType;
+                    characterSelectLight.transform.position = characterHoverLight.transform.position;
+                    characterSelectLight.light.enabled = true;
+                }
+                else
+                {
+                    characterSelect.SelectedCharacterType = PlayableCharacterType.NONE;
+                    characterSelectLight.HighlightedCharacter = PlayableCharacterType.NONE;
+                    characterSelectLight.light.enabled = false;
                 }
             }
         }

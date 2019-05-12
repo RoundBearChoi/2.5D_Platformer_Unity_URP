@@ -4,17 +4,18 @@ using UnityEngine;
 
 namespace roundbeargames_tutorial
 {
-    public class CharacterFocusLight : MonoBehaviour
+    public class CharacterHoverLight : MonoBehaviour
     {
-        public CharacterControl HoverSelectedCharacter;
-        public MouseHoverSelect mouseHoverSelect;
         public Vector3 Offset = new Vector3();
+
+        CharacterControl HoverSelectedCharacter;
+        MouseControl mouseHoverSelect;
         Vector3 TargetPos = new Vector3();
         Light light;
 
         private void Start()
         {
-            mouseHoverSelect = GameObject.FindObjectOfType<MouseHoverSelect>();
+            mouseHoverSelect = GameObject.FindObjectOfType<MouseControl>();
             light = GetComponent<Light>();
         }
 
