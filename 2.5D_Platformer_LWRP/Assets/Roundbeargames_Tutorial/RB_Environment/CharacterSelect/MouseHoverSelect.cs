@@ -11,6 +11,11 @@ namespace roundbeargames_tutorial
         public PlayableCharacterType selectedCharacterType;
         public CharacterSelect characterSelect;
 
+        private void Awake()
+        {
+            characterSelect.SelectedCharacterType = PlayableCharacterType.NONE;
+        }
+
         void Update()
         {
             ray = CameraManager.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
