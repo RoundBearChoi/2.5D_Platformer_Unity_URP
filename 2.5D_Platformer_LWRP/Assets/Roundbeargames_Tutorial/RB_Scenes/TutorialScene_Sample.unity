@@ -344,6 +344,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4661700755494929931}
   m_PrefabAsset: {fileID: 0}
+--- !u!115 &432755133
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 5
+  m_Script: 
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_ExecutionOrder: 0
+  m_ClassName: CinemachinePostProcessing
+  m_Namespace: Cinemachine.PostFX
 --- !u!115 &481989811
 MonoScript:
   m_ObjectHideFlags: 0
@@ -527,7 +541,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.056446627, y: -0.6766587, z: 0.052159276, w: 0.7322748}
+  m_LocalRotation: {x: 0.05648728, y: -0.6760878, z: 0.052115254, w: 0.73280185}
   m_LocalPosition: {x: 13.000002, y: 4.2136083, z: -2.1064963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -784,7 +798,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765881197}
-  m_LocalRotation: {x: 0.056446627, y: -0.6766587, z: 0.052159276, w: 0.7322748}
+  m_LocalRotation: {x: 0.05648728, y: -0.6760878, z: 0.052115254, w: 0.73280185}
   m_LocalPosition: {x: 13.000002, y: 4.2136083, z: -2.1064963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -806,7 +820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FocusTracksTarget: 1
   m_FocusOffset: 0
-  m_Profile: {fileID: 11400000, guid: 3e2946be41cb9124fa3bda46b001e9cc, type: 2}
+  m_Profile: {fileID: 11400000, guid: 6c67b8963400a814ebabf51fd4860612, type: 2}
 --- !u!1 &877430849
 GameObject:
   m_ObjectHideFlags: 3
@@ -980,7 +994,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900611751}
-  m_LocalRotation: {x: 0.05644663, y: -0.6766586, z: 0.052159265, w: 0.7322748}
+  m_LocalRotation: {x: 0.056487266, y: -0.67608774, z: 0.052115265, w: 0.7328019}
   m_LocalPosition: {x: 13.000002, y: 4.2136083, z: -2.1064963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -997,12 +1011,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 900611751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1372318579}
+  m_Script: {fileID: 432755133}
   m_Name: 
   m_EditorClassIdentifier: 
   m_FocusTracksTarget: 1
   m_FocusOffset: 0
-  m_Profile: {fileID: 11400000, guid: 3e2946be41cb9124fa3bda46b001e9cc, type: 2}
+  m_Profile: {fileID: 11400000, guid: 6c67b8963400a814ebabf51fd4860612, type: 2}
 --- !u!1 &968786144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,20 +1268,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!115 &1372318579
-MonoScript:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 5
-  m_Script: 
-  m_DefaultReferences: {}
-  m_Icon: {fileID: 0}
-  m_ExecutionOrder: 0
-  m_ClassName: CinemachinePostProcessing
-  m_Namespace: Cinemachine.PostFX
 --- !u!1001 &2010353809
 PrefabInstance:
   m_ObjectHideFlags: 0
