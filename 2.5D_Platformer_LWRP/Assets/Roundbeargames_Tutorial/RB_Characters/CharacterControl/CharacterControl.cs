@@ -13,6 +13,12 @@ namespace roundbeargames_tutorial
         Attack,
     }
 
+    public enum RBScenes
+    {
+        TutorialScene_CharacterSelect,
+        TutorialScene_Sample,
+    }
+
     public class CharacterControl : MonoBehaviour
     {
         public Animator SkinnedMeshAnimator;
@@ -25,7 +31,6 @@ namespace roundbeargames_tutorial
         public List<GameObject> BottomSpheres = new List<GameObject>();
         public List<GameObject> FrontSpheres = new List<GameObject>();
         public List<Collider> RagdollParts = new List<Collider>();
-        //public List<Collider> CollidingParts = new List<Collider>();
 
         public float GravityMultiplier;
         public float PullMultiplier;
@@ -55,8 +60,6 @@ namespace roundbeargames_tutorial
             }
 
             FaceForward(true);
-
-            //SetRagdollParts();
             SetColliderSpheres();
 
             if (SwitchBack)
@@ -192,6 +195,11 @@ namespace roundbeargames_tutorial
 
         public void FaceForward(bool forward)
         {
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name.Equals(RBScenes.TutorialScene_CharacterSelect.ToString()))
+            {
+                return;
+            }
+
             if (forward)
             {
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
