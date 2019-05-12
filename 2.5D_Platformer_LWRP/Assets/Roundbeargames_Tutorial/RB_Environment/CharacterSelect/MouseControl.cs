@@ -41,14 +41,12 @@ namespace roundbeargames_tutorial
                 if (selectedCharacterType != PlayableCharacterType.NONE)
                 {
                     characterSelect.SelectedCharacterType = selectedCharacterType;
-                    characterSelectLight.HighlightedCharacter = selectedCharacterType;
                     characterSelectLight.transform.position = characterHoverLight.transform.position;
                     characterSelectLight.light.enabled = true;
                 }
                 else
                 {
                     characterSelect.SelectedCharacterType = PlayableCharacterType.NONE;
-                    characterSelectLight.HighlightedCharacter = PlayableCharacterType.NONE;
                     characterSelectLight.light.enabled = false;
                 }
             }
