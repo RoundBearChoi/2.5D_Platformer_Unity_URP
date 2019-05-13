@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7194c2cba48304c45b1a3e402b94b7b3, type: 3}
   m_Name: CharacterSelect
   m_EditorClassIdentifier: 
-  SelectedCharacterType: 3
+  SelectedCharacterType: 2

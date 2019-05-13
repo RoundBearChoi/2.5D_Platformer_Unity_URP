@@ -3082,10 +3082,10 @@ MonoBehaviour:
   - {fileID: 1500537850989289165}
   CurrentMaterials:
   - {fileID: 2100000, guid: 65af319b87610924c8542c5deb3a5dbb, type: 2}
-  - {fileID: 2100000, guid: 21e8d65890be5194e847f91e246e5ad3, type: 2}
+  - {fileID: 2100000, guid: 66786c8394eb3304ba39949efc111266, type: 2}
   NewMaterials:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 65af319b87610924c8542c5deb3a5dbb, type: 2}
+  - {fileID: 2100000, guid: 21e8d65890be5194e847f91e246e5ad3, type: 2}
 --- !u!114 &7199473640884908302
 MonoBehaviour:
   m_ObjectHideFlags: 0

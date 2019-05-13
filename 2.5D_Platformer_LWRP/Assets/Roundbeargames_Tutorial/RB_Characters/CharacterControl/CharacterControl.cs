@@ -232,5 +232,18 @@ namespace roundbeargames_tutorial
                 return false;
             }
         }
+
+        public Collider GetBodyPart(string name)
+        {
+            foreach(Collider c in RagdollParts)
+            {
+                if (c.name.Contains(name))
+                {
+                    return c;
+                }
+            }
+
+            return null;
+        }
     }
 }
