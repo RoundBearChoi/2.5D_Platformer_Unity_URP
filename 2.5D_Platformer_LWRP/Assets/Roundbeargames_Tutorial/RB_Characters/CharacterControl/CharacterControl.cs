@@ -11,6 +11,7 @@ namespace roundbeargames_tutorial
         ForceTransition,
         Grounded,
         Attack,
+        ClickAnimation,
     }
 
     public enum RBScenes

@@ -38,7 +38,8 @@ namespace roundbeargames_tutorial
             if (HoverSelectedCharacter == null)
             {
                 HoverSelectedCharacter = CharacterManager.Instance.GetCharacter(mouseHoverSelect.selectedCharacterType);
-                this.transform.position = HoverSelectedCharacter.transform.position + HoverSelectedCharacter.transform.TransformDirection(Offset);
+                this.transform.position = HoverSelectedCharacter.SkinnedMeshAnimator.transform.position + HoverSelectedCharacter.transform.TransformDirection(Offset);
+                this.transform.parent = HoverSelectedCharacter.SkinnedMeshAnimator.transform;
             }
         }
     }

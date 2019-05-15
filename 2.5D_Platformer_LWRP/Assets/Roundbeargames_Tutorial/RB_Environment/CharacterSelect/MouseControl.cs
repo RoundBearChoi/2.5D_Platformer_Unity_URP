@@ -42,12 +42,26 @@ namespace roundbeargames_tutorial
                 {
                     characterSelect.SelectedCharacterType = selectedCharacterType;
                     characterSelectLight.transform.position = characterHoverLight.transform.position;
+                    CharacterControl control = CharacterManager.Instance.GetCharacter(selectedCharacterType);
+                    characterSelectLight.transform.parent = control.SkinnedMeshAnimator.transform;
                     characterSelectLight.light.enabled = true;
                 }
                 else
                 {
                     characterSelect.SelectedCharacterType = PlayableCharacterType.NONE;
                     characterSelectLight.light.enabled = false;
+                }
+
+                foreach(CharacterControl c in CharacterManager.Instance.Characters)
+                {
+                    if (c.playableCharacterType == selectedCharacterType)
+                    {
+                        c.SkinnedMeshAnimator.SetBool(TransitionParameter.ClickAnimation.ToString(), true);
+                    }
+                    else
+                    {
+                        c.SkinnedMeshAnimator.SetBool(TransitionParameter.ClickAnimation.ToString(), false);
+                    }
                 }
             }
         }
