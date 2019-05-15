@@ -52,7 +52,7 @@ namespace roundbeargames_tutorial
 
                     whiteSelection.SetActive(true);
                     whiteSelection.transform.parent = control.SkinnedMeshAnimator.transform;
-                    whiteSelection.transform.localPosition = new Vector3(0f, -0.05f, 0f);
+                    whiteSelection.transform.localPosition = new Vector3(0f, -0.045f, 0f);
                 }
                 else
                 {
