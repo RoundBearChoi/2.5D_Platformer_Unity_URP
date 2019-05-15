@@ -13,6 +13,7 @@ namespace roundbeargames_tutorial
         CharacterSelectLight characterSelectLight;
         CharacterHoverLight characterHoverLight;
         GameObject whiteSelection;
+        Animator characterSelectCamAnimator;
 
         private void Awake()
         {
@@ -22,6 +23,8 @@ namespace roundbeargames_tutorial
 
             whiteSelection = GameObject.Find("WhiteSelection");
             whiteSelection.SetActive(false);
+
+            characterSelectCamAnimator = GameObject.Find("CharacterSelectCameraController").GetComponent<Animator>();
         }
 
         void Update()
@@ -72,6 +75,8 @@ namespace roundbeargames_tutorial
                         c.SkinnedMeshAnimator.SetBool(TransitionParameter.ClickAnimation.ToString(), false);
                     }
                 }
+
+                characterSelectCamAnimator.SetBool(selectedCharacterType.ToString(), true);
             }
         }
     }
