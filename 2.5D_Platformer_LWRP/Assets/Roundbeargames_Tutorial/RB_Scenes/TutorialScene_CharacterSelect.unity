@@ -654,7 +654,7 @@ MonoBehaviour:
     m_MinDuration: 0
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 5
+    m_Time: 7.5
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -1168,7 +1168,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212367783}
-  m_LocalRotation: {x: -0.0061325207, y: -0.9777674, z: 0.20760314, w: -0.028883938}
+  m_LocalRotation: {x: -0.006013157, y: -0.97778386, z: 0.20760664, w: -0.028321756}
   m_LocalPosition: {x: -1.1387347, y: 2.0896082, z: 4.961263}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1185,9 +1185,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 212367783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 600697107}
+  m_Script: {fileID: 916675732}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FocusTracksTarget: 1
+  m_FocusOffset: 0
+  m_Profile: {fileID: 11400000, guid: 3e2946be41cb9124fa3bda46b001e9cc, type: 2}
 --- !u!1 &220472974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,20 +2264,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!115 &600697107
-MonoScript:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 5
-  m_Script: 
-  m_DefaultReferences: {}
-  m_Icon: {fileID: 0}
-  m_ExecutionOrder: 0
-  m_ClassName: CinemachinePostProcessing
-  m_Namespace: Cinemachine.PostFX
 --- !u!1 &765881197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,6 +2988,20 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!115 &916675732
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 5
+  m_Script: 
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_ExecutionOrder: 0
+  m_ClassName: CinemachinePostProcessing
+  m_Namespace: Cinemachine.PostFX
 --- !u!1 &1001904261
 GameObject:
   m_ObjectHideFlags: 0
@@ -13140,7 +13143,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913246272}
-  m_LocalRotation: {x: 0.0044595865, y: -0.97869456, z: 0.2041572, w: 0.02137738}
+  m_LocalRotation: {x: 0.004459586, y: -0.97869456, z: 0.20415722, w: 0.021377364}
   m_LocalPosition: {x: 1.1687368, y: 2.0896082, z: 4.8312654}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
