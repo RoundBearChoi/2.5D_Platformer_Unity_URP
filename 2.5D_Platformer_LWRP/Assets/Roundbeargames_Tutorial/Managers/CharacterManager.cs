@@ -20,5 +20,18 @@ namespace roundbeargames_tutorial
 
             return null;
         }
+
+        public CharacterControl GetCharacter(Animator animator)
+        {
+            foreach (CharacterControl control in Characters)
+            {
+                if (control.SkinnedMeshAnimator == animator)
+                {
+                    return control;
+                }
+            }
+
+            return null;
+        }
     }
 }

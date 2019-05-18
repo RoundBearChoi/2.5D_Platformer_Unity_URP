@@ -36,9 +36,8 @@ namespace roundbeargames_tutorial
 
         private void ToggleBoxCol(CharacterControl control)
         {
-            //control.RIGID_BODY.velocity = Vector3.zero;
-            //control.RIGID_BODY.useGravity = On;
-            control.GetComponent<BoxCollider>().enabled = false;
+            control.RIGID_BODY.velocity = Vector3.zero;
+            control.GetComponent<BoxCollider>().enabled = On;
         }
     }
 }

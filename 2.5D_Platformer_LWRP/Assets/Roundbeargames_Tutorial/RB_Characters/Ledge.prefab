@@ -105,3 +105,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Offset: {x: 0, y: -11.45, z: -0.99}
+  EndPosition: {x: 0, y: 0.035, z: 0.38}

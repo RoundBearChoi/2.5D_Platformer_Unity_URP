@@ -41,7 +41,7 @@ namespace roundbeargames_tutorial
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-
+            animator.SetInteger(TransitionParameter.TransitionIndex.ToString(), 0);
         }
 
         private bool MakeTransition(CharacterControl control)
