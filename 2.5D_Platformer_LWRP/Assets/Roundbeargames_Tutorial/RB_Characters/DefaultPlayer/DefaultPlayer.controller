@@ -1441,6 +1441,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListAbilityData:
   - {fileID: 11400000, guid: 861889567011b214d85e06fb5ec6b4ad, type: 2}
+  - {fileID: 11400000, guid: 32a90a63c0d7f5547a42c2978d6f32d9, type: 2}
+  - {fileID: 11400000, guid: bfb5ffdb779e030469e1f2092d91cd3f, type: 2}
 --- !u!1101 &8676031162309185703
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
