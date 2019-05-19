@@ -336,9 +336,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.2708271
+  m_TransitionDuration: 0.1835773
   m_TransitionOffset: 0
-  m_ExitTime: 0.19994101
+  m_ExitTime: 0.35112163
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -405,7 +405,8 @@ AnimatorState:
   m_Name: CrouchIdle
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: []
+  m_Transitions:
+  - {fileID: 3448927577621965924}
   m_StateMachineBehaviours:
   - {fileID: 162616196101899265}
   m_Position: {x: 50, y: 50, z: 0}
@@ -722,6 +723,7 @@ MonoBehaviour:
   ListAbilityData:
   - {fileID: 11400000, guid: bcf7b8779bec5f841b26144e316b58a2, type: 2}
   - {fileID: 11400000, guid: 5c6b0ec278bf45249b08f3028413e729, type: 2}
+  - {fileID: 11400000, guid: 509023f72ea012341bb0faa1b05d3039, type: 2}
 --- !u!1102 &534706053238854642
 AnimatorState:
   serializedVersion: 5
@@ -1335,17 +1337,17 @@ AnimatorStateMachine:
     m_Position: {x: 970, y: -160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1371278340426685929}
-    m_Position: {x: 940, y: -310, z: 0}
+    m_Position: {x: 970, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6942755052671586931}
-    m_Position: {x: 950, y: -230, z: 0}
+    m_Position: {x: 970, y: -60, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -130, y: -370, z: 0}
-  m_EntryPosition: {x: 310, y: -50, z: 0}
+  m_EntryPosition: {x: 270, y: -10, z: 0}
   m_ExitPosition: {x: -130, y: -420, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102610103010179914}
@@ -1455,6 +1457,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &3448927577621965924
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: TransitionIndex
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1102610103010179914}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.1561054
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9620824
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1102 &4292473947868295754
 AnimatorState:
   serializedVersion: 5

@@ -26,7 +26,7 @@ namespace roundbeargames_tutorial
             if (CheckLedge != null)
             {
                 IsGrabbingLedge = false;
-                GrabbedLedge = null;
+                //GrabbedLedge = null;
             }
         }
     }

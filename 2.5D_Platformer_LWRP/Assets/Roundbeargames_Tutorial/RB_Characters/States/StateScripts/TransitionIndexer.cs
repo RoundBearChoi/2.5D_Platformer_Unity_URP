@@ -37,6 +37,10 @@ namespace roundbeargames_tutorial
             {
                 animator.SetInteger(TransitionParameter.TransitionIndex.ToString(), Index);
             }
+            else
+            {
+                animator.SetInteger(TransitionParameter.TransitionIndex.ToString(), 0);
+            }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

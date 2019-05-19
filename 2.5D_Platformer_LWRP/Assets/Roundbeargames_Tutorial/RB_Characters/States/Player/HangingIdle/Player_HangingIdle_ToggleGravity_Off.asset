@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a40580a0ef8e0b47b14c7acfd0e63b6, type: 3}
-  m_Name: Player_LedgeGrab_ToggleGravity_Off
+  m_Name: Player_HangingIdle_ToggleGravity_Off
   m_EditorClassIdentifier: 
   On: 0
   OnStart: 1
