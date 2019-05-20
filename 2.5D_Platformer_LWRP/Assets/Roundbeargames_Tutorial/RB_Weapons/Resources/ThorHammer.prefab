@@ -164,7 +164,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3016116376653407422}
   - component: {fileID: 3298153226753716677}
-  - component: {fileID: 4652729804672938026}
   m_Layer: 0
   m_Name: ThorHammer
   m_TagString: Untagged
@@ -181,7 +180,7 @@ Transform:
   m_GameObject: {fileID: 2269880207055574701}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
+  m_LocalScale: {x: 0.625, y: 0.625, z: 0.625}
   m_Children:
   - {fileID: 2499476968498077069}
   - {fileID: 7394450209804034}
@@ -228,20 +227,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
   - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
   - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
---- !u!114 &4652729804672938026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2269880207055574701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b2181595ae03b846b8ad767179f4abf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolObjectType: 1
-  ScheduledOffTime: 0.25
 --- !u!1 &2964178314658174871
 GameObject:
   m_ObjectHideFlags: 0
