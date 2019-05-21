@@ -7,6 +7,7 @@ namespace roundbeargames_tutorial
     public enum PoolObjectType
     {
         ATTACKINFO,
+        HAMMER,
     }
 
     public class PoolObjectLoader : MonoBehaviour
@@ -20,6 +21,11 @@ namespace roundbeargames_tutorial
                 case PoolObjectType.ATTACKINFO:
                     {
                         obj = Instantiate(Resources.Load("AttackInfo", typeof(GameObject)) as GameObject);
+                        break;
+                    }
+                case PoolObjectType.HAMMER:
+                    {
+                        obj = Instantiate(Resources.Load("ThorHammer", typeof(GameObject)) as GameObject);
                         break;
                     }
             }

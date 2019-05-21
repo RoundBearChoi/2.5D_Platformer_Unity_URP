@@ -164,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3016116376653407422}
   - component: {fileID: 3298153226753716677}
+  - component: {fileID: 5137705710217731159}
   m_Layer: 0
   m_Name: ThorHammer
   m_TagString: Untagged
@@ -227,6 +228,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
   - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
   - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
+--- !u!114 &5137705710217731159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269880207055574701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2181595ae03b846b8ad767179f4abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolObjectType: 1
+  ScheduledOffTime: 0.215
 --- !u!1 &2964178314658174871
 GameObject:
   m_ObjectHideFlags: 0
