@@ -209,25 +209,10 @@ MonoBehaviour:
   material: {fileID: 0}
   CurrentObjects:
   - {fileID: 1894577163668414563}
-  - {fileID: 8370437682319856470}
-  - {fileID: 696530865625501597}
-  - {fileID: 4784254659134805393}
-  - {fileID: 8847239485415917757}
-  - {fileID: 8725215432272707284}
   CurrentMaterials:
-  - {fileID: 9126862256562743253, guid: 474fbfc2af2de464d83a83ed17a5695b, type: 3}
-  - {fileID: -3734269620586489867, guid: 474fbfc2af2de464d83a83ed17a5695b, type: 3}
-  - {fileID: -6105507586354729566, guid: 474fbfc2af2de464d83a83ed17a5695b, type: 3}
-  - {fileID: -1739925777299851808, guid: 474fbfc2af2de464d83a83ed17a5695b, type: 3}
-  - {fileID: -5219087998630308176, guid: 474fbfc2af2de464d83a83ed17a5695b, type: 3}
-  - {fileID: -8269539698488967853, guid: 474fbfc2af2de464d83a83ed17a5695b, type: 3}
+  - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
   NewMaterials:
-  - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
-  - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
-  - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
-  - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
-  - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
-  - {fileID: 2100000, guid: 96c0a6a4319510248b8bc107a5bf8fcd, type: 2}
+  - {fileID: 0}
 --- !u!114 &5137705710217731159
 MonoBehaviour:
   m_ObjectHideFlags: 0
