@@ -11,6 +11,7 @@ namespace roundbeargames_tutorial
         {
             animator.SetBool(TransitionParameter.Jump.ToString(), false);
             animator.SetBool(TransitionParameter.Attack.ToString(), false);
+            animator.SetBool(TransitionParameter.Move.ToString(), false);
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
