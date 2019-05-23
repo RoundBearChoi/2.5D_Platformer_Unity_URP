@@ -7,9 +7,11 @@ namespace roundbeargames_tutorial
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/SpawnObject")]
     public class SpawnObject : StateData
     {
+        public PoolObjectType ObjectType;
         [Range(0f, 1f)]
         public float SpawnTiming;
         public string ParentObjectName = string.Empty;
+        public bool StickToParent;
 
         private bool IsSpawned;
 
@@ -43,7 +45,7 @@ namespace roundbeargames_tutorial
 
         private void SpawnObj(CharacterControl control)
         {
-            GameObject obj = PoolManager.Instance.GetObject(PoolObjectType.HAMMER);
+            GameObject obj = PoolManager.Instance.GetObject(ObjectType);
 
             if (!string.IsNullOrEmpty(ParentObjectName))
             {
@@ -51,6 +53,11 @@ namespace roundbeargames_tutorial
                 obj.transform.parent = p.transform;
                 obj.transform.localPosition = Vector3.zero;
                 obj.transform.localRotation = Quaternion.identity;
+            }
+
+            if (!StickToParent)
+            {
+                obj.transform.parent = null;
             }
 
             obj.SetActive(true);
