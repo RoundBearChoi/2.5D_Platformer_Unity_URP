@@ -155,25 +155,27 @@ namespace roundbeargames_tutorial
             float front = box.bounds.center.z + box.bounds.extents.z;
             float back = box.bounds.center.z - box.bounds.extents.z;
 
-            GameObject bottomFront = CreateEdgeSphere(new Vector3(0f, bottom, front));
+            GameObject bottomFrontHor = CreateEdgeSphere(new Vector3(0f, bottom, front));
+            GameObject bottomFrontVer = CreateEdgeSphere(new Vector3(0f, bottom + 0.05f, front));
             GameObject bottomBack = CreateEdgeSphere(new Vector3(0f, bottom, back));
             GameObject topFront = CreateEdgeSphere(new Vector3(0f, top, front));
 
-            bottomFront.transform.parent = this.transform;
+            bottomFrontHor.transform.parent = this.transform;
+            bottomFrontVer.transform.parent = this.transform;
             bottomBack.transform.parent = this.transform;
             topFront.transform.parent = this.transform;
 
-            BottomSpheres.Add(bottomFront);
+            BottomSpheres.Add(bottomFrontHor);
             BottomSpheres.Add(bottomBack);
 
-            FrontSpheres.Add(bottomFront);
+            FrontSpheres.Add(bottomFrontVer);
             FrontSpheres.Add(topFront);
 
-            float horSec = (bottomFront.transform.position - bottomBack.transform.position).magnitude / 5f;
-            CreateMiddleSpheres(bottomFront, -this.transform.forward, horSec, 4, BottomSpheres);
+            float horSec = (bottomFrontHor.transform.position - bottomBack.transform.position).magnitude / 5f;
+            CreateMiddleSpheres(bottomFrontHor, -this.transform.forward, horSec, 4, BottomSpheres);
 
-            float verSec = (bottomFront.transform.position - topFront.transform.position).magnitude / 10f;
-            CreateMiddleSpheres(bottomFront, this.transform.up, verSec, 9, FrontSpheres);
+            float verSec = (bottomFrontVer.transform.position - topFront.transform.position).magnitude / 10f;
+            CreateMiddleSpheres(bottomFrontVer, this.transform.up, verSec, 9, FrontSpheres);
         }
 
         private void FixedUpdate()
