@@ -70,7 +70,7 @@ namespace roundbeargames_tutorial
                 else
                 {
                     float dist = Vector3.SqrMagnitude(this.gameObject.transform.position - info.Attacker.transform.position);
-                    Debug.Log(this.gameObject.name + " dist: " + dist.ToString());
+                    //Debug.Log(this.gameObject.name + " dist: " + dist.ToString());
                     if (dist <= info.LethalRange)
                     {
                         TakeDamage(info);
