@@ -22,7 +22,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.25
+    value: 0.1
   fastMode:
     overrideState: 1
     value: 1
@@ -47,10 +47,10 @@ MonoBehaviour:
     value: 13
   aperture:
     overrideState: 1
-    value: 6
+    value: 5.6
   focalLength:
     overrideState: 1
-    value: 50
+    value: 95
   kernelSize:
     overrideState: 1
     value: 1
