@@ -9,15 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 223373fed4d14a94588b3694fc5a992e, type: 3}
-  m_Name: Player_Smash_Landing_Attack
+  m_Script: {fileID: 11500000, guid: 2e3d3e2b944bd434792b5f1ce0232bb2, type: 3}
+  m_Name: Death_SoccerTackle_GroundShock
   m_EditorClassIdentifier: 
-  debug: 0
-  StartAttackTime: 0.85
-  EndAttackTime: 0.99
-  ColliderNames: []
+  GeneralBodyParts: 
+  Animator: {fileID: 9100000, guid: c0957ccb67129ca4a8e8c76bcd148cd4, type: 2}
   deathType: 2
-  MustCollide: 0
-  MustFaceAttacker: 0
-  LethalRange: 2
-  MaxHits: 10
+  IsFacingAttacker: 1

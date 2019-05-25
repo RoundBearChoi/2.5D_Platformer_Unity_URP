@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e3d3e2b944bd434792b5f1ce0232bb2, type: 3}
-  m_Name: SoccerTackle
+  m_Name: Death_SoccerTackle_Collision
   m_EditorClassIdentifier: 
   GeneralBodyParts: 0100000003000000
   Animator: {fileID: 9100000, guid: c0957ccb67129ca4a8e8c76bcd148cd4, type: 2}
+  deathType: 0
   IsFacingAttacker: 1
