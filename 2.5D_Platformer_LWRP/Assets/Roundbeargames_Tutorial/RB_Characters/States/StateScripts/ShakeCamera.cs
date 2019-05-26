@@ -9,24 +9,26 @@ namespace roundbeargames_tutorial
     {
         [Range(0f, 0.99f)]
         public float ShakeTiming;
-        private bool isShaken = false;
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             if (ShakeTiming == 0f)
             {
+                CharacterControl control = characterState.GetCharacterControl(animator);
                 CameraManager.Instance.ShakeCamera(0.2f);
-                isShaken = true;
+                control.animationProgress.CameraShaken = true;
             }
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            if (!isShaken)
+            CharacterControl control = characterState.GetCharacterControl(animator);
+
+            if (!control.animationProgress.CameraShaken)
             {
                 if (stateInfo.normalizedTime >= ShakeTiming)
                 {
-                    isShaken = true;
+                    control.animationProgress.CameraShaken = true;
                     CameraManager.Instance.ShakeCamera(0.2f);
                 }
             }
@@ -34,7 +36,8 @@ namespace roundbeargames_tutorial
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            isShaken = false;
+            CharacterControl control = characterState.GetCharacterControl(animator);
+            control.animationProgress.CameraShaken = false;
         }
     }
 }

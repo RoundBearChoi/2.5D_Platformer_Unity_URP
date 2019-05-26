@@ -9,8 +9,11 @@ namespace roundbeargames_tutorial
         CharacterControl control;
         GeneralBodyPart DamagedPart;
 
+        public int DamageTaken;
+
         private void Awake()
         {
+            DamageTaken = 0;
             control = GetComponent<CharacterControl>();
         }
 
@@ -70,7 +73,6 @@ namespace roundbeargames_tutorial
                 else
                 {
                     float dist = Vector3.SqrMagnitude(this.gameObject.transform.position - info.Attacker.transform.position);
-                    //Debug.Log(this.gameObject.name + " dist: " + dist.ToString());
                     if (dist <= info.LethalRange)
                     {
                         TakeDamage(info);
@@ -101,6 +103,11 @@ namespace roundbeargames_tutorial
 
         private void TakeDamage(AttackInfo info)
         {
+            if (DamageTaken > 0)
+            {
+                return;
+            }
+
             if (info.MustCollide)
             {
                 CameraManager.Instance.ShakeCamera(0.2f);
@@ -108,13 +115,14 @@ namespace roundbeargames_tutorial
 
             Debug.Log(info.Attacker.gameObject.name + " hits: " + this.gameObject.name);
             Debug.Log(this.gameObject.name + " hit in " + DamagedPart.ToString());
-
-            //control.SkinnedMeshAnimator.runtimeAnimatorController = info.AttackAbility.GetDeathAnimator();
+            
             control.SkinnedMeshAnimator.runtimeAnimatorController = DeathAnimationManager.Instance.GetAnimator(DamagedPart, info);
             info.CurrentHits++;
 
             control.GetComponent<BoxCollider>().enabled = false;
             control.RIGID_BODY.useGravity = false;
+
+            DamageTaken++;
         }
     }
 }
