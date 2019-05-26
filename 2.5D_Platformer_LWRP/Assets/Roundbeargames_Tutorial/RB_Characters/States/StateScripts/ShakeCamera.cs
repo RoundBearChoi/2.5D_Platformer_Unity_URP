@@ -14,8 +14,9 @@ namespace roundbeargames_tutorial
         {
             if (ShakeTiming == 0f)
             {
-                CharacterControl control = characterState.GetCharacterControl(animator);
                 CameraManager.Instance.ShakeCamera(0.2f);
+
+                CharacterControl control = characterState.GetCharacterControl(animator);
                 control.animationProgress.CameraShaken = true;
             }
         }
