@@ -17,13 +17,13 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.04
+  m_FogDensity: 0.0425
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.95
+  m_AmbientIntensity: 0.875
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 0ffaa0b7117ba8c47a9d05ae701d4b4d, type: 2}
@@ -1324,7 +1324,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh40090
+  m_Name: pb_Mesh17060
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2977,7 +2977,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.07796333, y: -0.6519976, z: 0.06767047, w: 0.7511602}
+  m_LocalRotation: {x: 0.07794813, y: -0.65216625, z: 0.067687966, w: 0.7510138}
   m_LocalPosition: {x: 10.000002, y: 3.2136083, z: -2.4764962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4699,7 +4699,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765881197}
-  m_LocalRotation: {x: 0.07796333, y: -0.6519976, z: 0.06767047, w: 0.7511602}
+  m_LocalRotation: {x: 0.07794813, y: -0.65216625, z: 0.067687966, w: 0.7510138}
   m_LocalPosition: {x: 10.000002, y: 3.2136083, z: -2.4764962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4784,7 +4784,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783294726}
-  m_LocalRotation: {x: 0.0779633, y: -0.6519976, z: 0.06767051, w: 0.7511602}
+  m_LocalRotation: {x: 0.07794813, y: -0.65216625, z: 0.067687966, w: 0.7510138}
   m_LocalPosition: {x: 10.000002, y: 3.2136083, z: -2.4764962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5319,7 +5319,7 @@ Light:
   serializedVersion: 9
   m_Type: 0
   m_Color: {r: 1, g: 0.7789392, b: 0.3443396, a: 1}
-  m_Intensity: 7
+  m_Intensity: 4.725
   m_Range: 20
   m_SpotAngle: 60
   m_InnerSpotAngle: 6
@@ -6151,7 +6151,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh40340
+  m_Name: pb_Mesh17310
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8019,7 +8019,7 @@ Light:
   serializedVersion: 9
   m_Type: 0
   m_Color: {r: 1, g: 0.7789392, b: 0.3443396, a: 1}
-  m_Intensity: 7
+  m_Intensity: 4.725
   m_Range: 20
   m_SpotAngle: 60
   m_InnerSpotAngle: 6
@@ -9083,7 +9083,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh40148
+  m_Name: pb_Mesh17118
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10667,7 +10667,7 @@ Light:
   serializedVersion: 9
   m_Type: 0
   m_Color: {r: 1, g: 0.7789392, b: 0.3443396, a: 1}
-  m_Intensity: 7
+  m_Intensity: 4.725
   m_Range: 20
   m_SpotAngle: 60
   m_InnerSpotAngle: 6
