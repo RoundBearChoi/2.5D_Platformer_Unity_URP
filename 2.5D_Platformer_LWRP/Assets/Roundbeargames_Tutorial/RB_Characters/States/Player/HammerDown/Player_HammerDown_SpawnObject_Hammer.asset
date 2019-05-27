@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Player_HammerDown_SpawnObject_Hammer
   m_EditorClassIdentifier: 
   ObjectType: 1
-  SpawnTiming: 0.15
+  SpawnTiming: 0.135
   ParentObjectName: WeaponPosition - ThorHammer
   StickToParent: 1
