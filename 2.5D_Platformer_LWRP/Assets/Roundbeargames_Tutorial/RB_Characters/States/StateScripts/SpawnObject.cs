@@ -28,7 +28,7 @@ namespace roundbeargames_tutorial
         {
             CharacterControl control = characterState.GetCharacterControl(animator);
 
-            if (!control.animationProgress.PoolObjectList.Contains(ObjectType))
+            if (!control.animationProgress.SpawnedObjList.Contains(ObjectType))
             {
                 if (stateInfo.normalizedTime >= SpawnTiming)
                 {
@@ -40,15 +40,15 @@ namespace roundbeargames_tutorial
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             CharacterControl control = characterState.GetCharacterControl(animator);
-            if (control.animationProgress.PoolObjectList.Contains(ObjectType))
+            if (control.animationProgress.SpawnedObjList.Contains(ObjectType))
             {
-                control.animationProgress.PoolObjectList.Remove(ObjectType);
+                control.animationProgress.SpawnedObjList.Remove(ObjectType);
             }
         }
 
         private void SpawnObj(CharacterControl control)
         {
-            if (control.animationProgress.PoolObjectList.Contains(ObjectType))
+            if (control.animationProgress.SpawnedObjList.Contains(ObjectType))
             {
                 return;
             }
@@ -70,7 +70,7 @@ namespace roundbeargames_tutorial
 
             obj.SetActive(true);
 
-            control.animationProgress.PoolObjectList.Add(ObjectType);
+            control.animationProgress.SpawnedObjList.Add(ObjectType);
         }
     }
 }

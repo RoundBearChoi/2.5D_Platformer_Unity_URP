@@ -97,7 +97,7 @@ namespace roundbeargames_tutorial
                 if (stateInfo.normalizedTime < EndAttackTime + ((EndAttackTime - StartAttackTime) / 2f))
                 {
                     CharacterControl control = characterState.GetCharacterControl(animator);
-                    if (control.Attack)
+                    if (control.animationProgress.AttackTriggered /*control.Attack*/)
                     {
                         //Debug.Log("uppercut triggered");
                         animator.SetBool(TransitionParameter.Attack.ToString(), true);

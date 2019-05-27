@@ -88,7 +88,7 @@ namespace roundbeargames_tutorial
                         break;
                     case TransitionConditionType.ATTACK:
                         {
-                            if (!control.Attack)
+                            if (!control.animationProgress.AttackTriggered /*!control.Attack*/)
                             {
                                 return false;
                             }
