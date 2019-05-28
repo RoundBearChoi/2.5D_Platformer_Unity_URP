@@ -89,10 +89,13 @@ namespace roundbeargames_tutorial
                 {
                     foreach (string name in info.ColliderNames)
                     {
-                        if (name == collider.gameObject.name)
+                        if (name.Equals(collider.gameObject.name))
                         {
-                            DamagedPart = trigger.generalBodyPart;
-                            return true;
+                            if (collider.transform.root.gameObject == info.Attacker.gameObject)
+                            {
+                                DamagedPart = trigger.generalBodyPart;
+                                return true;
+                            }
                         }
                     }
                 }
