@@ -31,4 +31,6 @@ instagram: https://instagram.com/roundbeargames
 
 twitter: https://twitter.com/roundbeargames
 
-facebook: https://facebook.com/RoundBearGames17
+facebook: https://facebook.com/roundbeargames17
+
+reddit: https://www.reddit.com/user/roundbeargames
