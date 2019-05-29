@@ -123,6 +123,7 @@ namespace roundbeargames_tutorial
             info.CurrentHits++;
 
             control.GetComponent<BoxCollider>().enabled = false;
+            control.ledgeChecker.GetComponent<BoxCollider>().enabled = false;
             control.RIGID_BODY.useGravity = false;
 
             DamageTaken++;
