@@ -92,7 +92,9 @@ namespace roundbeargames_tutorial
                 {
                     if (!control.RagdollParts.Contains(hit.collider))
                     {
-                        if (!IsBodyPart(hit.collider) && !Ledge.IsLedge(hit.collider.gameObject))
+                        if (!IsBodyPart(hit.collider) 
+                            && !Ledge.IsLedge(hit.collider.gameObject)
+                            && !Ledge.IsLedgeChecker(hit.collider.gameObject))
                         {
                             return true;
                         }
