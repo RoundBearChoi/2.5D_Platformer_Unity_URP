@@ -28,12 +28,15 @@ namespace roundbeargames_tutorial
                 animator.SetBool(TransitionParameter.Jump.ToString(), true);
             }
 
-            if (control.MoveRight)
+            if (control.MoveLeft && control.MoveRight)
+            {
+                //do nothing
+            }
+            else if (control.MoveRight)
             {
                 animator.SetBool(TransitionParameter.Move.ToString(), true);
             }
-
-            if (control.MoveLeft)
+            else if (control.MoveLeft)
             {
                 animator.SetBool(TransitionParameter.Move.ToString(), true);
             }
