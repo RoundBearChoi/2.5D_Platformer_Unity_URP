@@ -8,6 +8,15 @@ namespace roundbeargames_tutorial
     {
         void Update()
         {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                VirtualInputManager.Instance.Turbo = true;
+            }
+            else
+            {
+                VirtualInputManager.Instance.Turbo = false;
+            }
+
             if (Input.GetKey(KeyCode.W))
             {
                 VirtualInputManager.Instance.MoveUp = true;
