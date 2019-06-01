@@ -10,35 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b16b91d0c5247b442a689768502f9a3b, type: 3}
-  m_Name: Player_Running_MoveForward
+  m_Name: Player_RunToTurn180_MoveForward
   m_EditorClassIdentifier: 
-  Constant: 0
+  LockDirection: 1
+  Constant: 1
   SpeedGraph:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 11.960696
-      outSlope: 11.960696
+      value: 1
+      inSlope: -1.4285715
+      outSlope: -1.4285715
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.074834675
-      value: 0.89507484
-      inSlope: 0.48578176
-      outSlope: 0.48578176
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.0655754
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0.113412336
-      outSlope: 0.113412336
+      time: 0.7
+      value: 0
+      inSlope: -1.4285715
+      outSlope: -1.4285715
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -46,5 +38,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Speed: 5
+  Speed: -3
   BlockDistance: 0.1

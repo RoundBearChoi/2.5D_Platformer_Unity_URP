@@ -14,6 +14,7 @@ namespace roundbeargames_tutorial
         ClickAnimation,
         TransitionIndex,
         Turbo,
+        Turn,
     }
 
     public enum RBScenes
