@@ -11,6 +11,7 @@ namespace roundbeargames_tutorial
         public List<PoolObjectType> SpawnedObjList = new List<PoolObjectType>();
         public bool AttackTriggered;
         public float MaxPressTime;
+        public bool disallowEarlyTurn;
 
         private CharacterControl control;
         private float PressTime;

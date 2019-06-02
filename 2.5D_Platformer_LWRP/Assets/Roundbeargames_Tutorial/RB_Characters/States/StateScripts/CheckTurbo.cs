@@ -7,6 +7,8 @@ namespace roundbeargames_tutorial
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/CheckTurbo")]
     public class CheckTurbo : StateData
     {
+        public bool MustRequireMovement;
+
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
 
@@ -18,7 +20,21 @@ namespace roundbeargames_tutorial
 
             if (control.Turbo)
             {
-                animator.SetBool(TransitionParameter.Turbo.ToString(), true);
+                if (MustRequireMovement)
+                {
+                    if (control.MoveLeft || control.MoveRight)
+                    {
+                        animator.SetBool(TransitionParameter.Turbo.ToString(), true);
+                    }
+                    else
+                    {
+                        animator.SetBool(TransitionParameter.Turbo.ToString(), false);
+                    }
+                }
+                else
+                {
+                    animator.SetBool(TransitionParameter.Turbo.ToString(), true);
+                }
             }
             else
             {

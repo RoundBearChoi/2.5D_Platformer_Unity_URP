@@ -12,6 +12,9 @@ namespace roundbeargames_tutorial
             animator.SetBool(TransitionParameter.Jump.ToString(), false);
             animator.SetBool(TransitionParameter.Attack.ToString(), false);
             animator.SetBool(TransitionParameter.Move.ToString(), false);
+
+            CharacterControl control = characterState.GetCharacterControl(animator);
+            control.animationProgress.disallowEarlyTurn = false;
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
