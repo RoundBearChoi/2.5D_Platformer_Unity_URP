@@ -12,9 +12,6 @@ namespace roundbeargames_tutorial
         {
             serializedObject.Update();
 
-            //var style = new GUIStyle(GUI.skin.button);
-            //style.normal.textColor = Color.red;
-
             GUI.backgroundColor = Color.green;
             if (GUILayout.Button("Add RB Default Layers"))
             {
@@ -22,7 +19,6 @@ namespace roundbeargames_tutorial
 
                 foreach(RB_Layers r in arr)
                 {
-                    Debug.Log("creating layer: " + r.ToString());
                     CreateLayer(r.ToString());
                 }
             }
@@ -100,43 +96,39 @@ namespace roundbeargames_tutorial
             return LayerDictionary;
         }
 
-        /// <summary>
-        /// Create a layer at the next available index. Returns silently if layer already exists.
-        /// </summary>
-        /// <param name="name">Name of the layer to create</param>
-        public static void CreateLayer(string name)
+        void CreateLayer(string name)
         {
-            if (string.IsNullOrEmpty(name))
-                throw new System.ArgumentNullException("name", "New layer name string is either null or empty.");
+            bool Success = false;
+            Dictionary<string, int> dic = GetAllLayers();
 
-            var tagManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/TagManager.asset")[0]);
-            var layerProps = tagManager.FindProperty("layers");
-            var propCount = layerProps.arraySize;
-
-            SerializedProperty firstEmptyProp = null;
-
-            for (var i = 0; i < propCount; i++)
+            if (!dic.ContainsKey(name))
             {
-                var layerProp = layerProps.GetArrayElementAtIndex(i);
+                SerializedObject tagManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/TagManager.asset")[0]);
+                SerializedProperty layers = tagManager.FindProperty("layers");
 
-                var stringValue = layerProp.stringValue;
+                for (int i = 0; i < 31; i++)
+                {
+                    SerializedProperty element = layers.GetArrayElementAtIndex(i);
+                    if (string.IsNullOrEmpty(element.stringValue) && i >= 8)
+                    {
+                        element.stringValue = name;
 
-                if (stringValue == name) return;
+                        tagManager.ApplyModifiedProperties(); //save changes
+                        Success = true;
+                        Debug.Log(i.ToString() + " layer created: " + name);
+                        break;
+                    }
+                }
 
-                if (i < 8 || stringValue != string.Empty) continue;
-
-                if (firstEmptyProp == null)
-                    firstEmptyProp = layerProp;
+                if (!Success)
+                {
+                    Debug.Log("could not create layer");
+                }
             }
-
-            if (firstEmptyProp == null)
+            else
             {
-                UnityEngine.Debug.LogError("Maximum limit of " + propCount + " layers exceeded. Layer \"" + name + "\" not created.");
-                return;
+                Debug.Log("layer already exists: " + name);
             }
-
-            firstEmptyProp.stringValue = name;
-            tagManager.ApplyModifiedProperties();
         }
     }
 }
