@@ -15,6 +15,9 @@ namespace roundbeargames_tutorial
         public Vector3 EndPosition;
         Coroutine Move;
 
+        public GameObject StartSphere;
+        public GameObject EndSphere;
+
         private void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
@@ -22,6 +25,9 @@ namespace roundbeargames_tutorial
 
         public void GoToTarget()
         {
+            StartSphere.transform.parent = null;
+            EndSphere.transform.parent = null;
+
             navMeshAgent.isStopped = false;
 
             if (TargetPlayableCharacter)
@@ -46,9 +52,20 @@ namespace roundbeargames_tutorial
                 if (navMeshAgent.isOnOffMeshLink)
                 {
                     StartPosition = transform.position;
+                    StartSphere.transform.position = transform.position;
                     navMeshAgent.CompleteOffMeshLink();
 
                     yield return new WaitForEndOfFrame();
+                    EndPosition = transform.position;
+                    EndSphere.transform.position = transform.position;
+                    navMeshAgent.isStopped = true;
+                    yield break;
+                }
+
+                Vector3 dist = transform.position - navMeshAgent.destination;
+                if (Vector3.SqrMagnitude(dist) < 0.5f)
+                {
+                    StartPosition = transform.position;
                     EndPosition = transform.position;
                     navMeshAgent.isStopped = true;
                     yield break;

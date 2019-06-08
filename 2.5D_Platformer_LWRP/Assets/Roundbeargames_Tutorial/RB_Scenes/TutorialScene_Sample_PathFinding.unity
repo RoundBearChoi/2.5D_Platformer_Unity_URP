@@ -1447,7 +1447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 10, y: 2, z: 0}
+  m_FollowOffset: {x: 15, y: 2, z: 0}
   m_XDamping: 8
   m_YDamping: 8
   m_ZDamping: 8
@@ -1475,7 +1475,7 @@ MonoBehaviour:
   m_HorizontalDamping: 0.5
   m_VerticalDamping: 5
   m_ScreenX: 0.39999998
-  m_ScreenY: 0.487
+  m_ScreenY: 0.5
   m_DeadZoneWidth: 0.077
   m_DeadZoneHeight: 0.123
   m_SoftZoneWidth: 0.309
@@ -3423,8 +3423,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.07802099, y: -0.65135837, z: 0.067604, w: 0.7517145}
-  m_LocalPosition: {x: 10.000002, y: 13.053609, z: 8.513504}
+  m_LocalRotation: {x: 0.04994173, y: -0.6553301, z: 0.043495666, w: 0.7524337}
+  m_LocalPosition: {x: 15.000002, y: 13.053609, z: 8.513504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5145,8 +5145,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765881197}
-  m_LocalRotation: {x: 0.07802099, y: -0.65135837, z: 0.067604, w: 0.7517145}
-  m_LocalPosition: {x: 10.000002, y: 13.053609, z: 8.513504}
+  m_LocalRotation: {x: 0.04994173, y: -0.6553301, z: 0.043495666, w: 0.7524337}
+  m_LocalPosition: {x: 15.000002, y: 13.053609, z: 8.513504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 235685964}
@@ -6011,8 +6011,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944571762}
-  m_LocalRotation: {x: 0.078020975, y: -0.65135837, z: 0.06760401, w: 0.7517145}
-  m_LocalPosition: {x: 10.000002, y: 13.053609, z: 8.513504}
+  m_LocalRotation: {x: 0.049941707, y: -0.6553301, z: 0.043495677, w: 0.7524337}
+  m_LocalPosition: {x: 15.000002, y: 13.053609, z: 8.513504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 996595908}
@@ -6188,7 +6188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 10, y: 2, z: 0}
+  m_FollowOffset: {x: 15, y: 2, z: 0}
   m_XDamping: 8
   m_YDamping: 8
   m_ZDamping: 8
@@ -6216,7 +6216,7 @@ MonoBehaviour:
   m_HorizontalDamping: 0.5
   m_VerticalDamping: 5
   m_ScreenX: 0.39999998
-  m_ScreenY: 0.487
+  m_ScreenY: 0.5
   m_DeadZoneWidth: 0.077
   m_DeadZoneHeight: 0.123
   m_SoftZoneWidth: 0.309
