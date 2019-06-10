@@ -36,6 +36,7 @@ namespace roundbeargames_tutorial
         public bool Attack;
         public LedgeChecker ledgeChecker;
         public AnimationProgress animationProgress;
+        public AIProgress aiProgress;
 
         public GameObject ColliderEdgePrefab;
         public List<GameObject> BottomSpheres = new List<GameObject>();
@@ -80,6 +81,7 @@ namespace roundbeargames_tutorial
 
             ledgeChecker = GetComponentInChildren<LedgeChecker>();
             animationProgress = GetComponent<AnimationProgress>();
+            aiProgress = GetComponentInChildren<AIProgress>();
 
             RegisterCharacter();
         }
