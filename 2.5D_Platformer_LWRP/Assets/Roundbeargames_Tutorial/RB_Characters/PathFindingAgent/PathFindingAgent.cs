@@ -13,10 +13,11 @@ namespace roundbeargames_tutorial
 
         public Vector3 StartPosition;
         public Vector3 EndPosition;
-        Coroutine Move;
+        List<Coroutine> MoveRoutines = new List<Coroutine>();
 
         public GameObject StartSphere;
         public GameObject EndSphere;
+        public bool StartWalk;
 
         private void Awake()
         {
@@ -28,6 +29,7 @@ namespace roundbeargames_tutorial
             navMeshAgent.enabled = true;
             StartSphere.transform.parent = null;
             EndSphere.transform.parent = null;
+            StartWalk = false;
 
             navMeshAgent.isStopped = false;
 
@@ -38,12 +40,13 @@ namespace roundbeargames_tutorial
 
             navMeshAgent.SetDestination(target.transform.position);
 
-            if (Move != null)
+            if (MoveRoutines.Count != 0)
             {
-                StopCoroutine(Move);
+                StopCoroutine(MoveRoutines[0]);
+                MoveRoutines.RemoveAt(0);
             }
 
-            Move = StartCoroutine(_Move());
+            MoveRoutines.Add(StartCoroutine(_Move()));
         }
 
         IEnumerator _Move()
@@ -60,6 +63,7 @@ namespace roundbeargames_tutorial
                     EndPosition = transform.position;
                     EndSphere.transform.position = transform.position;
                     navMeshAgent.isStopped = true;
+                    StartWalk = true;
                     yield break;
                 }
 
@@ -67,8 +71,13 @@ namespace roundbeargames_tutorial
                 if (Vector3.SqrMagnitude(dist) < 0.5f)
                 {
                     StartPosition = transform.position;
+                    StartSphere.transform.position = transform.position;
+
                     EndPosition = transform.position;
+                    EndSphere.transform.position = transform.position;
+
                     navMeshAgent.isStopped = true;
+                    StartWalk = true;
                     yield break;
                 }
 
