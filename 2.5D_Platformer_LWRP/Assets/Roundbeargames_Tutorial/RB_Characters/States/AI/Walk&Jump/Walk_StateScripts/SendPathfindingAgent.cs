@@ -8,6 +8,7 @@ namespace roundbeargames_tutorial
     public enum AI_Walk_Transitions
     {
         start_walking,
+        jump_platform,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AI/SendPathfindingAgent")]

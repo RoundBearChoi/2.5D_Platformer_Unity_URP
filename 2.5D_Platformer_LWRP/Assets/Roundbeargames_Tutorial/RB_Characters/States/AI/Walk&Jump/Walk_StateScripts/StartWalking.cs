@@ -35,12 +35,18 @@ namespace roundbeargames_tutorial
             {
                 control.MoveRight = false;
                 control.MoveLeft = false;
+
+                if (control.aiProgress.pathfindingAgent.StartSphere.transform.position.y
+                    < control.aiProgress.pathfindingAgent.EndSphere.transform.position.y)
+                {
+                    animator.SetBool(AI_Walk_Transitions.jump_platform.ToString(), true);
+                }
             }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-
+            animator.SetBool(AI_Walk_Transitions.jump_platform.ToString(), false);
         }
     }
 }
