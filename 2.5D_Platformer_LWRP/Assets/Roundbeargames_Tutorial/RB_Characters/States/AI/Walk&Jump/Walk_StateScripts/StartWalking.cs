@@ -12,7 +12,7 @@ namespace roundbeargames_tutorial
         {
             CharacterControl control = characterState.GetCharacterControl(animator);
 
-            Vector3 dir = control.aiProgress.pathfindingAgent.StartPosition - control.transform.position;
+            Vector3 dir = control.aiProgress.pathfindingAgent.StartSphere.transform.position - control.transform.position;
 
             if (dir.z > 0f)
             {
@@ -29,9 +29,9 @@ namespace roundbeargames_tutorial
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             CharacterControl control = characterState.GetCharacterControl(animator);
-            Vector3 dist = control.aiProgress.pathfindingAgent.StartPosition - control.transform.position;
+            Vector3 dist = control.aiProgress.pathfindingAgent.StartSphere.transform.position - control.transform.position;
 
-            if (Vector3.SqrMagnitude(dist) < 0.5f)
+            if (Vector3.SqrMagnitude(dist) < 0.01f)
             {
                 control.MoveRight = false;
                 control.MoveLeft = false;

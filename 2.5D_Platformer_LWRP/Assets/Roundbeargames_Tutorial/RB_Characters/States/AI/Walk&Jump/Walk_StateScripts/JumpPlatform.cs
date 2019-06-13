@@ -36,7 +36,7 @@ namespace roundbeargames_tutorial
             float bottomDist = control.aiProgress.pathfindingAgent.EndSphere.transform.position.y
                 - control.FrontSpheres[0].transform.position.y;
 
-            if (topDist < 3f && bottomDist > 0.5f)
+            if (topDist < 1.5f && bottomDist > 0.5f)
             {
                 if (control.IsFacingForward())
                 {
@@ -56,6 +56,9 @@ namespace roundbeargames_tutorial
                 control.MoveLeft = false;
                 control.MoveUp = false;
                 control.Jump = false;
+
+                animator.gameObject.SetActive(false);
+                animator.gameObject.SetActive(true);
             }
         }
 
