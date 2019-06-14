@@ -31,15 +31,34 @@ namespace roundbeargames_tutorial
             CharacterControl control = characterState.GetCharacterControl(animator);
             Vector3 dist = control.aiProgress.pathfindingAgent.StartSphere.transform.position - control.transform.position;
 
-            if (Vector3.SqrMagnitude(dist) < 0.01f)
+            //jump
+            if (control.aiProgress.pathfindingAgent.StartSphere.transform.position.y
+                < control.aiProgress.pathfindingAgent.EndSphere.transform.position.y)
             {
-                control.MoveRight = false;
-                control.MoveLeft = false;
-
-                if (control.aiProgress.pathfindingAgent.StartSphere.transform.position.y
-                    < control.aiProgress.pathfindingAgent.EndSphere.transform.position.y)
+                if (Vector3.SqrMagnitude(dist) < 0.01f)
                 {
+                    control.MoveRight = false;
+                    control.MoveLeft = false;
+
                     animator.SetBool(AI_Walk_Transitions.jump_platform.ToString(), true);
+                }
+            }
+
+            //fall
+            if (control.aiProgress.pathfindingAgent.StartSphere.transform.position.y
+                > control.aiProgress.pathfindingAgent.EndSphere.transform.position.y)
+            {
+                animator.SetBool(AI_Walk_Transitions.fall_platform.ToString(), true);
+            }
+
+            //straight
+            if (control.aiProgress.pathfindingAgent.StartSphere.transform.position.y
+                == control.aiProgress.pathfindingAgent.EndSphere.transform.position.y)
+            {
+                if (Vector3.SqrMagnitude(dist) < 0.5f)
+                {
+                    control.MoveRight = false;
+                    control.MoveLeft = false;
                 }
             }
         }

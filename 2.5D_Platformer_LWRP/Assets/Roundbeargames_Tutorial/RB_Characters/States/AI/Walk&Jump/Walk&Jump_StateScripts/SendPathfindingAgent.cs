@@ -9,6 +9,7 @@ namespace roundbeargames_tutorial
     {
         start_walking,
         jump_platform,
+        fall_platform,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AI/SendPathfindingAgent")]
