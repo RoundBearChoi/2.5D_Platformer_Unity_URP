@@ -40,7 +40,11 @@ namespace roundbeargames_tutorial
 
             if (MoveRoutines.Count != 0)
             {
-                StopCoroutine(MoveRoutines[0]);
+                if (MoveRoutines[0] != null)
+                {
+                    StopCoroutine(MoveRoutines[0]);
+                }
+                
                 MoveRoutines.RemoveAt(0);
             }
 

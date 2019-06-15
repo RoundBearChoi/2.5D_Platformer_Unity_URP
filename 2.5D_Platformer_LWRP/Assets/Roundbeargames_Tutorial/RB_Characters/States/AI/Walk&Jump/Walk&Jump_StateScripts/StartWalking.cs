@@ -59,6 +59,13 @@ namespace roundbeargames_tutorial
                 {
                     control.MoveRight = false;
                     control.MoveLeft = false;
+
+                    Vector3 playerDist = control.transform.position - CharacterManager.Instance.GetPlayableCharacter().transform.position;
+                    if (playerDist.sqrMagnitude > 1f)
+                    {
+                        animator.gameObject.SetActive(false);
+                        animator.gameObject.SetActive(true);
+                    }
                 }
             }
         }
@@ -66,6 +73,7 @@ namespace roundbeargames_tutorial
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             animator.SetBool(AI_Walk_Transitions.jump_platform.ToString(), false);
+            animator.SetBool(AI_Walk_Transitions.fall_platform.ToString(), false);
         }
     }
 }
