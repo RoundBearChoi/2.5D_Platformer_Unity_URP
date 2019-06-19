@@ -28,5 +28,15 @@ namespace roundbeargames_tutorial
 
             return true;
         }
+
+        public static bool IsCharacter(GameObject obj)
+        {
+            if (obj.transform.root.GetComponent<CharacterControl>() == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
