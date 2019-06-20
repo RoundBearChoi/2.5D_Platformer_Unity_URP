@@ -3251,13 +3251,10 @@ MonoBehaviour:
   CurrentObjects:
   - {fileID: 6733678023405404914}
   - {fileID: 1500537850989289165}
-  - {fileID: 169267547}
   CurrentMaterials:
   - {fileID: 2100000, guid: 65af319b87610924c8542c5deb3a5dbb, type: 2}
   - {fileID: 2100000, guid: 21e8d65890be5194e847f91e246e5ad3, type: 2}
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   NewMaterials:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &7199473640884908302
