@@ -8,7 +8,8 @@ namespace roundbeargames_tutorial
     {
         public CharacterControl Attacker = null;
         public Attack AttackAbility;
-        public List<string> ColliderNames = new List<string>();
+        //public List<string> ColliderNames = new List<string>();
+        public List<AttackPartType> AttackParts = new List<AttackPartType>();
         public DeathType deathType;
         public bool MustCollide;
         public bool MustFaceAttacker;
@@ -31,7 +32,8 @@ namespace roundbeargames_tutorial
             isRegisterd = true;
 
             AttackAbility = attack;
-            ColliderNames = attack.ColliderNames;
+            //ColliderNames = attack.ColliderNames;
+            AttackParts = attack.AttackParts;
             deathType = attack.deathType;
             MustCollide = attack.MustCollide;
             MustFaceAttacker = attack.MustFaceAttacker;

@@ -4,13 +4,20 @@ using UnityEngine;
 
 namespace roundbeargames_tutorial
 {
+    public enum AttackPartType
+    {
+        LEFT_HAND,
+        RIGHT_HAND,
+    }
+
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/Attack")]
     public class Attack : StateData
     {
         public bool debug;
         public float StartAttackTime;
         public float EndAttackTime;
-        public List<string> ColliderNames = new List<string>();
+        //public List<string> ColliderNames = new List<string>();
+        public List<AttackPartType> AttackParts = new List<AttackPartType>();
         public DeathType deathType;
         public bool MustCollide;
         public bool MustFaceAttacker;
