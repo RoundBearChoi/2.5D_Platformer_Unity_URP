@@ -3213,8 +3213,6 @@ MonoBehaviour:
   animationProgress: {fileID: 0}
   aiProgress: {fileID: 0}
   damageDetector: {fileID: 0}
-  ColliderEdgePrefab: {fileID: 325421526767168362, guid: 993a9f90d75abcf4db19c4200aae23f1,
-    type: 3}
   BottomSpheres: []
   FrontSpheres: []
   GravityMultiplier: 0
