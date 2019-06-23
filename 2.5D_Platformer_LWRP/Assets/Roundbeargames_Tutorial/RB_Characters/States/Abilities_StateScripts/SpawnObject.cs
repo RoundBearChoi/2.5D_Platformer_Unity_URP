@@ -13,8 +13,6 @@ namespace roundbeargames_tutorial
         public string ParentObjectName = string.Empty;
         public bool StickToParent;
 
-        //private bool IsSpawned;
-
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             if (SpawnTiming == 0f)
@@ -54,6 +52,8 @@ namespace roundbeargames_tutorial
             }
 
             GameObject obj = PoolManager.Instance.GetObject(ObjectType);
+
+            Debug.Log("spawning " + ObjectType.ToString() + " | looking for: " + ParentObjectName);
 
             if (!string.IsNullOrEmpty(ParentObjectName))
             {
