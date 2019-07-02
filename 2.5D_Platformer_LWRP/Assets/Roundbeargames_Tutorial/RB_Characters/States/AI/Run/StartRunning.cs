@@ -16,11 +16,13 @@ namespace roundbeargames_tutorial
 
             if (dir.z > 0f)
             {
+                control.FaceForward(true);
                 control.MoveRight = true;
                 control.MoveLeft = false;
             }
             else
             {
+                control.FaceForward(false);
                 control.MoveRight = false;
                 control.MoveLeft = true;
             }
