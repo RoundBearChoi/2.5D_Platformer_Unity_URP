@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6533270916278947381}
   - component: {fileID: 805900648972588407}
+  - component: {fileID: 7960946531673232715}
   m_Layer: 0
   m_Name: Walk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6533270916278947381
 Transform:
   m_ObjectHideFlags: 0
@@ -50,6 +51,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7960946531673232715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373672236452697304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6c7a71d5489a44a9b4fe224749baa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiType: 0
 --- !u!1 &2608148862655655644
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,13 +74,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4885830615764256657}
   - component: {fileID: 4166367564425489361}
+  - component: {fileID: 1206804578314701801}
   m_Layer: 0
   m_Name: Run
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4885830615764256657
 Transform:
   m_ObjectHideFlags: 0
@@ -100,6 +115,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1206804578314701801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608148862655655644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6c7a71d5489a44a9b4fe224749baa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiType: 1
 --- !u!1 &4433946572002989342
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,6 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2140566996107035085}
   - component: {fileID: 379581518014384818}
+  - component: {fileID: 8980050495885635664}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -146,6 +175,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathfindingAgent: {fileID: 0}
+--- !u!114 &8980050495885635664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4433946572002989342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c736abaaced306f478dabe7949e96f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AIList: []
+  InitialAI: 1
 --- !u!1001 &2121292281329448675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -171,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.99
+      value: -2.58
       objectReference: {fileID: 0}
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
@@ -213,16 +256,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3726469961131861803, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.z
-      value: -0.035218135
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510165419609396255, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.z
-      value: -0.035218135
-      objectReference: {fileID: 0}
     - target: {fileID: 6241599199984373551, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -242,11 +275,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7074865538879599050, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.z
-      value: 0.00000026263297
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50f426c0cc43c0c43b72737d9fd8b1f2, type: 3}

@@ -39,9 +39,9 @@ namespace roundbeargames_tutorial
         public AnimationProgress animationProgress;
         public AIProgress aiProgress;
         public DamageDetector damageDetector;
-        //public GameObject ColliderEdgePrefab;
         public List<GameObject> BottomSpheres = new List<GameObject>();
         public List<GameObject> FrontSpheres = new List<GameObject>();
+        public AIController aiController;
 
         [Header("Gravity")]
         public float GravityMultiplier;
@@ -91,6 +91,7 @@ namespace roundbeargames_tutorial
             animationProgress = GetComponent<AnimationProgress>();
             aiProgress = GetComponentInChildren<AIProgress>();
             damageDetector = GetComponentInChildren<DamageDetector>();
+            aiController = GetComponentInChildren<AIController>();
 
             RegisterCharacter();
         }
