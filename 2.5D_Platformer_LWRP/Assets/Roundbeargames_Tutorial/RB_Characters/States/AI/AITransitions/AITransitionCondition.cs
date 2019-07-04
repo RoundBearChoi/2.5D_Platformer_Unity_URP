@@ -11,6 +11,7 @@ namespace roundbeargames_tutorial
         public enum AITransitionType
         {
             RUN_TO_WALK,
+            WALK_TO_RUN,
         }
 
         public AITransitionType aiTransition;
@@ -42,6 +43,15 @@ namespace roundbeargames_tutorial
                 Vector3 dist = control.aiProgress.pathfindingAgent.StartSphere.transform.position - control.transform.position;
 
                 if (Vector3.SqrMagnitude(dist) < 2f)
+                {
+                    return true;
+                }
+            }
+            else if (aiTransition == AITransitionType.WALK_TO_RUN)
+            {
+                Vector3 dist = control.aiProgress.pathfindingAgent.StartSphere.transform.position - control.transform.position;
+
+                if (Vector3.SqrMagnitude(dist) > 2f)
                 {
                     return true;
                 }
