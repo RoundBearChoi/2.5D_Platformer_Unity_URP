@@ -103,7 +103,10 @@ namespace roundbeargames_tutorial
                 control.FaceForward(false);
             }
 
-            control.MoveForward(Speed, Mathf.Abs(control.animationProgress.AirMomentum));
+            if (!CheckFront(control))
+            {
+                control.MoveForward(Speed, Mathf.Abs(control.animationProgress.AirMomentum));
+            }
         }
 
         private void ConstantMove(CharacterControl control, Animator animator, AnimatorStateInfo stateInfo)
