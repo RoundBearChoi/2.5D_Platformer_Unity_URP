@@ -51,7 +51,10 @@ namespace roundbeargames_tutorial
                 }
             }
 
-            next.gameObject.SetActive(true);
+            if (next != null)
+            {
+                next.gameObject.SetActive(true);
+            }
         }
     }
 }

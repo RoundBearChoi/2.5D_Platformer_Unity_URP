@@ -19,6 +19,9 @@ namespace roundbeargames_tutorial
         public List<Collider> CollidingParts = new List<Collider>();
         private CharacterControl owner;
 
+        public Vector3 LastPosition;
+        public Quaternion LastRotation;
+
         private void Awake()
         {
             owner = this.GetComponentInParent<CharacterControl>();

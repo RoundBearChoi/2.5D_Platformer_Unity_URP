@@ -153,16 +153,37 @@ namespace roundbeargames_tutorial
 
         public void TurnOnRagdoll()
         {
+            //change layers
+            Transform[] arr = GetComponentsInChildren<Transform>();
+            foreach(Transform t in arr)
+            {
+                t.gameObject.layer = LayerMask.NameToLayer(RB_Layers.DEADBODY.ToString());
+            }
+
+            //save bodypart positions
+            foreach (Collider c in RagdollParts)
+            {
+                TriggerDetector det = c.GetComponent<TriggerDetector>();
+                det.LastPosition = c.gameObject.transform.localPosition;
+                det.LastRotation = c.gameObject.transform.localRotation;
+            }
+
+            //turn off animator/avatar/etc
             RIGID_BODY.useGravity = false;
             RIGID_BODY.velocity = Vector3.zero;
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
             SkinnedMeshAnimator.enabled = false;
             SkinnedMeshAnimator.avatar = null;
 
+            //turn on ragdoll
             foreach(Collider c in RagdollParts)
             {
                 c.isTrigger = false;
                 c.attachedRigidbody.velocity = Vector3.zero;
+
+                TriggerDetector det = c.GetComponent<TriggerDetector>();
+                c.transform.localPosition = det.LastPosition;
+                c.transform.localRotation = det.LastRotation;
             }
         }
 
