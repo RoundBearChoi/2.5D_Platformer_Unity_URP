@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1319c599af80ffa4f81ee3968c75ba55, type: 3}
   m_Name: Ragdoll_FallingBack
   m_EditorClassIdentifier: 
-  TriggerTiming: 0.3
+  TriggerTiming: 0.275

@@ -242,9 +242,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &1629337477901173508
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -256,7 +256,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.27614462, y: 0.000000264448, z: 0.000000109499275}
+  m_ConnectedAnchor: {x: -0.27614462, y: 0.00000026444798, z: 0.00000022870857}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -317,6 +317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 2
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &533449084712250452
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,9 +402,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &2305079526707240710
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -475,6 +477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 2
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &983244032576361405
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,9 +652,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &525899230488404067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -678,6 +682,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 0
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1500537850989289165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,9 +1021,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &3726469961131861803
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1029,7 +1035,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.18760951, y: 0.222047, z: -0.035218373}
+  m_ConnectedAnchor: {x: -0.18760951, y: 0.222047, z: -0.035218254}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1091,6 +1097,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 0
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2372522707438696695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,9 +1148,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &3692781688583289903
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1154,7 +1162,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.27404684, y: 0.00000041728703, z: 0.00000017322597}
+  m_ConnectedAnchor: {x: -0.27404684, y: 0.000000417287, z: 0.000000054016674}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -1216,6 +1224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 2
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2442274907271564016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,9 +1432,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &3952820233486691949
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1436,7 +1446,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.09124453, y: -0.066564, z: -0.0005538515}
+  m_ConnectedAnchor: {x: 0.09124453, y: -0.06656406, z: -0.0005537323}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1498,6 +1508,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 1
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2851301061069850952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,9 +1778,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &2510165419609396255
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1842,6 +1854,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 0
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3540192980705348994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,9 +1904,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &2518298850263468378
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1904,7 +1918,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000012805019, y: 0.215689, z: -0.026496656}
+  m_ConnectedAnchor: {x: 0.0000012805019, y: 0.215689, z: -0.026496775}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1965,6 +1979,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 0
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4017604407762307548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,9 +2094,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &3106891042992530645
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -2092,7 +2108,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000011901354, y: 0.3871452, z: 0.023088798}
+  m_ConnectedAnchor: {x: -0.0000011901354, y: 0.3871452, z: 0.023088679}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -2153,6 +2169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 0
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4108322246768956694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,9 +2346,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &3284810136949030274
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -2342,7 +2360,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0024467986, y: -0.40595406, z: -0.0051703397}
+  m_ConnectedAnchor: {x: -0.0024467986, y: -0.40595406, z: -0.005170459}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -2404,6 +2422,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 3
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4958632402734358984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,9 +2844,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &5233113156182876578
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -2838,7 +2858,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.091244526, y: -0.066563986, z: -0.0005538565}
+  m_ConnectedAnchor: {x: -0.091244526, y: -0.066563986, z: -0.0005537373}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -2900,6 +2920,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 1
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6581218340109563093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,6 +3237,7 @@ MonoBehaviour:
   damageDetector: {fileID: 0}
   BottomSpheres: []
   FrontSpheres: []
+  aiController: {fileID: 0}
   GravityMultiplier: 0
   PullMultiplier: 0
   playableCharacterType: 1
@@ -3314,8 +3337,10 @@ MonoBehaviour:
   CameraShaken: 0
   SpawnedObjList: 
   AttackTriggered: 0
+  RagdollTriggered: 0
   MaxPressTime: 0.1
   disallowEarlyTurn: 0
+  AirMomentum: 0
 --- !u!114 &3396805944348958970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3567,9 +3592,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &7074865538879599050
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -3643,6 +3668,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 2
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8441897012437176547
 GameObject:
   m_ObjectHideFlags: 0
@@ -3840,9 +3867,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!144 &8061153003478474550
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -3854,7 +3881,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0024468026, y: -0.4059544, z: -0.005145379}
+  m_ConnectedAnchor: {x: 0.0024468026, y: -0.4059544, z: -0.0051452597}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3916,6 +3943,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalBodyPart: 3
   CollidingParts: []
+  LastPosition: {x: 0, y: 0, z: 0}
+  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8960232650471673630
 GameObject:
   m_ObjectHideFlags: 0

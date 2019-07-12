@@ -141,6 +141,8 @@ namespace roundbeargames_tutorial
                     {
                         c.isTrigger = true;
                         RagdollParts.Add(c);
+                        c.attachedRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+                        c.attachedRigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
                         if (c.GetComponent<TriggerDetector>() == null)
                         {
