@@ -28,7 +28,14 @@ namespace roundbeargames_tutorial
 
             if (control.Jump)
             {
-                animator.SetBool(TransitionParameter.Jump.ToString(), true);
+                if (!control.animationProgress.Jumped)
+                {
+                    animator.SetBool(TransitionParameter.Jump.ToString(), true);
+                }
+            }
+            else
+            {
+                control.animationProgress.Jumped = false;
             }
 
             if (control.MoveLeft && control.MoveRight)
