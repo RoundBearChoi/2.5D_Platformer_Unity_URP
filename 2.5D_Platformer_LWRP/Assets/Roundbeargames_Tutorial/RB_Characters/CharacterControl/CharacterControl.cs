@@ -118,15 +118,7 @@ namespace roundbeargames_tutorial
 
             return TriggerDetectors;
         }
-
-        /*private IEnumerator Start()
-        {
-            yield return new WaitForSeconds(5f);
-            RIGID_BODY.AddForce(200f * Vector3.up);
-            yield return new WaitForSeconds(0.5f);
-            TurnOnRagdoll();
-        }*/
-
+        
         public void SetRagdollParts()
         {
             RagdollParts.Clear();
@@ -142,7 +134,13 @@ namespace roundbeargames_tutorial
                         c.isTrigger = true;
                         RagdollParts.Add(c);
                         c.attachedRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
-                        c.attachedRigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+                        c.attachedRigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+
+                        CharacterJoint joint = c.GetComponent<CharacterJoint>();
+                        if (joint != null)
+                        {
+                            joint.enableProjection = true;
+                        }
 
                         if (c.GetComponent<TriggerDetector>() == null)
                         {
