@@ -15,6 +15,13 @@ namespace roundbeargames_tutorial
         public bool disallowEarlyTurn;
         public float AirMomentum;
 
+        [Header("UpdateBoxCollider")]
+        public bool UpdatingBoxCollider;
+        public Vector3 TargeSize;
+        public float Size_Speed;
+        public Vector3 TargetCenter;
+        public float Center_Speed;
+
         private CharacterControl control;
         private float PressTime;
 
