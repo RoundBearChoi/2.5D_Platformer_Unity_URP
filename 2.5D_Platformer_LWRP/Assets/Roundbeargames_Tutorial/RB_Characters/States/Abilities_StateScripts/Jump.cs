@@ -18,7 +18,7 @@ namespace roundbeargames_tutorial
             {
                 CharacterControl control = characterState.GetCharacterControl(animator);
 
-                characterState.GetCharacterControl(animator).RIGID_BODY.AddForce(Vector3.up * JumpForce);
+                control.RIGID_BODY.AddForce(Vector3.up * JumpForce);
                 control.animationProgress.Jumped = true;
             }
         }
@@ -30,7 +30,7 @@ namespace roundbeargames_tutorial
 
             if (!control.animationProgress.Jumped && stateInfo.normalizedTime >= JumpTiming)
             {
-                characterState.GetCharacterControl(animator).RIGID_BODY.AddForce(Vector3.up * JumpForce);
+                control.RIGID_BODY.AddForce(Vector3.up * JumpForce);
                 control.animationProgress.Jumped = true;
             }
         }

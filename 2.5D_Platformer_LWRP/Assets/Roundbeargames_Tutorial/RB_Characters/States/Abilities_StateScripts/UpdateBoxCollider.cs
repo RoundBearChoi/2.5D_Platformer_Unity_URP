@@ -18,7 +18,7 @@ namespace roundbeargames_tutorial
             CharacterControl control = characterState.GetCharacterControl(animator);
             control.animationProgress.UpdatingBoxCollider = true;
 
-            control.animationProgress.TargeSize = TargetSize;
+            control.animationProgress.TargetSize = TargetSize;
             control.animationProgress.Size_Speed = SizeUpdateSpeed;
 
             control.animationProgress.TargetCenter = TargetCenter;

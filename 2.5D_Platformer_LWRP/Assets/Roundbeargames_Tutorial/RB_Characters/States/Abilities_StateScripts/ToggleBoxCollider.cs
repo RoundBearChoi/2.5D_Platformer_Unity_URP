@@ -10,6 +10,8 @@ namespace roundbeargames_tutorial
         public bool On;
         public bool OnStart;
         public bool OnEnd;
+        [Space(10)]
+        public bool RepositionSpheres;
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
@@ -38,6 +40,12 @@ namespace roundbeargames_tutorial
         {
             control.RIGID_BODY.velocity = Vector3.zero;
             control.GetComponent<BoxCollider>().enabled = On;
+
+            if (RepositionSpheres)
+            {
+                control.Reposition_FrontSpheres();
+                control.Reposition_BottomSpheres();
+            }
         }
     }
 }
