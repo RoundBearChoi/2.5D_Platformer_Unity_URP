@@ -42,7 +42,20 @@ namespace roundbeargames_tutorial
         {
             if (control.RIGID_BODY.velocity.y > -0.001f && control.RIGID_BODY.velocity.y <= 0f)
             {
-                return true;
+                if (control.contactPoints != null)
+                {
+                    foreach (ContactPoint c in control.contactPoints)
+                    {
+                        float colliderBottom = (control.transform.position.y + control.boxCollider.center.y)
+                            - (control.boxCollider.size.y / 2f);
+                        float yDifference = Mathf.Abs(c.point.y - colliderBottom);
+
+                        if (yDifference < 0.01f)
+                        {
+                            return true;
+                        }
+                    }
+                }
             }
 
             if (control.RIGID_BODY.velocity.y < 0f)
