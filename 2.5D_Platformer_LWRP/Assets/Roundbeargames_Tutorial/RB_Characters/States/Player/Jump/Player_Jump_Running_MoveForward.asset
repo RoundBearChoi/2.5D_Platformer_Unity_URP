@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b16b91d0c5247b442a689768502f9a3b, type: 3}
-  m_Name: Player_Jump_Normal_MoveForward
+  m_Name: Player_Jump_Running_MoveForward
   m_EditorClassIdentifier: 
   AllowEarlyTurn: 0
   LockDirection: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   Speed: 1.65
   BlockDistance: 0.1
-  StartingMomentum: 0
+  StartingMomentum: 1.5
   UseMomentum: 1
-  MaxMomentum: 2.6
-  ClearMomentumOnExit: 1
+  MaxMomentum: 3
+  ClearMomentumOnExit: 0
