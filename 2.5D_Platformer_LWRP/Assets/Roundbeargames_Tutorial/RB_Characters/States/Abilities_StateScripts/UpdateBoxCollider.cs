@@ -7,11 +7,11 @@ namespace roundbeargames_tutorial
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/UpdateBoxCollider")]
     public class UpdateBoxCollider : StateData
     {
-        public Vector3 TargetSize;
-        public float SizeUpdateSpeed;
-
         public Vector3 TargetCenter;
         public float CenterUpdateSpeed;
+        [Space(10)]
+        public Vector3 TargetSize;
+        public float SizeUpdateSpeed;
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
