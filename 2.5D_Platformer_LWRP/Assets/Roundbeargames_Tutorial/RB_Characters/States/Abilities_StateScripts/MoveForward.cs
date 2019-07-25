@@ -15,8 +15,8 @@ namespace roundbeargames_tutorial
         public float BlockDistance;
 
         [Header("Momentum")]
-        public float StartingMomentum;
         public bool UseMomentum;
+        public float StartingMomentum;
         public float MaxMomentum;
         public bool ClearMomentumOnExit;
 
@@ -90,6 +90,13 @@ namespace roundbeargames_tutorial
 
         private void UpdateMomentum(CharacterControl control, AnimatorStateInfo stateInfo)
         {
+            if (control.animationProgress.FrameUpdated)
+            {
+                return;
+            }
+
+            control.animationProgress.FrameUpdated = true;
+
             if (control.MoveRight)
             {
                 control.animationProgress.AirMomentum += SpeedGraph.Evaluate(stateInfo.normalizedTime) * Speed * Time.deltaTime;

@@ -13,7 +13,10 @@ namespace roundbeargames_tutorial
         public bool RagdollTriggered;
         public float MaxPressTime;
         public bool disallowEarlyTurn;
+
+        [Header("AirControl")]
         public float AirMomentum;
+        public bool FrameUpdated;
 
         [Header("UpdateBoxCollider")]
         public bool UpdatingBoxCollider;
@@ -55,6 +58,11 @@ namespace roundbeargames_tutorial
             {
                 AttackTriggered = true;
             }
+        }
+
+        private void LateUpdate()
+        {
+            FrameUpdated = false;
         }
     }
 }
