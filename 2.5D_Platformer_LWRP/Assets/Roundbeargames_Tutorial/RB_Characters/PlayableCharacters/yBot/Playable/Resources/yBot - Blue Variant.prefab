@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6533270916278947381
 Transform:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4885830615764256657
 Transform:
   m_ObjectHideFlags: 0
@@ -256,10 +256,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2518298850263468378, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.000001280502
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518298850263468378, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.21568888
+      objectReference: {fileID: 0}
     - target: {fileID: 3726469961131861803, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: 0.22204724
+      objectReference: {fileID: 0}
+    - target: {fileID: 3952820233486691949, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.06656382
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510165419609396255, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.22204676
       objectReference: {fileID: 0}
     - target: {fileID: 3106891042992530645, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
@@ -280,6 +300,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 0.00000017322597
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284810136949030274, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.40595418
       objectReference: {fileID: 0}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}

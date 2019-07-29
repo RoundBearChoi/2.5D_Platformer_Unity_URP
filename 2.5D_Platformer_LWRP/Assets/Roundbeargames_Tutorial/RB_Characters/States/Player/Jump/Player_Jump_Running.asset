@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player_Jump_Running
   m_EditorClassIdentifier: 
   JumpTiming: 0
-  JumpForce: 470
+  JumpForce: 440
   Pull:
     serializedVersion: 2
     m_Curve:

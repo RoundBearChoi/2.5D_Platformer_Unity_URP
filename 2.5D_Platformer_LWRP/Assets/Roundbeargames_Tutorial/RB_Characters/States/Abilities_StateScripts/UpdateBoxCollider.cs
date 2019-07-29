@@ -12,6 +12,8 @@ namespace roundbeargames_tutorial
         [Space(10)]
         public Vector3 TargetSize;
         public float SizeUpdateSpeed;
+        [Space(10)]
+        public bool KeepUpdating;
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
@@ -33,7 +35,11 @@ namespace roundbeargames_tutorial
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             CharacterControl control = characterState.GetCharacterControl(animator);
-            control.animationProgress.UpdatingBoxCollider = false;
+
+            if (!KeepUpdating)
+            {
+                control.animationProgress.UpdatingBoxCollider = false;
+            }
         }
     }
 }
