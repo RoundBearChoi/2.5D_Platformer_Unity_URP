@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace roundbeargames_tutorial
 {
@@ -43,6 +44,7 @@ namespace roundbeargames_tutorial
         public List<GameObject> FrontSpheres = new List<GameObject>();
         public AIController aiController;
         public BoxCollider boxCollider;
+        public NavMeshObstacle navMeshObstacle;
 
         [Header("Gravity")]
         public float GravityMultiplier;
@@ -80,6 +82,7 @@ namespace roundbeargames_tutorial
             damageDetector = GetComponentInChildren<DamageDetector>();
             aiController = GetComponentInChildren<AIController>();
             boxCollider = GetComponent<BoxCollider>();
+            navMeshObstacle = GetComponent<NavMeshObstacle>();
 
             SetColliderSpheres();
             RegisterCharacter();

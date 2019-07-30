@@ -17,6 +17,8 @@ namespace roundbeargames_tutorial
         public GameObject EndSphere;
         public bool StartWalk;
 
+        public CharacterControl owner = null;
+
         private void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
@@ -57,6 +59,8 @@ namespace roundbeargames_tutorial
             {
                 if (navMeshAgent.isOnOffMeshLink)
                 {
+                    owner.navMeshObstacle.carving = true;
+
                     StartSphere.transform.position = navMeshAgent.currentOffMeshLinkData.startPos;
                     EndSphere.transform.position = navMeshAgent.currentOffMeshLinkData.endPos;
 
@@ -70,6 +74,11 @@ namespace roundbeargames_tutorial
                 Vector3 dist = transform.position - navMeshAgent.destination;
                 if (Vector3.SqrMagnitude(dist) < 0.5f)
                 {
+                    if (Vector3.SqrMagnitude(owner.transform.position - navMeshAgent.destination) > 1f)
+                    {
+                        owner.navMeshObstacle.carving = true;
+                    }
+
                     StartSphere.transform.position = navMeshAgent.destination;
                     EndSphere.transform.position = navMeshAgent.destination;
 
