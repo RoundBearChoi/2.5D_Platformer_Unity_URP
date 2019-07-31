@@ -2,10 +2,10 @@
 
 **Installing:**
 
-**(Make sure you're using Unity 2019.1)**
+**(Make sure you're using Unity 2019.2)**
 
 1. "Download ZIP" and open project in Unity
-2. Open "TutorialScene"
+2. Open "TutorialScene" (Under "LatestScene")
 
 ----
 
@@ -13,14 +13,14 @@ You can also download Unity packages for every video.
 
 https://drive.google.com/drive/folders/1BSFUbX4dAl1dGKvQQBMetVqmlrvhJVki?usp=sharing
 
-Create a brand new project (a Lightweight RP Template) and import the package
+Create a brand new project (Lightweight RP Template) and import the package
 (Assets -> Import Package -> Custom Package)
 
 ----
 
 **Social**
 
-youtube: https://youtube.com/channel/UCAoJgVzDHnFDOQwC42raByg
+youtube: https://youtube.com/roundbeargames
 
 discord: https://discord.gg/RbxjBu3
 
@@ -37,3 +37,9 @@ reddit: https://www.reddit.com/user/roundbeargames
 **Blog**
 
 https://steemit.com/@roundbeargames
+
+----
+
+**Support Roundbeargames**
+
+https://patreon.com/roundbeargames
