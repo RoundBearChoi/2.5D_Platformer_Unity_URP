@@ -176,11 +176,12 @@ namespace roundbeargames_tutorial
             foreach(Collider c in RagdollParts)
             {
                 c.isTrigger = false;
-                c.attachedRigidbody.velocity = Vector3.zero;
 
                 TriggerDetector det = c.GetComponent<TriggerDetector>();
                 c.transform.localPosition = det.LastPosition;
                 c.transform.localRotation = det.LastRotation;
+
+                c.attachedRigidbody.velocity = Vector3.zero;
             }
         }
 
