@@ -20,7 +20,7 @@ Create a brand new project (a Lightweight RP Template) and import the package
 
 **Social**
 
-youtube: https://youtube.com/channel/UCAoJgVzDHnFDOQwC42raByg
+youtube: https://youtube.com/roundbeargames
 
 discord: https://discord.gg/RbxjBu3
 
