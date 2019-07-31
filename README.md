@@ -13,7 +13,7 @@ You can also download Unity packages for every video.
 
 https://drive.google.com/drive/folders/1BSFUbX4dAl1dGKvQQBMetVqmlrvhJVki?usp=sharing
 
-Create a brand new project (a Lightweight RP Template) and import the package
+Create a brand new project (Lightweight RP Template) and import the package
 (Assets -> Import Package -> Custom Package)
 
 ----
