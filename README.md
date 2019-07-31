@@ -37,3 +37,9 @@ reddit: https://www.reddit.com/user/roundbeargames
 **Blog**
 
 https://steemit.com/@roundbeargames
+
+----
+
+**Support Roundbeargames**
+
+https://patreon.com/roundbeargames
