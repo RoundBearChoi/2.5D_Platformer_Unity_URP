@@ -22,16 +22,19 @@ namespace roundbeargames_tutorial
             {
                 if (!control.animationProgress.RagdollTriggered)
                 {
-                    control.TurnOnRagdoll();
-                    control.animationProgress.RagdollTriggered = true;
+                    //control.TurnOnRagdoll();
+                    if (control.SkinnedMeshAnimator.enabled)
+                    {
+                        control.animationProgress.RagdollTriggered = true;
+                    }
                 }
             }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
-            control.animationProgress.RagdollTriggered = false;
+            //CharacterControl control = characterState.GetCharacterControl(animator);
+            //control.animationProgress.RagdollTriggered = false;
         }
     }
 }

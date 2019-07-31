@@ -295,6 +295,12 @@ namespace roundbeargames_tutorial
                 Reposition_FrontSpheres();
                 Reposition_BottomSpheres();
             }
+
+            if (animationProgress.RagdollTriggered)
+            {
+                TurnOnRagdoll();
+                animationProgress.RagdollTriggered = false;
+            }
         }
         
         public void MoveForward(float Speed, float SpeedGraph)

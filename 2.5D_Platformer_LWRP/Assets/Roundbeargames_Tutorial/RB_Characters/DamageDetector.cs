@@ -133,6 +133,7 @@ namespace roundbeargames_tutorial
             control.GetComponent<BoxCollider>().enabled = false;
             control.ledgeChecker.GetComponent<BoxCollider>().enabled = false;
             control.RIGID_BODY.useGravity = false;
+            control.navMeshObstacle.carving = false;
 
             DamageTaken++;
         }
