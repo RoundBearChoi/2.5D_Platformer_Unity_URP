@@ -9,6 +9,7 @@ namespace roundbeargames_tutorial
     {
         public bool AllowEarlyTurn;
         public bool LockDirection;
+        public bool LockDirectionNextState;
         public bool Constant;
         public AnimationCurve SpeedGraph;
         public float Speed;
@@ -26,18 +27,18 @@ namespace roundbeargames_tutorial
 
             if (AllowEarlyTurn && !control.animationProgress.disallowEarlyTurn)
             {
-                if (control.MoveLeft)
+                if (!control.animationProgress.LockDirectionNextState)
                 {
-                    control.FaceForward(false);
-                }
-                if (control.MoveRight)
-                {
-                    control.FaceForward(true);
+                    if (control.MoveLeft)
+                    {
+                        control.FaceForward(false);
+                    }
+                    if (control.MoveRight)
+                    {
+                        control.FaceForward(true);
+                    }
                 }
             }
-
-            control.animationProgress.disallowEarlyTurn = false;
-            //control.animationProgress.AirMomentum = 0f;
 
             if (StartingMomentum > 0.001f)
             {
@@ -50,11 +51,23 @@ namespace roundbeargames_tutorial
                     control.animationProgress.AirMomentum = -StartingMomentum;
                 }
             }
+
+            control.animationProgress.disallowEarlyTurn = false;
+            control.animationProgress.LockDirectionNextState = false;
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             CharacterControl control = characterState.GetCharacterControl(animator);
+
+            control.animationProgress.LockDirectionNextState = LockDirectionNextState;
+
+            if (control.animationProgress.FrameUpdated)
+            {
+                return;
+            }
+
+            control.animationProgress.FrameUpdated = true;
 
             if (control.Jump)
             {
@@ -90,13 +103,6 @@ namespace roundbeargames_tutorial
 
         private void UpdateMomentum(CharacterControl control, AnimatorStateInfo stateInfo)
         {
-            if (control.animationProgress.FrameUpdated)
-            {
-                return;
-            }
-
-            control.animationProgress.FrameUpdated = true;
-
             if (control.MoveRight)
             {
                 control.animationProgress.AirMomentum += SpeedGraph.Evaluate(stateInfo.normalizedTime) * Speed * Time.deltaTime;

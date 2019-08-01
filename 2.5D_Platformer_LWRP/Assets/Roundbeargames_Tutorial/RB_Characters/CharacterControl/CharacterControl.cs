@@ -278,14 +278,17 @@ namespace roundbeargames_tutorial
 
         private void FixedUpdate()
         {
-            if (RIGID_BODY.velocity.y < 0f)
+            if (!animationProgress.CancelPull)
             {
-                RIGID_BODY.velocity += (-Vector3.up * GravityMultiplier);
-            }
+                if (RIGID_BODY.velocity.y < 0f)
+                {
+                    RIGID_BODY.velocity += (-Vector3.up * GravityMultiplier);
+                }
 
-            if (RIGID_BODY.velocity.y > 0f && !Jump)
-            {
-                RIGID_BODY.velocity += (-Vector3.up * PullMultiplier);
+                if (RIGID_BODY.velocity.y > 0f && !Jump)
+                {
+                    RIGID_BODY.velocity += (-Vector3.up * PullMultiplier);
+                }
             }
 
             animationProgress.UpdatingSpheres = false;
