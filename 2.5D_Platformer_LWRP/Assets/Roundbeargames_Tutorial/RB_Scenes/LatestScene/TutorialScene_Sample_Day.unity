@@ -3915,7 +3915,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944571762}
-  m_LocalRotation: {x: 0.04822972, y: -0.683817, z: 0.045386605, w: 0.72664183}
+  m_LocalRotation: {x: 0.048229717, y: -0.683817, z: 0.0453866, w: 0.72664183}
   m_LocalPosition: {x: 15.000002, y: -12.136392, z: 0.043503724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8324,6 +8324,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: yBot - Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123643216722809885, guid: c24ecf896a9f1dc40904a24f03f4d4d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9121508171078132951, guid: c24ecf896a9f1dc40904a24f03f4d4d8,
         type: 3}

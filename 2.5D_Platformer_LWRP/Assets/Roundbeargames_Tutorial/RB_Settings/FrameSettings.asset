@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae2dc4b29bed134890535ab07f1160f, type: 3}
   m_Name: FrameSettings
   m_EditorClassIdentifier: 
-  TimeScale: 0.5
+  TimeScale: 1
   TargetFPS: 200
