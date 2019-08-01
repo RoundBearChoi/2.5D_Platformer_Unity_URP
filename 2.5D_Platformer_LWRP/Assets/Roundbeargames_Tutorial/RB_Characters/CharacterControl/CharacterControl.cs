@@ -57,6 +57,8 @@ namespace roundbeargames_tutorial
         public List<Collider> RagdollParts = new List<Collider>();
         public GameObject LeftHand_Attack;
         public GameObject RightHand_Attack;
+        public GameObject LeftFoot_Attack;
+        public GameObject RightFoot_Attack;
 
         private List<TriggerDetector> TriggerDetectors = new List<TriggerDetector>();
         private Dictionary<string, GameObject> ChildObjects = new Dictionary<string, GameObject>();

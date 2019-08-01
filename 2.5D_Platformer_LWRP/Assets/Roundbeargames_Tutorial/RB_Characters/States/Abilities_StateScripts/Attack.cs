@@ -8,6 +8,9 @@ namespace roundbeargames_tutorial
     {
         LEFT_HAND,
         RIGHT_HAND,
+
+        LEFT_FOOT,
+        RIGHT_FOOT,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/Attack")]
@@ -16,7 +19,6 @@ namespace roundbeargames_tutorial
         public bool debug;
         public float StartAttackTime;
         public float EndAttackTime;
-        //public List<string> ColliderNames = new List<string>();
         public List<AttackPartType> AttackParts = new List<AttackPartType>();
         public DeathType deathType;
         public bool MustCollide;
@@ -106,7 +108,6 @@ namespace roundbeargames_tutorial
                     CharacterControl control = characterState.GetCharacterControl(animator);
                     if (control.animationProgress.AttackTriggered /*control.Attack*/)
                     {
-                        //Debug.Log("uppercut triggered");
                         animator.SetBool(TransitionParameter.Attack.ToString(), true);
                     }
                 }
