@@ -442,12 +442,12 @@ PrefabInstance:
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.39
+      value: -0.53
       objectReference: {fileID: 0}
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.38
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
@@ -2325,8 +2325,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.048358336, y: -0.6817509, z: 0.04524954, w: 0.7285806}
-  m_LocalPosition: {x: 15.000002, y: 2.8236084, z: 0.3535037}
+  m_LocalRotation: {x: 0.048358344, y: -0.6817509, z: 0.04524954, w: 0.7285806}
+  m_LocalPosition: {x: 15.000002, y: 2.6836085, z: 0.043503724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3164,8 +3164,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765881197}
-  m_LocalRotation: {x: 0.048358336, y: -0.6817509, z: 0.04524954, w: 0.7285806}
-  m_LocalPosition: {x: 15.000002, y: 2.8236084, z: 0.3535037}
+  m_LocalRotation: {x: 0.048358344, y: -0.6817509, z: 0.04524954, w: 0.7285806}
+  m_LocalPosition: {x: 15.000002, y: 2.6836085, z: 0.043503724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 235685964}
@@ -3925,8 +3925,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944571762}
-  m_LocalRotation: {x: 0.048358392, y: -0.6817509, z: 0.04524948, w: 0.7285806}
-  m_LocalPosition: {x: 15.000002, y: 2.8236084, z: 0.3535037}
+  m_LocalRotation: {x: 0.048358377, y: -0.6817509, z: 0.045249455, w: 0.7285806}
+  m_LocalPosition: {x: 15.000002, y: 2.6836085, z: 0.043503724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 996595908}
