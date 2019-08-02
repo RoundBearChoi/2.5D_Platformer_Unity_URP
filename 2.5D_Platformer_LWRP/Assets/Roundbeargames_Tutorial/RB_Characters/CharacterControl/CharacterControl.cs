@@ -321,6 +321,11 @@ namespace roundbeargames_tutorial
                 return;
             }
 
+            if (!SkinnedMeshAnimator.enabled)
+            {
+                return;
+            }
+
             if (forward)
             {
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
