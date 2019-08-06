@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace roundbeargames_tutorial
+namespace Roundbeargames
 {
     public class KeyboardInput : MonoBehaviour
     {
         void Update()
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(VirtualInputManager.Instance.DicKeys[InputKeyType.KEY_TURBO]))
             {
                 VirtualInputManager.Instance.Turbo = true;
             }
@@ -17,7 +17,7 @@ namespace roundbeargames_tutorial
                 VirtualInputManager.Instance.Turbo = false;
             }
 
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(VirtualInputManager.Instance.DicKeys[InputKeyType.KEY_MOVE_UP]))
             {
                 VirtualInputManager.Instance.MoveUp = true;
             }
@@ -26,7 +26,7 @@ namespace roundbeargames_tutorial
                 VirtualInputManager.Instance.MoveUp = false;
             }
 
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(VirtualInputManager.Instance.DicKeys[InputKeyType.KEY_MOVE_DOWN]))
             {
                 VirtualInputManager.Instance.MoveDown = true;
             }
@@ -35,7 +35,7 @@ namespace roundbeargames_tutorial
                 VirtualInputManager.Instance.MoveDown = false;
             }
 
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(VirtualInputManager.Instance.DicKeys[InputKeyType.KEY_MOVE_RIGHT]))
             {
                 VirtualInputManager.Instance.MoveRight = true;
             }
@@ -44,7 +44,7 @@ namespace roundbeargames_tutorial
                 VirtualInputManager.Instance.MoveRight = false;
             }
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(VirtualInputManager.Instance.DicKeys[InputKeyType.KEY_MOVE_LEFT]))
             {
                 VirtualInputManager.Instance.MoveLeft = true;
             }
@@ -53,7 +53,7 @@ namespace roundbeargames_tutorial
                 VirtualInputManager.Instance.MoveLeft = false;
             }
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(VirtualInputManager.Instance.DicKeys[InputKeyType.KEY_JUMP]))
             {
                 VirtualInputManager.Instance.Jump = true;
             }
@@ -62,7 +62,7 @@ namespace roundbeargames_tutorial
                 VirtualInputManager.Instance.Jump = false;
             }
 
-            if (Input.GetKey(KeyCode.Return))
+            if (Input.GetKey(VirtualInputManager.Instance.DicKeys[InputKeyType.KEY_ATTACK]))
             {
                 VirtualInputManager.Instance.Attack = true;
             }

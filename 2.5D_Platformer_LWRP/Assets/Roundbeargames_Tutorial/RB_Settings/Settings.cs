@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace roundbeargames_tutorial
+namespace Roundbeargames
 {
     public class Settings : MonoBehaviour
     {
@@ -21,6 +21,10 @@ namespace roundbeargames_tutorial
             //Physics
             Debug.Log("Default Solver Velocity Iterations: " + physicsSettings.DefaultSolverVelocityIterations);
             Physics.defaultSolverVelocityIterations = physicsSettings.DefaultSolverVelocityIterations;
+
+            //Default Keys
+            Debug.Log("setting default key bindings");
+            VirtualInputManager.Instance.SetDefaultKeys();
         }
     }
 }

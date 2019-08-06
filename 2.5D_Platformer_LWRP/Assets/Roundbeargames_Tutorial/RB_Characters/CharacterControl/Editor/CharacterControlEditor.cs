@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace roundbeargames_tutorial
+namespace Roundbeargames
 {
     [CustomEditor(typeof(CharacterControl))]
     public class CharacterControlEditor : Editor

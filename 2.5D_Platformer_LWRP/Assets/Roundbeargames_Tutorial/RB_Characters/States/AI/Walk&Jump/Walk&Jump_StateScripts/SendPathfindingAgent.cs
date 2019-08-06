@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace roundbeargames_tutorial
+namespace Roundbeargames
 {
     public enum AI_Walk_Transitions
     {
