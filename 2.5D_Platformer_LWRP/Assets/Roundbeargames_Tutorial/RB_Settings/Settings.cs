@@ -23,8 +23,9 @@ namespace Roundbeargames
             Physics.defaultSolverVelocityIterations = physicsSettings.DefaultSolverVelocityIterations;
 
             //Default Keys
-            Debug.Log("setting default key bindings");
-            VirtualInputManager.Instance.SetDefaultKeys();
+            Debug.Log("loading key bindings");
+            VirtualInputManager.Instance.LoadKeys();
+            //VirtualInputManager.Instance.SetDefaultKeys();
         }
     }
 }

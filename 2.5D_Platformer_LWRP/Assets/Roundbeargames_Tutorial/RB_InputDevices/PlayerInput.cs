@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    public class KeyboardInput : MonoBehaviour
+    public class PlayerInput : MonoBehaviour
     {
+        public SavedKeys savedKeys;
+
         void Update()
         {
             if (Input.GetKey(VirtualInputManager.Instance.DicKeys[InputKeyType.KEY_TURBO]))

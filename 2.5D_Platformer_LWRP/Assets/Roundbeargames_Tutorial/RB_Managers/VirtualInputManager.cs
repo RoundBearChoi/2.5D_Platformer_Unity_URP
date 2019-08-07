@@ -18,6 +18,7 @@ namespace Roundbeargames
 
     public class VirtualInputManager : Singleton<VirtualInputManager>
     {
+        public PlayerInput playerInput;
         public bool Turbo;
         public bool MoveUp;
         public bool MoveDown;
@@ -44,6 +45,45 @@ namespace Roundbeargames
         private void Awake()
         {
             PossibleKeys = System.Enum.GetValues(typeof(KeyCode)) as KeyCode[];
+
+            GameObject obj = Instantiate(Resources.Load("PlayerInput", typeof(GameObject))) as GameObject;
+            playerInput = obj.GetComponent<PlayerInput>();
+        }
+
+        public void LoadKeys()
+        {
+            if (playerInput.savedKeys.KeyCodesList.Count > 0)
+            {
+                foreach(KeyCode k in playerInput.savedKeys.KeyCodesList)
+                {
+                    if (k == KeyCode.None)
+                    {
+                        SetDefaultKeys();
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                SetDefaultKeys();
+            }
+
+            for (int i = 0; i < playerInput.savedKeys.KeyCodesList.Count; i++)
+            {
+                DicKeys[(InputKeyType)i] = playerInput.savedKeys.KeyCodesList[i];
+            }
+        }
+
+        public void SaveKeys()
+        {
+            playerInput.savedKeys.KeyCodesList.Clear();
+
+            int count = System.Enum.GetValues(typeof(InputKeyType)).Length;
+
+            for (int i = 0; i < count; i++)
+            {
+                playerInput.savedKeys.KeyCodesList.Add(DicKeys[(InputKeyType)i]);
+            }
         }
 
         public void SetDefaultKeys()
@@ -58,14 +98,16 @@ namespace Roundbeargames
             DicKeys.Add(InputKeyType.KEY_JUMP,          KeyCode.Space);
             DicKeys.Add(InputKeyType.KEY_ATTACK,        KeyCode.Return);
             DicKeys.Add(InputKeyType.KEY_TURBO,         KeyCode.LeftShift);
+
+            SaveKeys();
         }
 
         private void Update()
         {
-            if (!UseCustomKeys)
-            {
-                return;
-            }
+            //if (!UseCustomKeys)
+            //{
+            //    return;
+            //}
 
             if (UseCustomKeys)
             {
@@ -139,6 +181,8 @@ namespace Roundbeargames
             {
                 DicKeys[inputKey] = key;
             }
+
+            SaveKeys();
         }
 
         bool KeyIsChanged(InputKeyType inputKey)
