@@ -39,9 +39,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.16243768
+  m_TransitionDuration: 0.18239123
   m_TransitionOffset: 0
-  m_ExitTime: 0.95028
+  m_ExitTime: 0.92926645
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1922,7 +1922,7 @@ AnimatorStateMachine:
     m_Position: {x: 970, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4900762530811470566}
-    m_Position: {x: 480, y: 60, z: 0}
+    m_Position: {x: 360, y: -100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7583543665899619274}
     m_Position: {x: 840, y: 100, z: 0}
@@ -2273,8 +2273,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CrossPunch
-  m_Speed: 2.3
+  m_Name: MMAKick
+  m_Speed: 1.45
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -8828216907328572472}
@@ -2288,7 +2288,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 08a5bce48f7282d489d88f7a223c035c,
+  m_Motion: {fileID: -203655887218126122, guid: a838e95e472e2ff469378b4e8c356e47,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
