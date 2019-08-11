@@ -15,8 +15,8 @@ namespace Roundbeargames
         {
             if (OnStart)
             {
-                CharacterControl control = characterState.GetCharacterControl(animator);
-                ToggleGrav(control);
+                //CharacterControl control = characterState.GetCharacterControl(animator);
+                ToggleGrav(characterState.characterControl);
             }
         }
 
@@ -29,8 +29,8 @@ namespace Roundbeargames
         {
             if (OnEnd)
             {
-                CharacterControl control = characterState.GetCharacterControl(animator);
-                ToggleGrav(control);
+                //CharacterControl control = characterState.GetCharacterControl(animator);
+                ToggleGrav(characterState.characterControl);
             }
         }
 

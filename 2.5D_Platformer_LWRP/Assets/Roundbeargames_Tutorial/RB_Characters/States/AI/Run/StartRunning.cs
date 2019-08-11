@@ -10,41 +10,44 @@ namespace Roundbeargames
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
-            Vector3 dir = control.aiProgress.pathfindingAgent.StartSphere.transform.position - control.transform.position;
+            Vector3 dir = characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position 
+                - characterState.characterControl.transform.position;
 
             if (dir.z > 0f)
             {
-                control.FaceForward(true);
-                control.MoveRight = true;
-                control.MoveLeft = false;
+                characterState.characterControl.FaceForward(true);
+                characterState.characterControl.MoveRight = true;
+                characterState.characterControl.MoveLeft = false;
             }
             else
             {
-                control.FaceForward(false);
-                control.MoveRight = false;
-                control.MoveLeft = true;
+                characterState.characterControl.FaceForward(false);
+                characterState.characterControl.MoveRight = false;
+                characterState.characterControl.MoveLeft = true;
             }
 
-            Vector3 dist = control.aiProgress.pathfindingAgent.StartSphere.transform.position - control.transform.position;
+            Vector3 dist = characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position 
+                - characterState.characterControl.transform.position;
 
             if (Vector3.SqrMagnitude(dist) > 2f)
             {
-                control.Turbo = true;
+                characterState.characterControl.Turbo = true;
             }
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
-            Vector3 dist = control.aiProgress.pathfindingAgent.StartSphere.transform.position - control.transform.position;
+            //CharacterControl control = characterState.GetCharacterControl(animator);
+            Vector3 dist = characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position 
+                - characterState.characterControl.transform.position;
 
             if (Vector3.SqrMagnitude(dist) < 2f)
             {
-                control.MoveRight = false;
-                control.MoveLeft = false;
-                control.Turbo = false;
+                characterState.characterControl.MoveRight = false;
+                characterState.characterControl.MoveLeft = false;
+                characterState.characterControl.Turbo = false;
             }
         }
 

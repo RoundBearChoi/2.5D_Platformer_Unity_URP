@@ -88,6 +88,17 @@ namespace Roundbeargames
 
             SetColliderSpheres();
             RegisterCharacter();
+            CacheCharacterControl(SkinnedMeshAnimator);
+        }
+
+        public void CacheCharacterControl(Animator animator)
+        {
+            CharacterState[] arr = animator.GetBehaviours<CharacterState>();
+
+            foreach(CharacterState c in arr)
+            {
+                c.characterControl = this;
+            }
         }
 
         private void OnCollisionStay(Collision collision)

@@ -10,52 +10,52 @@ namespace Roundbeargames
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
-            control.Jump = true;
-            control.MoveUp = true;
+            characterState.characterControl.Jump = true;
+            characterState.characterControl.MoveUp = true;
 
-            if(control.aiProgress.pathfindingAgent.StartSphere.transform.position.z
-               < control.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
+            if(characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position.z
+               < characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
             {
-                control.FaceForward(true);
+                characterState.characterControl.FaceForward(true);
             }
             else
             {
-                control.FaceForward(false);
+                characterState.characterControl.FaceForward(false);
             }
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
-            float topDist = control.aiProgress.pathfindingAgent.EndSphere.transform.position.y
-                - control.FrontSpheres[1].transform.position.y;
+            float topDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y
+                - characterState.characterControl.FrontSpheres[1].transform.position.y;
 
-            float bottomDist = control.aiProgress.pathfindingAgent.EndSphere.transform.position.y
-                - control.FrontSpheres[0].transform.position.y;
+            float bottomDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y
+                - characterState.characterControl.FrontSpheres[0].transform.position.y;
 
             if (topDist < 1.5f && bottomDist > 0.5f)
             {
-                if (control.IsFacingForward())
+                if (characterState.characterControl.IsFacingForward())
                 {
-                    control.MoveRight = true;
-                    control.MoveLeft = false;
+                    characterState.characterControl.MoveRight = true;
+                    characterState.characterControl.MoveLeft = false;
                 }
                 else
                 {
-                    control.MoveRight = false;
-                    control.MoveLeft = true;
+                    characterState.characterControl.MoveRight = false;
+                    characterState.characterControl.MoveLeft = true;
                 }
             }
 
             if (bottomDist < 0.5f)
             {
-                control.MoveRight = false;
-                control.MoveLeft = false;
-                control.MoveUp = false;
-                control.Jump = false;
+                characterState.characterControl.MoveRight = false;
+                characterState.characterControl.MoveLeft = false;
+                characterState.characterControl.MoveUp = false;
+                characterState.characterControl.Jump = false;
 
                 animator.gameObject.SetActive(false);
                 animator.gameObject.SetActive(true);

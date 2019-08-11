@@ -13,40 +13,40 @@ namespace Roundbeargames
             animator.SetBool(TransitionParameter.Attack.ToString(), false);
             animator.SetBool(TransitionParameter.Move.ToString(), false);
 
-            CharacterControl control = characterState.GetCharacterControl(animator);
-            control.animationProgress.disallowEarlyTurn = false;
+            //CharacterControl control = characterState.GetCharacterControl(animator);
+            characterState.characterControl.animationProgress.disallowEarlyTurn = false;
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
-            if (control.animationProgress.AttackTriggered /*control.Attack*/)
+            if (characterState.characterControl.animationProgress.AttackTriggered)
             {
                 animator.SetBool(TransitionParameter.Attack.ToString(), true);
             }
 
-            if (control.Jump)
+            if (characterState.characterControl.Jump)
             {
-                if (!control.animationProgress.Jumped)
+                if (!characterState.characterControl.animationProgress.Jumped)
                 {
                     animator.SetBool(TransitionParameter.Jump.ToString(), true);
                 }
             }
             else
             {
-                control.animationProgress.Jumped = false;
+                characterState.characterControl.animationProgress.Jumped = false;
             }
 
-            if (control.MoveLeft && control.MoveRight)
+            if (characterState.characterControl.MoveLeft && characterState.characterControl.MoveRight)
             {
                 //do nothing
             }
-            else if (control.MoveRight)
+            else if (characterState.characterControl.MoveRight)
             {
                 animator.SetBool(TransitionParameter.Move.ToString(), true);
             }
-            else if (control.MoveLeft)
+            else if (characterState.characterControl.MoveLeft)
             {
                 animator.SetBool(TransitionParameter.Move.ToString(), true);
             }

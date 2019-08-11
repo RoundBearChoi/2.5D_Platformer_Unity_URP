@@ -24,10 +24,10 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
-            if (TransitionToNextAI(control))
+            //CharacterControl control = characterState.GetCharacterControl(animator);
+            if (TransitionToNextAI(characterState.characterControl))
             {
-                control.aiController.TriggerAI(NextAI);
+                characterState.characterControl.aiController.TriggerAI(NextAI);
             }
         }
 

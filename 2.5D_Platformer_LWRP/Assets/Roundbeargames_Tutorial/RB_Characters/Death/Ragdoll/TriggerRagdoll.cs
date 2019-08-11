@@ -16,16 +16,15 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
             if (stateInfo.normalizedTime >= TriggerTiming)
             {
-                if (!control.animationProgress.RagdollTriggered)
+                if (!characterState.characterControl.animationProgress.RagdollTriggered)
                 {
-                    //control.TurnOnRagdoll();
-                    if (control.SkinnedMeshAnimator.enabled)
+                    if (characterState.characterControl.SkinnedMeshAnimator.enabled)
                     {
-                        control.animationProgress.RagdollTriggered = true;
+                        characterState.characterControl.animationProgress.RagdollTriggered = true;
                     }
                 }
             }

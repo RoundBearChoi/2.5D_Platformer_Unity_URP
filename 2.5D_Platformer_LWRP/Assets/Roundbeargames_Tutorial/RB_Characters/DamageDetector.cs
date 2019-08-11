@@ -144,6 +144,7 @@ namespace Roundbeargames
             Debug.Log(this.gameObject.name + " hit in " + DamagedPart.ToString());
             
             control.SkinnedMeshAnimator.runtimeAnimatorController = DeathAnimationManager.Instance.GetAnimator(DamagedPart, info);
+            control.CacheCharacterControl(control.SkinnedMeshAnimator);
             info.CurrentHits++;
 
             control.GetComponent<BoxCollider>().enabled = false;

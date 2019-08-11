@@ -16,13 +16,13 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
-            if (control.Turbo)
+            if (characterState.characterControl.Turbo)
             {
                 if (MustRequireMovement)
                 {
-                    if (control.MoveLeft || control.MoveRight)
+                    if (characterState.characterControl.MoveLeft || characterState.characterControl.MoveRight)
                     {
                         animator.SetBool(TransitionParameter.Turbo.ToString(), true);
                     }

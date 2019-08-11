@@ -23,81 +23,81 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
-            if (AllowEarlyTurn && !control.animationProgress.disallowEarlyTurn)
+            if (AllowEarlyTurn && !characterState.characterControl.animationProgress.disallowEarlyTurn)
             {
-                if (!control.animationProgress.LockDirectionNextState)
+                if (!characterState.characterControl.animationProgress.LockDirectionNextState)
                 {
-                    if (control.MoveLeft)
+                    if (characterState.characterControl.MoveLeft)
                     {
-                        control.FaceForward(false);
+                        characterState.characterControl.FaceForward(false);
                     }
-                    if (control.MoveRight)
+                    if (characterState.characterControl.MoveRight)
                     {
-                        control.FaceForward(true);
+                        characterState.characterControl.FaceForward(true);
                     }
                 }
             }
 
             if (StartingMomentum > 0.001f)
             {
-                if (control.IsFacingForward())
+                if (characterState.characterControl.IsFacingForward())
                 {
-                    control.animationProgress.AirMomentum = StartingMomentum;
+                    characterState.characterControl.animationProgress.AirMomentum = StartingMomentum;
                 }
                 else
                 {
-                    control.animationProgress.AirMomentum = -StartingMomentum;
+                    characterState.characterControl.animationProgress.AirMomentum = -StartingMomentum;
                 }
             }
 
-            control.animationProgress.disallowEarlyTurn = false;
-            control.animationProgress.LockDirectionNextState = false;
+            characterState.characterControl.animationProgress.disallowEarlyTurn = false;
+            characterState.characterControl.animationProgress.LockDirectionNextState = false;
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
-            control.animationProgress.LockDirectionNextState = LockDirectionNextState;
+            characterState.characterControl.animationProgress.LockDirectionNextState = LockDirectionNextState;
 
-            if (control.animationProgress.FrameUpdated)
+            if (characterState.characterControl.animationProgress.FrameUpdated)
             {
                 return;
             }
 
-            control.animationProgress.FrameUpdated = true;
+            characterState.characterControl.animationProgress.FrameUpdated = true;
 
-            if (control.Jump)
+            if (characterState.characterControl.Jump)
             {
                 animator.SetBool(TransitionParameter.Jump.ToString(), true);
             }
 
             if (UseMomentum)
             {
-                UpdateMomentum(control, stateInfo);
+                UpdateMomentum(characterState.characterControl, stateInfo);
             }
             else
             {
                 if (Constant)
                 {
-                    ConstantMove(control, animator, stateInfo);
+                    ConstantMove(characterState.characterControl, animator, stateInfo);
                 }
                 else
                 {
-                    ControlledMove(control, animator, stateInfo);
+                    ControlledMove(characterState.characterControl, animator, stateInfo);
                 }
             }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
             if (ClearMomentumOnExit)
             {
-                control.animationProgress.AirMomentum = 0f;
+                characterState.characterControl.animationProgress.AirMomentum = 0f;
             }
         }
 

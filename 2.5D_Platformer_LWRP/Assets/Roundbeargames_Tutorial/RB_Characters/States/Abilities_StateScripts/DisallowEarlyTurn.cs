@@ -9,8 +9,8 @@ namespace Roundbeargames
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
-            control.animationProgress.disallowEarlyTurn = true;
+            //CharacterControl control = characterState.GetCharacterControl(animator);
+            characterState.characterControl.animationProgress.disallowEarlyTurn = true;
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

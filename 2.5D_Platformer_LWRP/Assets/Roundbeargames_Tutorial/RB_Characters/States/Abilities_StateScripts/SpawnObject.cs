@@ -17,30 +17,30 @@ namespace Roundbeargames
         {
             if (SpawnTiming == 0f)
             {
-                CharacterControl control = characterState.GetCharacterControl(animator);
-                SpawnObj(control);
+                //CharacterControl control = characterState.GetCharacterControl(animator);
+                SpawnObj(characterState.characterControl);
             }
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
-            if (!control.animationProgress.SpawnedObjList.Contains(ObjectType))
+            if (!characterState.characterControl.animationProgress.SpawnedObjList.Contains(ObjectType))
             {
                 if (stateInfo.normalizedTime >= SpawnTiming)
                 {
-                    SpawnObj(control);
+                    SpawnObj(characterState.characterControl);
                 }
             }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
-            if (control.animationProgress.SpawnedObjList.Contains(ObjectType))
+            //CharacterControl control = characterState.GetCharacterControl(animator);
+            if (characterState.characterControl.animationProgress.SpawnedObjList.Contains(ObjectType))
             {
-                control.animationProgress.SpawnedObjList.Remove(ObjectType);
+                characterState.characterControl.animationProgress.SpawnedObjList.Remove(ObjectType);
             }
         }
 

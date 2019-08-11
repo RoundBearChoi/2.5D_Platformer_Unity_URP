@@ -19,25 +19,25 @@ namespace Roundbeargames
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
-            if (control.aiProgress.pathfindingAgent == null)
+            if (characterState.characterControl.aiProgress.pathfindingAgent == null)
             {
                 GameObject p = Instantiate(Resources.Load("PathfindingAgent", typeof(GameObject)) as GameObject);
-                control.aiProgress.pathfindingAgent = p.GetComponent<PathFindingAgent>();
+                characterState.characterControl.aiProgress.pathfindingAgent = p.GetComponent<PathFindingAgent>();
             }
 
-            control.aiProgress.pathfindingAgent.owner = control;
-            control.aiProgress.pathfindingAgent.GetComponent<NavMeshAgent>().enabled = false;
-            control.aiProgress.pathfindingAgent.transform.position = control.transform.position;
-            control.navMeshObstacle.carving = false;
-            control.aiProgress.pathfindingAgent.GoToTarget();
+            characterState.characterControl.aiProgress.pathfindingAgent.owner = characterState.characterControl;
+            characterState.characterControl.aiProgress.pathfindingAgent.GetComponent<NavMeshAgent>().enabled = false;
+            characterState.characterControl.aiProgress.pathfindingAgent.transform.position = characterState.characterControl.transform.position;
+            characterState.characterControl.navMeshObstacle.carving = false;
+            characterState.characterControl.aiProgress.pathfindingAgent.GoToTarget();
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
-            if (control.aiProgress.pathfindingAgent.StartWalk)
+            //CharacterControl control = characterState.GetCharacterControl(animator);
+            if (characterState.characterControl.aiProgress.pathfindingAgent.StartWalk)
             {
                 animator.SetBool(AI_Walk_Transitions.start_walking.ToString(), true);
                 animator.SetBool(AI_Walk_Transitions.start_running.ToString(), true);

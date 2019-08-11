@@ -16,35 +16,34 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
-            control.animationProgress.Jumped = false;
+            //CharacterControl control = characterState.GetCharacterControl(animator);
+            characterState.characterControl.animationProgress.Jumped = false;
 
             if (JumpTiming == 0f)
             {
-                control.RIGID_BODY.AddForce(Vector3.up * JumpForce);
-                control.animationProgress.Jumped = true;
+                characterState.characterControl.RIGID_BODY.AddForce(Vector3.up * JumpForce);
+                characterState.characterControl.animationProgress.Jumped = true;
             }
 
-            control.animationProgress.CancelPull = CancelPull;
+            characterState.characterControl.animationProgress.CancelPull = CancelPull;
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
-            control.PullMultiplier = Pull.Evaluate(stateInfo.normalizedTime);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
+            characterState.characterControl.PullMultiplier = Pull.Evaluate(stateInfo.normalizedTime);
 
-            if (!control.animationProgress.Jumped && stateInfo.normalizedTime >= JumpTiming)
+            if (!characterState.characterControl.animationProgress.Jumped && stateInfo.normalizedTime >= JumpTiming)
             {
-                control.RIGID_BODY.AddForce(Vector3.up * JumpForce);
-                control.animationProgress.Jumped = true;
+                characterState.characterControl.RIGID_BODY.AddForce(Vector3.up * JumpForce);
+                characterState.characterControl.animationProgress.Jumped = true;
             }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
-            control.PullMultiplier = 0f;
-            //control.animationProgress.Jumped = false;
+            //CharacterControl control = characterState.GetCharacterControl(animator);
+            characterState.characterControl.PullMultiplier = 0f;
         }
     }
 }

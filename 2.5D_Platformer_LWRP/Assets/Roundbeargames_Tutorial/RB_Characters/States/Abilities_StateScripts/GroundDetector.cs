@@ -18,11 +18,11 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
             if (stateInfo.normalizedTime >= CheckTime)
             {
-                if (IsGrounded(control))
+                if (IsGrounded(characterState.characterControl))
                 {
                     animator.SetBool(TransitionParameter.Grounded.ToString(), true);
                 }

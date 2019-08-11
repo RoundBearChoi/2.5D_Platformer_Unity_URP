@@ -17,14 +17,14 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
-            control.animationProgress.UpdatingBoxCollider = true;
+            //CharacterControl control = characterState.GetCharacterControl(animator);
+            characterState.characterControl.animationProgress.UpdatingBoxCollider = true;
 
-            control.animationProgress.TargetSize = TargetSize;
-            control.animationProgress.Size_Speed = SizeUpdateSpeed;
+            characterState.characterControl.animationProgress.TargetSize = TargetSize;
+            characterState.characterControl.animationProgress.Size_Speed = SizeUpdateSpeed;
 
-            control.animationProgress.TargetCenter = TargetCenter;
-            control.animationProgress.Center_Speed = CenterUpdateSpeed;
+            characterState.characterControl.animationProgress.TargetCenter = TargetCenter;
+            characterState.characterControl.animationProgress.Center_Speed = CenterUpdateSpeed;
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -34,11 +34,11 @@ namespace Roundbeargames
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            CharacterControl control = characterState.GetCharacterControl(animator);
+            //CharacterControl control = characterState.GetCharacterControl(animator);
 
             if (!KeepUpdating)
             {
-                control.animationProgress.UpdatingBoxCollider = false;
+                characterState.characterControl.animationProgress.UpdatingBoxCollider = false;
             }
         }
     }

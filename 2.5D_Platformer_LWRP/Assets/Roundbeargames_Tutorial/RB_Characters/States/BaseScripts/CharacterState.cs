@@ -7,6 +7,7 @@ namespace Roundbeargames
     public class CharacterState : StateMachineBehaviour
     {
         public List<StateData> ListAbilityData = new List<StateData>();
+        public CharacterControl characterControl;
 
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
@@ -35,17 +36,6 @@ namespace Roundbeargames
             {
                 d.OnExit(this, animator, stateInfo);
             }
-        }
-
-        private CharacterControl characterControl;
-        public CharacterControl GetCharacterControl(Animator animator)
-        {
-            if (characterControl == null)
-            {
-                characterControl = animator.transform.root.GetComponent<CharacterControl>();
-                //characterControl = animator.GetComponentInParent<CharacterControl>();
-            }
-            return characterControl;
         }
     }
 }

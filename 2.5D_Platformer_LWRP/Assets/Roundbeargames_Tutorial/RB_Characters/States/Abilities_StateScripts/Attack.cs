@@ -36,7 +36,7 @@ namespace Roundbeargames
             AttackInfo info = obj.GetComponent<AttackInfo>();
 
             obj.SetActive(true);
-            info.ResetInfo(this, characterState.GetCharacterControl(animator));
+            info.ResetInfo(this, characterState.characterControl);
 
             if (!AttackManager.Instance.CurrentAttacks.Contains(info))
             {
@@ -105,8 +105,8 @@ namespace Roundbeargames
             {
                 if (stateInfo.normalizedTime < EndAttackTime + ((EndAttackTime - StartAttackTime) / 2f))
                 {
-                    CharacterControl control = characterState.GetCharacterControl(animator);
-                    if (control.animationProgress.AttackTriggered /*control.Attack*/)
+                    //CharacterControl control = characterState.GetCharacterControl(animator);
+                    if (characterState.characterControl.animationProgress.AttackTriggered)
                     {
                         animator.SetBool(TransitionParameter.Attack.ToString(), true);
                     }
