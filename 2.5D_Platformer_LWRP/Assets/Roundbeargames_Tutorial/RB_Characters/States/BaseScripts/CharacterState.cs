@@ -11,6 +11,12 @@ namespace Roundbeargames
 
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            if (characterControl == null)
+            {
+                characterControl = animator.transform.root.GetComponent<CharacterControl>();
+                characterControl.CacheCharacterControl(animator);
+            }
+
             foreach(StateData d in ListAbilityData)
             {
                 d.OnEnter(this, animator, stateInfo);

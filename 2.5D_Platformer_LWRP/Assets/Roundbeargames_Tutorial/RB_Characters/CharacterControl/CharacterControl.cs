@@ -88,7 +88,7 @@ namespace Roundbeargames
 
             SetColliderSpheres();
             RegisterCharacter();
-            CacheCharacterControl(SkinnedMeshAnimator);
+            //CacheCharacterControl(SkinnedMeshAnimator);
         }
 
         public void CacheCharacterControl(Animator animator)
