@@ -25,7 +25,6 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
             if (MakeTransition(characterState.characterControl))
             {
                 animator.SetInteger(TransitionParameter.TransitionIndex.ToString(), Index);
@@ -34,14 +33,12 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-            if (MakeTransition(characterState.characterControl))
+            if (animator.GetInteger(TransitionParameter.TransitionIndex.ToString()) == 0)
             {
-                animator.SetInteger(TransitionParameter.TransitionIndex.ToString(), Index);
-            }
-            else
-            {
-                animator.SetInteger(TransitionParameter.TransitionIndex.ToString(), 0);
+                if (MakeTransition(characterState.characterControl))
+                {
+                    animator.SetInteger(TransitionParameter.TransitionIndex.ToString(), Index);
+                }
             }
         }
 
@@ -90,7 +87,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.ATTACK:
                         {
-                            if (!control.animationProgress.AttackTriggered /*!control.Attack*/)
+                            if (!control.animationProgress.AttackTriggered)
                             {
                                 return false;
                             }
