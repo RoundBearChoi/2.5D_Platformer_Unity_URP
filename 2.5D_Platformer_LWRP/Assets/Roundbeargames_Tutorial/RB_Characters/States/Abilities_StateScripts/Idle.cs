@@ -21,6 +21,8 @@ namespace Roundbeargames
         {
             //CharacterControl control = characterState.GetCharacterControl(animator);
 
+            characterState.characterControl.animationProgress.LockDirectionNextState = false;
+
             if (characterState.characterControl.animationProgress.AttackTriggered)
             {
                 animator.SetBool(TransitionParameter.Attack.ToString(), true);

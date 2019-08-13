@@ -74,6 +74,15 @@ namespace Roundbeargames
                 animator.SetBool(TransitionParameter.Jump.ToString(), true);
             }
 
+            if (characterState.characterControl.Turbo)
+            {
+                animator.SetBool(TransitionParameter.Turbo.ToString(), true);
+            }
+            else
+            {
+                animator.SetBool(TransitionParameter.Turbo.ToString(), false);
+            }
+
             if (UseMomentum)
             {
                 UpdateMomentum(characterState.characterControl, stateInfo);
@@ -145,6 +154,15 @@ namespace Roundbeargames
             if (!CheckFront(control))
             {
                 control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
+            }
+
+            if (!control.MoveRight && !control.MoveLeft)
+            {
+                animator.SetBool(TransitionParameter.Move.ToString(), false);
+            }
+            else
+            {
+                animator.SetBool(TransitionParameter.Move.ToString(), true);
             }
         }
 
