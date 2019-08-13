@@ -42,6 +42,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   Speed: 4.2
   BlockDistance: 0.1
+  IgnoreCharacterBox: 1
   UseMomentum: 0
   StartingMomentum: 0
   MaxMomentum: 0

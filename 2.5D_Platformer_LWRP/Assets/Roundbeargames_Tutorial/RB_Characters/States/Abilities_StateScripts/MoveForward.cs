@@ -14,6 +14,7 @@ namespace Roundbeargames
         public AnimationCurve SpeedGraph;
         public float Speed;
         public float BlockDistance;
+        public bool IgnoreCharacterBox;
 
         [Header("Momentum")]
         public bool UseMomentum;
@@ -215,6 +216,21 @@ namespace Roundbeargames
             }
         }
 
+        bool IgnoringCharacterBox(Collider col)
+        {
+            if (!IgnoreCharacterBox)
+            {
+                return false;
+            }
+
+            if (col.gameObject.GetComponent<CharacterControl>() != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         bool CheckFront(CharacterControl control)
         {
             foreach (GameObject o in control.FrontSpheres)
@@ -227,7 +243,8 @@ namespace Roundbeargames
                     {
                         if (!IsBodyPart(hit.collider) 
                             && !Ledge.IsLedge(hit.collider.gameObject)
-                            && !Ledge.IsLedgeChecker(hit.collider.gameObject))
+                            && !Ledge.IsLedgeChecker(hit.collider.gameObject)
+                            && !IgnoringCharacterBox(hit.collider))
                         {
                             return true;
                         }
