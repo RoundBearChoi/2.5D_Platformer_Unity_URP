@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223373fed4d14a94588b3694fc5a992e, type: 3}
   m_Name: Player_123combo_3_Attack
   m_EditorClassIdentifier: 
-  debug: 1
+  debug: 0
   StartAttackTime: 0.1
-  EndAttackTime: 0.9
+  EndAttackTime: 0.55
   AttackParts: 00000000
   deathType: 0
   MustCollide: 1
