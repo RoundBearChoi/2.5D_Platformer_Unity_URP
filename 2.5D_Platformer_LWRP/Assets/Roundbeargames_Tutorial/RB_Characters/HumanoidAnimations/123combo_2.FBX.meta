@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: 123combo
+    second: 123combo_2
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -53,11 +53,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: 123combo
+      name: 123combo_2
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 0
-      lastFrame: 54
+      firstFrame: 15
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
