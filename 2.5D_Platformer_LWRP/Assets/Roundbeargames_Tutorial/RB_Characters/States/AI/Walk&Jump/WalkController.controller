@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListAbilityData:
   - {fileID: 11400000, guid: dd3abb3e372edc145a2341041c6b1094, type: 2}
+  characterControl: {fileID: 0}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -260,6 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListAbilityData:
   - {fileID: 11400000, guid: facb37d09119c2948bcf614741e8b075, type: 2}
+  characterControl: {fileID: 0}
 --- !u!114 &7104509586482840777
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,6 +277,7 @@ MonoBehaviour:
   ListAbilityData:
   - {fileID: 11400000, guid: 1d0e9c6c324681045837d2994d29f4f2, type: 2}
   - {fileID: 11400000, guid: c652ead5e2283444591e5cb3e2ae9ed0, type: 2}
+  characterControl: {fileID: 0}
 --- !u!114 &8569735768275112191
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListAbilityData:
   - {fileID: 11400000, guid: f4c5a116b8a687d4d805d46fbf6b9af7, type: 2}
+  characterControl: {fileID: 0}
 --- !u!1101 &8832693915650058466
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
