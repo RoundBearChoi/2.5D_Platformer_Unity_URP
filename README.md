@@ -9,7 +9,7 @@
 
 ----
 
-You can also download Unity packages for every video.
+OR you can download my Unity packages (exported after recording each video)
 
 https://drive.google.com/drive/folders/1BSFUbX4dAl1dGKvQQBMetVqmlrvhJVki?usp=sharing
 
