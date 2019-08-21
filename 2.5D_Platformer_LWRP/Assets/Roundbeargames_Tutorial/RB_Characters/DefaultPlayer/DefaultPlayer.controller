@@ -2880,4 +2880,5 @@ MonoBehaviour:
   ListAbilityData:
   - {fileID: 11400000, guid: f5220f0a7ddce624bb607e9027ed5eba, type: 2}
   - {fileID: 11400000, guid: ca2923006f69ffe4192632741dd9eecb, type: 2}
+  - {fileID: 11400000, guid: 02df950a3e911c745ba36501ddb7790f, type: 2}
   characterControl: {fileID: 0}
