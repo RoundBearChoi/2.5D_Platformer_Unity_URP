@@ -17,6 +17,8 @@ namespace Roundbeargames
         LEFT_OR_RIGHT,
 
         GROUNDED,
+
+        MOVE_FORWARD,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
@@ -124,6 +126,24 @@ namespace Roundbeargames
                             if (control.SkinnedMeshAnimator.GetBool(TransitionParameter.Grounded.ToString()) == false)
                             {
                                 return false;
+                            }
+                        }
+                        break;
+                    case TransitionConditionType.MOVE_FORWARD:
+                        {
+                            if (control.IsFacingForward())
+                            {
+                                if (!control.MoveRight)
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                if (!control.MoveLeft)
+                                {
+                                    return false;
+                                }
                             }
                         }
                         break;

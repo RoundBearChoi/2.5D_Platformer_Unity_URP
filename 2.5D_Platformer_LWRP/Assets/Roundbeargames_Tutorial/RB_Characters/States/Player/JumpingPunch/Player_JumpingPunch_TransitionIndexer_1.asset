@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player_JumpingPunch_TransitionIndexer_1
   m_EditorClassIdentifier: 
   Index: 1
-  transitionConditions: 040000000700000008000000
+  transitionConditions: 040000000900000008000000
