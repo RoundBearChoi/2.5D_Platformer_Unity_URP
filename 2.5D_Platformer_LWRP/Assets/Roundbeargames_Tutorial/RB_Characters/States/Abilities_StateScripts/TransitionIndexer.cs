@@ -15,6 +15,8 @@ namespace Roundbeargames
         GRABBING_LEDGE,
 
         LEFT_OR_RIGHT,
+
+        GROUNDED,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
@@ -112,6 +114,14 @@ namespace Roundbeargames
                     case TransitionConditionType.LEFT_OR_RIGHT:
                         {
                             if (!control.MoveLeft && !control.MoveRight)
+                            {
+                                return false;
+                            }
+                        }
+                        break;
+                    case TransitionConditionType.GROUNDED:
+                        {
+                            if (control.SkinnedMeshAnimator.GetBool(TransitionParameter.Grounded.ToString()) == false)
                             {
                                 return false;
                             }
