@@ -16,7 +16,6 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
             characterState.characterControl.animationProgress.Jumped = false;
 
             if (JumpTiming == 0f)
@@ -30,7 +29,6 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
             characterState.characterControl.PullMultiplier = Pull.Evaluate(stateInfo.normalizedTime);
 
             if (!characterState.characterControl.animationProgress.Jumped && stateInfo.normalizedTime >= JumpTiming)
@@ -42,7 +40,6 @@ namespace Roundbeargames
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
             characterState.characterControl.PullMultiplier = 0f;
         }
     }

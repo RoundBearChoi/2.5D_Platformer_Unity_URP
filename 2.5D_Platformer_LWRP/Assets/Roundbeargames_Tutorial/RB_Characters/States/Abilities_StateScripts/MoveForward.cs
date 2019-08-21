@@ -59,16 +59,19 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-
             characterState.characterControl.animationProgress.LockDirectionNextState = LockDirectionNextState;
 
-            if (characterState.characterControl.animationProgress.FrameUpdated)
+            if (characterState.characterControl.animationProgress.IsRunning(typeof(MoveForward), this))
             {
                 return;
             }
 
-            characterState.characterControl.animationProgress.FrameUpdated = true;
+            //if (characterState.characterControl.animationProgress.FrameUpdated)
+            //{
+            //    return;
+            //}
+
+            //characterState.characterControl.animationProgress.FrameUpdated = true;
 
             if (characterState.characterControl.Jump)
             {

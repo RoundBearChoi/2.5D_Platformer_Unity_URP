@@ -13,14 +13,11 @@ namespace Roundbeargames
             animator.SetBool(TransitionParameter.Attack.ToString(), false);
             animator.SetBool(TransitionParameter.Move.ToString(), false);
 
-            //CharacterControl control = characterState.GetCharacterControl(animator);
             characterState.characterControl.animationProgress.disallowEarlyTurn = false;
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-
             characterState.characterControl.animationProgress.LockDirectionNextState = false;
 
             if (characterState.characterControl.animationProgress.AttackTriggered)
@@ -37,7 +34,10 @@ namespace Roundbeargames
             }
             else
             {
-                characterState.characterControl.animationProgress.Jumped = false;
+                if (!characterState.characterControl.animationProgress.IsRunning(typeof(Jump), this))
+                {
+                    characterState.characterControl.animationProgress.Jumped = false;
+                }
             }
 
             if (characterState.characterControl.MoveLeft && characterState.characterControl.MoveRight)

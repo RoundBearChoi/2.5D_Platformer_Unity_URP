@@ -6,7 +6,8 @@ namespace Roundbeargames
 {
     public class AnimationProgress : MonoBehaviour
     {
-        public bool Jumped;
+        public List<StateData> CurrentRunningAbilities = new List<StateData>();
+
         public bool CameraShaken;
         public List<PoolObjectType> SpawnedObjList = new List<PoolObjectType>();
         public bool AttackTriggered;
@@ -18,8 +19,9 @@ namespace Roundbeargames
         public bool LockDirectionNextState;
 
         [Header("AirControl")]
+        public bool Jumped;
         public float AirMomentum;
-        public bool FrameUpdated;
+        //public bool FrameUpdated;
         public bool CancelPull;
 
         [Header("UpdateBoxCollider")]
@@ -64,9 +66,30 @@ namespace Roundbeargames
             }
         }
 
-        private void LateUpdate()
+        //private void LateUpdate()
+        //{
+        //    FrameUpdated = false;
+        //}
+
+        public bool IsRunning(System.Type type, StateData self)
         {
-            FrameUpdated = false;
+            for (int i = 0; i < CurrentRunningAbilities.Count; i++)
+            {
+                if (type == CurrentRunningAbilities[i].GetType())
+                {
+                    if (CurrentRunningAbilities[i] == self)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        //Debug.Log(type.ToString() + " is already running");
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }
