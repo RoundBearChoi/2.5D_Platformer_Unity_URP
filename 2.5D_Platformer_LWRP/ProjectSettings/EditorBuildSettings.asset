@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Roundbeargames_Tutorial/RB_Scenes/LatestScene/TutorialScene_MainMenu.unity
+    guid: e93491272f8658b449b8844e5208d25d
+  - enabled: 1
     path: Assets/Roundbeargames_Tutorial/RB_Scenes/LatestScene/TutorialScene_Sample_Day.unity
     guid: 2db1fe4118b4d2048a65c93ca3f5b44f
   - enabled: 1
