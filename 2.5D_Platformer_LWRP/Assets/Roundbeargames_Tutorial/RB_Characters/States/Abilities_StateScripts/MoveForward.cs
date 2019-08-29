@@ -24,8 +24,6 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-
             if (AllowEarlyTurn && !characterState.characterControl.animationProgress.disallowEarlyTurn)
             {
                 if (!characterState.characterControl.animationProgress.LockDirectionNextState)
@@ -66,13 +64,6 @@ namespace Roundbeargames
                 return;
             }
 
-            //if (characterState.characterControl.animationProgress.FrameUpdated)
-            //{
-            //    return;
-            //}
-
-            //characterState.characterControl.animationProgress.FrameUpdated = true;
-
             if (characterState.characterControl.Jump)
             {
                 animator.SetBool(TransitionParameter.Jump.ToString(), true);
@@ -106,8 +97,6 @@ namespace Roundbeargames
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-
             if (ClearMomentumOnExit)
             {
                 characterState.characterControl.animationProgress.AirMomentum = 0f;
