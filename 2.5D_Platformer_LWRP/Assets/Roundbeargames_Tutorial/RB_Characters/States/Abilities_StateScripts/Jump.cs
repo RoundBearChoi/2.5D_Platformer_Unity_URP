@@ -11,7 +11,7 @@ namespace Roundbeargames
         public float JumpTiming;
         public float JumpForce;
         [Header("Extra Gravity")]
-        public AnimationCurve Pull;
+        //public AnimationCurve Pull;
         public bool CancelPull;
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -29,7 +29,7 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            characterState.characterControl.PullMultiplier = Pull.Evaluate(stateInfo.normalizedTime);
+            //characterState.characterControl.PullMultiplier = Pull.Evaluate(stateInfo.normalizedTime);
 
             if (!characterState.characterControl.animationProgress.Jumped && stateInfo.normalizedTime >= JumpTiming)
             {
@@ -40,7 +40,7 @@ namespace Roundbeargames
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            characterState.characterControl.PullMultiplier = 0f;
+            //characterState.characterControl.PullMultiplier = 0f;
         }
     }
 }
