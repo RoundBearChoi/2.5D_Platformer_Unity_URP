@@ -17,3 +17,12 @@ The following packages were updated:
   com.unity.package-manager-ui from version 2.1.2 to 2.2.0
   com.unity.render-pipelines.lightweight from version 5.7.2 to 6.9.0
   com.unity.timeline from version 1.0.0 to 1.1.0
+
+=== Tue Sep  3 02:53:53 2019
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.ide.rider from version 1.0.8 to 1.1.0
+  com.unity.ide.vscode from version 1.0.7 to 1.1.0
