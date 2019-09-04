@@ -14,10 +14,7 @@ namespace Roundbeargames
         {
             if (gameEvent != null)
             {
-                if (!gameEvent.ListListeners.Contains(this))
-                {
-                    gameEvent.ListListeners.Add(this);
-                }
+                gameEvent.AddListener(this);
             }
         }
 

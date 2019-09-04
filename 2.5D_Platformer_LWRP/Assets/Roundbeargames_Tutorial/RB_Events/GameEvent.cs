@@ -6,8 +6,13 @@ namespace Roundbeargames
 {
     public class GameEvent : MonoBehaviour
     {
-        public List<GameEventListener> ListListeners = new List<GameEventListener>();
-        public GameObject EventObj;
+        List<GameEventListener> ListListeners = new List<GameEventListener>();
+        GameObject EventObj;
+
+        public GameObject EVENTOBJ
+        {
+            get { return EventObj; }
+        }
 
         private void Awake()
         {
@@ -24,10 +29,19 @@ namespace Roundbeargames
 
         public void Raise(GameObject eventObj)
         {
+            EventObj = eventObj;
+
             foreach (GameEventListener listener in ListListeners)
             {
-                EventObj = eventObj;
                 listener.OnRaiseEvent();
+            }
+        }
+
+        public void AddListener(GameEventListener listener)
+        {
+            if (!ListListeners.Contains(listener))
+            {
+                ListListeners.Add(listener);
             }
         }
     }
