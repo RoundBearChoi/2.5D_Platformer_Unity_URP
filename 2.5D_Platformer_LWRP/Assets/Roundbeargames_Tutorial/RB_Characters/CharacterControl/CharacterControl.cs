@@ -40,8 +40,7 @@ namespace Roundbeargames
         public AnimationProgress animationProgress;
         public AIProgress aiProgress;
         public DamageDetector damageDetector;
-        public List<GameObject> BottomSpheres = new List<GameObject>();
-        public List<GameObject> FrontSpheres = new List<GameObject>();
+        public CollisionSpheres collisionSpheres;
         public AIController aiController;
         public BoxCollider boxCollider;
         public NavMeshObstacle navMeshObstacle;
@@ -84,9 +83,11 @@ namespace Roundbeargames
             boxCollider = GetComponent<BoxCollider>();
             navMeshObstacle = GetComponent<NavMeshObstacle>();
 
-            SetColliderSpheres();
+            collisionSpheres = GetComponentInChildren<CollisionSpheres>();
+            collisionSpheres.owner = this;
+            collisionSpheres.SetColliderSpheres();
+            
             RegisterCharacter();
-            //CacheCharacterControl(SkinnedMeshAnimator);
         }
 
         public void CacheCharacterControl(Animator animator)
@@ -196,65 +197,6 @@ namespace Roundbeargames
             }
         }
 
-        private void SetColliderSpheres()
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                GameObject obj = Instantiate(Resources.Load("ColliderEdge", typeof(GameObject))
-                    , Vector3.zero, Quaternion.identity) as GameObject;
-                BottomSpheres.Add(obj);
-                obj.transform.parent = this.transform;
-            }
-
-            Reposition_BottomSpheres();
-
-            for (int i = 0; i < 10; i++)
-            {
-                GameObject obj = Instantiate(Resources.Load("ColliderEdge", typeof(GameObject))
-                    , Vector3.zero, Quaternion.identity) as GameObject;
-                FrontSpheres.Add(obj);
-                obj.transform.parent = this.transform;
-            }
-
-            Reposition_FrontSpheres();
-        }
-
-        public void Reposition_FrontSpheres()
-        {
-            float bottom = boxCollider.bounds.center.y - (boxCollider.bounds.size.y / 2f);
-            float top = boxCollider.bounds.center.y + (boxCollider.bounds.size.y / 2f);
-            float front = boxCollider.bounds.center.z + (boxCollider.bounds.size.z / 2f);
-
-            FrontSpheres[0].transform.localPosition = new Vector3(0f, bottom + 0.05f, front) - this.transform.position;
-            FrontSpheres[1].transform.localPosition = new Vector3(0f, top, front) - this.transform.position;
-
-            float interval = (top - bottom + 0.05f) / 9;
-
-            for (int i = 2; i < FrontSpheres.Count; i++)
-            {
-                FrontSpheres[i].transform.localPosition = new Vector3(0f, bottom + (interval * (i - 1)), front) 
-                    - this.transform.position;
-            }
-        }
-
-        public void Reposition_BottomSpheres()
-        {
-            float bottom = boxCollider.bounds.center.y - (boxCollider.bounds.size.y / 2f);
-            float front = boxCollider.bounds.center.z + (boxCollider.bounds.size.z / 2f);
-            float back = boxCollider.bounds.center.z - (boxCollider.bounds.size.z / 2f);
-
-            BottomSpheres[0].transform.localPosition = new Vector3(0f, bottom, back) - this.transform.position;
-            BottomSpheres[1].transform.localPosition = new Vector3(0f, bottom, front) - this.transform.position;
-
-            float interval = (front - back) / 4;
-
-            for (int i = 2; i < BottomSpheres.Count; i++)
-            {
-                BottomSpheres[i].transform.localPosition = new Vector3(0f, bottom, back + (interval * (i - 1)))
-                    - this.transform.position;
-            }
-        }
-
         public void UpdateBoxCollider_Size()
         {
             if (!animationProgress.UpdatingBoxCollider)
@@ -302,8 +244,8 @@ namespace Roundbeargames
             UpdateBoxCollider_Center();
             if (animationProgress.UpdatingSpheres)
             {
-                Reposition_FrontSpheres();
-                Reposition_BottomSpheres();
+                collisionSpheres.Reposition_FrontSpheres();
+                collisionSpheres.Reposition_BottomSpheres();
             }
 
             if (animationProgress.RagdollTriggered)

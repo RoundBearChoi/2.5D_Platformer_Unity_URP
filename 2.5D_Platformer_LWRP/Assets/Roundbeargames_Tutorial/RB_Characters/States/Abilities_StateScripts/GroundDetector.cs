@@ -60,7 +60,7 @@ namespace Roundbeargames
 
             if (control.RIGID_BODY.velocity.y < 0f)
             {
-                foreach (GameObject o in control.BottomSpheres)
+                foreach (GameObject o in control.collisionSpheres.BottomSpheres)
                 {
                     Debug.DrawRay(o.transform.position, -Vector3.up * 0.7f, Color.yellow);
                     RaycastHit hit;

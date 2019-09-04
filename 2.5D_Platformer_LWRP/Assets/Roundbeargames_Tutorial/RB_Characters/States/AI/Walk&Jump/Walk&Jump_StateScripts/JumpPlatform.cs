@@ -31,10 +31,10 @@ namespace Roundbeargames
             //CharacterControl control = characterState.GetCharacterControl(animator);
 
             float topDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y
-                - characterState.characterControl.FrontSpheres[1].transform.position.y;
+                - characterState.characterControl.collisionSpheres.FrontSpheres[1].transform.position.y;
 
             float bottomDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y
-                - characterState.characterControl.FrontSpheres[0].transform.position.y;
+                - characterState.characterControl.collisionSpheres.FrontSpheres[0].transform.position.y;
 
             if (topDist < 1.5f && bottomDist > 0.5f)
             {

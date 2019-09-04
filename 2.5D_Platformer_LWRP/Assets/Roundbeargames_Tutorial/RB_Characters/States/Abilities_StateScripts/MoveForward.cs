@@ -225,7 +225,7 @@ namespace Roundbeargames
 
         bool CheckFront(CharacterControl control)
         {
-            foreach (GameObject o in control.FrontSpheres)
+            foreach (GameObject o in control.collisionSpheres.FrontSpheres)
             {
                 Debug.DrawRay(o.transform.position, control.transform.forward * 0.3f, Color.yellow);
                 RaycastHit hit;
