@@ -246,6 +246,7 @@ namespace Roundbeargames
             {
                 collisionSpheres.Reposition_FrontSpheres();
                 collisionSpheres.Reposition_BottomSpheres();
+                collisionSpheres.Reposition_BackSpheres();
             }
 
             if (animationProgress.RagdollTriggered)

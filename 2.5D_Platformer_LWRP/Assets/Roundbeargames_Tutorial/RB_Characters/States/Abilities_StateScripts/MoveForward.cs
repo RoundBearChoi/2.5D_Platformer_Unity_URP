@@ -22,6 +22,9 @@ namespace Roundbeargames
         public float MaxMomentum;
         public bool ClearMomentumOnExit;
 
+        private List<GameObject> SpheresList;
+        private float DirBlock;
+
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             if (AllowEarlyTurn && !characterState.characterControl.animationProgress.disallowEarlyTurn)
@@ -136,7 +139,7 @@ namespace Roundbeargames
                 control.FaceForward(false);
             }
 
-            if (!CheckFront(control))
+            if (!IsBlocked(control, Speed))
             {
                 control.MoveForward(Speed, Mathf.Abs(control.animationProgress.AirMomentum));
             }
@@ -144,7 +147,7 @@ namespace Roundbeargames
 
         private void ConstantMove(CharacterControl control, Animator animator, AnimatorStateInfo stateInfo)
         {
-            if (!CheckFront(control))
+            if (!IsBlocked(control, Speed))
             {
                 control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
             }
@@ -175,7 +178,7 @@ namespace Roundbeargames
 
             if (control.MoveRight)
             {
-                if (!CheckFront(control))
+                if (!IsBlocked(control, Speed))
                 {
                     control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
                 }
@@ -183,7 +186,7 @@ namespace Roundbeargames
 
             if (control.MoveLeft)
             {
-                if (!CheckFront(control))
+                if (!IsBlocked(control, Speed))
                 {
                     control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
                 }
@@ -223,13 +226,24 @@ namespace Roundbeargames
             return false;
         }
 
-        bool CheckFront(CharacterControl control)
+        bool IsBlocked(CharacterControl control, float speed)
         {
-            foreach (GameObject o in control.collisionSpheres.FrontSpheres)
+            if (speed > 0)
             {
-                Debug.DrawRay(o.transform.position, control.transform.forward * 0.3f, Color.yellow);
+                SpheresList = control.collisionSpheres.FrontSpheres;
+                DirBlock = 0.3f;
+            }
+            else
+            {
+                SpheresList = control.collisionSpheres.BackSpheres;
+                DirBlock = -0.3f;
+            }
+
+            foreach (GameObject o in SpheresList)
+            {
+                Debug.DrawRay(o.transform.position, control.transform.forward * DirBlock, Color.yellow);
                 RaycastHit hit;
-                if (Physics.Raycast(o.transform.position, control.transform.forward, out hit, BlockDistance))
+                if (Physics.Raycast(o.transform.position, control.transform.forward * DirBlock, out hit, BlockDistance))
                 {
                     if (!control.RagdollParts.Contains(hit.collider))
                     {
