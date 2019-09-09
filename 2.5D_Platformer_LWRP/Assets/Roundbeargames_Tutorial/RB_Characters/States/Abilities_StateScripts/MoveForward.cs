@@ -252,12 +252,14 @@ namespace Roundbeargames
                             && !Ledge.IsLedgeChecker(hit.collider.gameObject)
                             && !IgnoringCharacterBox(hit.collider))
                         {
+                            control.animationProgress.BlockingObj = hit.collider.transform.root.gameObject;
                             return true;
                         }
                     }
                 }
             }
 
+            control.animationProgress.BlockingObj = null;
             return false;
         }
 

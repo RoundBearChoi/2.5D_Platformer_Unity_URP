@@ -18,6 +18,10 @@ namespace Roundbeargames
         public bool disallowEarlyTurn;
         public bool LockDirectionNextState;
 
+        [Header("Colliding Objects")]
+        public GameObject Ground;
+        public GameObject BlockingObj;
+
         [Header("AirControl")]
         public bool Jumped;
         public float AirMomentum;

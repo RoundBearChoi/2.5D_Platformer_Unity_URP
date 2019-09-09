@@ -52,6 +52,7 @@ namespace Roundbeargames
                     {
                         if (Mathf.Abs(control.RIGID_BODY.velocity.y) < 0.001f)
                         {
+                            control.animationProgress.Ground = c.otherCollider.transform.root.gameObject;
                             return true;
                         }
                     }
@@ -71,12 +72,14 @@ namespace Roundbeargames
                             && !Ledge.IsLedgeChecker(hit.collider.gameObject)
                             && !Ledge.IsCharacter(hit.collider.gameObject))
                         {
+                            control.animationProgress.Ground = hit.collider.transform.root.gameObject;
                             return true;
                         }
                     }
                 }
             }
 
+            control.animationProgress.Ground = null;
             return false;
         }
     }

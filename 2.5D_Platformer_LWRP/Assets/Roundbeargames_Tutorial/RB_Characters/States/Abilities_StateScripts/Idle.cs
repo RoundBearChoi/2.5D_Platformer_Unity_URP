@@ -14,6 +14,7 @@ namespace Roundbeargames
             animator.SetBool(TransitionParameter.Move.ToString(), false);
 
             characterState.characterControl.animationProgress.disallowEarlyTurn = false;
+            characterState.characterControl.animationProgress.BlockingObj = null;
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
