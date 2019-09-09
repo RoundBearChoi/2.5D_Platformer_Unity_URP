@@ -10,8 +10,6 @@ namespace Roundbeargames
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-
             Vector3 dir = characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position 
                 - characterState.characterControl.transform.position;
 
@@ -29,15 +27,11 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-            Vector3 dist = characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position 
-                - characterState.characterControl.transform.position;
-
             //jump
             if (characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position.y
                 < characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y)
             {
-                if (Vector3.SqrMagnitude(dist) < 0.01f)
+                if (characterState.characterControl.aiProgress.GetDistanceToDestination() < 0.01f)
                 {
                     characterState.characterControl.MoveRight = false;
                     characterState.characterControl.MoveLeft = false;
@@ -57,7 +51,7 @@ namespace Roundbeargames
             if (characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position.y
                 == characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y)
             {
-                if (Vector3.SqrMagnitude(dist) < 0.5f)
+                if (characterState.characterControl.aiProgress.GetDistanceToDestination() < 0.5f)
                 {
                     characterState.characterControl.MoveRight = false;
                     characterState.characterControl.MoveLeft = false;
@@ -68,26 +62,6 @@ namespace Roundbeargames
                         animator.gameObject.SetActive(false);
                         animator.gameObject.SetActive(true);
                     }
-
-                    //temporary attack solution
-                    /*else
-                    {
-                        if (CharacterManager.Instance.GetPlayableCharacter().damageDetector.DamageTaken == 0)
-                        {
-                            if (control.IsFacingForward())
-                            {
-                                control.MoveRight = true;
-                                control.MoveLeft = false;
-                                control.Attack = true;
-                            }
-                            else
-                            {
-                                control.MoveRight = false;
-                                control.MoveLeft = true;
-                                control.Attack = true;
-                            }
-                        }
-                    }*/
                 }
             }
         }

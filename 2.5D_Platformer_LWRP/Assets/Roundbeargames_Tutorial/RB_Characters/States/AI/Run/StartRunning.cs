@@ -10,8 +10,6 @@ namespace Roundbeargames
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-
             Vector3 dir = characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position 
                 - characterState.characterControl.transform.position;
 
@@ -28,10 +26,7 @@ namespace Roundbeargames
                 characterState.characterControl.MoveLeft = true;
             }
 
-            Vector3 dist = characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position 
-                - characterState.characterControl.transform.position;
-
-            if (Vector3.SqrMagnitude(dist) > 2f)
+            if (characterState.characterControl.aiProgress.GetDistanceToDestination() > 2f)
             {
                 characterState.characterControl.Turbo = true;
             }
@@ -39,11 +34,7 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-            Vector3 dist = characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position 
-                - characterState.characterControl.transform.position;
-
-            if (Vector3.SqrMagnitude(dist) < 2f)
+            if (characterState.characterControl.aiProgress.GetDistanceToDestination() < 2f)
             {
                 characterState.characterControl.MoveRight = false;
                 characterState.characterControl.MoveLeft = false;

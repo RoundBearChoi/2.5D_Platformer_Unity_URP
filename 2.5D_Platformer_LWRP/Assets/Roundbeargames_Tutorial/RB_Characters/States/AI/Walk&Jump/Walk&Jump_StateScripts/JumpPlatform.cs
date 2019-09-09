@@ -10,8 +10,6 @@ namespace Roundbeargames
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-
             characterState.characterControl.Jump = true;
             characterState.characterControl.MoveUp = true;
 
@@ -28,8 +26,6 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-
             float topDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y
                 - characterState.characterControl.collisionSpheres.FrontSpheres[1].transform.position.y;
 

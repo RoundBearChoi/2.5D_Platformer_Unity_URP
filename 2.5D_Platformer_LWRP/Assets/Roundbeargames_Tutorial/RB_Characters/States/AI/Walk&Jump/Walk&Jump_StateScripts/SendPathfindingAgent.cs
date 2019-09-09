@@ -19,8 +19,6 @@ namespace Roundbeargames
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-
             if (characterState.characterControl.aiProgress.pathfindingAgent == null)
             {
                 GameObject p = Instantiate(Resources.Load("PathfindingAgent", typeof(GameObject)) as GameObject);
@@ -36,7 +34,6 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
             if (characterState.characterControl.aiProgress.pathfindingAgent.StartWalk)
             {
                 animator.SetBool(AI_Walk_Transitions.start_walking.ToString(), true);
