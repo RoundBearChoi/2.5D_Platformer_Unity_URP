@@ -30,7 +30,9 @@ twitter: https://twitter.com/roundbeargames
 
 facebook: https://facebook.com/roundbeargames17
 
-reddit: https://www.reddit.com/user/roundbeargames
+reddit: https://reddit.com/user/roundbeargames
+
+linkedin: https://www.linkedin.com/in/roundbeargames-choi-15041a9a
 
 ----
 
