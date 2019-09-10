@@ -37,8 +37,9 @@ namespace Roundbeargames
                     characterState.characterControl.MoveRight = false;
                     characterState.characterControl.MoveLeft = false;
 
-                    animator.gameObject.SetActive(false);
-                    animator.gameObject.SetActive(true);
+                    characterState.characterControl.aiController.InitializeAI();
+                    //animator.gameObject.SetActive(false);
+                    //animator.gameObject.SetActive(true);
                 }
             }
             else
@@ -54,8 +55,9 @@ namespace Roundbeargames
                     characterState.characterControl.MoveRight = false;
                     characterState.characterControl.MoveLeft = false;
 
-                    animator.gameObject.SetActive(false);
-                    animator.gameObject.SetActive(true);
+                    characterState.characterControl.aiController.InitializeAI();
+                    //animator.gameObject.SetActive(false);
+                    //animator.gameObject.SetActive(true);
                 }
             }
         }

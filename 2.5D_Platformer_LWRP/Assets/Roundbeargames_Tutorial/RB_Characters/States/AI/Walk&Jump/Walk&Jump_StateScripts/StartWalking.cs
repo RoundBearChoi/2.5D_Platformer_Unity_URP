@@ -8,20 +8,26 @@ namespace Roundbeargames
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AI/StartWalking")]
     public class StartWalking : StateData
     {
+        public Vector3 TargetDir = new Vector3();
+
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            Vector3 dir = characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position 
-                - characterState.characterControl.transform.position;
+            WalkStraightTowardsTarget(characterState.characterControl);
+        }
 
-            if (dir.z > 0f)
+        public void WalkStraightTowardsTarget(CharacterControl control)
+        {
+            TargetDir = control.aiProgress.pathfindingAgent.StartSphere.transform.position - control.transform.position;
+
+            if (TargetDir.z > 0f)
             {
-                characterState.characterControl.MoveRight = true;
-                characterState.characterControl.MoveLeft = false;
+                control.MoveRight = true;
+                control.MoveLeft = false;
             }
             else
             {
-                characterState.characterControl.MoveRight = false;
-                characterState.characterControl.MoveLeft = true;
+                control.MoveRight = false;
+                control.MoveLeft = true;
             }
         }
 
@@ -45,24 +51,6 @@ namespace Roundbeargames
                 > characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y)
             {
                 animator.SetBool(AI_Walk_Transitions.fall_platform.ToString(), true);
-            }
-
-            //straight
-            if (characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position.y
-                == characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y)
-            {
-                if (characterState.characterControl.aiProgress.GetDistanceToDestination() < 0.5f)
-                {
-                    characterState.characterControl.MoveRight = false;
-                    characterState.characterControl.MoveLeft = false;
-
-                    Vector3 playerDist = characterState.characterControl.transform.position - CharacterManager.Instance.GetPlayableCharacter().transform.position;
-                    if (playerDist.sqrMagnitude > 1f)
-                    {
-                        animator.gameObject.SetActive(false);
-                        animator.gameObject.SetActive(true);
-                    }
-                }
             }
         }
 
