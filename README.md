@@ -13,7 +13,7 @@ OR you can download my Unity packages (exported after recording each video)
 
 https://drive.google.com/drive/folders/1BSFUbX4dAl1dGKvQQBMetVqmlrvhJVki?usp=sharing
 
-Create a brand new project (Lightweight RP Template) and import the package
+Create a brand new project (check folder names for LWRP or 3D template) and import the package
 (Assets -> Import Package -> Custom Package)
 
 ----
