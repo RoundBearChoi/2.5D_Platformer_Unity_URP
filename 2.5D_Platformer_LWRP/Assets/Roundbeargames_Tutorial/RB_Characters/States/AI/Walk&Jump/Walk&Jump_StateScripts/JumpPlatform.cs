@@ -13,8 +13,8 @@ namespace Roundbeargames
             characterState.characterControl.Jump = true;
             characterState.characterControl.MoveUp = true;
 
-            if(characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position.z
-               < characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
+            if(characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position.z <
+                characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
             {
                 characterState.characterControl.FaceForward(true);
             }
@@ -26,11 +26,11 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            float topDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y
-                - characterState.characterControl.collisionSpheres.FrontSpheres[1].transform.position.y;
+            float topDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y -
+                characterState.characterControl.collisionSpheres.FrontSpheres[1].transform.position.y;
 
-            float bottomDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y
-                - characterState.characterControl.collisionSpheres.FrontSpheres[0].transform.position.y;
+            float bottomDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y -
+                characterState.characterControl.collisionSpheres.FrontSpheres[0].transform.position.y;
 
             if (topDist < 1.5f && bottomDist > 0.5f)
             {
@@ -54,8 +54,6 @@ namespace Roundbeargames
                 characterState.characterControl.Jump = false;
 
                 characterState.characterControl.aiController.InitializeAI();
-                //animator.gameObject.SetActive(false);
-                //animator.gameObject.SetActive(true);
             }
         }
 

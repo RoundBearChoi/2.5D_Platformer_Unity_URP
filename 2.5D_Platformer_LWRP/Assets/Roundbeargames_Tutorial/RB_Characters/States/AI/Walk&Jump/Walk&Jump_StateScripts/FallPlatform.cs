@@ -10,13 +10,13 @@ namespace Roundbeargames
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            if (characterState.characterControl.transform.position.z 
-                < characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
+            if (characterState.characterControl.transform.position.z <
+                characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
             {
                 characterState.characterControl.FaceForward(true);
             }
-            else if (characterState.characterControl.transform.position.z 
-                > characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
+            else if (characterState.characterControl.transform.position.z >
+                characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
             {
                 characterState.characterControl.FaceForward(false);
             }
@@ -31,8 +31,8 @@ namespace Roundbeargames
         {
             if (characterState.characterControl.IsFacingForward())
             {
-                if (characterState.characterControl.transform.position.z 
-                    < characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
+                if (characterState.characterControl.transform.position.z <
+                    characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
                 {
                     characterState.characterControl.MoveRight = true;
                     characterState.characterControl.MoveLeft = false;
@@ -43,14 +43,12 @@ namespace Roundbeargames
                     characterState.characterControl.MoveLeft = false;
 
                     characterState.characterControl.aiController.InitializeAI();
-                    //animator.gameObject.SetActive(false);
-                    //animator.gameObject.SetActive(true);
                 }
             }
             else
             {
-                if (characterState.characterControl.transform.position.z 
-                    > characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
+                if (characterState.characterControl.transform.position.z >
+                    characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
                 {
                     characterState.characterControl.MoveRight = false;
                     characterState.characterControl.MoveLeft = true;
@@ -61,8 +59,6 @@ namespace Roundbeargames
                     characterState.characterControl.MoveLeft = false;
 
                     characterState.characterControl.aiController.InitializeAI();
-                    //animator.gameObject.SetActive(false);
-                    //animator.gameObject.SetActive(true);
                 }
             }
         }

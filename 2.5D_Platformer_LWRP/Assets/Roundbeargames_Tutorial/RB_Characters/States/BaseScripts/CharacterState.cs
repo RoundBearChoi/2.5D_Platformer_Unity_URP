@@ -6,9 +6,10 @@ namespace Roundbeargames
 {
     public class CharacterState : StateMachineBehaviour
     {
-        public List<StateData> ListAbilityData = new List<StateData>();
         public CharacterControl characterControl;
-
+        [Space(10)]
+        public List<StateData> ListAbilityData = new List<StateData>();
+        
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             if (characterControl == null)

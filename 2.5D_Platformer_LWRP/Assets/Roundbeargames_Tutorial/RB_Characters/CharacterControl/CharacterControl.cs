@@ -89,9 +89,9 @@ namespace Roundbeargames
             aiController = GetComponentInChildren<AIController>();
             if (aiController == null)
             {
-                if (playableCharacterType == PlayableCharacterType.NONE)
+                if (navMeshObstacle != null)
                 {
-                    this.gameObject.GetComponent<NavMeshObstacle>().carving = true;
+                    navMeshObstacle.carving = true;
                 }
             }
 
