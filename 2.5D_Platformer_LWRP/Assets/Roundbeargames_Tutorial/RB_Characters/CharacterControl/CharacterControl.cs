@@ -79,14 +79,22 @@ namespace Roundbeargames
             animationProgress = GetComponent<AnimationProgress>();
             aiProgress = GetComponentInChildren<AIProgress>();
             damageDetector = GetComponentInChildren<DamageDetector>();
-            aiController = GetComponentInChildren<AIController>();
             boxCollider = GetComponent<BoxCollider>();
             navMeshObstacle = GetComponent<NavMeshObstacle>();
 
             collisionSpheres = GetComponentInChildren<CollisionSpheres>();
             collisionSpheres.owner = this;
             collisionSpheres.SetColliderSpheres();
-            
+
+            aiController = GetComponentInChildren<AIController>();
+            if (aiController == null)
+            {
+                if (playableCharacterType == PlayableCharacterType.NONE)
+                {
+                    this.gameObject.GetComponent<NavMeshObstacle>().carving = true;
+                }
+            }
+
             RegisterCharacter();
         }
 

@@ -20,6 +20,11 @@ namespace Roundbeargames
             {
                 characterState.characterControl.FaceForward(false);
             }
+
+            if (characterState.characterControl.aiProgress.GetDistanceToStartSphere() > 3f)
+            {
+                characterState.characterControl.Turbo = true;
+            }
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
