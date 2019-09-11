@@ -398,6 +398,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   BottomSpheres: []
   FrontSpheres: []
+  BackSpheres: []
 --- !u!1 &877859058002271199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,7 +1527,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.09124453, y: -0.06656394, z: -0.0005537323}
+  m_ConnectedAnchor: {x: 0.09124453, y: -0.066564, z: -0.0005537323}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3486,6 +3487,8 @@ MonoBehaviour:
   MaxPressTime: 0.1
   disallowEarlyTurn: 0
   LockDirectionNextState: 0
+  Ground: {fileID: 0}
+  BlockingObj: {fileID: 0}
   Jumped: 0
   AirMomentum: 0
   CancelPull: 0
