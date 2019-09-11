@@ -276,7 +276,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListAbilityData:
   - {fileID: 11400000, guid: 1d0e9c6c324681045837d2994d29f4f2, type: 2}
-  - {fileID: 11400000, guid: c652ead5e2283444591e5cb3e2ae9ed0, type: 2}
   characterControl: {fileID: 0}
 --- !u!114 &8569735768275112191
 MonoBehaviour:

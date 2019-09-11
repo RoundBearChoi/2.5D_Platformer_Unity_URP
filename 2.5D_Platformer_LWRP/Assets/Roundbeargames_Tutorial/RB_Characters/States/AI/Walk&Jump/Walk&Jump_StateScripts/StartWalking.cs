@@ -8,27 +8,9 @@ namespace Roundbeargames
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AI/StartWalking")]
     public class StartWalking : StateData
     {
-        public Vector3 TargetDir = new Vector3();
-
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            WalkStraightTowardsTarget(characterState.characterControl);
-        }
-
-        public void WalkStraightTowardsTarget(CharacterControl control)
-        {
-            TargetDir = control.aiProgress.pathfindingAgent.StartSphere.transform.position - control.transform.position;
-
-            if (TargetDir.z > 0f)
-            {
-                control.MoveRight = true;
-                control.MoveLeft = false;
-            }
-            else
-            {
-                control.MoveRight = false;
-                control.MoveLeft = true;
-            }
+            characterState.characterControl.aiController.WalkStraightToStartSphere();
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

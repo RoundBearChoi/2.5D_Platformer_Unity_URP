@@ -6,18 +6,26 @@ namespace Roundbeargames
 {
     public enum AI_TYPE
     {
+        NONE,
         WALK_AND_JUMP,
-        RUN,
     }
 
 
     public class AIController : MonoBehaviour
     {
-        public List<AISubset> AIList = new List<AISubset>();
         public AI_TYPE InitialAI;
-        Coroutine AIRoutine;
 
-        public void Start()
+        List<AISubset> AIList = new List<AISubset>();
+        Coroutine AIRoutine;
+        Vector3 TargetDir = new Vector3();
+        CharacterControl control;
+
+        private void Awake()
+        {
+            control = this.gameObject.GetComponentInParent<CharacterControl>();
+        }
+
+        private void Start()
         {
             InitializeAI();
         }
@@ -73,6 +81,22 @@ namespace Roundbeargames
             if (next != null)
             {
                 next.gameObject.SetActive(true);
+            }
+        }
+
+        public void WalkStraightToStartSphere()
+        {
+            TargetDir = control.aiProgress.pathfindingAgent.StartSphere.transform.position - control.transform.position;
+
+            if (TargetDir.z > 0f)
+            {
+                control.MoveRight = true;
+                control.MoveLeft = false;
+            }
+            else
+            {
+                control.MoveRight = false;
+                control.MoveLeft = true;
             }
         }
     }
