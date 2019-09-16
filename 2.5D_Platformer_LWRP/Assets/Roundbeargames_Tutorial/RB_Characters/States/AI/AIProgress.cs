@@ -15,18 +15,38 @@ namespace Roundbeargames
             control = this.gameObject.GetComponentInParent<CharacterControl>();
         }
 
-        public float GetDistanceToStartSphere()
+        public float AIDistanceToStartSphere()
         {
             return Vector3.SqrMagnitude(
-                control.aiProgress.pathfindingAgent.StartSphere.transform.position
-                - control.transform.position);
+                control.aiProgress.pathfindingAgent.StartSphere.transform.position -
+                control.transform.position);
         }
 
-        public float GetDistanceToEndSphere()
+        public float AIDistanceToEndSphere()
         {
             return Vector3.SqrMagnitude(
-                control.aiProgress.pathfindingAgent.EndSphere.transform.position
-                - control.transform.position);
+                control.aiProgress.pathfindingAgent.EndSphere.transform.position -
+                control.transform.position);
+        }
+
+        public float TargetDistanceToEndSphere()
+        {
+            return Vector3.SqrMagnitude(
+                control.aiProgress.pathfindingAgent.EndSphere.transform.position -
+                control.aiProgress.pathfindingAgent.target.transform.position);
+        }
+
+        public bool TargetIsGrounded()
+        {
+            if (CharacterManager.Instance.GetCharacter(control.aiProgress.pathfindingAgent.target).
+                animationProgress.Ground == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public bool EndSphereIsHigher()

@@ -18,7 +18,7 @@ namespace Roundbeargames
             //jump
             if (characterState.characterControl.aiProgress.EndSphereIsHigher())
             {
-                if (characterState.characterControl.aiProgress.GetDistanceToStartSphere() < 0.01f)
+                if (characterState.characterControl.aiProgress.AIDistanceToStartSphere() < 0.01f)
                 {
                     characterState.characterControl.MoveRight = false;
                     characterState.characterControl.MoveLeft = false;
@@ -36,7 +36,7 @@ namespace Roundbeargames
             }
 
             //straight
-            if (characterState.characterControl.aiProgress.GetDistanceToStartSphere() > 3f)
+            if (characterState.characterControl.aiProgress.AIDistanceToStartSphere() > 3f)
             {
                 characterState.characterControl.Turbo = true;
             }
@@ -47,7 +47,7 @@ namespace Roundbeargames
 
             characterState.characterControl.aiController.WalkStraightToStartSphere();
 
-            if (characterState.characterControl.aiProgress.GetDistanceToEndSphere() < 1f)
+            if (characterState.characterControl.aiProgress.AIDistanceToEndSphere() < 1f)
             {
                 characterState.characterControl.Turbo = false;
                 characterState.characterControl.MoveRight = false;

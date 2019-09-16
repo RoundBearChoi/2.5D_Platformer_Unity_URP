@@ -34,6 +34,19 @@ namespace Roundbeargames
             return null;
         }
 
+        public CharacterControl GetCharacter(GameObject obj)
+        {
+            foreach (CharacterControl control in Characters)
+            {
+                if (control.gameObject == obj)
+                {
+                    return control;
+                }
+            }
+
+            return null;
+        }
+
         public CharacterControl GetPlayableCharacter()
         {
             foreach (CharacterControl control in Characters)

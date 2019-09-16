@@ -21,7 +21,7 @@ namespace Roundbeargames
                 characterState.characterControl.FaceForward(false);
             }
 
-            if (characterState.characterControl.aiProgress.GetDistanceToStartSphere() > 3f)
+            if (characterState.characterControl.aiProgress.AIDistanceToStartSphere() > 3f)
             {
                 characterState.characterControl.Turbo = true;
             }
@@ -42,13 +42,6 @@ namespace Roundbeargames
                     characterState.characterControl.MoveRight = true;
                     characterState.characterControl.MoveLeft = false;
                 }
-                else
-                {
-                    characterState.characterControl.MoveRight = false;
-                    characterState.characterControl.MoveLeft = false;
-
-                    characterState.characterControl.aiController.InitializeAI();
-                }
             }
             else
             {
@@ -57,13 +50,6 @@ namespace Roundbeargames
                 {
                     characterState.characterControl.MoveRight = false;
                     characterState.characterControl.MoveLeft = true;
-                }
-                else
-                {
-                    characterState.characterControl.MoveRight = false;
-                    characterState.characterControl.MoveLeft = false;
-
-                    characterState.characterControl.aiController.InitializeAI();
                 }
             }
         }
