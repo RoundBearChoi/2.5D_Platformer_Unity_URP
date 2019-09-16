@@ -29,6 +29,11 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
+            if (!characterState.characterControl.SkinnedMeshAnimator.GetBool(TransitionParameter.Grounded.ToString()))
+            {
+                return;
+            }
+
             if (characterState.characterControl.IsFacingForward())
             {
                 if (characterState.characterControl.transform.position.z <

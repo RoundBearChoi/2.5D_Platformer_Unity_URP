@@ -46,6 +46,14 @@ namespace Roundbeargames
             }
 
             characterState.characterControl.aiController.WalkStraightToStartSphere();
+
+            if (characterState.characterControl.aiProgress.GetDistanceToEndSphere() < 1f)
+            {
+                characterState.characterControl.Turbo = false;
+                characterState.characterControl.MoveRight = false;
+                characterState.characterControl.MoveLeft = false;
+            }
+
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

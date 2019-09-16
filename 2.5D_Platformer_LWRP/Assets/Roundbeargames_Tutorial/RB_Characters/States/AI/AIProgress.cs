@@ -22,6 +22,13 @@ namespace Roundbeargames
                 - control.transform.position);
         }
 
+        public float GetDistanceToEndSphere()
+        {
+            return Vector3.SqrMagnitude(
+                control.aiProgress.pathfindingAgent.EndSphere.transform.position
+                - control.transform.position);
+        }
+
         public bool EndSphereIsHigher()
         {
             if (EndSphereIsStraight())
