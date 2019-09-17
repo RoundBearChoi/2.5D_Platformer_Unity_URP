@@ -35,6 +35,24 @@ namespace Roundbeargames
                 characterState.characterControl.MoveUp = false;
                 characterState.characterControl.aiController.InitializeAI();
             }
+
+            // path is blocked
+            characterState.characterControl.aiProgress.BlockingCharacter =
+                CharacterManager.Instance.GetCharacter(characterState.characterControl.animationProgress.BlockingObj);
+
+            if (characterState.characterControl.aiProgress.BlockingCharacter != null)
+            {
+                if (characterState.characterControl.animationProgress.Ground != null)
+                {
+                    characterState.characterControl.Turbo = false;
+                    characterState.characterControl.Jump = false;
+                    characterState.characterControl.MoveUp = false;
+                    characterState.characterControl.MoveLeft = false;
+                    characterState.characterControl.MoveRight = false;
+                    characterState.characterControl.MoveDown = false;
+                    characterState.characterControl.aiController.InitializeAI();
+                }
+            }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

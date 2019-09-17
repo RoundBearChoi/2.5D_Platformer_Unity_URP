@@ -7,6 +7,7 @@ namespace Roundbeargames
     public class AIProgress : MonoBehaviour
     {
         public PathFindingAgent pathfindingAgent;
+        public CharacterControl BlockingCharacter;
 
         CharacterControl control;
 
