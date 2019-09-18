@@ -150,7 +150,12 @@ namespace Roundbeargames
             control.GetComponent<BoxCollider>().enabled = false;
             control.ledgeChecker.GetComponent<BoxCollider>().enabled = false;
             control.RIGID_BODY.useGravity = false;
-            control.navMeshObstacle.carving = false;
+
+            if (control.aiController != null)
+            {
+                control.aiController.gameObject.SetActive(false);
+                control.navMeshObstacle.enabled = false;
+            }
 
             DamageTaken++;
         }
