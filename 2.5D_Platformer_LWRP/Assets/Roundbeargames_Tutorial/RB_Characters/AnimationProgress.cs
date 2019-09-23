@@ -10,9 +10,11 @@ namespace Roundbeargames
 
         public bool CameraShaken;
         public List<PoolObjectType> SpawnedObjList = new List<PoolObjectType>();
-        public bool AttackTriggered;
         public bool RagdollTriggered;
-        public float MaxPressTime;
+
+        [Header("Attack Button")]
+        public bool AttackTriggered;
+        public bool AttackButtonIsReset;
 
         [Header("GroundMovement")]
         public bool disallowEarlyTurn;
@@ -37,43 +39,27 @@ namespace Roundbeargames
         public float Center_Speed;
 
         private CharacterControl control;
-        private float PressTime;
 
         private void Awake()
         {
             control = GetComponent<CharacterControl>();
-            PressTime = 0f;
         }
 
         private void Update()
         {
             if (control.Attack)
             {
-                PressTime += Time.deltaTime;
+                if (AttackButtonIsReset)
+                {
+                    AttackTriggered = true;
+                    AttackButtonIsReset = false;
+                }
             }
             else
             {
-                PressTime = 0f;
-            }
-
-            if (PressTime == 0f)
-            {
-                AttackTriggered = false;
-            }
-            else if(PressTime > MaxPressTime)
-            {
-                AttackTriggered = false;
-            }
-            else
-            {
-                AttackTriggered = true;
+                AttackButtonIsReset = true;
             }
         }
-
-        //private void LateUpdate()
-        //{
-        //    FrameUpdated = false;
-        //}
 
         public bool IsRunning(System.Type type, StateData self)
         {
