@@ -23,3 +23,4 @@ MonoBehaviour:
   MaxHits: 1
   ComboStartTime: 0.2
   ComboEndTime: 0.8
+  UseRagdollDeath: 1

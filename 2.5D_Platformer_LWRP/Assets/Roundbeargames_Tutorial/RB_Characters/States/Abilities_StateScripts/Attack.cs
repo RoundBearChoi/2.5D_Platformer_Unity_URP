@@ -30,6 +30,9 @@ namespace Roundbeargames
         public float ComboStartTime;
         public float ComboEndTime;
 
+        [Header("Ragdoll Death")]
+        public bool UseRagdollDeath;
+
         private List<AttackInfo> FinishedAttacks = new List<AttackInfo>();
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

@@ -142,10 +142,18 @@ namespace Roundbeargames
 
             Debug.Log(info.Attacker.gameObject.name + " hits: " + this.gameObject.name);
             Debug.Log(this.gameObject.name + " hit in " + DamagedPart.ToString());
-            
-            control.SkinnedMeshAnimator.runtimeAnimatorController = DeathAnimationManager.Instance.GetAnimator(DamagedPart, info);
-            //control.CacheCharacterControl(control.SkinnedMeshAnimator);
+
             info.CurrentHits++;
+            DamageTaken++;
+
+            if (!info.UseRagdollDeath)
+            {
+                control.SkinnedMeshAnimator.runtimeAnimatorController = DeathAnimationManager.Instance.GetAnimator(DamagedPart, info);
+            }
+            else
+            {
+                control.animationProgress.RagdollTriggered = true;
+            }
 
             control.GetComponent<BoxCollider>().enabled = false;
             control.ledgeChecker.GetComponent<BoxCollider>().enabled = false;
@@ -156,8 +164,6 @@ namespace Roundbeargames
                 control.aiController.gameObject.SetActive(false);
                 control.navMeshObstacle.enabled = false;
             }
-
-            DamageTaken++;
         }
     }
 }

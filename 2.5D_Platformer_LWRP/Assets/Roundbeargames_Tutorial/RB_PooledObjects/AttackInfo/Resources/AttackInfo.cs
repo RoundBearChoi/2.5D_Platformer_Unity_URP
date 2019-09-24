@@ -8,7 +8,6 @@ namespace Roundbeargames
     {
         public CharacterControl Attacker = null;
         public Attack AttackAbility;
-        //public List<string> ColliderNames = new List<string>();
         public List<AttackPartType> AttackParts = new List<AttackPartType>();
         public DeathType deathType;
         public bool MustCollide;
@@ -18,6 +17,7 @@ namespace Roundbeargames
         public int CurrentHits;
         public bool isRegisterd;
         public bool isFinished;
+        public bool UseRagdollDeath;
 
         public void ResetInfo(Attack attack, CharacterControl attacker)
         {
@@ -25,6 +25,7 @@ namespace Roundbeargames
             isFinished = false;
             AttackAbility = attack;
             Attacker = attacker;
+            UseRagdollDeath = attack.UseRagdollDeath;
         }
 
         public void Register(Attack attack)
