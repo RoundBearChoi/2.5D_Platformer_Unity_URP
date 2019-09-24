@@ -38,6 +38,11 @@ namespace Roundbeargames
         public Vector3 TargetCenter;
         public float Center_Speed;
 
+        [Header("Damage Info")]
+        public Attack Attack;
+        public CharacterControl Attacker;
+        public TriggerDetector DamagedTrigger;
+
         private CharacterControl control;
 
         private void Awake()

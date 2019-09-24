@@ -24,3 +24,6 @@ MonoBehaviour:
   ComboStartTime: 0.2
   ComboEndTime: 0.8
   UseRagdollDeath: 1
+  ForwardForce: 1500
+  RightForce: 0
+  UpForce: 0

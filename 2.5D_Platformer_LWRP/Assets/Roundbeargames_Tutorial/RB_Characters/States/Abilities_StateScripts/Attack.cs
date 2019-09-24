@@ -32,6 +32,9 @@ namespace Roundbeargames
 
         [Header("Ragdoll Death")]
         public bool UseRagdollDeath;
+        public float ForwardForce;
+        public float RightForce;
+        public float UpForce;
 
         private List<AttackInfo> FinishedAttacks = new List<AttackInfo>();
 

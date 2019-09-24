@@ -94,6 +94,9 @@ namespace Roundbeargames
                             if (collider.gameObject == info.Attacker.LeftHand_Attack)
                             {
                                 DamagedPart = trigger.generalBodyPart;
+                                control.animationProgress.Attack = info.AttackAbility;
+                                control.animationProgress.Attacker = info.Attacker;
+                                control.animationProgress.DamagedTrigger = trigger;
                                 return true;
                             }
                         }
@@ -102,6 +105,9 @@ namespace Roundbeargames
                             if (collider.gameObject == info.Attacker.RightHand_Attack)
                             {
                                 DamagedPart = trigger.generalBodyPart;
+                                control.animationProgress.Attack = info.AttackAbility;
+                                control.animationProgress.Attacker = info.Attacker;
+                                control.animationProgress.DamagedTrigger = trigger;
                                 return true;
                             }
                         }
@@ -110,6 +116,9 @@ namespace Roundbeargames
                             if (collider.gameObject == info.Attacker.LeftFoot_Attack)
                             {
                                 DamagedPart = trigger.generalBodyPart;
+                                control.animationProgress.Attack = info.AttackAbility;
+                                control.animationProgress.Attacker = info.Attacker;
+                                control.animationProgress.DamagedTrigger = trigger;
                                 return true;
                             }
                         }
@@ -118,6 +127,9 @@ namespace Roundbeargames
                             if (collider.gameObject == info.Attacker.RightFoot_Attack)
                             {
                                 DamagedPart = trigger.generalBodyPart;
+                                control.animationProgress.Attack = info.AttackAbility;
+                                control.animationProgress.Attacker = info.Attacker;
+                                control.animationProgress.DamagedTrigger = trigger;
                                 return true;
                             }
                         }

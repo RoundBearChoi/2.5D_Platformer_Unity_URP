@@ -203,6 +203,15 @@ namespace Roundbeargames
 
                 c.attachedRigidbody.velocity = Vector3.zero;
             }
+
+            //add force
+            if (animationProgress.DamagedTrigger != null)
+            {
+                animationProgress.DamagedTrigger.GetComponent<Rigidbody>().
+                    AddForce(animationProgress.Attacker.transform.forward * animationProgress.Attack.ForwardForce +
+                    animationProgress.Attacker.transform.right * animationProgress.Attack.RightForce +
+                    animationProgress.Attacker.transform.up * animationProgress.Attack.UpForce);
+            }
         }
 
         public void UpdateBoxCollider_Size()
