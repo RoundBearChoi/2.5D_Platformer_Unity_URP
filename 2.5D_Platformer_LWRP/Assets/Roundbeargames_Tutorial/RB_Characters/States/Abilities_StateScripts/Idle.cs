@@ -24,7 +24,6 @@ namespace Roundbeargames
             if (characterState.characterControl.animationProgress.AttackTriggered)
             {
                 animator.SetBool(TransitionParameter.Attack.ToString(), true);
-                characterState.characterControl.animationProgress.AttackTriggered = false;
             }
 
             if (characterState.characterControl.Jump)

@@ -40,6 +40,8 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
+            characterState.characterControl.animationProgress.AttackTriggered = false;
+
             animator.SetBool(TransitionParameter.Attack.ToString(), false);
             
             GameObject obj = PoolManager.Instance.GetObject(PoolObjectType.ATTACKINFO); 
@@ -118,7 +120,6 @@ namespace Roundbeargames
                     if (characterState.characterControl.animationProgress.AttackTriggered)
                     {
                         animator.SetBool(TransitionParameter.Attack.ToString(), true);
-                        characterState.characterControl.animationProgress.AttackTriggered = false;
                     }
                 }
             }

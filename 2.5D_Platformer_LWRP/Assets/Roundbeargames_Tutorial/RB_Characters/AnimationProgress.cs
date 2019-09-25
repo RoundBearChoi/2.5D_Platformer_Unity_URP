@@ -63,6 +63,7 @@ namespace Roundbeargames
             else
             {
                 AttackButtonIsReset = true;
+                AttackTriggered = false;
             }
         }
 
