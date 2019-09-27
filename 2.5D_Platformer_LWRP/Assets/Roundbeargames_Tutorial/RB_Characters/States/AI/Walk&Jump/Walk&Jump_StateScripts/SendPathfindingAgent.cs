@@ -11,7 +11,7 @@ namespace Roundbeargames
         jump_platform,
         fall_platform,
 
-        start_running,
+        //start_running,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AI/SendPathfindingAgent")]
@@ -37,14 +37,14 @@ namespace Roundbeargames
             if (characterState.characterControl.aiProgress.pathfindingAgent.StartWalk)
             {
                 animator.SetBool(AI_Walk_Transitions.start_walking.ToString(), true);
-                animator.SetBool(AI_Walk_Transitions.start_running.ToString(), true);
+                //animator.SetBool(AI_Walk_Transitions.start_running.ToString(), true);
             }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             animator.SetBool(AI_Walk_Transitions.start_walking.ToString(), false);
-            animator.SetBool(AI_Walk_Transitions.start_running.ToString(), false);
+            //animator.SetBool(AI_Walk_Transitions.start_running.ToString(), false);
         }
     }
 }
