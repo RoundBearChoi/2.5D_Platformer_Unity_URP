@@ -43,17 +43,7 @@ namespace Roundbeargames
             }
             else
             {
-                if (characterState.characterControl.aiProgress.DoFlyingKick &&
-                    characterState.characterControl.aiProgress.AIDistanceToTarget() <= 1.5f &&
-                    !characterState.characterControl.aiProgress.TargetIsDead())
-                {
-                    characterState.characterControl.Attack = true;
-                    characterState.characterControl.aiController.InitializeAI();
-                }
-                else
-                {
-                    characterState.characterControl.Turbo = false;
-                }
+                characterState.characterControl.Turbo = false;
             }
 
             characterState.characterControl.aiController.WalkStraightToStartSphere();
@@ -64,7 +54,6 @@ namespace Roundbeargames
                 characterState.characterControl.MoveRight = false;
                 characterState.characterControl.MoveLeft = false;
             }
-
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
