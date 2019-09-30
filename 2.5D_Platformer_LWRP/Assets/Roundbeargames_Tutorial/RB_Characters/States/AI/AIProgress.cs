@@ -8,6 +8,7 @@ namespace Roundbeargames
     {
         public PathFindingAgent pathfindingAgent;
         public CharacterControl BlockingCharacter;
+        public bool DoFlyingKick;
 
         CharacterControl control;
 
@@ -30,11 +31,31 @@ namespace Roundbeargames
                 control.transform.position);
         }
 
+        public float AIDistanceToTarget()
+        {
+            return Vector3.SqrMagnitude(
+                control.aiProgress.pathfindingAgent.target.transform.position -
+                control.transform.position);
+        }
+        
         public float TargetDistanceToEndSphere()
         {
             return Vector3.SqrMagnitude(
                 control.aiProgress.pathfindingAgent.EndSphere.transform.position -
                 control.aiProgress.pathfindingAgent.target.transform.position);
+        }
+
+        public bool TargetIsDead()
+        {
+            if (CharacterManager.Instance.GetCharacter(control.aiProgress.pathfindingAgent.target).
+                damageDetector.DamageTaken > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool TargetIsGrounded()
@@ -96,6 +117,18 @@ namespace Roundbeargames
             else
             {
                 return true;
+            }
+        }
+
+        public void SetRandomFlyingKick()
+        {
+            if (Random.Range(0f, 1f) < 0.3f)
+            {
+                DoFlyingKick = true;
+            }
+            else
+            {
+                DoFlyingKick = false;
             }
         }
     }
