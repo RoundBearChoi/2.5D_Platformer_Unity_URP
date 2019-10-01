@@ -16,10 +16,12 @@ MonoBehaviour:
   StartAttackTime: 0.4
   EndAttackTime: 0.6
   AttackParts: 01000000
-  deathType: 0
   MustCollide: 1
   MustFaceAttacker: 0
   LethalRange: 0
   MaxHits: 1
   ComboStartTime: 0.2
   ComboEndTime: 0.8
+  ForwardForce: 1000
+  RightForce: 0
+  UpForce: -6000
