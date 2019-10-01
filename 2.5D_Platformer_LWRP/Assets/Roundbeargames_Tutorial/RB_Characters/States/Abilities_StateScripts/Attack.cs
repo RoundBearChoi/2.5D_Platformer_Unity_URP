@@ -20,7 +20,6 @@ namespace Roundbeargames
         public float StartAttackTime;
         public float EndAttackTime;
         public List<AttackPartType> AttackParts = new List<AttackPartType>();
-        public DeathType deathType;
         public bool MustCollide;
         public bool MustFaceAttacker;
         public float LethalRange;
@@ -31,7 +30,6 @@ namespace Roundbeargames
         public float ComboEndTime;
 
         [Header("Ragdoll Death")]
-        public bool UseRagdollDeath;
         public float ForwardForce;
         public float RightForce;
         public float UpForce;

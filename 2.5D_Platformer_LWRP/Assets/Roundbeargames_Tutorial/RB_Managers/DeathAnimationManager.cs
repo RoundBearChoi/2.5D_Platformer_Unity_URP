@@ -19,40 +19,5 @@ namespace Roundbeargames
                 deathAnimationLoader = loader;
             }
         }
-
-        public RuntimeAnimatorController GetAnimator(GeneralBodyPart generalBodyPart, AttackInfo info)
-        {
-            SetupDeathAnimationLoader();
-
-            Candidates.Clear();
-
-            foreach (DeathAnimationData data in deathAnimationLoader.DeathAnimationDataList)
-            {
-                if (info.deathType == data.deathType)
-                {
-                    if (info.deathType != DeathType.NONE)
-                    {
-                        Candidates.Add(data.Animator);
-                    }
-                    else if (!info.MustCollide)
-                    {
-                        Candidates.Add(data.Animator);
-                    }
-                    else
-                    {
-                        foreach (GeneralBodyPart part in data.GeneralBodyParts)
-                        {
-                            if (part == generalBodyPart)
-                            {
-                                Candidates.Add(data.Animator);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-
-            return Candidates[Random.Range(0, Candidates.Count)];
-        }
     }
 }

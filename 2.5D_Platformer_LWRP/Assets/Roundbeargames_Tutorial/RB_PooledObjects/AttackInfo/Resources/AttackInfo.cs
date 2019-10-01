@@ -25,7 +25,6 @@ namespace Roundbeargames
             isFinished = false;
             AttackAbility = attack;
             Attacker = attacker;
-            UseRagdollDeath = attack.UseRagdollDeath;
         }
 
         public void Register(Attack attack)
@@ -33,9 +32,7 @@ namespace Roundbeargames
             isRegisterd = true;
 
             AttackAbility = attack;
-            //ColliderNames = attack.ColliderNames;
             AttackParts = attack.AttackParts;
-            deathType = attack.deathType;
             MustCollide = attack.MustCollide;
             MustFaceAttacker = attack.MustFaceAttacker;
             LethalRange = attack.LethalRange;

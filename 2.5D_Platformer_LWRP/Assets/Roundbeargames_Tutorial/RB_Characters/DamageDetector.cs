@@ -7,8 +7,6 @@ namespace Roundbeargames
     public class DamageDetector : MonoBehaviour
     {
         CharacterControl control;
-        GeneralBodyPart DamagedPart;
-
         public int DamageTaken;
 
         private void Awake()
@@ -93,7 +91,6 @@ namespace Roundbeargames
                         {
                             if (collider.gameObject == info.Attacker.LeftHand_Attack)
                             {
-                                DamagedPart = trigger.generalBodyPart;
                                 control.animationProgress.Attack = info.AttackAbility;
                                 control.animationProgress.Attacker = info.Attacker;
                                 control.animationProgress.DamagedTrigger = trigger;
@@ -104,7 +101,6 @@ namespace Roundbeargames
                         {
                             if (collider.gameObject == info.Attacker.RightHand_Attack)
                             {
-                                DamagedPart = trigger.generalBodyPart;
                                 control.animationProgress.Attack = info.AttackAbility;
                                 control.animationProgress.Attacker = info.Attacker;
                                 control.animationProgress.DamagedTrigger = trigger;
@@ -115,7 +111,6 @@ namespace Roundbeargames
                         {
                             if (collider.gameObject == info.Attacker.LeftFoot_Attack)
                             {
-                                DamagedPart = trigger.generalBodyPart;
                                 control.animationProgress.Attack = info.AttackAbility;
                                 control.animationProgress.Attacker = info.Attacker;
                                 control.animationProgress.DamagedTrigger = trigger;
@@ -126,7 +121,6 @@ namespace Roundbeargames
                         {
                             if (collider.gameObject == info.Attacker.RightFoot_Attack)
                             {
-                                DamagedPart = trigger.generalBodyPart;
                                 control.animationProgress.Attack = info.AttackAbility;
                                 control.animationProgress.Attacker = info.Attacker;
                                 control.animationProgress.DamagedTrigger = trigger;
@@ -153,20 +147,11 @@ namespace Roundbeargames
             }
 
             Debug.Log(info.Attacker.gameObject.name + " hits: " + this.gameObject.name);
-            Debug.Log(this.gameObject.name + " hit in " + DamagedPart.ToString());
 
             info.CurrentHits++;
             DamageTaken++;
 
-            if (!info.UseRagdollDeath)
-            {
-                control.SkinnedMeshAnimator.runtimeAnimatorController = DeathAnimationManager.Instance.GetAnimator(DamagedPart, info);
-            }
-            else
-            {
-                control.animationProgress.RagdollTriggered = true;
-            }
-
+            control.animationProgress.RagdollTriggered = true;
             control.GetComponent<BoxCollider>().enabled = false;
             control.ledgeChecker.GetComponent<BoxCollider>().enabled = false;
             control.RIGID_BODY.useGravity = false;

@@ -4,18 +4,8 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    public enum GeneralBodyPart
-    {
-        Upper,
-        Lower,
-        Arm,
-        Leg,
-    }
-
     public class TriggerDetector : MonoBehaviour
     {
-        public GeneralBodyPart generalBodyPart;
-
         public List<Collider> CollidingParts = new List<Collider>();
         private CharacterControl owner;
 
