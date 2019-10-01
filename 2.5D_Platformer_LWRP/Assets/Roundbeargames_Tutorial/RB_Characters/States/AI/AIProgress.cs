@@ -58,6 +58,19 @@ namespace Roundbeargames
             }
         }
 
+        public bool TargetIsOnRightSide()
+        {
+            if ((control.aiProgress.pathfindingAgent.target.transform.position -
+                control.transform.position).z > 0f)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool TargetIsOnSamePlatform()
         {
             if (CharacterManager.Instance.GetCharacter(control.aiProgress.pathfindingAgent.target).

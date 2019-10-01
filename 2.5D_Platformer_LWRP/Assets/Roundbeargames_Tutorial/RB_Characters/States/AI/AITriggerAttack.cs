@@ -58,7 +58,7 @@ namespace Roundbeargames
         {
             if (control.aiProgress.TargetIsOnSamePlatform())
             {
-                if (control.IsFacingForward())
+                if (control.aiProgress.TargetIsOnRightSide())
                 {
                     control.MoveRight = true;
                     control.MoveLeft = false;
