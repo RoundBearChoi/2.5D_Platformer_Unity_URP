@@ -7,6 +7,8 @@ namespace Roundbeargames
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/MoveForward")]
     public class MoveForward : StateData
     {
+        public bool debug;
+
         public bool AllowEarlyTurn;
         public bool LockDirection;
         public bool LockDirectionNextState;
@@ -14,7 +16,11 @@ namespace Roundbeargames
         public AnimationCurve SpeedGraph;
         public float Speed;
         public float BlockDistance;
+
+        [Header("IgnoreCharacterBox")]
         public bool IgnoreCharacterBox;
+        public float IgnoreStartTime;
+        public float IgnoreEndTime;
 
         [Header("Momentum")]
         public bool UseMomentum;
@@ -60,6 +66,11 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
+            if (debug)
+            {
+                Debug.Log(stateInfo.normalizedTime);
+            }
+
             characterState.characterControl.animationProgress.LockDirectionNextState = LockDirectionNextState;
 
             if (characterState.characterControl.animationProgress.IsRunning(typeof(MoveForward), this))
@@ -139,7 +150,7 @@ namespace Roundbeargames
                 control.FaceForward(false);
             }
 
-            if (!IsBlocked(control, Speed))
+            if (!IsBlocked(control, Speed, stateInfo))
             {
                 control.MoveForward(Speed, Mathf.Abs(control.animationProgress.AirMomentum));
             }
@@ -147,7 +158,7 @@ namespace Roundbeargames
 
         private void ConstantMove(CharacterControl control, Animator animator, AnimatorStateInfo stateInfo)
         {
-            if (!IsBlocked(control, Speed))
+            if (!IsBlocked(control, Speed, stateInfo))
             {
                 control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
             }
@@ -178,7 +189,7 @@ namespace Roundbeargames
 
             if (control.MoveRight)
             {
-                if (!IsBlocked(control, Speed))
+                if (!IsBlocked(control, Speed, stateInfo))
                 {
                     control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
                 }
@@ -186,7 +197,7 @@ namespace Roundbeargames
 
             if (control.MoveLeft)
             {
-                if (!IsBlocked(control, Speed))
+                if (!IsBlocked(control, Speed, stateInfo))
                 {
                     control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
                 }
@@ -211,8 +222,17 @@ namespace Roundbeargames
             }
         }
 
-        bool IgnoringCharacterBox(Collider col)
+        bool IgnoringCharacterBox(Collider col, AnimatorStateInfo stateInfo)
         {
+            if (stateInfo.normalizedTime < IgnoreStartTime)
+            {
+                return false;
+            }
+            else if (stateInfo.normalizedTime > IgnoreEndTime)
+            {
+                return false;
+            }
+
             if (!IgnoreCharacterBox)
             {
                 return false;
@@ -226,7 +246,7 @@ namespace Roundbeargames
             return false;
         }
 
-        bool IsBlocked(CharacterControl control, float speed)
+        bool IsBlocked(CharacterControl control, float speed, AnimatorStateInfo stateInfo)
         {
             if (speed > 0)
             {
@@ -250,7 +270,7 @@ namespace Roundbeargames
                         if (!IsBodyPart(hit.collider) 
                             && !Ledge.IsLedge(hit.collider.gameObject)
                             && !Ledge.IsLedgeChecker(hit.collider.gameObject)
-                            && !IgnoringCharacterBox(hit.collider))
+                            && !IgnoringCharacterBox(hit.collider, stateInfo))
                         {
                             control.animationProgress.BlockingObj = hit.collider.transform.root.gameObject;
                             return true;
