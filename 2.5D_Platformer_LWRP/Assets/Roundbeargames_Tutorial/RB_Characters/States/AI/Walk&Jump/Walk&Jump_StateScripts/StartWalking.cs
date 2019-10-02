@@ -16,6 +16,11 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
+            if (characterState.characterControl.Attack)
+            {
+                return;
+            }
+
             //jump
             if (characterState.characterControl.aiProgress.EndSphereIsHigher())
             {

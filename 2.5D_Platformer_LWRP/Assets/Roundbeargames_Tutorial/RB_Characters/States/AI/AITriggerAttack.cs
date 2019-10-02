@@ -24,6 +24,7 @@ namespace Roundbeargames
         {
             if (characterState.characterControl.aiProgress.TargetIsDead())
             {
+                characterState.characterControl.Attack = false;
                 return;
             }
 
@@ -36,6 +37,10 @@ namespace Roundbeargames
                 characterState.characterControl.aiProgress.AIDistanceToTarget() < 1f)
             {
                 ListGroundAttacks[Random.Range(0, ListGroundAttacks.Count)](characterState.characterControl);
+            }
+            else
+            {
+                characterState.characterControl.Attack = false;
             }
         }
 
@@ -51,6 +56,10 @@ namespace Roundbeargames
                 control.MoveRight = false;
                 control.MoveLeft = false;
                 control.Attack = true;
+            }
+            else
+            {
+                control.Attack = false;
             }
         }
 
@@ -70,6 +79,10 @@ namespace Roundbeargames
                     control.MoveLeft = true;
                     control.Attack = true;
                 }
+            }
+            else
+            {
+                control.Attack = false;
             }
         }
 

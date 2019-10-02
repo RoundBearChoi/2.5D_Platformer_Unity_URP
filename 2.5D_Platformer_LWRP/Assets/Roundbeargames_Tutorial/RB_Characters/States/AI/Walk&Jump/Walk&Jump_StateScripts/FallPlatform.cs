@@ -34,6 +34,11 @@ namespace Roundbeargames
                 return;
             }
 
+            if (characterState.characterControl.Attack)
+            {
+                return;
+            }
+
             if (characterState.characterControl.IsFacingForward())
             {
                 if (characterState.characterControl.transform.position.z <

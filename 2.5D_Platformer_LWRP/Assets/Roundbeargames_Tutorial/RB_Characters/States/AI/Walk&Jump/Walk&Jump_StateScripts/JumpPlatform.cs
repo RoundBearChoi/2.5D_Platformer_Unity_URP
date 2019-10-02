@@ -26,6 +26,11 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
+            if (characterState.characterControl.Attack)
+            {
+                return;
+            }
+
             float topDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y -
                 characterState.characterControl.collisionSpheres.FrontSpheres[1].transform.position.y;
 
