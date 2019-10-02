@@ -87,5 +87,41 @@ namespace Roundbeargames
 
             return false;
         }
+
+        public bool RightSideIsBlocked()
+        {
+            if (BlockingObj == null)
+            {
+                return false;
+            }
+
+            if ((BlockingObj.transform.position -
+                control.transform.position).z > 0f)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool LeftSideIsBlocked()
+        {
+            if (BlockingObj == null)
+            {
+                return false;
+            }
+
+            if ((BlockingObj.transform.position -
+                control.transform.position).z < 0f)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -119,15 +119,29 @@ namespace Roundbeargames
 
         private void UpdateMomentum(CharacterControl control, AnimatorStateInfo stateInfo)
         {
-            if (control.MoveRight)
+            if (!control.animationProgress.RightSideIsBlocked())
             {
-                control.animationProgress.AirMomentum += SpeedGraph.Evaluate(stateInfo.normalizedTime) * Speed * Time.deltaTime;
+                if (control.MoveRight)
+                {
+                    control.animationProgress.AirMomentum += SpeedGraph.Evaluate(stateInfo.normalizedTime) * Speed * Time.deltaTime;
+                }
+            }
+            
+            if (!control.animationProgress.LeftSideIsBlocked())
+            {
+                if (control.MoveLeft)
+                {
+                    control.animationProgress.AirMomentum -= SpeedGraph.Evaluate(stateInfo.normalizedTime) * Speed * Time.deltaTime;
+                }
             }
 
-            if (control.MoveLeft)
+            if (control.animationProgress.RightSideIsBlocked() ||
+                control.animationProgress.LeftSideIsBlocked())
             {
-                control.animationProgress.AirMomentum -= SpeedGraph.Evaluate(stateInfo.normalizedTime) * Speed * Time.deltaTime;
+                control.animationProgress.AirMomentum =
+                    Mathf.Lerp(control.animationProgress.AirMomentum, 0f, Time.deltaTime * 1.5f);  
             }
+            
 
             if (Mathf.Abs(control.animationProgress.AirMomentum) >= MaxMomentum)
             {
