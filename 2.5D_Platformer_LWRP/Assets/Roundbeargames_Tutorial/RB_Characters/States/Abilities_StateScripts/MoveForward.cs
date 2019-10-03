@@ -238,6 +238,11 @@ namespace Roundbeargames
 
         bool IgnoringCharacterBox(Collider col, AnimatorStateInfo stateInfo)
         {
+            if (!IgnoreCharacterBox)
+            {
+                return false;
+            }
+
             if (stateInfo.normalizedTime < IgnoreStartTime)
             {
                 return false;
@@ -247,12 +252,7 @@ namespace Roundbeargames
                 return false;
             }
 
-            if (!IgnoreCharacterBox)
-            {
-                return false;
-            }
-
-            if (col.gameObject.GetComponent<CharacterControl>() != null)
+            if (col.transform.root.gameObject.GetComponent<CharacterControl>() != null)
             {
                 return true;
             }
@@ -279,16 +279,13 @@ namespace Roundbeargames
                 RaycastHit hit;
                 if (Physics.Raycast(o.transform.position, control.transform.forward * DirBlock, out hit, BlockDistance))
                 {
-                    if (!control.RagdollParts.Contains(hit.collider))
+                    if (!IsBodyPart(hit.collider, control) &&
+                        !IgnoringCharacterBox(hit.collider, stateInfo) &&
+                        !Ledge.IsLedge(hit.collider.gameObject) &&
+                        !Ledge.IsLedgeChecker(hit.collider.gameObject))
                     {
-                        if (!IsBodyPart(hit.collider) 
-                            && !Ledge.IsLedge(hit.collider.gameObject)
-                            && !Ledge.IsLedgeChecker(hit.collider.gameObject)
-                            && !IgnoringCharacterBox(hit.collider, stateInfo))
-                        {
-                            control.animationProgress.BlockingObj = hit.collider.transform.root.gameObject;
-                            return true;
-                        }
+                        control.animationProgress.BlockingObj = hit.collider.transform.root.gameObject;
+                        return true;
                     }
                 }
             }
@@ -297,26 +294,28 @@ namespace Roundbeargames
             return false;
         }
 
-        bool IsBodyPart(Collider col)
+        bool IsBodyPart(Collider col, CharacterControl control)
         {
-            CharacterControl control = col.transform.root.GetComponent<CharacterControl>();
-
-            if (control == null)
-            {
-                return false;
-            }
-
-            if (control.gameObject == col.gameObject)
-            {
-                return false;
-            }
-
-            if (control.RagdollParts.Contains(col))
+            if (col.transform.root.gameObject == control.gameObject)
             {
                 return true;
             }
 
-            return false;
+            CharacterControl target = CharacterManager.Instance.GetCharacter(col.transform.root.gameObject);
+
+            if (target == null)
+            {
+                return false;
+            }
+
+            if (target.damageDetector.DamageTaken > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
