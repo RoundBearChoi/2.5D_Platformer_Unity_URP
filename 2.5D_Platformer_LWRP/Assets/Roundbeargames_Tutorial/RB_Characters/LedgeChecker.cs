@@ -8,6 +8,7 @@ namespace Roundbeargames
     {
         public bool IsGrabbingLedge;
         public Ledge GrabbedLedge;
+        public Vector3 LedgeCalibration = new Vector3();
         Ledge CheckLedge = null;
 
         private void OnTriggerEnter(Collider other)

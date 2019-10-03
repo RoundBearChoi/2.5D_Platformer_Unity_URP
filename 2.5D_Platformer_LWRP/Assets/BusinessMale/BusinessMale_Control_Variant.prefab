@@ -41,7 +41,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0008092661, y: 0.0007971588, z: 0.000582441}
+  m_ConnectedAnchor: {x: -0.0008092661, y: 0.0007971587, z: 0.0005824404}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -87,7 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -132,7 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -177,7 +175,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -8.003554e-11, y: 0.004680768, z: 4.0745415e-10}
+  m_ConnectedAnchor: {x: -1.1641534e-10, y: 0.004680768, z: -2.910387e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -223,7 +221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -268,7 +265,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 5.5297283e-10, y: 0.0028657059, z: -1.1641534e-10}
+  m_ConnectedAnchor: {x: 2.9103834e-11, y: 0.002865706, z: -2.3283067e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -314,7 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -359,7 +355,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 5.093171e-11, y: 0.005103388, z: 9.749784e-10}
+  m_ConnectedAnchor: {x: 7.275958e-11, y: 0.005103388, z: 5.093171e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -405,7 +401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -449,7 +444,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -6.1118044e-10, y: 0.0026448255, z: 3.456081e-10}
+  m_ConnectedAnchor: {x: 5.820766e-11, y: 0.0026448255, z: 8.731152e-11}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -495,7 +490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -540,7 +534,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.3096724e-10, y: 0.0046807677, z: -5.238693e-10}
+  m_ConnectedAnchor: {x: 1.0186341e-10, y: 0.0046807677, z: -5.8207696e-11}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -586,7 +580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -677,7 +670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -767,7 +759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -811,7 +802,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.5017368e-10, y: 0.0039981217, z: -0.0006298741}
+  m_ConnectedAnchor: {x: -1.5017353e-10, y: 0.0039981217, z: -0.0006298735}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -857,7 +848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -902,7 +892,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00080926635, y: 0.00079715974, z: 0.0005824404}
+  m_ConnectedAnchor: {x: 0.00080926635, y: 0.00079715956, z: 0.00058243977}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -948,7 +938,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -1039,7 +1028,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -1130,7 +1118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -1220,7 +1207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -1311,7 +1297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalBodyPart: 0
   CollidingParts: []
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -1340,7 +1325,7 @@ PrefabInstance:
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
@@ -1486,6 +1471,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 169267552, guid: 50f426c0cc43c0c43b72737d9fd8b1f2, type: 3}
+      propertyPath: LedgeCalibration.y
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 169267552, guid: 50f426c0cc43c0c43b72737d9fd8b1f2, type: 3}
+      propertyPath: LedgeCalibration.z
+      value: -0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50f426c0cc43c0c43b72737d9fd8b1f2, type: 3}
