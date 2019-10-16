@@ -80,16 +80,16 @@ namespace Roundbeargames
 
             if (characterState.characterControl.Jump)
             {
-                animator.SetBool(TransitionParameter.Jump.ToString(), true);
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Jump], true);
             }
 
             if (characterState.characterControl.Turbo)
             {
-                animator.SetBool(TransitionParameter.Turbo.ToString(), true);
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], true);
             }
             else
             {
-                animator.SetBool(TransitionParameter.Turbo.ToString(), false);
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], false);
             }
 
             if (UseMomentum)
@@ -179,11 +179,11 @@ namespace Roundbeargames
 
             if (!control.MoveRight && !control.MoveLeft)
             {
-                animator.SetBool(TransitionParameter.Move.ToString(), false);
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
             }
             else
             {
-                animator.SetBool(TransitionParameter.Move.ToString(), true);
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], true);
             }
         }
 
@@ -191,13 +191,13 @@ namespace Roundbeargames
         {
             if (control.MoveRight && control.MoveLeft)
             {
-                animator.SetBool(TransitionParameter.Move.ToString(), false);
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
                 return;
             }
 
             if (!control.MoveRight && !control.MoveLeft)
             {
-                animator.SetBool(TransitionParameter.Move.ToString(), false);
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
                 return;
             }
 

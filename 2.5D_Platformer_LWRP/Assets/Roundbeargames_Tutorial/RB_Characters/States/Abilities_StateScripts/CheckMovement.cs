@@ -18,11 +18,11 @@ namespace Roundbeargames
 
             if (characterState.characterControl.MoveLeft || characterState.characterControl.MoveRight)
             {
-                animator.SetBool(TransitionParameter.Move.ToString(), true);
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], true);
             }
             else
             {
-                animator.SetBool(TransitionParameter.Move.ToString(), false);
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
             }
         }
 

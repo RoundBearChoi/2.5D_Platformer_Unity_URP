@@ -18,7 +18,7 @@ namespace Roundbeargames
 
             if (characterState.characterControl.animationProgress.AttackTriggered)
             {
-                animator.SetBool(TransitionParameter.Attack.ToString(), true);
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Attack], true);
             }
         }
 

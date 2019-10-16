@@ -31,24 +31,24 @@ namespace Roundbeargames
         {
             if (MakeTransition(characterState.characterControl))
             {
-                animator.SetInteger(TransitionParameter.TransitionIndex.ToString(), Index);
+                animator.SetInteger(HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex], Index);
             }
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            if (animator.GetInteger(TransitionParameter.TransitionIndex.ToString()) == 0)
+            if (animator.GetInteger(HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex]) == 0)
             {
                 if (MakeTransition(characterState.characterControl))
                 {
-                    animator.SetInteger(TransitionParameter.TransitionIndex.ToString(), Index);
+                    animator.SetInteger(HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex], Index);
                 }
             }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            animator.SetInteger(TransitionParameter.TransitionIndex.ToString(), 0);
+            animator.SetInteger(HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex], 0);
         }
 
         private bool MakeTransition(CharacterControl control)
@@ -123,7 +123,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.GROUNDED:
                         {
-                            if (control.SkinnedMeshAnimator.GetBool(TransitionParameter.Grounded.ToString()) == false)
+                            if (control.SkinnedMeshAnimator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]) == false)
                             {
                                 return false;
                             }

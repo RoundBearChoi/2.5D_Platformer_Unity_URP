@@ -24,21 +24,21 @@ namespace Roundbeargames
                 {
                     if (characterState.characterControl.MoveLeft || characterState.characterControl.MoveRight)
                     {
-                        animator.SetBool(TransitionParameter.Turbo.ToString(), true);
+                        animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], true);
                     }
                     else
                     {
-                        animator.SetBool(TransitionParameter.Turbo.ToString(), false);
+                        animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], false);
                     }
                 }
                 else
                 {
-                    animator.SetBool(TransitionParameter.Turbo.ToString(), true);
+                    animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], true);
                 }
             }
             else
             {
-                animator.SetBool(TransitionParameter.Turbo.ToString(), false);
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], false);
             }
         }
 

@@ -40,7 +40,7 @@ namespace Roundbeargames
         {
             characterState.characterControl.animationProgress.AttackTriggered = false;
 
-            animator.SetBool(TransitionParameter.Attack.ToString(), false);
+            animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Attack], false);
             
             GameObject obj = PoolManager.Instance.GetObject(PoolObjectType.ATTACKINFO); 
             AttackInfo info = obj.GetComponent<AttackInfo>();
@@ -117,7 +117,7 @@ namespace Roundbeargames
                 {
                     if (characterState.characterControl.animationProgress.AttackTriggered)
                     {
-                        animator.SetBool(TransitionParameter.Attack.ToString(), true);
+                        animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Attack], true);
                     }
                 }
             }
@@ -125,7 +125,7 @@ namespace Roundbeargames
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            animator.SetBool(TransitionParameter.Attack.ToString(), false);
+            animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Attack], false);
             ClearAttack();
         }
 
