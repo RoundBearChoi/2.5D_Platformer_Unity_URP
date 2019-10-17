@@ -9,8 +9,6 @@
 
 For more details, watch the video here: https://www.youtube.com/playlist?list=PLWYGofN_jX5BupV2xLjU1HUvujl_yDIN6
 
-**(If you have GitHub Desktop or Sourcetree etc, you can certainly use those)**
-
 ----
 
 OR you can download my Unity packages (exported after recording each video)
