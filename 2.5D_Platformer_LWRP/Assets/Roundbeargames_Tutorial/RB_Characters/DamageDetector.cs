@@ -151,6 +151,8 @@ namespace Roundbeargames
             info.CurrentHits++;
             DamageTaken++;
 
+            AttackManager.Instance.ForceDeregister(control);
+
             control.animationProgress.RagdollTriggered = true;
             control.GetComponent<BoxCollider>().enabled = false;
             control.ledgeChecker.GetComponent<BoxCollider>().enabled = false;
