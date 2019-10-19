@@ -21,11 +21,6 @@ namespace Roundbeargames
         {
             characterState.characterControl.animationProgress.LockDirectionNextState = false;
 
-            if (characterState.characterControl.animationProgress.AttackTriggered)
-            {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Attack], true);
-            }
-
             if (characterState.characterControl.Jump)
             {
                 if (!characterState.characterControl.animationProgress.Jumped)
