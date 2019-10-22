@@ -16,8 +16,8 @@ MonoBehaviour:
   title: Readme_PaidAssets
   sections:
   - heading: Scenes with paid assets
-    text: These scenes include paid asets which cannot/should not be uploaded on GitHub.
-      The prefabs here will require the following assets.
+    text: 'Paid asets cannot/should not be uploaded on GitHub. Prefabs in these scenes
+      require the following assets:'
     linkText: 
     url: 
   - heading: 
