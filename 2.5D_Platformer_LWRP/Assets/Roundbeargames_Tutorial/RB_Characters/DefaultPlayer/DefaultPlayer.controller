@@ -639,6 +639,8 @@ MonoBehaviour:
   characterControl: {fileID: 0}
   ListAbilityData:
   - {fileID: 11400000, guid: fc7a92515ef35b142a4929743911658a, type: 2}
+  - {fileID: 11400000, guid: e0d166bc8747e7c4abaa1512a231d5c5, type: 2}
+  - {fileID: 11400000, guid: 481959b53663ce1478c59bc9f847ebee, type: 2}
 --- !u!1101 &-3241996308563554126
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -2157,7 +2159,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shoryuken
-  m_Speed: 1
+  m_Speed: 0.725
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5119157678742047372}
@@ -2891,9 +2893,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.09313759
+  m_TransitionDuration: 0.18530095
   m_TransitionOffset: 0
-  m_ExitTime: 0.99183387
+  m_ExitTime: 0.99596435
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
