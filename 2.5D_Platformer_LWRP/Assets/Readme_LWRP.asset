@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcf7219bab7fe46a1ad266029b2fee19, type: 3}
-  m_Name: Readme
+  m_Name: Readme_LWRP
   m_EditorClassIdentifier: 
   icon: {fileID: 2800000, guid: 7801804018a7dcf42abb827444e18660, type: 3}
   title: Lightweight RP
