@@ -25,3 +25,5 @@ MonoBehaviour:
   ForwardForce: 1500
   RightForce: 0
   UpForce: 500
+  UseDeathParticles: 1
+  ParticleType: 3

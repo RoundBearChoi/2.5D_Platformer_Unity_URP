@@ -9,6 +9,7 @@ namespace Roundbeargames
         ATTACKINFO,
         HAMMER_OBJ,
         HAMMER_VFX,
+        DAMAGE_WHITE_VFX,
     }
 
     public class PoolObjectLoader : MonoBehaviour
@@ -32,6 +33,11 @@ namespace Roundbeargames
                 case PoolObjectType.HAMMER_VFX:
                     {
                         obj = Instantiate(Resources.Load("VFX_HammerDown", typeof(GameObject)) as GameObject);
+                        break;
+                    }
+                case PoolObjectType.DAMAGE_WHITE_VFX:
+                    {
+                        obj = Instantiate(Resources.Load("VFX_Damage_White", typeof(GameObject)) as GameObject);
                         break;
                     }
             }

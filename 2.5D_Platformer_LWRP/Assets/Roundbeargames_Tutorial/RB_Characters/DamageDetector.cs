@@ -144,6 +144,18 @@ namespace Roundbeargames
             if (info.MustCollide)
             {
                 CameraManager.Instance.ShakeCamera(0.2f);
+
+                if (info.AttackAbility.UseDeathParticles)
+                {
+                    if (info.AttackAbility.ParticleType.ToString().Contains("VFX"))
+                    {
+                        GameObject vfx =
+                            PoolManager.Instance.GetObject(info.AttackAbility.ParticleType);
+
+                        vfx.transform.position =
+                            control.animationProgress.DamagedTrigger.transform.position;
+                    }
+                }
             }
 
             Debug.Log(info.Attacker.gameObject.name + " hits: " + this.gameObject.name);

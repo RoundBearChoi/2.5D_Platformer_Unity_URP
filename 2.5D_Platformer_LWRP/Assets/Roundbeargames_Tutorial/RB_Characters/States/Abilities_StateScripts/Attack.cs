@@ -34,6 +34,10 @@ namespace Roundbeargames
         public float RightForce;
         public float UpForce;
 
+        [Header("Death Particles")]
+        public bool UseDeathParticles;
+        public PoolObjectType ParticleType;
+
         private List<AttackInfo> FinishedAttacks = new List<AttackInfo>();
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 223373fed4d14a94588b3694fc5a992e, type: 3}
-  m_Name: Player_MMAKick_Attack
+  m_Name: Player_Shoryuken_Attack
   m_EditorClassIdentifier: 
   debug: 0
-  StartAttackTime: 0.35
-  EndAttackTime: 0.75
-  AttackParts: 03000000
+  StartAttackTime: 0.55
+  EndAttackTime: 0.8
+  AttackParts: 00000000
   MustCollide: 1
   MustFaceAttacker: 0
   LethalRange: 0
   MaxHits: 1
   ComboStartTime: 0
   ComboEndTime: 0
-  ForwardForce: 1000
-  RightForce: 4000
-  UpForce: 1000
+  ForwardForce: 2000
+  RightForce: 0
+  UpForce: 6800
   UseDeathParticles: 1
   ParticleType: 3
