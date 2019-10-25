@@ -87,45 +87,15 @@ namespace Roundbeargames
                 {
                     foreach (AttackPartType part in info.AttackParts)
                     {
-                        if (part == AttackPartType.LEFT_HAND)
+                        if (info.Attacker.GetAttackingPart(part) ==
+                            collider.gameObject)
                         {
-                            if (collider.gameObject == info.Attacker.LeftHand_Attack)
-                            {
-                                control.animationProgress.Attack = info.AttackAbility;
-                                control.animationProgress.Attacker = info.Attacker;
-                                control.animationProgress.DamagedTrigger = trigger;
-                                return true;
-                            }
-                        }
-                        else if (part == AttackPartType.RIGHT_HAND)
-                        {
-                            if (collider.gameObject == info.Attacker.RightHand_Attack)
-                            {
-                                control.animationProgress.Attack = info.AttackAbility;
-                                control.animationProgress.Attacker = info.Attacker;
-                                control.animationProgress.DamagedTrigger = trigger;
-                                return true;
-                            }
-                        }
-                        else if (part == AttackPartType.LEFT_FOOT)
-                        {
-                            if (collider.gameObject == info.Attacker.LeftFoot_Attack)
-                            {
-                                control.animationProgress.Attack = info.AttackAbility;
-                                control.animationProgress.Attacker = info.Attacker;
-                                control.animationProgress.DamagedTrigger = trigger;
-                                return true;
-                            }
-                        }
-                        else if (part == AttackPartType.RIGHT_FOOT)
-                        {
-                            if (collider.gameObject == info.Attacker.RightFoot_Attack)
-                            {
-                                control.animationProgress.Attack = info.AttackAbility;
-                                control.animationProgress.Attacker = info.Attacker;
-                                control.animationProgress.DamagedTrigger = trigger;
-                                return true;
-                            }
+                            control.animationProgress.Attack = info.AttackAbility;
+                            control.animationProgress.Attacker = info.Attacker;
+                            control.animationProgress.DamagedTrigger = trigger;
+                            control.animationProgress.AttackingPart =
+                                info.Attacker.GetAttackingPart(part);
+                            return true;
                         }
                     }
                 }
@@ -143,7 +113,7 @@ namespace Roundbeargames
 
             if (info.MustCollide)
             {
-                CameraManager.Instance.ShakeCamera(0.2f);
+                CameraManager.Instance.ShakeCamera(0.3f);
 
                 if (info.AttackAbility.UseDeathParticles)
                 {
@@ -153,7 +123,16 @@ namespace Roundbeargames
                             PoolManager.Instance.GetObject(info.AttackAbility.ParticleType);
 
                         vfx.transform.position =
-                            control.animationProgress.DamagedTrigger.transform.position;
+                            control.animationProgress.AttackingPart.transform.position;
+
+                        if (info.Attacker.IsFacingForward())
+                        {
+                            vfx.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                        }
+                        else
+                        {
+                            vfx.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                        }
                     }
                 }
             }

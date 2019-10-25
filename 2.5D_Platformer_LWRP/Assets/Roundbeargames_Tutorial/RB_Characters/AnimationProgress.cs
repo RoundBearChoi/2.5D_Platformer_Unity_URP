@@ -42,6 +42,7 @@ namespace Roundbeargames
         public Attack Attack;
         public CharacterControl Attacker;
         public TriggerDetector DamagedTrigger;
+        public GameObject AttackingPart;
 
         private CharacterControl control;
 
