@@ -20,9 +20,13 @@ Create a brand new project (check folder names for LWRP or 3D template) and impo
 
 ----
 
-**Social**
+**YouTube**
 
-youtube: https://youtube.com/roundbeargames
+https://youtube.com/roundbeargames
+
+----
+
+**Social**
 
 discord: https://discord.gg/RbxjBu3
 
