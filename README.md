@@ -13,7 +13,7 @@ For more details, watch the video here: https://www.youtube.com/playlist?list=PL
 
 OR you can download my Unity packages (exported after recording each video)
 
-https://drive.google.com/drive/folders/1BSFUbX4dAl1dGKvQQBMetVqmlrvhJVki?usp=sharing
+https://drive.google.com/drive/folders/17Lfpa5r-3zeR1jaT0eJ4nqIR3pkU9ABE?usp=sharing
 
 Create a brand new project (check folder names for LWRP or 3D template) and import the package
 (Assets -> Import Package -> Custom Package)
