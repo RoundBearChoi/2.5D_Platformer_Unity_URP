@@ -22,10 +22,6 @@ MonoBehaviour:
     url: 
   - heading: 
     text: 
-    linkText: POLYGON - Dungeons Pack
-    url: https://assetstore.unity.com/packages/3d/environments/dungeons/polygon-dungeons-pack-102677
-  - heading: 
-    text: 
-    linkText: Liam | Lowpoly Character
-    url: https://assetstore.unity.com/packages/3d/characters/humanoids/liam-lowpoly-character-100007
+    linkText: POLYGON - City Pack
+    url: https://assetstore.unity.com/packages/3d/environments/urban/polygon-city-pack-95214
   loadedLayout: 1
