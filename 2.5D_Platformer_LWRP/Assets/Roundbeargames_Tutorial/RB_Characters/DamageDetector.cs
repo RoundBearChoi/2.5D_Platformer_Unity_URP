@@ -125,6 +125,8 @@ namespace Roundbeargames
                         vfx.transform.position =
                             control.animationProgress.AttackingPart.transform.position;
 
+                        vfx.SetActive(true);
+
                         if (info.Attacker.IsFacingForward())
                         {
                             vfx.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
