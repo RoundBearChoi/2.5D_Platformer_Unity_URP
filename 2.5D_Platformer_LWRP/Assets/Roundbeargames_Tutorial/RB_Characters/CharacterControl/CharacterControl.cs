@@ -271,6 +271,15 @@ namespace Roundbeargames
                 TurnOnRagdoll();
                 animationProgress.RagdollTriggered = false;
             }
+
+            //slow down wallslide
+            if (animationProgress.MaxFallVelocity.y != 0f)
+            {
+                if (RIGID_BODY.velocity.y <= animationProgress.MaxFallVelocity.y)
+                {
+                    RIGID_BODY.velocity = animationProgress.MaxFallVelocity;
+                }
+            }
         }
         
         public void MoveForward(float Speed, float SpeedGraph)

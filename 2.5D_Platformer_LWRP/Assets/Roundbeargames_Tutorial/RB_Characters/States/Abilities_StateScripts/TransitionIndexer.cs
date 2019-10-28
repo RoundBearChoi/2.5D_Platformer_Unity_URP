@@ -13,12 +13,11 @@ namespace Roundbeargames
         ATTACK,
         JUMP,
         GRABBING_LEDGE,
-
         LEFT_OR_RIGHT,
-
         GROUNDED,
-
         MOVE_FORWARD,
+        AIR,
+        BLOCKED_BY_WALL,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
@@ -141,6 +140,30 @@ namespace Roundbeargames
                             else
                             {
                                 if (!control.MoveLeft)
+                                {
+                                    return false;
+                                }
+                            }
+                        }
+                        break;
+                    case TransitionConditionType.AIR:
+                        {
+                            if (!control.SkinnedMeshAnimator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]) == false)
+                            {
+                                return false;
+                            }
+                        }
+                        break;
+                    case TransitionConditionType.BLOCKED_BY_WALL:
+                        {
+                            if (control.animationProgress.BlockingObj == null)
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                if (CharacterManager.Instance.GetCharacter(
+                                    control.animationProgress.BlockingObj) != null)
                                 {
                                     return false;
                                 }
