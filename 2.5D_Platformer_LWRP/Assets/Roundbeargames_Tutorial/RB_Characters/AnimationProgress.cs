@@ -30,6 +30,7 @@ namespace Roundbeargames
         public float AirMomentum;
         public bool CancelPull;
         public Vector3 MaxFallVelocity;
+        public bool CanWallJump;
 
         [Header("UpdateBoxCollider")]
         public bool UpdatingBoxCollider;

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dfc3080ff22eac4da6ff3c00a39e808, type: 3}
-  m_Name: Player_WallSlide_Indexer_2
+  m_Name: Player_WallSlide_WallJump_Indexer_1
   m_EditorClassIdentifier: 
-  Index: 2
-  transitionConditions: 090000000a0000000b0000000d000000
+  Index: 1
+  transitionConditions: 050000000c000000

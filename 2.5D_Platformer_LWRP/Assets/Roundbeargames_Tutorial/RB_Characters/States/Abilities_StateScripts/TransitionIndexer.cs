@@ -18,6 +18,8 @@ namespace Roundbeargames
         MOVE_FORWARD,
         AIR,
         BLOCKED_BY_WALL,
+        CAN_WALLJUMP,
+        NOT_GRABBING_LEDGE,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
@@ -167,6 +169,22 @@ namespace Roundbeargames
                                 {
                                     return false;
                                 }
+                            }
+                        }
+                        break;
+                    case TransitionConditionType.CAN_WALLJUMP:
+                        {
+                            if (!control.animationProgress.CanWallJump)
+                            {
+                                return false;
+                            }
+                        }
+                        break;
+                    case TransitionConditionType.NOT_GRABBING_LEDGE:
+                        {
+                            if (control.ledgeChecker.IsGrabbingLedge)
+                            {
+                                return false;
                             }
                         }
                         break;
