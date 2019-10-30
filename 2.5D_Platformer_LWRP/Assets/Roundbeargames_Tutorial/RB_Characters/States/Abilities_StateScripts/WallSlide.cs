@@ -11,6 +11,10 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
+            characterState.characterControl.MoveLeft = false;
+            characterState.characterControl.MoveRight = false;
+            characterState.characterControl.animationProgress.AirMomentum = 0f;
+
             characterState.characterControl.animationProgress.MaxFallVelocity = MaxFallVelocity;
             characterState.characterControl.animationProgress.CanWallJump = false;
         }

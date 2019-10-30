@@ -78,6 +78,11 @@ namespace Roundbeargames
                 return;
             }
 
+            if (characterState.characterControl.animationProgress.IsRunning(typeof(WallSlide), this))
+            {
+                return;
+            }
+
             if (characterState.characterControl.Jump)
             {
                 animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Jump], true);
