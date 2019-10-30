@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/WallJump")]
-    public class WallJump : StateData
+    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/WallJumpPrep")]
+    public class WallJumpPrep : StateData
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {

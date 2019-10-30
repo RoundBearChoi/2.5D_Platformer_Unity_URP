@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/SlowDownFall")]
-    public class SlowDownFall : StateData
+    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/WallSlide")]
+    public class WallSlide : StateData
     {
         public Vector3 MaxFallVelocity;
 
