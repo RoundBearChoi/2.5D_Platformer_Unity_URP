@@ -38,6 +38,9 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
+            characterState.characterControl.animationProgress.CheckWallBlock =
+                StartCheckingWallBlock();
+
             if (animator.GetInteger(HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex]) == 0)
             {
                 if (MakeTransition(characterState.characterControl))
@@ -50,6 +53,19 @@ namespace Roundbeargames
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             animator.SetInteger(HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex], 0);
+        }
+
+        private bool StartCheckingWallBlock()
+        {
+            foreach(TransitionConditionType t in transitionConditions)
+            {
+                if (t == TransitionConditionType.BLOCKED_BY_WALL)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private bool MakeTransition(CharacterControl control)
@@ -158,14 +174,9 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.BLOCKED_BY_WALL:
                         {
-                            if (control.animationProgress.BlockingObj == null)
+                            foreach(OverlapChecker oc in control.collisionSpheres.FrontOverlapCheckers)
                             {
-                                return false;
-                            }
-                            else
-                            {
-                                if (CharacterManager.Instance.GetCharacter(
-                                    control.animationProgress.BlockingObj) != null)
+                                if (!oc.ObjIsOverlapping)
                                 {
                                     return false;
                                 }

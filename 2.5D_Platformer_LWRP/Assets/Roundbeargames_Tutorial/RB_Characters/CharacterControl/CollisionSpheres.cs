@@ -11,6 +11,8 @@ namespace Roundbeargames
         public List<GameObject> FrontSpheres = new List<GameObject>();
         public List<GameObject> BackSpheres = new List<GameObject>();
 
+        public List<OverlapChecker> FrontOverlapCheckers = new List<OverlapChecker>();
+
         public void SetColliderSpheres()
         {
             //bottom
@@ -30,7 +32,10 @@ namespace Roundbeargames
             {
                 GameObject obj = Instantiate(Resources.Load("ColliderEdge", typeof(GameObject))
                     , Vector3.zero, Quaternion.identity) as GameObject;
+
                 FrontSpheres.Add(obj);
+                FrontOverlapCheckers.Add(obj.GetComponent<OverlapChecker>());
+
                 obj.transform.parent = this.transform.Find("Front");
             }
 

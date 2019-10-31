@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16b91d0c5247b442a689768502f9a3b, type: 3}
   m_Name: Player_JumpingPunch_MoveForward
   m_EditorClassIdentifier: 
+  debug: 0
   AllowEarlyTurn: 0
   LockDirection: 1
   LockDirectionNextState: 0
@@ -50,8 +51,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   Speed: 3.2
-  BlockDistance: 0.2
+  BlockDistance: 0.125
   IgnoreCharacterBox: 0
+  IgnoreStartTime: 0
+  IgnoreEndTime: 0
   UseMomentum: 0
   StartingMomentum: 0
   MaxMomentum: 0
