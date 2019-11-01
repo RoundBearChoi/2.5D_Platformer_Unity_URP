@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player_Fall_WallSlide_Index_1
   m_EditorClassIdentifier: 
   Index: 1
-  transitionConditions: 0b000000090000000a0000000d000000
+  transitionConditions: 0b0000000f0000000a0000000d000000

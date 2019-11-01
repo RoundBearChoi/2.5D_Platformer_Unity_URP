@@ -20,6 +20,8 @@ namespace Roundbeargames
         BLOCKED_BY_WALL,
         CAN_WALLJUMP,
         NOT_GRABBING_LEDGE,
+        NOT_BLOCKED_BY_WALL,
+        MOVING_TO_BLOCKING_OBJ,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
@@ -59,7 +61,8 @@ namespace Roundbeargames
         {
             foreach(TransitionConditionType t in transitionConditions)
             {
-                if (t == TransitionConditionType.BLOCKED_BY_WALL)
+                if (t == TransitionConditionType.BLOCKED_BY_WALL ||
+                    t == TransitionConditionType.NOT_BLOCKED_BY_WALL)
                 {
                     return true;
                 }
@@ -130,6 +133,14 @@ namespace Roundbeargames
                             }
                         }
                         break;
+                    case TransitionConditionType.NOT_GRABBING_LEDGE:
+                        {
+                            if (control.ledgeChecker.IsGrabbingLedge)
+                            {
+                                return false;
+                            }
+                        }
+                        break;
                     case TransitionConditionType.LEFT_OR_RIGHT:
                         {
                             if (!control.MoveLeft && !control.MoveRight)
@@ -183,6 +194,24 @@ namespace Roundbeargames
                             }
                         }
                         break;
+                    case TransitionConditionType.NOT_BLOCKED_BY_WALL:
+                        {
+                            bool AllIsOverlapping = true;
+
+                            foreach (OverlapChecker oc in control.collisionSpheres.FrontOverlapCheckers)
+                            {
+                                if (!oc.ObjIsOverlapping)
+                                {
+                                    AllIsOverlapping = false;
+                                }
+                            }
+
+                            if (AllIsOverlapping)
+                            {
+                                return false;
+                            }
+                        }
+                        break;
                     case TransitionConditionType.CAN_WALLJUMP:
                         {
                             if (!control.animationProgress.CanWallJump)
@@ -191,9 +220,22 @@ namespace Roundbeargames
                             }
                         }
                         break;
-                    case TransitionConditionType.NOT_GRABBING_LEDGE:
+                    case TransitionConditionType.MOVING_TO_BLOCKING_OBJ:
                         {
-                            if (control.ledgeChecker.IsGrabbingLedge)
+                            if (control.animationProgress.BlockingObj == null)
+                            {
+                                return false;
+                            }
+
+                            Vector3 dir = control.animationProgress.BlockingObj.transform.position -
+                                control.transform.position;
+
+                            if (dir.z > 0f && !control.MoveRight)
+                            {
+                                return false;
+                            }
+
+                            if (dir.z < 0f && !control.MoveLeft)
                             {
                                 return false;
                             }
