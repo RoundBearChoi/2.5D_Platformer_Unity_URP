@@ -28,7 +28,7 @@ namespace Roundbeargames
 
         public void TriggerCamera(CameraTrigger trigger)
         {
-            ANIMATOR.SetTrigger(trigger.ToString());
+            ANIMATOR.SetTrigger(HashManager.Instance.DicCameraTriggers[trigger]);
         }
     }
 }

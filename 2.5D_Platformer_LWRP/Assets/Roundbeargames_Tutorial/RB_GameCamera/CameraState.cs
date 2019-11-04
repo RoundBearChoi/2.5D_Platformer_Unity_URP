@@ -12,7 +12,8 @@ namespace Roundbeargames
 
             foreach (CameraTrigger t in arr)
             {
-                CameraManager.Instance.CAM_CONTROLLER.ANIMATOR.ResetTrigger(t.ToString());
+                CameraManager.Instance.CAM_CONTROLLER.ANIMATOR.
+                    ResetTrigger(HashManager.Instance.DicCameraTriggers[t]);
             }
         }
     }
