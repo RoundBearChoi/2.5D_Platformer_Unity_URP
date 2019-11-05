@@ -22,9 +22,16 @@ namespace Roundbeargames
             {
                 d.OnEnter(this, animator, stateInfo);
 
-                if (!characterControl.animationProgress.CurrentRunningAbilities.Contains(d))
+                if (characterControl.animationProgress.
+                    CurrentRunningAbilities.ContainsKey(d))
                 {
-                    characterControl.animationProgress.CurrentRunningAbilities.Add(d);
+                    characterControl.animationProgress.
+                        CurrentRunningAbilities[d] += 1;
+                }
+                else
+                {
+                    characterControl.animationProgress.
+                        CurrentRunningAbilities.Add(d, 1);
                 }
             }
         }
@@ -48,9 +55,18 @@ namespace Roundbeargames
             {
                 d.OnExit(this, animator, stateInfo);
 
-                if (characterControl.animationProgress.CurrentRunningAbilities.Contains(d))
+                if (characterControl.animationProgress.
+                    CurrentRunningAbilities.ContainsKey(d))
                 {
-                    characterControl.animationProgress.CurrentRunningAbilities.Remove(d);
+                    characterControl.animationProgress.
+                        CurrentRunningAbilities[d] -= 1;
+
+                    if (characterControl.animationProgress.
+                        CurrentRunningAbilities[d] <= 0)
+                    {
+                        characterControl.animationProgress.
+                        CurrentRunningAbilities.Remove(d);
+                    }
                 }
             }
         }

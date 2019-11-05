@@ -33,6 +33,8 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
+            characterState.characterControl.animationProgress.LatestMoveForward = this;
+
             if (AllowEarlyTurn && !characterState.characterControl.animationProgress.disallowEarlyTurn)
             {
                 if (!characterState.characterControl.animationProgress.LockDirectionNextState)
@@ -73,12 +75,14 @@ namespace Roundbeargames
 
             characterState.characterControl.animationProgress.LockDirectionNextState = LockDirectionNextState;
 
-            if (characterState.characterControl.animationProgress.IsRunning(typeof(MoveForward), this))
+            if (characterState.characterControl.animationProgress.
+                LatestMoveForward != this)
             {
                 return;
             }
 
-            if (characterState.characterControl.animationProgress.IsRunning(typeof(WallSlide), this))
+            if (characterState.characterControl.animationProgress.
+                IsRunning(typeof(WallSlide)))
             {
                 return;
             }

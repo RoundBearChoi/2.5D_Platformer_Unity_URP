@@ -6,11 +6,13 @@ namespace Roundbeargames
 {
     public class AnimationProgress : MonoBehaviour
     {
-        public List<StateData> CurrentRunningAbilities = new List<StateData>();
+        public Dictionary<StateData, int> CurrentRunningAbilities =
+            new Dictionary<StateData, int>();
 
         public bool CameraShaken;
         public List<PoolObjectType> SpawnedObjList = new List<PoolObjectType>();
         public bool RagdollTriggered;
+        public MoveForward LatestMoveForward;
 
         [Header("Attack Button")]
         public bool AttackTriggered;
@@ -71,21 +73,13 @@ namespace Roundbeargames
             }
         }
 
-        public bool IsRunning(System.Type type, StateData self)
+        public bool IsRunning(System.Type type)
         {
-            for (int i = 0; i < CurrentRunningAbilities.Count; i++)
+            foreach(KeyValuePair<StateData, int> data in CurrentRunningAbilities)
             {
-                if (type == CurrentRunningAbilities[i].GetType())
+                if (data.Key.GetType() == type)
                 {
-                    if (CurrentRunningAbilities[i] == self)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        //Debug.Log(type.ToString() + " is already running");
-                        return true;
-                    }
+                    return true;
                 }
             }
 
