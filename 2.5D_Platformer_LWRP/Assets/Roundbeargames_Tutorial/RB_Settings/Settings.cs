@@ -9,12 +9,11 @@ namespace Roundbeargames
         public FrameSettings frameSettings;
         public PhysicsSettings physicsSettings;
 
+        private float PastTimeScale = 0f;
+
         private void Awake()
         {
             //Frames
-            Debug.Log("timeScale: " + frameSettings.TimeScale);
-            Time.timeScale = frameSettings.TimeScale;
-
             Debug.Log("targetFrameRate: " + frameSettings.TargetFPS);
             Application.targetFrameRate = frameSettings.TargetFPS;
 
@@ -26,6 +25,15 @@ namespace Roundbeargames
             Debug.Log("loading key bindings");
             VirtualInputManager.Instance.LoadKeys();
             //VirtualInputManager.Instance.SetDefaultKeys();
+        }
+
+        private void LateUpdate()
+        {
+            if (PastTimeScale != frameSettings.TimeScale)
+            {
+                PastTimeScale = frameSettings.TimeScale;
+                Time.timeScale = frameSettings.TimeScale;
+            }
         }
     }
 }
