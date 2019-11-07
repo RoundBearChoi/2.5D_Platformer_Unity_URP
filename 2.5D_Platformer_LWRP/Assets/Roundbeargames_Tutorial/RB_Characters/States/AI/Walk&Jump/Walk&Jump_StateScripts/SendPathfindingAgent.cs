@@ -25,7 +25,10 @@ namespace Roundbeargames
 
             characterState.characterControl.aiProgress.pathfindingAgent.owner = characterState.characterControl;
             characterState.characterControl.aiProgress.pathfindingAgent.GetComponent<NavMeshAgent>().enabled = false;
-            characterState.characterControl.aiProgress.pathfindingAgent.transform.position = characterState.characterControl.transform.position;
+
+            characterState.characterControl.aiProgress.pathfindingAgent.transform.position =
+                characterState.characterControl.transform.position + (Vector3.up * 0.5f);
+
             characterState.characterControl.navMeshObstacle.carving = false;
             characterState.characterControl.aiProgress.pathfindingAgent.GoToTarget();
         }

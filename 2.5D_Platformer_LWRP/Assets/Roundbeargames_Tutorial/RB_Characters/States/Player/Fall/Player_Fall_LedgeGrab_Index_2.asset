@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c7d9b3462a7754da1555b38d8c77c7, type: 3}
-  m_Name: Player_Jump_Running
+  m_Script: {fileID: 11500000, guid: 4dfc3080ff22eac4da6ff3c00a39e808, type: 3}
+  m_Name: Player_Fall_LedgeGrab_Index_2
   m_EditorClassIdentifier: 
-  JumpTiming: 0
-  JumpForce: 320
-  CancelPull: 0
+  Index: 2
+  transitionConditions: 0500000006000000
