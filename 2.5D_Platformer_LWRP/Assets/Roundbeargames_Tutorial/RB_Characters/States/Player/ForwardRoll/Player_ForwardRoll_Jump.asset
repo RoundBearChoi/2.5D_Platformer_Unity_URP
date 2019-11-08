@@ -13,29 +13,5 @@ MonoBehaviour:
   m_Name: Player_ForwardRoll_Jump
   m_EditorClassIdentifier: 
   JumpTiming: 0.1
-  JumpForce: 110
-  Pull:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  JumpForce: 145
   CancelPull: 1

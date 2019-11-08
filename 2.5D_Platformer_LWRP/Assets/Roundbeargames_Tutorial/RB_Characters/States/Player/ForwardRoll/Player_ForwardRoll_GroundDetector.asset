@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c7d9b3462a7754da1555b38d8c77c7, type: 3}
-  m_Name: Player_Jump_Running
+  m_Script: {fileID: 11500000, guid: d98c35050b893bc4f803c7f18f1cca0d, type: 3}
+  m_Name: Player_ForwardRoll_GroundDetector
   m_EditorClassIdentifier: 
-  JumpTiming: 0
-  JumpForce: 350
-  CancelPull: 0
+  CheckTime: 0.01
+  Distance: 0.2

@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: ForwardRoll
+    second: ForwardRoll_End
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,10 +35,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ForwardRoll
+      name: ForwardRoll_End
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 20
+      firstFrame: 70
       lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
