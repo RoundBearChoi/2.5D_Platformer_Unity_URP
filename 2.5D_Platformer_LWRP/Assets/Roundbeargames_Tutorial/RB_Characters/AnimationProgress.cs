@@ -21,7 +21,6 @@ namespace Roundbeargames
         [Header("GroundMovement")]
         public bool disallowEarlyTurn;
         public bool LockDirectionNextState;
-        public bool IsLanding;
 
         [Header("Colliding Objects")]
         public GameObject Ground;

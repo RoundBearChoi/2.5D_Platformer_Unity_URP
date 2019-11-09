@@ -28,7 +28,7 @@ namespace Roundbeargames
             }
 
             // landing
-            if (characterState.characterControl.animationProgress.IsLanding)
+            if (characterState.characterControl.animationProgress.IsRunning(typeof(Landing)))
             {
                 characterState.characterControl.Turbo = false;
                 characterState.characterControl.Jump = false;
@@ -44,13 +44,17 @@ namespace Roundbeargames
             {
                 if (characterState.characterControl.animationProgress.Ground != null)
                 {
-                    characterState.characterControl.Turbo = false;
-                    characterState.characterControl.Jump = false;
-                    characterState.characterControl.MoveUp = false;
-                    characterState.characterControl.MoveLeft = false;
-                    characterState.characterControl.MoveRight = false;
-                    characterState.characterControl.MoveDown = false;
-                    characterState.characterControl.aiController.InitializeAI();
+                    if (!characterState.characterControl.animationProgress.IsRunning(typeof(Jump)) &&
+                        !characterState.characterControl.animationProgress.IsRunning(typeof(JumpPrep)))
+                    {
+                        characterState.characterControl.Turbo = false;
+                        characterState.characterControl.Jump = false;
+                        characterState.characterControl.MoveUp = false;
+                        characterState.characterControl.MoveLeft = false;
+                        characterState.characterControl.MoveRight = false;
+                        characterState.characterControl.MoveDown = false;
+                        characterState.characterControl.aiController.InitializeAI();
+                    }
                 }
             }
         }
