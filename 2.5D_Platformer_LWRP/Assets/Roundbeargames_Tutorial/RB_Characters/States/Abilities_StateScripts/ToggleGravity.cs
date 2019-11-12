@@ -10,26 +10,31 @@ namespace Roundbeargames
         public bool On;
         public bool OnStart;
         public bool OnEnd;
+        public float CustomTiming;
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             if (OnStart)
             {
-                //CharacterControl control = characterState.GetCharacterControl(animator);
                 ToggleGrav(characterState.characterControl);
             }
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-
+            if (CustomTiming != 0f)
+            {
+                if (CustomTiming <= stateInfo.normalizedTime)
+                {
+                    ToggleGrav(characterState.characterControl);
+                }
+            }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             if (OnEnd)
             {
-                //CharacterControl control = characterState.GetCharacterControl(animator);
                 ToggleGrav(characterState.characterControl);
             }
         }
