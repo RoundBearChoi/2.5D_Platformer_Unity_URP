@@ -9,9 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1cca018a98a04f47bf6f795f6d39186, type: 3}
-  m_Name: Player_LedgeGrab_MoveUp
+  m_Script: {fileID: 11500000, guid: b16b91d0c5247b442a689768502f9a3b, type: 3}
+  m_Name: Player_LedgeClimb_MoveForward
   m_EditorClassIdentifier: 
+  debug: 0
+  AllowEarlyTurn: 0
+  LockDirection: 1
+  LockDirectionNextState: 1
+  Constant: 1
   SpeedGraph:
     serializedVersion: 2
     m_Curve:
@@ -36,4 +41,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Speed: 4
+  Speed: 1.5
+  BlockDistance: 0.1
+  IgnoreCharacterBox: 0
+  IgnoreStartTime: 0
+  IgnoreEndTime: 0
+  UseMomentum: 0
+  StartingMomentum: 0
+  MaxMomentum: 0
+  ClearMomentumOnExit: 0
