@@ -535,9 +535,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.06180966
+  m_TransitionDuration: 0.13786113
   m_TransitionOffset: 0
-  m_ExitTime: 0.99382395
+  m_ExitTime: 0.96910715
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -753,9 +753,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.07078403
+  m_TransitionDuration: 0.1300134
   m_TransitionOffset: 0
-  m_ExitTime: 0.96522695
+  m_ExitTime: 0.9525899
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1404,6 +1404,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 25f8b858558048f4094370f7f1c8215d, type: 2}
   - {fileID: 11400000, guid: 0a320b87a351be64a88749fed43d5dcb, type: 2}
   - {fileID: 11400000, guid: 2e0d9f2b8728e7746899191aeb0e817f, type: 2}
+  - {fileID: 11400000, guid: 5c0ad83e781cf95469234dfb576704e1, type: 2}
 --- !u!114 &-34253425699244950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1570,7 +1571,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LedgeClimb
-  m_Speed: 1.3
+  m_Speed: 1.1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5446574288068228707}
@@ -2423,7 +2424,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Jump_Normal_Prep
-  m_Speed: 2
+  m_Speed: 2.15
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101048118163103324}

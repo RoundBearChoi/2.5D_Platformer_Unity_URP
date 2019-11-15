@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e8412c66aaa63a4aa9ab86f213eb40e, type: 3}
-  m_Name: General_Idle_UpdateBoxCollider
+  m_Name: Player_LedgeClimb_UpdateBoxCollider
   m_EditorClassIdentifier: 
-  TargetCenter: {x: 0, y: 0.915, z: 0}
-  CenterUpdateSpeed: 100
-  TargetSize: {x: 1, y: 1.85, z: 0.4}
-  SizeUpdateSpeed: 100
+  TargetCenter: {x: 0, y: 1.2, z: 0}
+  CenterUpdateSpeed: 10
+  TargetSize: {x: 1, y: 0.9, z: 0.4}
+  SizeUpdateSpeed: 10
   KeepUpdating: 0
