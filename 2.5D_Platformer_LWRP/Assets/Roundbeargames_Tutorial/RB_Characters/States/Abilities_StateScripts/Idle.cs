@@ -25,7 +25,10 @@ namespace Roundbeargames
             {
                 if (!characterState.characterControl.animationProgress.Jumped)
                 {
-                    animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Jump], true);
+                    if (characterState.characterControl.animationProgress.Ground != null)
+                    {
+                        animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Jump], true);
+                    }
                 }
             }
             else

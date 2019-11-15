@@ -19,10 +19,13 @@ namespace Roundbeargames
         {
             if (!characterState.characterControl.RIGID_BODY.useGravity)
             {
-                characterState.characterControl.transform.
+                if (!UpIsBlocked(characterState.characterControl))
+                {
+                    characterState.characterControl.transform.
                     Translate(Vector3.up * Speed *
                     SpeedGraph.Evaluate(stateInfo.normalizedTime) *
                     Time.deltaTime);
+                }
             }
         }
 
@@ -31,9 +34,24 @@ namespace Roundbeargames
 
         }
 
-        private void ToggleGrav(CharacterControl control)
+        bool UpIsBlocked(CharacterControl control)
         {
+            foreach (GameObject o in control.collisionSpheres.UpSpheres)
+            {
+                Debug.DrawRay(o.transform.position, control.transform.up * 0.3f, Color.yellow);
 
+                RaycastHit hit;
+                if (Physics.Raycast(o.transform.position, control.transform.up, out hit, 0.125f))
+                {
+                    if (hit.collider.transform.root.gameObject != control.gameObject &&
+                        !Ledge.IsLedge(hit.collider.gameObject))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }
