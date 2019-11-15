@@ -216,15 +216,16 @@ namespace Roundbeargames
 
         public void UpdateBoxCollider_Size()
         {
-            if (!animationProgress.UpdatingBoxCollider)
+            if (!animationProgress.IsRunning(typeof(UpdateBoxCollider)))
             {
                 return;
             }
 
-            if (Vector3.SqrMagnitude(boxCollider.size - animationProgress.TargetSize) > 0.01f)
+            if (Vector3.SqrMagnitude(boxCollider.size - animationProgress.TargetSize) > 0.00001f)
             {
-                boxCollider.size = Vector3.Lerp(boxCollider.size, animationProgress.TargetSize
-                , Time.deltaTime * animationProgress.Size_Speed);
+                boxCollider.size = Vector3.Lerp(boxCollider.size,
+                    animationProgress.TargetSize,
+                    Time.deltaTime * animationProgress.Size_Speed);
 
                 animationProgress.UpdatingSpheres = true;
             }
@@ -232,15 +233,16 @@ namespace Roundbeargames
 
         public void UpdateBoxCollider_Center()
         {
-            if (!animationProgress.UpdatingBoxCollider)
+            if (!animationProgress.IsRunning(typeof(UpdateBoxCollider)))
             {
                 return;
             }
 
-            if (Vector3.SqrMagnitude(boxCollider.center - animationProgress.TargetCenter) > 0.01f)
+            if (Vector3.SqrMagnitude(boxCollider.center - animationProgress.TargetCenter) > 0.00001f)
             {
-                boxCollider.center = Vector3.Lerp(boxCollider.center, animationProgress.TargetCenter
-                , Time.deltaTime * animationProgress.Center_Speed);
+                boxCollider.center = Vector3.Lerp(boxCollider.center,
+                    animationProgress.TargetCenter,
+                    Time.deltaTime * animationProgress.Center_Speed);
 
                 animationProgress.UpdatingSpheres = true;
             }

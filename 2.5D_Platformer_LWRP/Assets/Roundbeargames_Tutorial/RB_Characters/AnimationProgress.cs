@@ -35,7 +35,6 @@ namespace Roundbeargames
         public bool CheckWallBlock;
 
         [Header("UpdateBoxCollider")]
-        public bool UpdatingBoxCollider;
         public bool UpdatingSpheres;
         public Vector3 TargetSize;
         public float Size_Speed;
