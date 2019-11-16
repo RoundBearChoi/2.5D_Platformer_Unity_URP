@@ -18,7 +18,7 @@ namespace Roundbeargames
             // walking
             if (characterState.characterControl.aiProgress.AIDistanceToEndSphere() < 1f)
             {
-                if (characterState.characterControl.aiProgress.TargetDistanceToEndSphere() > 5f)
+                if (characterState.characterControl.aiProgress.TargetDistanceToEndSphere() > 0.5f)
                 {
                     if (characterState.characterControl.aiProgress.TargetIsGrounded())
                     {
