@@ -158,6 +158,13 @@ namespace Roundbeargames
                 DoFlyingKick = false;
             }
         }
+
+        public float GetStartSphereHeight()
+        {
+            Vector3 vec = control.transform.position - pathfindingAgent.StartSphere.transform.position;
+
+            return Mathf.Abs(vec.y);
+        }
     }
 }
 

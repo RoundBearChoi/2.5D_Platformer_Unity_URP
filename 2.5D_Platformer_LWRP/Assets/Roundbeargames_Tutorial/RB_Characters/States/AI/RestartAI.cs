@@ -57,6 +57,23 @@ namespace Roundbeargames
                     }
                 }
             }
+
+            //startsphere height
+            if (characterState.characterControl.animationProgress.Ground != null &&
+                !characterState.characterControl.animationProgress.IsRunning(typeof(Jump)) &&
+                !characterState.characterControl.animationProgress.IsRunning(typeof(WallJumpPrep)))
+            {
+                if (characterState.characterControl.aiProgress.GetStartSphereHeight() > 0.1f)
+                {
+                    characterState.characterControl.Turbo = false;
+                    characterState.characterControl.Jump = false;
+                    characterState.characterControl.MoveUp = false;
+                    characterState.characterControl.MoveLeft = false;
+                    characterState.characterControl.MoveRight = false;
+                    characterState.characterControl.MoveDown = false;
+                    characterState.characterControl.aiController.InitializeAI();
+                }
+            }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

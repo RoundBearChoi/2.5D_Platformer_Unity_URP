@@ -12,16 +12,6 @@ namespace Roundbeargames
         {
             characterState.characterControl.Jump = true;
             characterState.characterControl.MoveUp = true;
-
-            if(characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position.z <
-                characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
-            {
-                characterState.characterControl.FaceForward(true);
-            }
-            else
-            {
-                characterState.characterControl.FaceForward(false);
-            }
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -31,15 +21,13 @@ namespace Roundbeargames
                 return;
             }
 
-            float topDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y -
-                characterState.characterControl.collisionSpheres.FrontSpheres[1].transform.position.y;
-
-            float bottomDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y -
+            float platformDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y -
                 characterState.characterControl.collisionSpheres.FrontSpheres[0].transform.position.y;
 
-            if (topDist < 1.5f && bottomDist > 0.5f)
+            if (platformDist > 0.5f)
             {
-                if (characterState.characterControl.IsFacingForward())
+                if (characterState.characterControl.aiProgress.pathfindingAgent.StartSphere.transform.position.z <
+                characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.z)
                 {
                     characterState.characterControl.MoveRight = true;
                     characterState.characterControl.MoveLeft = false;
@@ -51,14 +39,12 @@ namespace Roundbeargames
                 }
             }
 
-            if (bottomDist < 0.5f)
+            if (platformDist < 0.5f)
             {
                 characterState.characterControl.MoveRight = false;
                 characterState.characterControl.MoveLeft = false;
                 characterState.characterControl.MoveUp = false;
                 characterState.characterControl.Jump = false;
-
-                characterState.characterControl.aiController.InitializeAI();
             }
         }
 
