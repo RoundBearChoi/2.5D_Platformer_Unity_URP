@@ -86,7 +86,27 @@ namespace Roundbeargames
 
         public void WalkStraightToStartSphere()
         {
-            TargetDir = control.aiProgress.pathfindingAgent.StartSphere.transform.position - control.transform.position;
+            TargetDir = control.aiProgress.pathfindingAgent.
+                StartSphere.transform.position -
+                control.transform.position;
+
+            if (TargetDir.z > 0f)
+            {
+                control.MoveRight = true;
+                control.MoveLeft = false;
+            }
+            else
+            {
+                control.MoveRight = false;
+                control.MoveLeft = true;
+            }
+        }
+
+        public void WalkStraightToEndSphere()
+        {
+            TargetDir = control.aiProgress.pathfindingAgent.
+                EndSphere.transform.position -
+                control.transform.position;
 
             if (TargetDir.z > 0f)
             {

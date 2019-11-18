@@ -24,7 +24,7 @@ namespace Roundbeargames
             //jump
             if (characterState.characterControl.aiProgress.EndSphereIsHigher())
             {
-                if (characterState.characterControl.aiProgress.AIDistanceToStartSphere() < 0.01f)
+                if (characterState.characterControl.aiProgress.AIDistanceToStartSphere() < 0.08f)
                 {
                     characterState.characterControl.MoveRight = false;
                     characterState.characterControl.MoveLeft = false;
@@ -38,6 +38,8 @@ namespace Roundbeargames
             //fall
             if (characterState.characterControl.aiProgress.EndSphereIsLower())
             {
+                characterState.characterControl.aiController.WalkStraightToEndSphere();
+
                 animator.SetBool(HashManager.Instance.
                     DicAITrans[AI_Walk_Transitions.fall_platform], true);
                 return;
