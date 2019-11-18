@@ -55,7 +55,12 @@ namespace Roundbeargames
             {
                 control.MoveRight = false;
                 control.MoveLeft = false;
-                control.Attack = true;
+
+                if (control.aiProgress.IsFacingTarget() &&
+                    !control.animationProgress.IsRunning(typeof(MoveForward)))
+                {
+                    control.Attack = true;
+                }
             }
             else
             {
@@ -71,13 +76,23 @@ namespace Roundbeargames
                 {
                     control.MoveRight = true;
                     control.MoveLeft = false;
-                    control.Attack = true;
+
+                    if (control.aiProgress.IsFacingTarget() &&
+                        control.animationProgress.IsRunning(typeof(MoveForward)))
+                    {
+                        control.Attack = true;
+                    }
                 }
                 else
                 {
                     control.MoveRight = false;
                     control.MoveLeft = true;
-                    control.Attack = true;
+
+                    if (control.aiProgress.IsFacingTarget() &&
+                        control.animationProgress.IsRunning(typeof(MoveForward)))
+                    {
+                        control.Attack = true;
+                    }
                 }
             }
             else
