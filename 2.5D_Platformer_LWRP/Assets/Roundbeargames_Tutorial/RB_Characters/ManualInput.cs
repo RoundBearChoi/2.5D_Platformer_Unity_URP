@@ -102,6 +102,24 @@ namespace Roundbeargames
             {
                 characterControl.Turbo = true;
             }
+
+            //double tap running turn
+            if (characterControl.MoveRight && characterControl.MoveLeft)
+            {
+                if (DoubleTaps.Contains(InputKeyType.KEY_MOVE_RIGHT) ||
+                    DoubleTaps.Contains(InputKeyType.KEY_MOVE_LEFT))
+                {
+                    if (!DoubleTaps.Contains(InputKeyType.KEY_MOVE_RIGHT))
+                    {
+                        DoubleTaps.Add(InputKeyType.KEY_MOVE_RIGHT);
+                    }
+
+                    if (!DoubleTaps.Contains(InputKeyType.KEY_MOVE_LEFT))
+                    {
+                        DoubleTaps.Add(InputKeyType.KEY_MOVE_LEFT);
+                    }
+                }
+            }
         }
 
         void ProcDoubleTap(InputKeyType keyType)
