@@ -21,10 +21,12 @@ namespace Roundbeargames
         [Header("GroundMovement")]
         public bool disallowEarlyTurn;
         public bool LockDirectionNextState;
+        private List<GameObject> SpheresList;
+        private float DirBlock;
 
         [Header("Colliding Objects")]
         public GameObject Ground;
-        public GameObject BlockingObj;
+        public Dictionary<GameObject, GameObject> BlockingObjs = new Dictionary<GameObject, GameObject>();
 
         [Header("AirControl")]
         public bool Jumped;
@@ -71,6 +73,94 @@ namespace Roundbeargames
             }
         }
 
+        private void FixedUpdate()
+        {
+            if (IsRunning(typeof(MoveForward)))
+            {
+                CheckBlockingObjs();
+            }
+            else
+            {
+                BlockingObjs.Clear();
+            }
+        }
+
+        void CheckBlockingObjs()
+        {
+            if (LatestMoveForward.Speed > 0)
+            {
+                SpheresList = control.collisionSpheres.FrontSpheres;
+                DirBlock = 0.3f;
+            }
+            else
+            {
+                SpheresList = control.collisionSpheres.BackSpheres;
+                DirBlock = -0.3f;
+            }
+
+            foreach (GameObject o in SpheresList)
+            {
+                Debug.DrawRay(o.transform.position, control.transform.forward * DirBlock, Color.yellow);
+                RaycastHit hit;
+                if (Physics.Raycast(o.transform.position, control.transform.forward * DirBlock,
+                    out hit,
+                    LatestMoveForward.BlockDistance))
+                {
+                    if (!IsBodyPart(hit.collider) &&
+                        !Ledge.IsLedge(hit.collider.gameObject) &&
+                        !Ledge.IsLedgeChecker(hit.collider.gameObject))
+                    {
+                        if (BlockingObjs.ContainsKey(o))
+                        {
+                            BlockingObjs[o] = hit.collider.transform.root.gameObject;
+                        }
+                        else
+                        {
+                            BlockingObjs.Add(o, hit.collider.transform.root.gameObject);
+                        }
+                    }
+                    else
+                    {
+                        if (BlockingObjs.ContainsKey(o))
+                        {
+                            BlockingObjs.Remove(o);
+                        }
+                    }
+                }
+                else
+                {
+                    if (BlockingObjs.ContainsKey(o))
+                    {
+                        BlockingObjs.Remove(o);
+                    }
+                }
+            }
+        }
+
+        bool IsBodyPart(Collider col)
+        {
+            if (col.transform.root.gameObject == control.gameObject)
+            {
+                return true;
+            }
+
+            CharacterControl target = CharacterManager.Instance.GetCharacter(col.transform.root.gameObject);
+
+            if (target == null)
+            {
+                return false;
+            }
+
+            if (target.damageDetector.DamageTaken > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool IsRunning(System.Type type)
         {
             foreach(KeyValuePair<StateData, int> data in CurrentRunningAbilities)
@@ -86,38 +176,28 @@ namespace Roundbeargames
 
         public bool RightSideIsBlocked()
         {
-            if (BlockingObj == null)
+            foreach(KeyValuePair<GameObject, GameObject> data in BlockingObjs)
             {
-                return false;
+                if ((data.Value.transform.position - control.transform.position).z > 0f)
+                {
+                    return true;
+                }
             }
 
-            if ((BlockingObj.transform.position -
-                control.transform.position).z > 0f)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         public bool LeftSideIsBlocked()
         {
-            if (BlockingObj == null)
+            foreach (KeyValuePair<GameObject, GameObject> data in BlockingObjs)
             {
-                return false;
+                if ((data.Value.transform.position - control.transform.position).z < 0f)
+                {
+                    return true;
+                }
             }
 
-            if ((BlockingObj.transform.position -
-                control.transform.position).z < 0f)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

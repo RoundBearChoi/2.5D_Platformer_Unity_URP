@@ -28,8 +28,7 @@ namespace Roundbeargames
         public float MaxMomentum;
         public bool ClearMomentumOnExit;
 
-        private List<GameObject> SpheresList;
-        private float DirBlock;
+        
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
@@ -64,6 +63,7 @@ namespace Roundbeargames
 
             characterState.characterControl.animationProgress.disallowEarlyTurn = false;
             characterState.characterControl.animationProgress.LockDirectionNextState = false;
+            characterState.characterControl.animationProgress.BlockingObjs.Clear();
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -274,53 +274,7 @@ namespace Roundbeargames
 
         bool IsBlocked(CharacterControl control, float speed, AnimatorStateInfo stateInfo)
         {
-            if (speed > 0)
-            {
-                SpheresList = control.collisionSpheres.FrontSpheres;
-                DirBlock = 0.3f;
-            }
-            else
-            {
-                SpheresList = control.collisionSpheres.BackSpheres;
-                DirBlock = -0.3f;
-            }
-
-            foreach (GameObject o in SpheresList)
-            {
-                Debug.DrawRay(o.transform.position, control.transform.forward * DirBlock, Color.yellow);
-                RaycastHit hit;
-                if (Physics.Raycast(o.transform.position, control.transform.forward * DirBlock, out hit, BlockDistance))
-                {
-                    if (!IsBodyPart(hit.collider, control) &&
-                        !IgnoringCharacterBox(hit.collider, stateInfo) &&
-                        !Ledge.IsLedge(hit.collider.gameObject) &&
-                        !Ledge.IsLedgeChecker(hit.collider.gameObject))
-                    {
-                        control.animationProgress.BlockingObj = hit.collider.transform.root.gameObject;
-                        return true;
-                    }
-                }
-            }
-
-            control.animationProgress.BlockingObj = null;
-            return false;
-        }
-
-        bool IsBodyPart(Collider col, CharacterControl control)
-        {
-            if (col.transform.root.gameObject == control.gameObject)
-            {
-                return true;
-            }
-
-            CharacterControl target = CharacterManager.Instance.GetCharacter(col.transform.root.gameObject);
-
-            if (target == null)
-            {
-                return false;
-            }
-
-            if (target.damageDetector.DamageTaken > 0)
+            if (control.animationProgress.BlockingObjs.Count != 0)
             {
                 return true;
             }

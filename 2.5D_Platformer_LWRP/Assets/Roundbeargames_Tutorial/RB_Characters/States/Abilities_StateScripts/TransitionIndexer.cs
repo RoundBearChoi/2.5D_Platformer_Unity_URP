@@ -222,22 +222,21 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.MOVING_TO_BLOCKING_OBJ:
                         {
-                            if (control.animationProgress.BlockingObj == null)
+                            foreach(KeyValuePair<GameObject, GameObject> data in
+                                control.animationProgress.BlockingObjs)
                             {
-                                return false;
-                            }
-
-                            Vector3 dir = control.animationProgress.BlockingObj.transform.position -
+                                Vector3 dir = data.Value.transform.position -
                                 control.transform.position;
 
-                            if (dir.z > 0f && !control.MoveRight)
-                            {
-                                return false;
-                            }
+                                if (dir.z > 0f && !control.MoveRight)
+                                {
+                                    return false;
+                                }
 
-                            if (dir.z < 0f && !control.MoveLeft)
-                            {
-                                return false;
+                                if (dir.z < 0f && !control.MoveLeft)
+                                {
+                                    return false;
+                                }
                             }
                         }
                         break;
