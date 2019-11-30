@@ -53,6 +53,10 @@ namespace Roundbeargames
                         characterState.characterControl.aiProgress.BlockingCharacter = blockingChar;
                         break;
                     }
+                    else
+                    {
+                        characterState.characterControl.aiProgress.BlockingCharacter = null;
+                    }
                 }
             }
 

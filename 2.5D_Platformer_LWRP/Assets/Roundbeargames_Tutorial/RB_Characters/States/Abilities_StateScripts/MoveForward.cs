@@ -27,9 +27,7 @@ namespace Roundbeargames
         public float StartingMomentum;
         public float MaxMomentum;
         public bool ClearMomentumOnExit;
-
         
-
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             characterState.characterControl.animationProgress.LatestMoveForward = this;
@@ -63,7 +61,7 @@ namespace Roundbeargames
 
             characterState.characterControl.animationProgress.disallowEarlyTurn = false;
             characterState.characterControl.animationProgress.LockDirectionNextState = false;
-            characterState.characterControl.animationProgress.BlockingObjs.Clear();
+            //characterState.characterControl.animationProgress.BlockingObjs.Clear();
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -86,6 +84,8 @@ namespace Roundbeargames
             {
                 return;
             }
+
+            UpdateCharacterIgnoreTime(characterState.characterControl, stateInfo);
 
             if (characterState.characterControl.Jump)
             {
@@ -248,30 +248,24 @@ namespace Roundbeargames
             }
         }
 
-        bool IgnoringCharacterBox(Collider col, AnimatorStateInfo stateInfo)
+        void UpdateCharacterIgnoreTime(CharacterControl control, AnimatorStateInfo stateInfo)
         {
             if (!IgnoreCharacterBox)
             {
-                return false;
+                control.animationProgress.IsIgnoreCharacterTime = false;
             }
 
-            if (stateInfo.normalizedTime < IgnoreStartTime)
+            if (stateInfo.normalizedTime > IgnoreStartTime &&
+                stateInfo.normalizedTime < IgnoreEndTime)
             {
-                return false;
+                control.animationProgress.IsIgnoreCharacterTime = true;
             }
-            else if (stateInfo.normalizedTime > IgnoreEndTime)
+            else
             {
-                return false;
+                control.animationProgress.IsIgnoreCharacterTime = false;
             }
-
-            if (col.transform.root.gameObject.GetComponent<CharacterControl>() != null)
-            {
-                return true;
-            }
-
-            return false;
         }
-
+           
         bool IsBlocked(CharacterControl control, float speed, AnimatorStateInfo stateInfo)
         {
             if (control.animationProgress.BlockingObjs.Count != 0)

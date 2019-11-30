@@ -21,6 +21,7 @@ namespace Roundbeargames
         [Header("GroundMovement")]
         public bool disallowEarlyTurn;
         public bool LockDirectionNextState;
+        public bool IsIgnoreCharacterTime;
         private List<GameObject> SpheresList;
         private float DirBlock;
 
@@ -81,7 +82,10 @@ namespace Roundbeargames
             }
             else
             {
-                BlockingObjs.Clear();
+                if (BlockingObjs.Count != 0)
+                {
+                    BlockingObjs.Clear();
+                }
             }
         }
 
@@ -91,11 +95,27 @@ namespace Roundbeargames
             {
                 SpheresList = control.collisionSpheres.FrontSpheres;
                 DirBlock = 0.3f;
+
+                foreach(GameObject s in control.collisionSpheres.BackSpheres)
+                {
+                    if (BlockingObjs.ContainsKey(s))
+                    {
+                        BlockingObjs.Remove(s);
+                    }
+                }
             }
             else
             {
                 SpheresList = control.collisionSpheres.BackSpheres;
                 DirBlock = -0.3f;
+
+                foreach (GameObject s in control.collisionSpheres.FrontSpheres)
+                {
+                    if (BlockingObjs.ContainsKey(s))
+                    {
+                        BlockingObjs.Remove(s);
+                    }
+                }
             }
 
             foreach (GameObject o in SpheresList)
@@ -107,6 +127,7 @@ namespace Roundbeargames
                     LatestMoveForward.BlockDistance))
                 {
                     if (!IsBodyPart(hit.collider) &&
+                        !IsIgnoringCharacter(hit.collider) &&
                         !Ledge.IsLedge(hit.collider.gameObject) &&
                         !Ledge.IsLedgeChecker(hit.collider.gameObject))
                     {
@@ -133,6 +154,32 @@ namespace Roundbeargames
                     {
                         BlockingObjs.Remove(o);
                     }
+                }
+            }
+        }
+
+        bool IsIgnoringCharacter(Collider col)
+        {
+            if (!IsIgnoreCharacterTime)
+            {
+                return false;
+            }
+            else
+            {
+                CharacterControl blockingChar = CharacterManager.Instance.GetCharacter(col.transform.root.gameObject);
+
+                if (blockingChar == null)
+                {
+                    return false;
+                }
+
+                if (blockingChar == control)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
                 }
             }
         }
