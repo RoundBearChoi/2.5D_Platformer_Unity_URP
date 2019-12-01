@@ -57,7 +57,6 @@ namespace Roundbeargames
         public GameObject LeftFoot_Attack;
         public GameObject RightFoot_Attack;
 
-        private List<TriggerDetector> TriggerDetectors = new List<TriggerDetector>();
         private Dictionary<string, GameObject> ChildObjects = new Dictionary<string, GameObject>();
 
         private Rigidbody rigid;
@@ -119,21 +118,6 @@ namespace Roundbeargames
             {
                 CharacterManager.Instance.Characters.Add(this);
             }
-        }
-
-        public List<TriggerDetector> GetAllTriggers()
-        {
-            if (TriggerDetectors.Count == 0)
-            {
-                TriggerDetector[] arr = this.gameObject.GetComponentsInChildren<TriggerDetector>();
-
-                foreach(TriggerDetector d in arr)
-                {
-                    TriggerDetectors.Add(d);
-                }
-            }
-
-            return TriggerDetectors;
         }
         
         public void SetRagdollParts()

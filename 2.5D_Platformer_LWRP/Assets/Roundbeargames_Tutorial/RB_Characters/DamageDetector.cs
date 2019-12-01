@@ -19,7 +19,10 @@ namespace Roundbeargames
         {
             if (AttackManager.Instance.CurrentAttacks.Count > 0)
             {
-                CheckAttack();
+                if (control.animationProgress.CollidingBodyParts.Count != 0)
+                {
+                    CheckAttack();
+                }
             }
         }
 
@@ -81,9 +84,10 @@ namespace Roundbeargames
 
         private bool IsCollided(AttackInfo info)
         {
-            foreach (TriggerDetector trigger in control.GetAllTriggers())
+            foreach(KeyValuePair<TriggerDetector, List<Collider>> data in
+                control.animationProgress.CollidingBodyParts)
             {
-                foreach (Collider collider in trigger.CollidingParts)
+                foreach(Collider collider in data.Value)
                 {
                     foreach (AttackPartType part in info.AttackParts)
                     {
@@ -92,7 +96,7 @@ namespace Roundbeargames
                         {
                             control.animationProgress.Attack = info.AttackAbility;
                             control.animationProgress.Attacker = info.Attacker;
-                            control.animationProgress.DamagedTrigger = trigger;
+                            control.animationProgress.DamagedTrigger = data.Key;
                             control.animationProgress.AttackingPart =
                                 info.Attacker.GetAttackingPart(part);
                             return true;

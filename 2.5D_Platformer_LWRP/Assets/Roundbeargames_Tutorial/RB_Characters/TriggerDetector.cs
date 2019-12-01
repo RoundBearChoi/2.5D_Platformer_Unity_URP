@@ -6,20 +6,20 @@ namespace Roundbeargames
 {
     public class TriggerDetector : MonoBehaviour
     {
-        public List<Collider> CollidingParts = new List<Collider>();
-        private CharacterControl owner;
+        //public List<Collider> CollidingParts = new List<Collider>();
+        private CharacterControl control;
 
         public Vector3 LastPosition;
         public Quaternion LastRotation;
 
         private void Awake()
         {
-            owner = this.GetComponentInParent<CharacterControl>();
+            control = this.GetComponentInParent<CharacterControl>();
         }
 
         private void OnTriggerEnter(Collider col)
         {
-            if (owner.RagdollParts.Contains(col))
+            if (control.RagdollParts.Contains(col))
             {
                 return;
             }
@@ -36,17 +36,30 @@ namespace Roundbeargames
                 return;
             }
 
-            if (!CollidingParts.Contains(col))
+            if (!control.animationProgress.CollidingBodyParts.ContainsKey(this))
             {
-                CollidingParts.Add(col);
+                control.animationProgress.CollidingBodyParts.Add(this, new List<Collider>());
+            }
+
+            if (!control.animationProgress.CollidingBodyParts[this].Contains(col))
+            {
+                control.animationProgress.CollidingBodyParts[this].Add(col);
             }
         }
 
-        private void OnTriggerExit(Collider attacker)
+        private void OnTriggerExit(Collider attackingBodyPart)
         {
-            if (CollidingParts.Contains(attacker))
+            if (control.animationProgress.CollidingBodyParts.ContainsKey(this))
             {
-                CollidingParts.Remove(attacker);
+                if (control.animationProgress.CollidingBodyParts[this].Contains(attackingBodyPart))
+                {
+                    control.animationProgress.CollidingBodyParts[this].Remove(attackingBodyPart);
+                }
+
+                if (control.animationProgress.CollidingBodyParts.Count == 0)
+                {
+                    control.animationProgress.CollidingBodyParts.Remove(this);
+                }
             }
         }
     }

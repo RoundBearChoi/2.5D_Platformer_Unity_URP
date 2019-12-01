@@ -27,7 +27,10 @@ namespace Roundbeargames
 
         [Header("Colliding Objects")]
         public GameObject Ground;
-        public Dictionary<GameObject, GameObject> BlockingObjs = new Dictionary<GameObject, GameObject>();
+        public Dictionary<TriggerDetector, List<Collider>> CollidingBodyParts =
+            new Dictionary<TriggerDetector, List<Collider>>();
+        public Dictionary<GameObject, GameObject> BlockingObjs =
+            new Dictionary<GameObject, GameObject>();
 
         [Header("AirControl")]
         public bool Jumped;
