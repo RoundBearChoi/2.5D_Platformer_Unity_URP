@@ -92,6 +92,12 @@ namespace Roundbeargames
             return false;
         }
 
+        public void RepositionDestination()
+        {
+            pathfindingAgent.StartSphere.transform.position = pathfindingAgent.target.transform.position;
+            pathfindingAgent.EndSphere.transform.position = pathfindingAgent.target.transform.position;
+        }
+
         public bool TargetIsOnSamePlatform()
         {
             if (CharacterManager.Instance.GetCharacter(control.aiProgress.pathfindingAgent.target).

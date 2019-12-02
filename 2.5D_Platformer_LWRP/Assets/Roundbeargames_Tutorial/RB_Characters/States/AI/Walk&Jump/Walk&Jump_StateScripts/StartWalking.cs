@@ -63,6 +63,11 @@ namespace Roundbeargames
                 characterState.characterControl.MoveRight = false;
                 characterState.characterControl.MoveLeft = false;
             }
+
+            if (characterState.characterControl.aiProgress.TargetIsOnSamePlatform())
+            {
+                characterState.characterControl.aiProgress.RepositionDestination();
+            }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
