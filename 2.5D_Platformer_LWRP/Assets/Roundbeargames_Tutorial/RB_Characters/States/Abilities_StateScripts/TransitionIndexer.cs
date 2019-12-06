@@ -22,6 +22,10 @@ namespace Roundbeargames
         NOT_GRABBING_LEDGE,
         NOT_BLOCKED_BY_WALL,
         MOVING_TO_BLOCKING_OBJ,
+        DOUBLE_TAP_UP,
+        DOUBLE_TAP_DOWN,
+        DOUBLE_TAP_LEFT,
+        DOUBLE_TAP_RIGHT,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
@@ -238,6 +242,29 @@ namespace Roundbeargames
                                     return false;
                                 }
                             }
+                        }
+                        break;
+                    case TransitionConditionType.DOUBLE_TAP_UP:
+                        {
+                            if (!control.manualInput.DoubleTaps.Contains(InputKeyType.KEY_MOVE_UP))
+                            {
+                                return false;
+                            }
+                        }
+                        break;
+                    case TransitionConditionType.DOUBLE_TAP_DOWN:
+                        {
+                            return false;
+                        }
+                        break;
+                    case TransitionConditionType.DOUBLE_TAP_LEFT:
+                        {
+                            return false;
+                        }
+                        break;
+                    case TransitionConditionType.DOUBLE_TAP_RIGHT:
+                        {
+                            return false;
                         }
                         break;
                 }

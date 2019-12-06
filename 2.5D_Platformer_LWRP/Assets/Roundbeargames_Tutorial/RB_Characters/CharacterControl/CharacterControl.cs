@@ -36,6 +36,7 @@ namespace Roundbeargames
         public bool Attack;
 
         [Header("SubComponents")]
+        public ManualInput manualInput;
         public LedgeChecker ledgeChecker;
         public AnimationProgress animationProgress;
         public AIProgress aiProgress;
@@ -74,6 +75,7 @@ namespace Roundbeargames
 
         private void Awake()
         {
+            manualInput = GetComponent<ManualInput>();
             ledgeChecker = GetComponentInChildren<LedgeChecker>();
             animationProgress = GetComponent<AnimationProgress>();
             aiProgress = GetComponentInChildren<AIProgress>();
