@@ -53,6 +53,9 @@ namespace Roundbeargames
         public TriggerDetector DamagedTrigger;
         public GameObject AttackingPart;
 
+        [Header("Transition")]
+        public bool LockTransition;
+
         private CharacterControl control;
 
         private void Awake()
@@ -74,6 +77,28 @@ namespace Roundbeargames
             {
                 AttackButtonIsReset = true;
                 AttackTriggered = false;
+            }
+
+            if (IsRunning(typeof(LockTransition)))
+            {
+                if (control.animationProgress.LockTransition)
+                {
+                    control.SkinnedMeshAnimator.
+                        SetBool(HashManager.Instance.DicMainParams[TransitionParameter.LockTransition],
+                        true);
+                }
+                else
+                {
+                    control.SkinnedMeshAnimator.
+                        SetBool(HashManager.Instance.DicMainParams[TransitionParameter.LockTransition],
+                        false);
+                }
+            }
+            else
+            {
+                control.SkinnedMeshAnimator.
+                    SetBool(HashManager.Instance.DicMainParams[TransitionParameter.LockTransition],
+                    false);
             }
         }
 

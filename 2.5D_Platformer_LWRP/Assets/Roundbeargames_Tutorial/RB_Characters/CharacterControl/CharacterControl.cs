@@ -16,6 +16,7 @@ namespace Roundbeargames
         TransitionIndex,
         Turbo,
         Turn,
+        LockTransition,
     }
 
     public enum RBScenes
