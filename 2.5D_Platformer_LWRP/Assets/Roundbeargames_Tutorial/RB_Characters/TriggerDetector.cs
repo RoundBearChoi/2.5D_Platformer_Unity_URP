@@ -6,7 +6,6 @@ namespace Roundbeargames
 {
     public class TriggerDetector : MonoBehaviour
     {
-        //public List<Collider> CollidingParts = new List<Collider>();
         private CharacterControl control;
 
         public Vector3 LastPosition;
@@ -56,7 +55,7 @@ namespace Roundbeargames
                     control.animationProgress.CollidingBodyParts[this].Remove(attackingBodyPart);
                 }
 
-                if (control.animationProgress.CollidingBodyParts.Count == 0)
+                if (control.animationProgress.CollidingBodyParts[this].Count == 0)
                 {
                     control.animationProgress.CollidingBodyParts.Remove(this);
                 }
