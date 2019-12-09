@@ -27,6 +27,8 @@ namespace Roundbeargames
 
         [Header("Colliding Objects")]
         public GameObject Ground;
+        public Dictionary<TriggerDetector, List<Collider>> CollidingWeapons =
+            new Dictionary<TriggerDetector, List<Collider>>();
         public Dictionary<TriggerDetector, List<Collider>> CollidingBodyParts =
             new Dictionary<TriggerDetector, List<Collider>>();
         public Dictionary<GameObject, GameObject> BlockingObjs =
@@ -157,7 +159,8 @@ namespace Roundbeargames
                     if (!IsBodyPart(hit.collider) &&
                         !IsIgnoringCharacter(hit.collider) &&
                         !Ledge.IsLedge(hit.collider.gameObject) &&
-                        !Ledge.IsLedgeChecker(hit.collider.gameObject))
+                        !Ledge.IsLedgeChecker(hit.collider.gameObject) &&
+                        !Weapon.IsWeapon(hit.collider.gameObject))
                     {
                         if (BlockingObjs.ContainsKey(o))
                         {
