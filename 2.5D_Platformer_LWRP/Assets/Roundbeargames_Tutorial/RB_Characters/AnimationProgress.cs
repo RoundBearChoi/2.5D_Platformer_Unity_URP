@@ -58,6 +58,9 @@ namespace Roundbeargames
         [Header("Transition")]
         public bool LockTransition;
 
+        [Header("Weapon")]
+        public Weapon HoldingWeapon;
+
         private CharacterControl control;
 
         private void Awake()
@@ -276,6 +279,17 @@ namespace Roundbeargames
             }
 
             return false;
+        }
+
+        public Weapon GetTouchingWeapon()
+        {
+            foreach(KeyValuePair<TriggerDetector, List<Collider>> data in CollidingWeapons)
+            {
+                Weapon w = data.Value[0].gameObject.GetComponent<Weapon>();
+                return w;
+            }
+
+            return null;
         }
     }
 }

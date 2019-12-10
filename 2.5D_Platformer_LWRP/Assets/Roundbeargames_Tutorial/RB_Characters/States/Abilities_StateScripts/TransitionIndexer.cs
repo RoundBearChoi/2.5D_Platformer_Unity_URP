@@ -26,6 +26,7 @@ namespace Roundbeargames
         DOUBLE_TAP_DOWN,
         DOUBLE_TAP_LEFT,
         DOUBLE_TAP_RIGHT,
+        TOUCHING_WEAPON,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
@@ -254,7 +255,10 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.DOUBLE_TAP_DOWN:
                         {
-                            return false;
+                            if (!control.manualInput.DoubleTaps.Contains(InputKeyType.KEY_MOVE_DOWN))
+                            {
+                                return false;
+                            }
                         }
                         break;
                     case TransitionConditionType.DOUBLE_TAP_LEFT:
@@ -265,6 +269,17 @@ namespace Roundbeargames
                     case TransitionConditionType.DOUBLE_TAP_RIGHT:
                         {
                             return false;
+                        }
+                        break;
+                    case TransitionConditionType.TOUCHING_WEAPON:
+                        {
+                            if (control.animationProgress.CollidingWeapons.Count == 0)
+                            {
+                                if (control.animationProgress.HoldingWeapon == null)
+                                {
+                                    return false;
+                                }
+                            }
                         }
                         break;
                 }
