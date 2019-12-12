@@ -54,7 +54,7 @@ namespace Roundbeargames
 
         void CheckCollidingWeapons(Collider col)
         {
-            if (col.transform.root.gameObject.GetComponent<Weapon>() == null)
+            if (col.transform.root.gameObject.GetComponent<MeleeWeapon>() == null)
             {
                 return;
             }

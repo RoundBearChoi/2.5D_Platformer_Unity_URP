@@ -59,7 +59,7 @@ namespace Roundbeargames
         public bool LockTransition;
 
         [Header("Weapon")]
-        public Weapon HoldingWeapon;
+        public MeleeWeapon HoldingWeapon;
 
         private CharacterControl control;
 
@@ -163,7 +163,7 @@ namespace Roundbeargames
                         !IsIgnoringCharacter(hit.collider) &&
                         !Ledge.IsLedge(hit.collider.gameObject) &&
                         !Ledge.IsLedgeChecker(hit.collider.gameObject) &&
-                        !Weapon.IsWeapon(hit.collider.gameObject))
+                        !MeleeWeapon.IsWeapon(hit.collider.gameObject))
                     {
                         if (BlockingObjs.ContainsKey(o))
                         {
@@ -281,11 +281,11 @@ namespace Roundbeargames
             return false;
         }
 
-        public Weapon GetTouchingWeapon()
+        public MeleeWeapon GetTouchingWeapon()
         {
             foreach(KeyValuePair<TriggerDetector, List<Collider>> data in CollidingWeapons)
             {
-                Weapon w = data.Value[0].gameObject.GetComponent<Weapon>();
+                MeleeWeapon w = data.Value[0].gameObject.GetComponent<MeleeWeapon>();
                 return w;
             }
 

@@ -20,12 +20,14 @@ namespace Roundbeargames
             {
                 if (characterState.characterControl.animationProgress.HoldingWeapon == null)
                 {
-                    Weapon w = characterState.characterControl.animationProgress.GetTouchingWeapon();
+                    MeleeWeapon w = characterState.characterControl.animationProgress.GetTouchingWeapon();
                     characterState.characterControl.animationProgress.HoldingWeapon = w;
 
                     w.transform.parent = characterState.characterControl.RightHand_Attack.transform;
                     w.transform.localPosition = w.CustomPosition;
                     w.transform.localRotation = Quaternion.Euler(w.CustomRotation);
+
+                    w.control = characterState.characterControl;
                 }
             }
         }
