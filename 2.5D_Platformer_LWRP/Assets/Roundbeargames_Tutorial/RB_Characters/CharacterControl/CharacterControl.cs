@@ -363,6 +363,10 @@ namespace Roundbeargames
             {
                 return RightFoot_Attack;
             }
+            else if (attackPart == AttackPartType.MELEE_WEAPON)
+            {
+                return animationProgress.HoldingWeapon.triggerDetector.gameObject;
+            }
 
             return null;
         }

@@ -6,7 +6,7 @@ namespace Roundbeargames
 {
     public class TriggerDetector : MonoBehaviour
     {
-        private CharacterControl control;
+        public CharacterControl control;
 
         public Vector3 LastPosition;
         public Quaternion LastRotation;

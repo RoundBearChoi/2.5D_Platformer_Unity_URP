@@ -28,6 +28,7 @@ namespace Roundbeargames
                     w.transform.localRotation = Quaternion.Euler(w.CustomRotation);
 
                     w.control = characterState.characterControl;
+                    w.triggerDetector.control = characterState.characterControl;
                 }
             }
         }

@@ -11,6 +11,8 @@ namespace Roundbeargames
 
         LEFT_FOOT,
         RIGHT_FOOT,
+
+        MELEE_WEAPON,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/Attack")]
