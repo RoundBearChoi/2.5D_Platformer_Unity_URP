@@ -50,7 +50,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Speed: 1.5
+  Speed: 1
   BlockDistance: 0.125
   IgnoreCharacterBox: 0
   IgnoreStartTime: 0
