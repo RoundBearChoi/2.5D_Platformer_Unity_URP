@@ -42,6 +42,9 @@ namespace Roundbeargames
             {
                 characterState.characterControl.Attack = false;
             }
+
+            characterState.characterControl.animationProgress.AttackTriggered =
+                characterState.characterControl.Attack;
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
