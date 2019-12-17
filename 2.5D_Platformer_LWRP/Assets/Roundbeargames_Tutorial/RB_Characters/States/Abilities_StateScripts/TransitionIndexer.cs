@@ -29,6 +29,8 @@ namespace Roundbeargames
         TOUCHING_WEAPON,
         HOLDING_AXE,
         NOT_MOVING,
+        RUN,
+        NOT_RUN,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
@@ -302,6 +304,38 @@ namespace Roundbeargames
                             if (control.MoveLeft || control.MoveRight)
                             {
                                 return false;
+                            }
+                        }
+                        break;
+                    case TransitionConditionType.RUN:
+                        {
+                            if (!control.Turbo)
+                            {
+                                return false;
+                            }
+
+                            if (control.MoveLeft && control.MoveRight)
+                            {
+                                return false;
+                            }
+
+                            if (!control.MoveLeft && !control.MoveRight)
+                            {
+                                return false;
+                            }
+                        }
+                        break;
+                    case TransitionConditionType.NOT_RUN:
+                        {
+                            if (control.Turbo)
+                            {
+                                if (control.MoveLeft || control.MoveRight)
+                                {
+                                    if (!(control.MoveLeft && control.MoveRight))
+                                    {
+                                        return false;
+                                    }
+                                }
                             }
                         }
                         break;
