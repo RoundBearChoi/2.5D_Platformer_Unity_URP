@@ -2999,6 +2999,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Grounded
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: LockTransition
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6040243224278233793}
   m_Solo: 0
@@ -4187,6 +4190,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 489c80c24d54163489d665edea5cc83f, type: 2}
   - {fileID: 11400000, guid: 5be9f97ca44fa9f429c0a2b8df2a6102, type: 2}
   - {fileID: 11400000, guid: 34df9c66b71ed1d4e8fa018447576a06, type: 2}
+  - {fileID: 11400000, guid: a8f2d3d0f9d1cc3498f69c15bfa18bd3, type: 2}
 --- !u!114 &6640822736907818932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4249,11 +4253,11 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
+  - first: {fileID: -7127493026812690429}
+    second: []
   - first: {fileID: 1559308484210744654}
     second: []
   - first: {fileID: 3615597234190260423}
-    second: []
-  - first: {fileID: -7127493026812690429}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -200, y: -290, z: 0}
