@@ -156,6 +156,11 @@ namespace Roundbeargames
                             {
                                 return false;
                             }
+
+                            if (control.MoveLeft && control.MoveRight)
+                            {
+                                return false;
+                            }
                         }
                         break;
                     case TransitionConditionType.GROUNDED:
@@ -303,7 +308,10 @@ namespace Roundbeargames
                         {
                             if (control.MoveLeft || control.MoveRight)
                             {
-                                return false;
+                                if (!(control.MoveLeft && control.MoveRight))
+                                {
+                                    return false;
+                                }
                             }
                         }
                         break;
