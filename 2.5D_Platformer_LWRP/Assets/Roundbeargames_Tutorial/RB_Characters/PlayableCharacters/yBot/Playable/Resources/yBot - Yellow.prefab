@@ -1094,7 +1094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1072373176
 Transform:
   m_ObjectHideFlags: 0
@@ -6179,27 +6179,27 @@ MonoBehaviour:
   boxCollider: {fileID: 0}
   navMeshObstacle: {fileID: 0}
   playableCharacterType: 1
-  SkinnedMeshAnimator: {fileID: 1065218654}
+  SkinnedMeshAnimator: {fileID: 3363093133717548819}
   RagdollParts:
-  - {fileID: 4942891548418384651}
-  - {fileID: 3117176483440430398}
-  - {fileID: 6819055981701293399}
-  - {fileID: 2357041694954647407}
-  - {fileID: 1107643248274100782}
-  - {fileID: 4430076810806673832}
-  - {fileID: 7333656348738198441}
-  - {fileID: 3722502708867905347}
-  - {fileID: 7902853963040985963}
-  - {fileID: 2566056617450396210}
-  - {fileID: 8429906745635160715}
-  - {fileID: 2122867387116345508}
-  - {fileID: 8301003448375759770}
-  - {fileID: 7632319880641341956}
-  - {fileID: 150247866724417301}
-  LeftHand_Attack: {fileID: 1072464262}
-  RightHand_Attack: {fileID: 1072464260}
-  LeftFoot_Attack: {fileID: 1072464266}
-  RightFoot_Attack: {fileID: 1072464264}
+  - {fileID: 525899230488404067}
+  - {fileID: 5233113156182876579}
+  - {fileID: 3284810136949030276}
+  - {fileID: 22334772086492077}
+  - {fileID: 3952820233486691950}
+  - {fileID: 8061153003478474552}
+  - {fileID: 2120810748299843055}
+  - {fileID: 2518298850263468379}
+  - {fileID: 3726469961131861804}
+  - {fileID: 3692781688583289904}
+  - {fileID: 1629337477901173510}
+  - {fileID: 3106891042992530647}
+  - {fileID: 2510165419609396256}
+  - {fileID: 7074865538879599051}
+  - {fileID: 2305079526707240712}
+  LeftHand_Attack: {fileID: 382542608833660889}
+  RightHand_Attack: {fileID: 877859058002271199}
+  LeftFoot_Attack: {fileID: 7213782182656917228}
+  RightFoot_Attack: {fileID: 8596709973711031587}
 --- !u!114 &7199473640970729132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6214,10 +6214,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 0}
   CurrentObjects:
-  - {fileID: 1072464280}
+  - {fileID: 6733678023405404914}
+  - {fileID: 1500537850989289165}
   CurrentMaterials:
-  - {fileID: 2100000, guid: 98ec97c496fac904a811768eda3cc3f2, type: 2}
+  - {fileID: 2100000, guid: 65af319b87610924c8542c5deb3a5dbb, type: 2}
+  - {fileID: 2100000, guid: 21e8d65890be5194e847f91e246e5ad3, type: 2}
   NewMaterials:
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &7199473640884908302
 MonoBehaviour:
@@ -6802,7 +6805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4622409157308220009
 Transform:
   m_ObjectHideFlags: 0
