@@ -78,6 +78,11 @@ namespace Roundbeargames
 
         void CheckExitingBodyParts(Collider col)
         {
+            if (control == null)
+            {
+                return;
+            }
+
             if (control.animationProgress.CollidingBodyParts.ContainsKey(this))
             {
                 if (control.animationProgress.CollidingBodyParts[this].Contains(col))
@@ -94,6 +99,11 @@ namespace Roundbeargames
 
         void CheckExitingWeapons(Collider col)
         {
+            if (control == null)
+            {
+                return;
+            }
+
             if (control.animationProgress.CollidingWeapons.ContainsKey(this))
             {
                 if (control.animationProgress.CollidingWeapons[this].Contains(col))
