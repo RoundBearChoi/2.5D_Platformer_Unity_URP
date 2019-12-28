@@ -161,5 +161,10 @@ namespace Roundbeargames
                 control.navMeshObstacle.enabled = false;
             }
         }
+
+        public void TriggerSpikeDeath(RuntimeAnimatorController animator)
+        {
+            control.SkinnedMeshAnimator.runtimeAnimatorController = animator;
+        }
     }
 }

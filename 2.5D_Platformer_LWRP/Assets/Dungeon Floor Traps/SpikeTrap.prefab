@@ -1423,6 +1423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListCharacters: []
   ListSpikes: []
+  SpikeDeathAnimator: {fileID: 9100000, guid: 0f428ac6081172c43b01b30b7a2fcb8b, type: 2}
 --- !u!1 &4721074372285216589
 GameObject:
   m_ObjectHideFlags: 0

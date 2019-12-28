@@ -7,7 +7,9 @@ namespace Roundbeargames
     public class TrapSpikes : MonoBehaviour
     {
         public List<CharacterControl> ListCharacters = new List<CharacterControl>();
+        public List<CharacterControl> ListSpikeVictims = new List<CharacterControl>();
         public List<Spike> ListSpikes = new List<Spike>();
+        public RuntimeAnimatorController SpikeDeathAnimator;
 
         Coroutine SpikeTriggerRoutine;
         bool SpikesReloaded;
@@ -18,6 +20,7 @@ namespace Roundbeargames
             SpikesReloaded = true;
             ListCharacters.Clear();
             ListSpikes.Clear();
+            ListSpikeVictims.Clear();
 
             Spike[] arr = this.gameObject.GetComponentsInChildren<Spike>();
             foreach(Spike s in arr)
@@ -36,6 +39,12 @@ namespace Roundbeargames
                     {
                         if (SpikeTriggerRoutine == null && SpikesReloaded)
                         {
+                            if (!ListSpikeVictims.Contains(control))
+                            {
+                                ListSpikeVictims.Add(control);
+                                control.damageDetector.DamageTaken++;
+                            }
+
                             SpikeTriggerRoutine = StartCoroutine(_TriggerSpikes());
                         }
                     }
@@ -45,7 +54,6 @@ namespace Roundbeargames
 
         IEnumerator _TriggerSpikes()
         {
-            //Debug.Log("spikes triggered!");
             SpikesReloaded = false;
 
             foreach(Spike s in ListSpikes)
@@ -53,11 +61,23 @@ namespace Roundbeargames
                 s.Shoot();
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.08f);
+
+            foreach(CharacterControl control in ListSpikeVictims)
+            {
+                control.damageDetector.TriggerSpikeDeath(SpikeDeathAnimator);
+            }
+
+            yield return new WaitForSeconds(1.5f);
 
             foreach(Spike s in ListSpikes)
             {
                 s.Retract();
+            }
+
+            foreach (CharacterControl control in ListSpikeVictims)
+            {
+                control.TurnOnRagdoll();
             }
 
             yield return new WaitForSeconds(1f);
