@@ -44,9 +44,18 @@ namespace Roundbeargames
                                 ListSpikeVictims.Add(control);
                                 control.damageDetector.DamageTaken++;
                             }
-
-                            SpikeTriggerRoutine = StartCoroutine(_TriggerSpikes());
                         }
+                    }
+                }
+            }
+
+            foreach(CharacterControl control in ListSpikeVictims)
+            {
+                if (control.SkinnedMeshAnimator.avatar != null)
+                {
+                    if (SpikeTriggerRoutine == null && SpikesReloaded)
+                    {
+                        SpikeTriggerRoutine = StartCoroutine(_TriggerSpikes());
                     }
                 }
             }
@@ -104,9 +113,12 @@ namespace Roundbeargames
 
             if (control != null)
             {
-                if (!ListCharacters.Contains(control))
+                if (control.gameObject != other.gameObject)
                 {
-                    ListCharacters.Add(control);
+                    if (!ListCharacters.Contains(control))
+                    {
+                        ListCharacters.Add(control);
+                    }
                 }
             }
         }
@@ -117,9 +129,12 @@ namespace Roundbeargames
 
             if (control != null)
             {
-                if (ListCharacters.Contains(control))
+                if (control.gameObject != other.gameObject)
                 {
-                    ListCharacters.Remove(control);
+                    if (ListCharacters.Contains(control))
+                    {
+                        ListCharacters.Remove(control);
+                    }
                 }
             }
         }
