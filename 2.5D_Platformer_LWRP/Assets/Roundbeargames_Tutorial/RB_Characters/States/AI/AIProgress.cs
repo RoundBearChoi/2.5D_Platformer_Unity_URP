@@ -48,7 +48,7 @@ namespace Roundbeargames
         public bool TargetIsDead()
         {
             if (CharacterManager.Instance.GetCharacter(control.aiProgress.pathfindingAgent.target).
-                damageDetector.DamageTaken > 0)
+                damageDetector.IsDead())
             {
                 return true;
             }

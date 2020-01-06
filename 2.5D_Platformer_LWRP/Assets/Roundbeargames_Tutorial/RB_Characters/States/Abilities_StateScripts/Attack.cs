@@ -26,6 +26,7 @@ namespace Roundbeargames
         public bool MustFaceAttacker;
         public float LethalRange;
         public int MaxHits;
+        public float Damage;
 
         [Header("Combo")]
         public float ComboStartTime;

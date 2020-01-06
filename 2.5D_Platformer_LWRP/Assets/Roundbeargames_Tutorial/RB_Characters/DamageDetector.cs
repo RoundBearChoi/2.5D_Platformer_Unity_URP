@@ -7,11 +7,12 @@ namespace Roundbeargames
     public class DamageDetector : MonoBehaviour
     {
         CharacterControl control;
-        public int DamageTaken;
-
+        //public int DamageTaken;
+        [SerializeField]
+        private float hp;
+        
         private void Awake()
         {
-            DamageTaken = 0;
             control = GetComponent<CharacterControl>();
         }
 
@@ -108,9 +109,21 @@ namespace Roundbeargames
             return false;
         }
 
+        public bool IsDead()
+        {
+            if (hp <= 0f)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void TakeDamage(AttackInfo info)
         {
-            if (DamageTaken > 0)
+            if (IsDead())
             {
                 return;
             }
@@ -146,25 +159,37 @@ namespace Roundbeargames
             Debug.Log(info.Attacker.gameObject.name + " hits: " + this.gameObject.name);
 
             info.CurrentHits++;
-            DamageTaken++;
+            hp -= info.AttackAbility.Damage;
 
             AttackManager.Instance.ForceDeregister(control);
 
-            control.animationProgress.RagdollTriggered = true;
-            control.GetComponent<BoxCollider>().enabled = false;
-            control.ledgeChecker.GetComponent<BoxCollider>().enabled = false;
-            control.RIGID_BODY.useGravity = false;
-
-            if (control.aiController != null)
+            if (IsDead())
             {
-                control.aiController.gameObject.SetActive(false);
-                control.navMeshObstacle.enabled = false;
+                control.animationProgress.RagdollTriggered = true;
+                control.GetComponent<BoxCollider>().enabled = false;
+                control.ledgeChecker.GetComponent<BoxCollider>().enabled = false;
+                control.RIGID_BODY.useGravity = false;
+
+                if (control.aiController != null)
+                {
+                    control.aiController.gameObject.SetActive(false);
+                    control.navMeshObstacle.enabled = false;
+                }
+            }
+            else
+            {
+                //damage reaction animation
             }
         }
 
         public void TriggerSpikeDeath(RuntimeAnimatorController animator)
         {
             control.SkinnedMeshAnimator.runtimeAnimatorController = animator;
+        }
+
+        public void TakeTotalDamage()
+        {
+            hp = 0f;
         }
     }
 }

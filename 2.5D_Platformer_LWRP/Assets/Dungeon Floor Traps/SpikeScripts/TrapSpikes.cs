@@ -35,14 +35,14 @@ namespace Roundbeargames
             {
                 foreach(CharacterControl control in ListCharacters)
                 {
-                    if (control.damageDetector.DamageTaken == 0)
+                    if (!control.damageDetector.IsDead())
                     {
                         if (SpikeTriggerRoutine == null && SpikesReloaded)
                         {
                             if (!ListSpikeVictims.Contains(control))
                             {
                                 ListSpikeVictims.Add(control);
-                                control.damageDetector.DamageTaken++;
+                                control.damageDetector.TakeTotalDamage();
                             }
                         }
                     }
