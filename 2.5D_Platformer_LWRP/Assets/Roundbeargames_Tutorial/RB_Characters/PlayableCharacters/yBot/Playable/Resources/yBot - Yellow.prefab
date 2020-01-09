@@ -6264,6 +6264,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+  HitReactionList:
+  - {fileID: 9100000, guid: f8173f94fbcc5144ea70d64c6b0662b3, type: 2}
 --- !u!114 &9096092891286109750
 MonoBehaviour:
   m_ObjectHideFlags: 0

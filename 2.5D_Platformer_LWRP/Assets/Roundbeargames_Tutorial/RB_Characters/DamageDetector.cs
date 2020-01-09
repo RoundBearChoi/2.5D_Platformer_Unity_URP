@@ -7,9 +7,12 @@ namespace Roundbeargames
     public class DamageDetector : MonoBehaviour
     {
         CharacterControl control;
-        //public int DamageTaken;
+
         [SerializeField]
         private float hp;
+
+        [SerializeField]
+        List<RuntimeAnimatorController> HitReactionList = new List<RuntimeAnimatorController>();
         
         private void Awake()
         {
@@ -178,7 +181,8 @@ namespace Roundbeargames
             }
             else
             {
-                //damage reaction animation
+                control.SkinnedMeshAnimator.runtimeAnimatorController = null;
+                control.SkinnedMeshAnimator.runtimeAnimatorController = HitReactionList[0];
             }
         }
 
