@@ -6266,6 +6266,7 @@ MonoBehaviour:
   hp: 3
   HitReactionList:
   - {fileID: 9100000, guid: f8173f94fbcc5144ea70d64c6b0662b3, type: 2}
+  - {fileID: 9100000, guid: 1fde60ddf602e4841aceed73d676a341, type: 2}
 --- !u!114 &9096092891286109750
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -181,8 +181,10 @@ namespace Roundbeargames
             }
             else
             {
+                int rand = Random.Range(0, HitReactionList.Count);
+
                 control.SkinnedMeshAnimator.runtimeAnimatorController = null;
-                control.SkinnedMeshAnimator.runtimeAnimatorController = HitReactionList[0];
+                control.SkinnedMeshAnimator.runtimeAnimatorController = HitReactionList[rand];
             }
         }
 
