@@ -27,6 +27,9 @@ namespace Roundbeargames
         public float StartingMomentum;
         public float MaxMomentum;
         public bool ClearMomentumOnExit;
+
+        [Header("MoveOnHit")]
+        public bool MoveOnHit;
         
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
@@ -61,7 +64,8 @@ namespace Roundbeargames
 
             characterState.characterControl.animationProgress.disallowEarlyTurn = false;
             characterState.characterControl.animationProgress.LockDirectionNextState = false;
-            //characterState.characterControl.animationProgress.BlockingObjs.Clear();
+
+            UpdateMoveOnHit(characterState.characterControl);
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -126,6 +130,34 @@ namespace Roundbeargames
             if (ClearMomentumOnExit)
             {
                 characterState.characterControl.animationProgress.AirMomentum = 0f;
+            }
+        }
+
+        void UpdateMoveOnHit(CharacterControl control)
+        {
+            if (!MoveOnHit)
+            {
+                return;
+            }
+
+            if (control.animationProgress.Attacker != null)
+            {
+                Vector3 dir = control.transform.position - control.animationProgress.Attacker.transform.position;
+
+                if (dir.z > 0f)
+                {
+                    if (Speed < 0f)
+                    {
+                        Speed *= -1f;
+                    }
+                }
+                else if (dir.z < 0f)
+                {
+                    if (Speed > 0f)
+                    {
+                        Speed *= -1f;
+                    }
+                }
             }
         }
 
