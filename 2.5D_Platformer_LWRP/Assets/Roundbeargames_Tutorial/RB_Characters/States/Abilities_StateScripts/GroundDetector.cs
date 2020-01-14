@@ -7,7 +7,6 @@ namespace Roundbeargames
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/GroundDetector")]
     public class GroundDetector : StateData
     {
-        [Range(0.01f, 1f)]
         public float Distance;
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
