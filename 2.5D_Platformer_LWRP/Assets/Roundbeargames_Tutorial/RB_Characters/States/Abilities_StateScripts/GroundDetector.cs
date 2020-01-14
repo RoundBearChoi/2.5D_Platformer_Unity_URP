@@ -8,7 +8,6 @@ namespace Roundbeargames
     public class GroundDetector : StateData
     {
         [Range(0.01f, 1f)]
-        public float CheckTime;
         public float Distance;
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -18,18 +17,13 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-
-            if (stateInfo.normalizedTime >= CheckTime)
+            if (IsGrounded(characterState.characterControl))
             {
-                if (IsGrounded(characterState.characterControl))
-                {
-                    animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded], true);
-                }
-                else
-                {
-                    animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded], false);
-                }
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded], true);
+            }
+            else
+            {
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded], false);
             }
         }
 
