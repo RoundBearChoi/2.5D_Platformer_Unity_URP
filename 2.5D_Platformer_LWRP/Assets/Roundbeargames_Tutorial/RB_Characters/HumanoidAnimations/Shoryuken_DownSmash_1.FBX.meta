@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Shoryuken_DownSmash
+    second: Shoryuken_DownSmash_1
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -54,11 +54,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Shoryuken_DownSmash
+      name: Shoryuken_DownSmash_1
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 58
+      firstFrame: 16
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
