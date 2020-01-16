@@ -50,3 +50,4 @@ MonoBehaviour:
   StartingMomentum: 0
   MaxMomentum: 0
   ClearMomentumOnExit: 0
+  MoveOnHit: 0

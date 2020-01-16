@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug: 0
   AllowEarlyTurn: 0
-  LockDirection: 0
-  LockDirectionNextState: 0
+  LockDirection: 1
+  LockDirectionNextState: 1
   Constant: 1
   SpeedGraph:
     serializedVersion: 2
@@ -50,7 +50,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Speed: 0.5
+  Speed: 1
   BlockDistance: 0.125
   IgnoreCharacterBox: 0
   IgnoreStartTime: 0
@@ -59,3 +59,4 @@ MonoBehaviour:
   StartingMomentum: 0
   MaxMomentum: 0
   ClearMomentumOnExit: 0
+  MoveOnHit: 0
