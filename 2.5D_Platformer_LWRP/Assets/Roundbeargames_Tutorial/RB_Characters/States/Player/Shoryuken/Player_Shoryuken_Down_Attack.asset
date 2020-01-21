@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Player_Shoryuken_Down_Attack
   m_EditorClassIdentifier: 
   debug: 0
-  StartAttackTime: 0.2
-  EndAttackTime: 0.3
+  StartAttackTime: 0.3
+  EndAttackTime: 0.35
   AttackParts: 
   MustCollide: 0
   MustFaceAttacker: 0
@@ -23,8 +23,8 @@ MonoBehaviour:
   Damage: 3
   ComboStartTime: 0
   ComboEndTime: 0
-  ForwardForce: 0
+  ForwardForce: 700
   RightForce: 0
-  UpForce: 0
+  UpForce: 6000
   UseDeathParticles: 0
   ParticleType: 0

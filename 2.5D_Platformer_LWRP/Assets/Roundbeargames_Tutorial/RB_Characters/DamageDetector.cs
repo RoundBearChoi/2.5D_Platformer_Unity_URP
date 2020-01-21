@@ -77,8 +77,7 @@ namespace Roundbeargames
                 }
                 else
                 {
-                    float dist = Vector3.SqrMagnitude(this.gameObject.transform.position - info.Attacker.transform.position);
-                    if (dist <= info.LethalRange)
+                    if (IsInLethalRange(info))
                     {
                         TakeDamage(info);
                     }
@@ -100,13 +99,33 @@ namespace Roundbeargames
                         {
                             control.animationProgress.Attack = info.AttackAbility;
                             control.animationProgress.Attacker = info.Attacker;
+
                             control.animationProgress.DamagedTrigger = data.Key;
                             control.animationProgress.AttackingPart =
                                 info.Attacker.GetAttackingPart(part);
+
                             return true;
                         }
                     }
                 }
+            }
+
+            return false;
+        }
+
+        private bool IsInLethalRange(AttackInfo info)
+        {
+            float dist = Vector3.SqrMagnitude(this.gameObject.transform.position - info.Attacker.transform.position);
+            
+            if (dist <= info.LethalRange)
+            {
+                control.animationProgress.Attack = info.AttackAbility;
+                control.animationProgress.Attacker = info.Attacker;
+
+                int index = Random.Range(0, control.RagdollParts.Count);
+                control.animationProgress.DamagedTrigger = control.RagdollParts[index].GetComponent<TriggerDetector>();
+
+                return true;
             }
 
             return false;
