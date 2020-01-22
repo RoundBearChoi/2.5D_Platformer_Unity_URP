@@ -18,6 +18,7 @@ namespace Roundbeargames
         public bool isRegisterd;
         public bool isFinished;
         public bool UseRagdollDeath;
+        public List<CharacterControl> RegisteredTargets = new List<CharacterControl>();
 
         public void ResetInfo(Attack attack, CharacterControl attacker)
         {
@@ -25,6 +26,7 @@ namespace Roundbeargames
             isFinished = false;
             AttackAbility = attack;
             Attacker = attacker;
+            RegisteredTargets.Clear();
         }
 
         public void Register(Attack attack)

@@ -68,6 +68,11 @@ namespace Roundbeargames
                     }
                 }
 
+                if (info.RegisteredTargets.Contains(this.control))
+                {
+                    continue;
+                }
+
                 if (info.MustCollide)
                 {
                     if (IsCollided(info))
@@ -204,6 +209,12 @@ namespace Roundbeargames
 
                 control.SkinnedMeshAnimator.runtimeAnimatorController = null;
                 control.SkinnedMeshAnimator.runtimeAnimatorController = HitReactionList[rand];
+            }
+
+            //register damaged target
+            if (!info.RegisteredTargets.Contains(this.control))
+            {
+                info.RegisteredTargets.Add(this.control);
             }
         }
 
