@@ -4463,6 +4463,8 @@ MonoBehaviour:
   characterControl: {fileID: 0}
   ListAbilityData:
   - {fileID: 11400000, guid: 52769a55224974c4ba4002453f78115a, type: 2}
+  - {fileID: 11400000, guid: 50adc3cd50f9ef9488a30ae6eae20ae3, type: 2}
+  - {fileID: 11400000, guid: 9627fd9eeac2a1e408dce98ed08d0628, type: 2}
 --- !u!1101 &6322386552334133271
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
