@@ -16,5 +16,16 @@ namespace Roundbeargames
                     ResetTrigger(HashManager.Instance.DicCameraTriggers[t]);
             }
         }
+
+        public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            if (stateInfo.normalizedTime > 0.7f)
+            {
+                if (stateInfo.IsName("Shake"))
+                {
+                    animator.SetTrigger(HashManager.Instance.DicCameraTriggers[CameraTrigger.Default]);
+                }
+            }
+        }
     }
 }
