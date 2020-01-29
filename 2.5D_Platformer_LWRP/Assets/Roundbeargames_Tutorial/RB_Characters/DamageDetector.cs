@@ -152,6 +152,12 @@ namespace Roundbeargames
         {
             if (IsDead())
             {
+                if (!info.RegisteredTargets.Contains(this.control))
+                {
+                    info.RegisteredTargets.Add(this.control);
+                    control.AddForceToDamagedPart();
+                }
+
                 return;
             }
 
@@ -211,7 +217,6 @@ namespace Roundbeargames
                 control.SkinnedMeshAnimator.runtimeAnimatorController = HitReactionList[rand];
             }
 
-            //register damaged target
             if (!info.RegisteredTargets.Contains(this.control))
             {
                 info.RegisteredTargets.Add(this.control);
