@@ -18,7 +18,7 @@ MonoBehaviour:
   AttackParts: 
   MustCollide: 0
   MustFaceAttacker: 0
-  LethalRange: 0.5
+  LethalRange: 1
   MaxHits: 3
   Damage: 3
   ComboStartTime: 0

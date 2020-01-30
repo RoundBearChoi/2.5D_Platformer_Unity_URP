@@ -23,68 +23,76 @@ namespace Roundbeargames
         {
             if (AttackManager.Instance.CurrentAttacks.Count > 0)
             {
-                if (control.animationProgress.CollidingBodyParts.Count != 0)
+                CheckAttack();
+            }
+        }
+
+        private bool AttackIsValid(AttackInfo info)
+        {
+            if (info == null)
+            {
+                return false;
+            }
+
+            if (!info.isRegisterd)
+            {
+                return false;
+            }
+
+            if (info.isFinished)
+            {
+                return false;
+            }
+
+            if (info.CurrentHits >= info.MaxHits)
+            {
+                return false;
+            }
+
+            if (info.Attacker == control)
+            {
+                return false;
+            }
+
+            if (info.MustFaceAttacker)
+            {
+                Vector3 vec = this.transform.position - info.Attacker.transform.position;
+                if (vec.z * info.Attacker.transform.forward.z < 0f)
                 {
-                    CheckAttack();
+                    return false;
                 }
             }
+
+            if (info.RegisteredTargets.Contains(this.control))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void CheckAttack()
         {
             foreach (AttackInfo info in AttackManager.Instance.CurrentAttacks)
             {
-                if (info == null)
+                if (AttackIsValid(info))
                 {
-                    continue;
-                }
-
-                if (!info.isRegisterd)
-                {
-                    continue;
-                }
-
-                if (info.isFinished)
-                {
-                    continue;
-                }
-
-                if (info.CurrentHits >= info.MaxHits)
-                {
-                    continue;
-                }
-
-                if (info.Attacker == control)
-                {
-                    continue;
-                }
-
-                if (info.MustFaceAttacker)
-                {
-                    Vector3 vec = this.transform.position - info.Attacker.transform.position;
-                    if (vec.z * info.Attacker.transform.forward.z < 0f)
+                    if (info.MustCollide)
                     {
-                        continue;
+                        if (control.animationProgress.CollidingBodyParts.Count != 0)
+                        {
+                            if (IsCollided(info))
+                            {
+                                TakeDamage(info);
+                            }
+                        }
                     }
-                }
-
-                if (info.RegisteredTargets.Contains(this.control))
-                {
-                    continue;
-                }
-
-                if (info.MustCollide)
-                {
-                    if (IsCollided(info))
+                    else
                     {
-                        TakeDamage(info);
-                    }
-                }
-                else
-                {
-                    if (IsInLethalRange(info))
-                    {
-                        TakeDamage(info);
+                        if (IsInLethalRange(info))
+                        {
+                            TakeDamage(info);
+                        }
                     }
                 }
             }
@@ -120,17 +128,20 @@ namespace Roundbeargames
 
         private bool IsInLethalRange(AttackInfo info)
         {
-            float dist = Vector3.SqrMagnitude(this.gameObject.transform.position - info.Attacker.transform.position);
-            
-            if (dist <= info.LethalRange)
+            foreach(Collider c in control.RagdollParts)
             {
-                control.animationProgress.Attack = info.AttackAbility;
-                control.animationProgress.Attacker = info.Attacker;
+                float dist = Vector3.SqrMagnitude(c.transform.position - info.Attacker.transform.position);
 
-                int index = Random.Range(0, control.RagdollParts.Count);
-                control.animationProgress.DamagedTrigger = control.RagdollParts[index].GetComponent<TriggerDetector>();
+                if (dist <= info.LethalRange)
+                {
+                    control.animationProgress.Attack = info.AttackAbility;
+                    control.animationProgress.Attacker = info.Attacker;
 
-                return true;
+                    int index = Random.Range(0, control.RagdollParts.Count);
+                    control.animationProgress.DamagedTrigger = control.RagdollParts[index].GetComponent<TriggerDetector>();
+
+                    return true;
+                }
             }
 
             return false;
