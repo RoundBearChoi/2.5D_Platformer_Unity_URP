@@ -7,6 +7,7 @@ namespace Roundbeargames
     [CreateAssetMenu(fileName = "Settings", menuName = "Roundbeargames/Settings/PhysicsSettings")]
     public class PhysicsSettings : ScriptableObject
     {
+        public int DefaultSolverIterations;
         public int DefaultSolverVelocityIterations;
     }
 }

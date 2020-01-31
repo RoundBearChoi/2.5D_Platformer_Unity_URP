@@ -18,6 +18,9 @@ namespace Roundbeargames
             Application.targetFrameRate = frameSettings.TargetFPS;
 
             //Physics
+            Debug.Log("Default Solver Iterations: " + physicsSettings.DefaultSolverIterations);
+            Physics.defaultSolverIterations = physicsSettings.DefaultSolverIterations;
+
             Debug.Log("Default Solver Velocity Iterations: " + physicsSettings.DefaultSolverVelocityIterations);
             Physics.defaultSolverVelocityIterations = physicsSettings.DefaultSolverVelocityIterations;
 

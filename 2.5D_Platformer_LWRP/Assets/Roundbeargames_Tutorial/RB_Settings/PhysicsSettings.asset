@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6e5c098e0b6f74e9bee8d16e6b28bd, type: 3}
   m_Name: PhysicsSettings
   m_EditorClassIdentifier: 
-  DefaultSolverVelocityIterations: 2
+  DefaultSolverIterations: 10
+  DefaultSolverVelocityIterations: 10
