@@ -34,3 +34,18 @@ Update Mode: updateDependencies
 
 The following packages were updated:
   com.unity.ide.vscode from version 1.1.0 to 1.1.2
+
+=== Fri Jan 31 17:50:12 2020
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.analytics from version 3.3.2 to 3.3.5
+  com.unity.ide.rider from version 1.1.0 to 1.1.4
+  com.unity.ide.vscode from version 1.1.2 to 1.1.4
+  com.unity.render-pipelines.lightweight from version 6.9.1 to 7.1.8
+  com.unity.test-framework from version 1.0.13 to 1.1.9
+  com.unity.timeline from version 1.1.0 to 1.2.10
+The following packages were removed:
+  com.unity.package-manager-ui@2.2.0
