@@ -146,7 +146,7 @@ MonoBehaviour:
     min: 0.1
   aperture:
     m_OverrideState: 1
-    m_Value: 2.5
+    m_Value: 2
     min: 1
     max: 32
   focalLength:
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   postExposure:
     m_OverrideState: 1
-    m_Value: 1.75
+    m_Value: 2
   contrast:
     m_OverrideState: 1
     m_Value: 36
