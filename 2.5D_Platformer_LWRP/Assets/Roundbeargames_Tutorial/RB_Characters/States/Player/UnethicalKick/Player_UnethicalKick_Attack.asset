@@ -23,8 +23,8 @@ MonoBehaviour:
   Damage: 1
   ComboStartTime: 0
   ComboEndTime: 0
-  ForwardForce: 3500
+  ForwardForce: 3000
   RightForce: 0
-  UpForce: 4500
+  UpForce: 3000
   UseDeathParticles: 1
   ParticleType: 3
