@@ -1079,6 +1079,7 @@ MonoBehaviour:
   characterControl: {fileID: 0}
   ListAbilityData:
   - {fileID: 11400000, guid: ad117711a63790b44887f037c5e40af7, type: 2}
+  - {fileID: 11400000, guid: 1c47fe0dcac90a640aed8efd4688cb83, type: 2}
 --- !u!114 &-3386777214466997611
 MonoBehaviour:
   m_ObjectHideFlags: 1
