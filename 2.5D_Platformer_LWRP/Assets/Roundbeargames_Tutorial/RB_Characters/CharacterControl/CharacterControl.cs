@@ -188,21 +188,24 @@ namespace Roundbeargames
                 c.transform.localPosition = det.LastPosition;
                 c.transform.localRotation = det.LastRotation;
 
-                //c.attachedRigidbody.velocity = Vector3.zero;
+                c.attachedRigidbody.velocity = Vector3.zero;
             }
 
-            AddForceToDamagedPart();
+            AddForceToDamagedPart(false);
         }
 
-        public void AddForceToDamagedPart()
+        public void AddForceToDamagedPart(bool zeroVelocity)
         {
             if (animationProgress.DamagedTrigger != null)
             {
-                foreach (Collider c in RagdollParts)
+                if (zeroVelocity)
                 {
-                    c.attachedRigidbody.velocity = Vector3.zero;
+                    foreach (Collider c in RagdollParts)
+                    {
+                        c.attachedRigidbody.velocity = Vector3.zero;
+                    }
                 }
-
+                
                 animationProgress.DamagedTrigger.GetComponent<Rigidbody>().
                     AddForce(animationProgress.Attacker.transform.forward * animationProgress.Attack.ForwardForce +
                     animationProgress.Attacker.transform.right * animationProgress.Attack.RightForce +

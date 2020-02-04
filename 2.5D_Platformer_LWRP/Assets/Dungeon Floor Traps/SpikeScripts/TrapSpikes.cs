@@ -42,7 +42,7 @@ namespace Roundbeargames
                             if (!ListSpikeVictims.Contains(control))
                             {
                                 ListSpikeVictims.Add(control);
-                                control.damageDetector.TakeTotalDamage();
+                                control.damageDetector.DeathBySpikes();
                             }
                         }
                     }

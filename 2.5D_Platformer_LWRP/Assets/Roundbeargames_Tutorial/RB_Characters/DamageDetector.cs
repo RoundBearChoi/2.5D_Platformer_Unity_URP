@@ -166,7 +166,7 @@ namespace Roundbeargames
                 if (!info.RegisteredTargets.Contains(this.control))
                 {
                     info.RegisteredTargets.Add(this.control);
-                    control.AddForceToDamagedPart();
+                    control.AddForceToDamagedPart(true);
                 }
 
                 return;
@@ -239,8 +239,9 @@ namespace Roundbeargames
             control.SkinnedMeshAnimator.runtimeAnimatorController = animator;
         }
 
-        public void TakeTotalDamage()
+        public void DeathBySpikes()
         {
+            control.animationProgress.DamagedTrigger = null;
             hp = 0f;
         }
     }
