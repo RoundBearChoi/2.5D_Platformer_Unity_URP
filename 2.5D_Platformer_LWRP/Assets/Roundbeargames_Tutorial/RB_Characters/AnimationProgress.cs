@@ -48,6 +48,8 @@ namespace Roundbeargames
         public float Size_Speed;
         public Vector3 TargetCenter;
         public float Center_Speed;
+        public Vector3 LandingPosition;
+        public bool IsLanding;
 
         [Header("Damage Info")]
         public Attack Attack;

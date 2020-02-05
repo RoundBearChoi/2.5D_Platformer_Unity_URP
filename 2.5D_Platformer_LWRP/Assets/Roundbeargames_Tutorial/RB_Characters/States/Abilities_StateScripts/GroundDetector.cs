@@ -9,6 +9,20 @@ namespace Roundbeargames
     {
         public float Distance;
 
+        private GameObject testingSphere;
+
+        public GameObject TESTING_SPHERE
+        {
+            get
+            {
+                if (testingSphere == null)
+                {
+                    testingSphere = GameObject.Find("TestingSphere");
+                }
+                return testingSphere;
+            }
+        }
+
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
 
@@ -46,6 +60,15 @@ namespace Roundbeargames
                         if (Mathf.Abs(control.RIGID_BODY.velocity.y) < 0.001f)
                         {
                             control.animationProgress.Ground = c.otherCollider.transform.root.gameObject;
+                            control.animationProgress.LandingPosition = new Vector3(
+                                0f,
+                                c.point.y,
+                                c.point.z);
+
+                            if (control.manualInput.enabled)
+                            {
+                                TESTING_SPHERE.transform.position = control.animationProgress.LandingPosition;
+                            }
                             return true;
                         }
                     }
@@ -66,6 +89,14 @@ namespace Roundbeargames
                             && !Ledge.IsCharacter(hit.collider.gameObject))
                         {
                             control.animationProgress.Ground = hit.collider.transform.root.gameObject;
+                            control.animationProgress.LandingPosition = new Vector3(
+                                0f,
+                                hit.point.y,
+                                hit.point.z);
+                            if (control.manualInput.enabled)
+                            {
+                                TESTING_SPHERE.transform.position = control.animationProgress.LandingPosition;
+                            }
                             return true;
                         }
                     }

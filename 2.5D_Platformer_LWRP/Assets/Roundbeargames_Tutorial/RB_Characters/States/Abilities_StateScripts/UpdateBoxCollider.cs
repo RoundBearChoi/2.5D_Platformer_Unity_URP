@@ -13,6 +13,8 @@ namespace Roundbeargames
         public Vector3 TargetSize;
         public float SizeUpdateSpeed;
 
+        const string LandingState = "Jump_Normal_Landing";
+
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             characterState.characterControl.animationProgress.TargetSize = TargetSize;
@@ -20,6 +22,11 @@ namespace Roundbeargames
 
             characterState.characterControl.animationProgress.TargetCenter = TargetCenter;
             characterState.characterControl.animationProgress.Center_Speed = CenterUpdateSpeed;
+
+            if (stateInfo.IsName(LandingState))
+            {
+                characterState.characterControl.animationProgress.IsLanding = true;
+            }
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -29,7 +36,10 @@ namespace Roundbeargames
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-
+            if (stateInfo.IsName(LandingState))
+            {
+                characterState.characterControl.animationProgress.IsLanding = false;
+            }
         }
     }
 }

@@ -266,6 +266,14 @@ namespace Roundbeargames
                 collisionSpheres.Reposition_BottomSpheres();
                 collisionSpheres.Reposition_BackSpheres();
                 collisionSpheres.Reposition_UpSpheres();
+
+                if (animationProgress.IsLanding)
+                {
+                    RIGID_BODY.MovePosition(new Vector3(
+                        0f,
+                        animationProgress.LandingPosition.y,
+                        this.transform.position.z));
+                }
             }
 
             if (animationProgress.RagdollTriggered)
