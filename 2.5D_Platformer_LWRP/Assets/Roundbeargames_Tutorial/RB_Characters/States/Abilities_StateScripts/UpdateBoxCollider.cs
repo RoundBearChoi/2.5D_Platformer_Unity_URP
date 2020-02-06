@@ -14,6 +14,7 @@ namespace Roundbeargames
         public float SizeUpdateSpeed;
 
         const string LandingState = "Jump_Normal_Landing";
+        const string ClimbingState = "LedgeClimb";
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
@@ -31,12 +32,30 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-
+            if (stateInfo.IsName(ClimbingState))
+            {
+                if (stateInfo.normalizedTime > 0.7f)
+                {
+                    if (animator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]) == true)
+                    {
+                        characterState.characterControl.animationProgress.IsLanding = true;
+                    }
+                    else
+                    {
+                        characterState.characterControl.animationProgress.IsLanding = false;
+                    }
+                }
+                else
+                {
+                    characterState.characterControl.animationProgress.IsLanding = false;
+                }
+            }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            if (stateInfo.IsName(LandingState))
+            if (stateInfo.IsName(LandingState) ||
+                stateInfo.IsName(ClimbingState))
             {
                 characterState.characterControl.animationProgress.IsLanding = false;
             }

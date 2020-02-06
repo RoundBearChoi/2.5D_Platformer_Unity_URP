@@ -269,6 +269,7 @@ namespace Roundbeargames
 
                 if (animationProgress.IsLanding)
                 {
+                    //Debug.Log("repositioning y");
                     RIGID_BODY.MovePosition(new Vector3(
                         0f,
                         animationProgress.LandingPosition.y,
