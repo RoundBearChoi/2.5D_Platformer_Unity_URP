@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: 069110d5e75ed5e4395f5096dceb8453
 ModelImporter:
-  serializedVersion: 26
+  serializedVersion: 19300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
     second: DeathSpikeTrap
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -42,7 +42,7 @@ ModelImporter:
       lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0
+      level: -0.11
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
@@ -101,7 +101,6 @@ ModelImporter:
     normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
     serializedVersion: 3
     human:
@@ -917,8 +916,10 @@ ModelImporter:
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
