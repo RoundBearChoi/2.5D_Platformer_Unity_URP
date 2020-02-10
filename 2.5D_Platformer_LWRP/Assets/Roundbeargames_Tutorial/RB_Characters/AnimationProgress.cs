@@ -129,7 +129,7 @@ namespace Roundbeargames
             if (LatestMoveForward.Speed > 0)
             {
                 SpheresList = control.collisionSpheres.FrontSpheres;
-                DirBlock = 0.3f;
+                DirBlock = 1f;
 
                 foreach(GameObject s in control.collisionSpheres.BackSpheres)
                 {
@@ -142,7 +142,7 @@ namespace Roundbeargames
             else
             {
                 SpheresList = control.collisionSpheres.BackSpheres;
-                DirBlock = -0.3f;
+                DirBlock = -1f;
 
                 foreach (GameObject s in control.collisionSpheres.FrontSpheres)
                 {
@@ -155,42 +155,52 @@ namespace Roundbeargames
 
             foreach (GameObject o in SpheresList)
             {
-                Debug.DrawRay(o.transform.position, control.transform.forward * DirBlock, Color.yellow);
-                RaycastHit hit;
-                if (Physics.Raycast(o.transform.position, control.transform.forward * DirBlock,
-                    out hit,
-                    LatestMoveForward.BlockDistance))
+                CheckRaycastCollision(o, this.transform.forward * DirBlock, LatestMoveForward.BlockDistance,
+                    BlockingObjs);
+            }
+        }
+
+        void CheckRaycastCollision(GameObject obj, Vector3 dir, float blockDistance,
+            Dictionary<GameObject, GameObject> BlockingObjDic)
+        {
+            //Draw debug line
+            Debug.DrawRay(obj.transform.position, dir * LatestMoveForward.BlockDistance, Color.yellow);
+
+            //Check collision
+            RaycastHit hit;
+            if (Physics.Raycast(obj.transform.position, dir,
+                out hit,
+                blockDistance))
+            {
+                if (!IsBodyPart(hit.collider) &&
+                    !IsIgnoringCharacter(hit.collider) &&
+                    !Ledge.IsLedge(hit.collider.gameObject) &&
+                    !Ledge.IsLedgeChecker(hit.collider.gameObject) &&
+                    !MeleeWeapon.IsWeapon(hit.collider.gameObject) &&
+                    !TrapSpikes.IsTrap(hit.collider.gameObject))
                 {
-                    if (!IsBodyPart(hit.collider) &&
-                        !IsIgnoringCharacter(hit.collider) &&
-                        !Ledge.IsLedge(hit.collider.gameObject) &&
-                        !Ledge.IsLedgeChecker(hit.collider.gameObject) &&
-                        !MeleeWeapon.IsWeapon(hit.collider.gameObject) &&
-                        !TrapSpikes.IsTrap(hit.collider.gameObject))
+                    if (BlockingObjDic.ContainsKey(obj))
                     {
-                        if (BlockingObjs.ContainsKey(o))
-                        {
-                            BlockingObjs[o] = hit.collider.transform.root.gameObject;
-                        }
-                        else
-                        {
-                            BlockingObjs.Add(o, hit.collider.transform.root.gameObject);
-                        }
+                        BlockingObjDic[obj] = hit.collider.transform.root.gameObject;
                     }
                     else
                     {
-                        if (BlockingObjs.ContainsKey(o))
-                        {
-                            BlockingObjs.Remove(o);
-                        }
+                        BlockingObjDic.Add(obj, hit.collider.transform.root.gameObject);
                     }
                 }
                 else
                 {
-                    if (BlockingObjs.ContainsKey(o))
+                    if (BlockingObjDic.ContainsKey(obj))
                     {
-                        BlockingObjs.Remove(o);
+                        BlockingObjDic.Remove(obj);
                     }
+                }
+            }
+            else
+            {
+                if (BlockingObjDic.ContainsKey(obj))
+                {
+                    BlockingObjDic.Remove(obj);
                 }
             }
         }
