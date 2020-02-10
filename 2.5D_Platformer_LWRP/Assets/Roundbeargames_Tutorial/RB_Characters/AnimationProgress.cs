@@ -12,7 +12,11 @@ namespace Roundbeargames
         public bool CameraShaken;
         public List<PoolObjectType> SpawnedObjList = new List<PoolObjectType>();
         public bool RagdollTriggered;
+
         public MoveForward LatestMoveForward;
+        public MoveUp LatestMoveUp;
+        private List<GameObject> FrontSpheresList;
+        private List<GameObject> UpSpheresList;
 
         [Header("Attack Button")]
         public bool AttackTriggered;
@@ -22,7 +26,6 @@ namespace Roundbeargames
         public bool disallowEarlyTurn;
         public bool LockDirectionNextState;
         public bool IsIgnoreCharacterTime;
-        private List<GameObject> SpheresList;
         private float DirBlock;
 
         [Header("Colliding Objects")]
@@ -31,7 +34,10 @@ namespace Roundbeargames
             new Dictionary<TriggerDetector, List<Collider>>();
         public Dictionary<TriggerDetector, List<Collider>> CollidingBodyParts =
             new Dictionary<TriggerDetector, List<Collider>>();
-        public Dictionary<GameObject, GameObject> BlockingObjs =
+
+        public Dictionary<GameObject, GameObject> FrontBlockingObjs =
+            new Dictionary<GameObject, GameObject>();
+        public Dictionary<GameObject, GameObject> UpBlockingObjs =
             new Dictionary<GameObject, GameObject>();
 
         [Header("AirControl")]
@@ -113,50 +119,76 @@ namespace Roundbeargames
         {
             if (IsRunning(typeof(MoveForward)))
             {
-                CheckBlockingObjs();
+                CheckFrontBlocking();
             }
             else
             {
-                if (BlockingObjs.Count != 0)
+                if (FrontBlockingObjs.Count != 0)
                 {
-                    BlockingObjs.Clear();
+                    FrontBlockingObjs.Clear();
+                }
+            }
+
+            if (IsRunning(typeof(MoveUp)))
+            {
+                CheckUpBlocking();
+            }
+            else
+            {
+                if (UpBlockingObjs.Count != 0)
+                {
+                    UpBlockingObjs.Clear();
                 }
             }
         }
 
-        void CheckBlockingObjs()
+        void CheckUpBlocking()
+        {
+            if (LatestMoveUp.Speed > 0)
+            {
+                UpSpheresList = control.collisionSpheres.UpSpheres;
+            }
+
+            foreach (GameObject o in UpSpheresList)
+            {
+                CheckRaycastCollision(o, this.transform.up, 0.3f,
+                    UpBlockingObjs);
+            }
+        }
+
+        void CheckFrontBlocking()
         {
             if (LatestMoveForward.Speed > 0)
             {
-                SpheresList = control.collisionSpheres.FrontSpheres;
+                FrontSpheresList = control.collisionSpheres.FrontSpheres;
                 DirBlock = 1f;
 
                 foreach(GameObject s in control.collisionSpheres.BackSpheres)
                 {
-                    if (BlockingObjs.ContainsKey(s))
+                    if (FrontBlockingObjs.ContainsKey(s))
                     {
-                        BlockingObjs.Remove(s);
+                        FrontBlockingObjs.Remove(s);
                     }
                 }
             }
             else
             {
-                SpheresList = control.collisionSpheres.BackSpheres;
+                FrontSpheresList = control.collisionSpheres.BackSpheres;
                 DirBlock = -1f;
 
                 foreach (GameObject s in control.collisionSpheres.FrontSpheres)
                 {
-                    if (BlockingObjs.ContainsKey(s))
+                    if (FrontBlockingObjs.ContainsKey(s))
                     {
-                        BlockingObjs.Remove(s);
+                        FrontBlockingObjs.Remove(s);
                     }
                 }
             }
 
-            foreach (GameObject o in SpheresList)
+            foreach (GameObject o in FrontSpheresList)
             {
                 CheckRaycastCollision(o, this.transform.forward * DirBlock, LatestMoveForward.BlockDistance,
-                    BlockingObjs);
+                    FrontBlockingObjs);
             }
         }
 
@@ -164,7 +196,7 @@ namespace Roundbeargames
             Dictionary<GameObject, GameObject> BlockingObjDic)
         {
             //Draw debug line
-            Debug.DrawRay(obj.transform.position, dir * LatestMoveForward.BlockDistance, Color.yellow);
+            Debug.DrawRay(obj.transform.position, dir * blockDistance, Color.yellow);
 
             //Check collision
             RaycastHit hit;
@@ -270,7 +302,7 @@ namespace Roundbeargames
 
         public bool RightSideIsBlocked()
         {
-            foreach(KeyValuePair<GameObject, GameObject> data in BlockingObjs)
+            foreach(KeyValuePair<GameObject, GameObject> data in FrontBlockingObjs)
             {
                 if ((data.Value.transform.position - control.transform.position).z > 0f)
                 {
@@ -283,7 +315,7 @@ namespace Roundbeargames
 
         public bool LeftSideIsBlocked()
         {
-            foreach (KeyValuePair<GameObject, GameObject> data in BlockingObjs)
+            foreach (KeyValuePair<GameObject, GameObject> data in FrontBlockingObjs)
             {
                 if ((data.Value.transform.position - control.transform.position).z < 0f)
                 {

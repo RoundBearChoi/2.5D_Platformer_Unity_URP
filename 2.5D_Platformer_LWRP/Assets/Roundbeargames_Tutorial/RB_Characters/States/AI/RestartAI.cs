@@ -37,14 +37,14 @@ namespace Roundbeargames
             }
 
             // path is blocked
-            if (characterState.characterControl.animationProgress.BlockingObjs.Count == 0)
+            if (characterState.characterControl.animationProgress.FrontBlockingObjs.Count == 0)
             {
                 characterState.characterControl.aiProgress.BlockingCharacter = null;
             }
             else
             {
                 foreach (KeyValuePair<GameObject, GameObject> data in
-                characterState.characterControl.animationProgress.BlockingObjs)
+                characterState.characterControl.animationProgress.FrontBlockingObjs)
                 {
                     CharacterControl blockingChar = CharacterManager.Instance.GetCharacter(data.Value);
 

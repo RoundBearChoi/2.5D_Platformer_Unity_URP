@@ -300,7 +300,7 @@ namespace Roundbeargames
            
         bool IsBlocked(CharacterControl control, float speed, AnimatorStateInfo stateInfo)
         {
-            if (control.animationProgress.BlockingObjs.Count != 0)
+            if (control.animationProgress.FrontBlockingObjs.Count != 0)
             {
                 return true;
             }

@@ -237,7 +237,7 @@ namespace Roundbeargames
                     case TransitionConditionType.MOVING_TO_BLOCKING_OBJ:
                         {
                             foreach(KeyValuePair<GameObject, GameObject> data in
-                                control.animationProgress.BlockingObjs)
+                                control.animationProgress.FrontBlockingObjs)
                             {
                                 Vector3 dir = data.Value.transform.position -
                                 control.transform.position;
