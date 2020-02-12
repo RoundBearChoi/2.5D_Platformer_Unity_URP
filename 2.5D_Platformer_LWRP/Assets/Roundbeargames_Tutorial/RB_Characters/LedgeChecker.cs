@@ -10,24 +10,43 @@ namespace Roundbeargames
         public Ledge GrabbedLedge;
         public Vector3 LedgeCalibration = new Vector3();
         Ledge CheckLedge = null;
+        CharacterControl control;
 
-        private void OnTriggerEnter(Collider other)
+        public LedgeCollider Collider1;
+        public LedgeCollider Collider2;
+
+        private void Start()
         {
-            CheckLedge = other.gameObject.GetComponent<Ledge>();
-            if (CheckLedge != null)
-            {
-                IsGrabbingLedge = true;
-                GrabbedLedge = CheckLedge;
-            }
+            IsGrabbingLedge = false;
+            control = GetComponentInParent<CharacterControl>();
         }
 
-        private void OnTriggerExit(Collider other)
+        private void FixedUpdate()
         {
-            CheckLedge = other.gameObject.GetComponent<Ledge>();
-            if (CheckLedge != null)
+            if (!control.SkinnedMeshAnimator.GetBool(
+                HashManager.Instance.DicMainParams[TransitionParameter.Grounded]))
+            {
+                foreach (GameObject obj in Collider1.CollidedObjects)
+                {
+                    if (!Collider2.CollidedObjects.Contains(obj))
+                    {
+                        IsGrabbingLedge = true;
+                        break;
+                    }
+                    else
+                    {
+                        IsGrabbingLedge = false;
+                    }
+                }
+            }
+            else
             {
                 IsGrabbingLedge = false;
-                //GrabbedLedge = null;
+            }
+
+            if (Collider1.CollidedObjects.Count == 0)
+            {
+                IsGrabbingLedge = false;
             }
         }
     }

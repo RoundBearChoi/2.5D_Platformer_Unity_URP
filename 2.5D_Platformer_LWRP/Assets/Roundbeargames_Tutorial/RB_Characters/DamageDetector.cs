@@ -211,7 +211,9 @@ namespace Roundbeargames
             {
                 control.animationProgress.RagdollTriggered = true;
                 control.GetComponent<BoxCollider>().enabled = false;
-                control.ledgeChecker.GetComponent<BoxCollider>().enabled = false;
+                //control.ledgeChecker.GetComponent<BoxCollider>().enabled = false;
+                control.ledgeChecker.Collider1.GetComponent<BoxCollider>().enabled = false;
+                control.ledgeChecker.Collider2.GetComponent<BoxCollider>().enabled = false;
                 control.RIGID_BODY.useGravity = false;
 
                 if (control.aiController != null)
