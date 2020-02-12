@@ -55,8 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsGrabbingLedge: 0
-  GrabbedLedge: {fileID: 0}
-  LedgeCalibration: {x: 0, y: 0, z: 0}
+  LedgeCalibration: {x: 0, y: -2.3, z: -1.1}
   Collider1: {fileID: 3905148857225710388}
   Collider2: {fileID: 3325879312644864094}
 --- !u!1 &1072464256

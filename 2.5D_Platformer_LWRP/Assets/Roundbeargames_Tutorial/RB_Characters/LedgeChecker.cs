@@ -7,9 +7,7 @@ namespace Roundbeargames
     public class LedgeChecker : MonoBehaviour
     {
         public bool IsGrabbingLedge;
-        public Ledge GrabbedLedge;
         public Vector3 LedgeCalibration = new Vector3();
-        Ledge CheckLedge = null;
         CharacterControl control;
 
         public LedgeCollider Collider1;
@@ -30,8 +28,10 @@ namespace Roundbeargames
                 {
                     if (!Collider2.CollidedObjects.Contains(obj))
                     {
-                        IsGrabbingLedge = true;
-                        break;
+                        if (OffsetPosition(obj))
+                        {
+                            break;
+                        }
                     }
                     else
                     {
@@ -48,6 +48,51 @@ namespace Roundbeargames
             {
                 IsGrabbingLedge = false;
             }
+        }
+
+        bool OffsetPosition(GameObject platform)
+        {
+            BoxCollider boxCollider = platform.GetComponent<BoxCollider>();
+
+            if (boxCollider == null)
+            {
+                return false;
+            }
+
+            if (IsGrabbingLedge)
+            {
+                return false;
+            }
+
+            IsGrabbingLedge = true;
+            control.RIGID_BODY.useGravity = false;
+            control.RIGID_BODY.velocity = Vector3.zero;
+
+            float y, z;
+            y = platform.transform.position.y + (boxCollider.size.y / 2f);
+            if (control.IsFacingForward())
+            {
+                z = platform.transform.position.z - (boxCollider.size.x / 2f);
+            }
+            else
+            {
+                z = platform.transform.position.z + (boxCollider.size.x / 2f);
+            }
+
+            Vector3 platformEdge = new Vector3(0f, y, z);
+
+            if (control.IsFacingForward())
+            {
+                control.RIGID_BODY.MovePosition(
+                    platformEdge + LedgeCalibration);
+            }
+            else
+            {
+                control.RIGID_BODY.MovePosition(
+                    platformEdge + new Vector3(0f, LedgeCalibration.y, -LedgeCalibration.z));
+            }
+
+            return true;
         }
     }
 }

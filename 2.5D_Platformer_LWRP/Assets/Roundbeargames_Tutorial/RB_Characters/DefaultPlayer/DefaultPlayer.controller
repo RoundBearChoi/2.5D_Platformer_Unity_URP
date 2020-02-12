@@ -5204,7 +5204,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterControl: {fileID: 0}
   ListAbilityData:
-  - {fileID: 11400000, guid: 861889567011b214d85e06fb5ec6b4ad, type: 2}
   - {fileID: 11400000, guid: 3c2feb8261e28e940a441eeb9346a96f, type: 2}
   - {fileID: 11400000, guid: 7ead076b4e2a8f541bde746c71ef52c4, type: 2}
 --- !u!1101 &8434417633062912263
