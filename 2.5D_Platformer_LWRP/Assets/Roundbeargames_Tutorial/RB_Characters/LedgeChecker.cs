@@ -72,14 +72,17 @@ namespace Roundbeargames
             y = platform.transform.position.y + (boxCollider.size.y / 2f);
             if (control.IsFacingForward())
             {
-                z = platform.transform.position.z - (boxCollider.size.x / 2f);
+                z = platform.transform.position.z - (boxCollider.size.z / 2f);
             }
             else
             {
-                z = platform.transform.position.z + (boxCollider.size.x / 2f);
+                z = platform.transform.position.z + (boxCollider.size.z / 2f);
             }
 
             Vector3 platformEdge = new Vector3(0f, y, z);
+
+            GameObject TestingSphere = GameObject.Find("TestingSphere");
+            TestingSphere.transform.position = platformEdge;
 
             if (control.IsFacingForward())
             {
