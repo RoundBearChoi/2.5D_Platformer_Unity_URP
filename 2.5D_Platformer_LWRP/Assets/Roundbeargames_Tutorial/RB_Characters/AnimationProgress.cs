@@ -16,7 +16,6 @@ namespace Roundbeargames
         public MoveForward LatestMoveForward;
         public MoveUp LatestMoveUp;
         private List<GameObject> FrontSpheresList;
-        private List<GameObject> UpSpheresList;
 
         [Header("Attack Button")]
         public bool AttackTriggered;
@@ -129,27 +128,42 @@ namespace Roundbeargames
                 }
             }
 
+            // checking while ledge grabbing
             if (IsRunning(typeof(MoveUp)))
             {
-                CheckUpBlocking();
+                if (LatestMoveUp.Speed > 0f)
+                {
+                    CheckUpBlocking();
+                }
             }
             else
             {
-                if (UpBlockingObjs.Count != 0)
+                // checking while jumping up
+                if (control.RIGID_BODY.velocity.y > 0.001f)
                 {
-                    UpBlockingObjs.Clear();
+                    CheckUpBlocking();
+
+                    if (UpBlockingObjs.Count > 0)
+                    {
+                        control.RIGID_BODY.velocity = new Vector3(
+                            control.RIGID_BODY.velocity.x,
+                            0f,
+                            control.RIGID_BODY.velocity.z);
+                    }
+                }
+                else
+                {
+                    if (UpBlockingObjs.Count != 0)
+                    {
+                        UpBlockingObjs.Clear();
+                    }
                 }
             }
         }
 
         void CheckUpBlocking()
         {
-            if (LatestMoveUp.Speed > 0)
-            {
-                UpSpheresList = control.collisionSpheres.UpSpheres;
-            }
-
-            foreach (GameObject o in UpSpheresList)
+            foreach (GameObject o in control.collisionSpheres.UpSpheres)
             {
                 CheckRaycastCollision(o, this.transform.up, 0.3f,
                     UpBlockingObjs);
