@@ -85,6 +85,17 @@ namespace Roundbeargames
                 RemoveDoubleTap(InputKeyType.KEY_JUMP);
             }
 
+            if (VirtualInputManager.Instance.Block)
+            {
+                characterControl.Block = true;
+                ProcDoubleTap(InputKeyType.KEY_BLOCK);
+            }
+            else
+            {
+                characterControl.Block = false;
+                RemoveDoubleTap(InputKeyType.KEY_BLOCK);
+            }
+
             if (VirtualInputManager.Instance.Attack)
             {
                 characterControl.Attack = true;

@@ -14,6 +14,8 @@ namespace Roundbeargames
         KEY_JUMP,
         KEY_ATTACK,
         KEY_TURBO,
+
+        KEY_BLOCK,
     }
 
     public class VirtualInputManager : Singleton<VirtualInputManager>
@@ -26,6 +28,7 @@ namespace Roundbeargames
         public bool MoveLeft;
         public bool Jump;
         public bool Attack;
+        public bool Block;
 
         [Header("Custom Key Binding")]
         public bool UseCustomKeys;
@@ -37,6 +40,7 @@ namespace Roundbeargames
         public bool Bind_Jump;
         public bool Bind_Attack;
         public bool Bind_Turbo;
+        public bool Bind_Block;
 
         [Space(10)]
         public Dictionary<InputKeyType, KeyCode> DicKeys = new Dictionary<InputKeyType, KeyCode>();
@@ -98,6 +102,8 @@ namespace Roundbeargames
             DicKeys.Add(InputKeyType.KEY_JUMP,          KeyCode.Space);
             DicKeys.Add(InputKeyType.KEY_ATTACK,        KeyCode.Return);
             DicKeys.Add(InputKeyType.KEY_TURBO,         KeyCode.LeftShift);
+
+            DicKeys.Add(InputKeyType.KEY_BLOCK,         KeyCode.Mouse1);
 
             SaveKeys();
         }
@@ -164,6 +170,14 @@ namespace Roundbeargames
                     if (KeyIsChanged(InputKeyType.KEY_TURBO))
                     {
                         Bind_Turbo = false;
+                    }
+                }
+
+                if (Bind_Block)
+                {
+                    if (KeyIsChanged(InputKeyType.KEY_BLOCK))
+                    {
+                        Bind_Block = false;
                     }
                 }
             }

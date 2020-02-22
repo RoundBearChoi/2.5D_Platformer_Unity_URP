@@ -35,6 +35,7 @@ namespace Roundbeargames
         public bool MoveLeft;
         public bool Jump;
         public bool Attack;
+        public bool Block;
 
         [Header("SubComponents")]
         public ManualInput manualInput;

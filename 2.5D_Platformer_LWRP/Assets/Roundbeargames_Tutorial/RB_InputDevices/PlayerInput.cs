@@ -64,6 +64,15 @@ namespace Roundbeargames
                 VirtualInputManager.Instance.Jump = false;
             }
 
+            if (Input.GetKey(VirtualInputManager.Instance.DicKeys[InputKeyType.KEY_BLOCK]))
+            {
+                VirtualInputManager.Instance.Block = true;
+            }
+            else
+            {
+                VirtualInputManager.Instance.Block = false;
+            }
+
             if (Input.GetKey(VirtualInputManager.Instance.DicKeys[InputKeyType.KEY_ATTACK]))
             {
                 VirtualInputManager.Instance.Attack = true;
