@@ -31,6 +31,8 @@ namespace Roundbeargames
         NOT_MOVING,
         RUN,
         NOT_RUN,
+        BLOCKING,
+        NOT_BLOCKING,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
@@ -344,6 +346,22 @@ namespace Roundbeargames
                                         return false;
                                     }
                                 }
+                            }
+                        }
+                        break;
+                    case TransitionConditionType.BLOCKING:
+                        {
+                            if (!control.Block)
+                            {
+                                return false;
+                            }
+                        }
+                        break;
+                    case TransitionConditionType.NOT_BLOCKING:
+                        {
+                            if (control.Block)
+                            {
+                                return false;
                             }
                         }
                         break;
