@@ -172,6 +172,26 @@ namespace Roundbeargames
                 return;
             }
 
+            if (control.animationProgress.IsRunning(typeof(Block)))
+            {
+                Vector3 dir = info.Attacker.transform.position - control.transform.position;
+
+                if (dir.z > 0f)
+                {
+                    if (control.IsFacingForward())
+                    {
+                        return;
+                    }
+                }
+                else if (dir.z < 0f)
+                {
+                    if (!control.IsFacingForward())
+                    {
+                        return;
+                    }
+                }
+            }
+
             if (info.MustCollide)
             {
                 CameraManager.Instance.ShakeCamera(0.3f);
