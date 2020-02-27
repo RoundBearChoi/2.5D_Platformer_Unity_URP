@@ -220,7 +220,6 @@ namespace Roundbeargames
             {
                 if (!IsBodyPart(hit.collider) &&
                     !IsIgnoringCharacter(hit.collider) &&
-                    !Ledge.IsLedge(hit.collider.gameObject) &&
                     !Ledge.IsLedgeChecker(hit.collider.gameObject) &&
                     !MeleeWeapon.IsWeapon(hit.collider.gameObject) &&
                     !TrapSpikes.IsTrap(hit.collider.gameObject))

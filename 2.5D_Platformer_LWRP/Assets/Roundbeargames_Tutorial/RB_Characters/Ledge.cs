@@ -8,19 +8,19 @@ namespace Roundbeargames
     {
         public Vector3 Offset;
 
-        public static bool IsLedge(GameObject obj)
-        {
-            if (obj.GetComponent<Ledge>() == null)
-            {
-                return false;
-            }
-
-            return true;
-        }
+        //public static bool IsLedge(GameObject obj)
+        //{
+        //    if (obj.GetComponent<Ledge>() == null)
+        //    {
+        //        return false;
+        //    }
+        //
+        //    return true;
+        //}
 
         public static bool IsLedgeChecker(GameObject obj)
         {
-            if (obj.GetComponent<LedgeChecker>() == null)
+            if (obj.GetComponent<LedgeCollider>() == null)
             {
                 return false;
             }
