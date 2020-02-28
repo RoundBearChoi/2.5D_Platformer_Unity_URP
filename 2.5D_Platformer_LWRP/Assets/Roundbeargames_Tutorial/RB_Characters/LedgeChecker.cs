@@ -13,6 +13,8 @@ namespace Roundbeargames
         public LedgeCollider Collider1;
         public LedgeCollider Collider2;
 
+        public List<string> LedgeTriggerStateNames = new List<string>();
+
         private void Start()
         {
             IsGrabbingLedge = false;
@@ -20,6 +22,40 @@ namespace Roundbeargames
         }
 
         private void FixedUpdate()
+        {
+            if (control.SkinnedMeshAnimator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]))
+            {
+                if (control.RIGID_BODY.useGravity)
+                {
+                    IsGrabbingLedge = false;
+                }
+            }
+
+            if (IsLedgeGrabCondition())
+            {
+                ProcLedgeGrab();
+            }
+        }
+
+        bool IsLedgeGrabCondition()
+        {
+            if (!control.Jump)
+            {
+                return false;
+            }
+
+            foreach(string s in LedgeTriggerStateNames)
+            {
+                if (control.animationProgress.StateNameContains(s))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        void ProcLedgeGrab()
         {
             if (!control.SkinnedMeshAnimator.GetBool(
                 HashManager.Instance.DicMainParams[TransitionParameter.Grounded]))

@@ -58,6 +58,13 @@ MonoBehaviour:
   LedgeCalibration: {x: 0, y: -2.3, z: -0.1}
   Collider1: {fileID: 3905148857225710388}
   Collider2: {fileID: 3325879312644864094}
+  LedgeTriggerStateNames:
+  - Jump_Running_Fall
+  - Jump_Normal
+  - Jump_Running
+  - Fall
+  - WallSlide
+  - WallJump
 --- !u!1 &1072464256
 GameObject:
   m_ObjectHideFlags: 0

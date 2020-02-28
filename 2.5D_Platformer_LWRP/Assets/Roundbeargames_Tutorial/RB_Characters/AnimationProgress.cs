@@ -313,6 +313,19 @@ namespace Roundbeargames
             return false;
         }
 
+        public bool StateNameContains(string str)
+        {
+            foreach (KeyValuePair<StateData, int> data in CurrentRunningAbilities)
+            {
+                if (data.Key.name.Contains(str))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public bool RightSideIsBlocked()
         {
             foreach(KeyValuePair<GameObject, GameObject> data in FrontBlockingObjs)
