@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d98c35050b893bc4f803c7f18f1cca0d, type: 3}
-  m_Name: Player_Shoryuken_Down_GroundDetector
+  m_Script: {fileID: 11500000, guid: 4a8d5f3581ab7db458c04e4b50531d06, type: 3}
+  m_Name: Player_Shoryuken_LockTransition
   m_EditorClassIdentifier: 
-  Distance: 0.15
+  UnlockTime: 0.99
