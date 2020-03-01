@@ -226,6 +226,7 @@ namespace Roundbeargames
             hp -= info.AttackAbility.Damage;
 
             AttackManager.Instance.ForceDeregister(control);
+            control.animationProgress.CurrentRunningAbilities.Clear();
 
             if (IsDead())
             {
