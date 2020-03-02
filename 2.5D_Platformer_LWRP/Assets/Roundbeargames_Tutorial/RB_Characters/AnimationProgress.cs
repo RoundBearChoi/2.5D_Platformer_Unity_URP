@@ -38,6 +38,8 @@ namespace Roundbeargames
             new Dictionary<GameObject, GameObject>();
         public Dictionary<GameObject, GameObject> UpBlockingObjs =
             new Dictionary<GameObject, GameObject>();
+        public Dictionary<GameObject, GameObject> DownBlockingObjs =
+            new Dictionary<GameObject, GameObject>();
 
         [Header("AirControl")]
         public bool Jumped;
@@ -46,6 +48,7 @@ namespace Roundbeargames
         public Vector3 MaxFallVelocity;
         public bool CanWallJump;
         public bool CheckWallBlock;
+        public List<CharacterControl> MarioStompTargets = new List<CharacterControl>();
 
         [Header("UpdateBoxCollider")]
         public bool UpdatingSpheres;
@@ -159,14 +162,64 @@ namespace Roundbeargames
                     }
                 }
             }
+
+            CheckMarioStomp();
+        }
+
+        void CheckMarioStomp()
+        {
+            if (control.RIGID_BODY.velocity.y >= 0f)
+            {
+                MarioStompTargets.Clear();
+                DownBlockingObjs.Clear();
+                return;
+            }
+
+            if (MarioStompTargets.Count > 0)
+            {
+                control.RIGID_BODY.velocity = Vector3.zero;
+                control.RIGID_BODY.AddForce(Vector3.up * 350f);
+
+                MarioStompTargets.Clear();
+                return;
+            }
+
+            CheckDownBlocking();
+
+            if (DownBlockingObjs.Count > 0)
+            {
+                foreach(KeyValuePair<GameObject, GameObject> data in DownBlockingObjs)
+                {
+                    CharacterControl c = CharacterManager.Instance.
+                        GetCharacter(data.Value.transform.root.gameObject);
+
+                    if (c != null)
+                    {
+                        if (c != control)
+                        {
+                            if (!MarioStompTargets.Contains(c))
+                            {
+                                MarioStompTargets.Add(c);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        void CheckDownBlocking()
+        {
+            foreach (GameObject o in control.collisionSpheres.BottomSpheres)
+            {
+                CheckRaycastCollision(o, Vector3.down, 0.1f, DownBlockingObjs);
+            }
         }
 
         void CheckUpBlocking()
         {
             foreach (GameObject o in control.collisionSpheres.UpSpheres)
             {
-                CheckRaycastCollision(o, this.transform.up, 0.3f,
-                    UpBlockingObjs);
+                CheckRaycastCollision(o, this.transform.up, 0.3f, UpBlockingObjs);
             }
         }
 
