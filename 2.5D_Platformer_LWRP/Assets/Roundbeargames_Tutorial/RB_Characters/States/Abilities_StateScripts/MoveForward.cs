@@ -140,9 +140,9 @@ namespace Roundbeargames
                 return;
             }
 
-            if (control.animationProgress.Attacker != null)
+            if (control.damageDetector.Attacker != null)
             {
-                Vector3 dir = control.transform.position - control.animationProgress.Attacker.transform.position;
+                Vector3 dir = control.transform.position - control.damageDetector.Attacker.transform.position;
 
                 if (dir.z > 0f)
                 {

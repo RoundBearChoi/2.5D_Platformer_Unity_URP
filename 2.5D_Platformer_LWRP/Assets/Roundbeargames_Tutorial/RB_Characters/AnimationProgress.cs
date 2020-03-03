@@ -49,6 +49,7 @@ namespace Roundbeargames
         public bool CanWallJump;
         public bool CheckWallBlock;
         public List<CharacterControl> MarioStompTargets = new List<CharacterControl>();
+        public Attack MarioStompAttack;
 
         [Header("UpdateBoxCollider")]
         public bool UpdatingSpheres;
@@ -58,13 +59,7 @@ namespace Roundbeargames
         public float Center_Speed;
         public Vector3 LandingPosition;
         public bool IsLanding;
-
-        [Header("Damage Info")]
-        public Attack Attack;
-        public CharacterControl Attacker;
-        public TriggerDetector DamagedTrigger;
-        public GameObject AttackingPart;
-
+        
         [Header("Transition")]
         public bool LockTransition;
 
@@ -179,6 +174,20 @@ namespace Roundbeargames
             {
                 control.RIGID_BODY.velocity = Vector3.zero;
                 control.RIGID_BODY.AddForce(Vector3.up * 350f);
+
+                foreach(CharacterControl c in MarioStompTargets)
+                {
+                    AttackInfo info = new AttackInfo();
+                    info.Attacker = control;
+                    info.AttackAbility = MarioStompAttack;
+
+                    int index = Random.Range(0, c.RagdollParts.Count);
+                    c.damageDetector.DamagedTrigger = c.RagdollParts[index].GetComponent<TriggerDetector>();
+                    c.damageDetector.Attack = MarioStompAttack;
+                    c.damageDetector.Attacker = control;
+
+                    c.damageDetector.TakeDamage(info);
+                }
 
                 MarioStompTargets.Clear();
                 return;

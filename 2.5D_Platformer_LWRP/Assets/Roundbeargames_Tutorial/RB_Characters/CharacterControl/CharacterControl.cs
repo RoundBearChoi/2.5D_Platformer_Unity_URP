@@ -197,7 +197,7 @@ namespace Roundbeargames
 
         public void AddForceToDamagedPart(bool zeroVelocity)
         {
-            if (animationProgress.DamagedTrigger != null)
+            if (damageDetector.DamagedTrigger != null)
             {
                 if (zeroVelocity)
                 {
@@ -206,11 +206,11 @@ namespace Roundbeargames
                         c.attachedRigidbody.velocity = Vector3.zero;
                     }
                 }
-                
-                animationProgress.DamagedTrigger.GetComponent<Rigidbody>().
-                    AddForce(animationProgress.Attacker.transform.forward * animationProgress.Attack.ForwardForce +
-                    animationProgress.Attacker.transform.right * animationProgress.Attack.RightForce +
-                    animationProgress.Attacker.transform.up * animationProgress.Attack.UpForce);
+
+                damageDetector.DamagedTrigger.GetComponent<Rigidbody>().
+                    AddForce(damageDetector.Attacker.transform.forward * damageDetector.Attack.ForwardForce +
+                    damageDetector.Attacker.transform.right * damageDetector.Attack.RightForce +
+                    damageDetector.Attacker.transform.up * damageDetector.Attack.UpForce);
             }
         }
 

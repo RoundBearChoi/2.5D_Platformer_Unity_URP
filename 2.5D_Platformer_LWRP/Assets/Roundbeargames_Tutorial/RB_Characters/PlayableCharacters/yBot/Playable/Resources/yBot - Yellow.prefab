@@ -6412,6 +6412,8 @@ MonoBehaviour:
   MaxFallVelocity: {x: 0, y: 0, z: 0}
   CanWallJump: 0
   CheckWallBlock: 0
+  MarioStompTargets: []
+  MarioStompAttack: {fileID: 11400000, guid: 92ce7c8391eaac44d87d389d84d90066, type: 2}
   UpdatingSpheres: 0
   TargetSize: {x: 0, y: 0, z: 0}
   Size_Speed: 0

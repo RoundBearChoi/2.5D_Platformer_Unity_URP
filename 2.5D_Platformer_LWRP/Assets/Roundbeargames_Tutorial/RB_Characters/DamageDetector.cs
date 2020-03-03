@@ -13,7 +13,13 @@ namespace Roundbeargames
 
         [SerializeField]
         List<RuntimeAnimatorController> HitReactionList = new List<RuntimeAnimatorController>();
-        
+
+        [Header("Damage Info")]
+        public Attack Attack;
+        public CharacterControl Attacker;
+        public TriggerDetector DamagedTrigger;
+        public GameObject AttackingPart;
+
         private void Awake()
         {
             control = GetComponent<CharacterControl>();
@@ -110,11 +116,11 @@ namespace Roundbeargames
                         if (info.Attacker.GetAttackingPart(part) ==
                             collider.gameObject)
                         {
-                            control.animationProgress.Attack = info.AttackAbility;
-                            control.animationProgress.Attacker = info.Attacker;
+                            control.damageDetector.Attack = info.AttackAbility;
+                            control.damageDetector.Attacker = info.Attacker;
 
-                            control.animationProgress.DamagedTrigger = data.Key;
-                            control.animationProgress.AttackingPart =
+                            control.damageDetector.DamagedTrigger = data.Key;
+                            control.damageDetector.AttackingPart =
                                 info.Attacker.GetAttackingPart(part);
 
                             return true;
@@ -134,11 +140,12 @@ namespace Roundbeargames
 
                 if (dist <= info.LethalRange)
                 {
-                    control.animationProgress.Attack = info.AttackAbility;
-                    control.animationProgress.Attacker = info.Attacker;
+                    control.damageDetector.Attack = info.AttackAbility;
+                    control.damageDetector.Attacker = info.Attacker;
 
                     int index = Random.Range(0, control.RagdollParts.Count);
-                    control.animationProgress.DamagedTrigger = control.RagdollParts[index].GetComponent<TriggerDetector>();
+                    control.damageDetector.DamagedTrigger =
+                        control.RagdollParts[index].GetComponent<TriggerDetector>();
 
                     return true;
                 }
@@ -159,7 +166,7 @@ namespace Roundbeargames
             }
         }
 
-        private void TakeDamage(AttackInfo info)
+        public void TakeDamage(AttackInfo info)
         {
             if (IsDead())
             {
@@ -204,7 +211,7 @@ namespace Roundbeargames
                             PoolManager.Instance.GetObject(info.AttackAbility.ParticleType);
 
                         vfx.transform.position =
-                            control.animationProgress.AttackingPart.transform.position;
+                            control.damageDetector.AttackingPart.transform.position;
 
                         vfx.SetActive(true);
 
@@ -264,7 +271,7 @@ namespace Roundbeargames
 
         public void DeathBySpikes()
         {
-            control.animationProgress.DamagedTrigger = null;
+            control.damageDetector.DamagedTrigger = null;
             hp = 0f;
         }
     }
