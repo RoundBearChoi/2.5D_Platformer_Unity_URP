@@ -42,6 +42,18 @@ namespace Roundbeargames
             CurrentHits = 0;
         }
 
+        public void CopyInfo(Attack attack, CharacterControl attacker)
+        {
+            Attacker = attacker;
+            AttackAbility = attack;
+            AttackParts = attack.AttackParts;
+            MustCollide = attack.MustCollide;
+            MustFaceAttacker = attack.MustFaceAttacker;
+            LethalRange = attack.LethalRange;
+            MaxHits = attack.MaxHits;
+            CurrentHits = 0;
+        }
+
         private void OnDisable()
         {
             isFinished = true;

@@ -173,18 +173,18 @@ namespace Roundbeargames
             if (MarioStompTargets.Count > 0)
             {
                 control.RIGID_BODY.velocity = Vector3.zero;
-                control.RIGID_BODY.AddForce(Vector3.up * 350f);
+                control.RIGID_BODY.AddForce(Vector3.up * 250f);
 
                 foreach(CharacterControl c in MarioStompTargets)
                 {
                     AttackInfo info = new AttackInfo();
-                    info.Attacker = control;
-                    info.AttackAbility = MarioStompAttack;
+                    info.CopyInfo(MarioStompAttack, control);
 
                     int index = Random.Range(0, c.RagdollParts.Count);
                     c.damageDetector.DamagedTrigger = c.RagdollParts[index].GetComponent<TriggerDetector>();
                     c.damageDetector.Attack = MarioStompAttack;
                     c.damageDetector.Attacker = control;
+                    c.damageDetector.AttackingPart = control.RightFoot_Attack;
 
                     c.damageDetector.TakeDamage(info);
                 }
