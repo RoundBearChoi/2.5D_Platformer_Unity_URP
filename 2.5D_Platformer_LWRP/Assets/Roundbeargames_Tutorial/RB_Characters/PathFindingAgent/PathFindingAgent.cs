@@ -14,6 +14,7 @@ namespace Roundbeargames
         public GameObject StartSphere;
         public GameObject EndSphere;
         public bool StartWalk;
+        public List<Vector3> MeshLinks = new List<Vector3>();
 
         public CharacterControl owner = null;
 
@@ -24,6 +25,8 @@ namespace Roundbeargames
 
         public void GoToTarget()
         {
+            MeshLinks.Clear();
+
             navMeshAgent.enabled = true;
             StartSphere.transform.parent = null;
             EndSphere.transform.parent = null;
@@ -54,21 +57,34 @@ namespace Roundbeargames
             {
                 if (navMeshAgent.isOnOffMeshLink)
                 {
-                    StartSphere.transform.position = navMeshAgent.currentOffMeshLinkData.startPos;
-                    EndSphere.transform.position = navMeshAgent.currentOffMeshLinkData.endPos;
-
-                    navMeshAgent.CompleteOffMeshLink();
-                    
-                    navMeshAgent.isStopped = true;
-                    StartWalk = true;
-                    break;
+                    if (MeshLinks.Count == 0)
+                    {
+                        MeshLinks.Add(navMeshAgent.currentOffMeshLinkData.startPos);
+                        MeshLinks.Add(navMeshAgent.currentOffMeshLinkData.endPos);
+                    }
+                    //StartSphere.transform.position = navMeshAgent.currentOffMeshLinkData.startPos;
+                    //EndSphere.transform.position = navMeshAgent.currentOffMeshLinkData.endPos;
+                    //
+                    //navMeshAgent.CompleteOffMeshLink();
+                    //
+                    //navMeshAgent.isStopped = true;
+                    //StartWalk = true;
+                    //break;
                 }
 
                 Vector3 dist = transform.position - navMeshAgent.destination;
                 if (Vector3.SqrMagnitude(dist) < 0.5f)
                 {
-                    StartSphere.transform.position = navMeshAgent.destination;
-                    EndSphere.transform.position = navMeshAgent.destination;
+                    if (MeshLinks.Count > 0)
+                    {
+                        StartSphere.transform.position = MeshLinks[0];
+                        EndSphere.transform.position = MeshLinks[1];
+                    }
+                    else
+                    {
+                        StartSphere.transform.position = navMeshAgent.destination;
+                        EndSphere.transform.position = navMeshAgent.destination;
+                    }
 
                     navMeshAgent.isStopped = true;
                     StartWalk = true;
