@@ -15,6 +15,11 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
+            if (!AIIsOnGround(characterState.characterControl))
+            {
+                return;
+            }
+
             // walking
             if (characterState.characterControl.aiProgress.AIDistanceToEndSphere() < 1f)
             {
@@ -99,6 +104,25 @@ namespace Roundbeargames
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
 
+        }
+
+        bool AIIsOnGround(CharacterControl control)
+        {
+            if (control.animationProgress.IsRunning(typeof(MoveUp)))
+            {
+                return false;
+            }
+
+            if (control.RIGID_BODY.useGravity)
+            {
+                if (control.SkinnedMeshAnimator.GetBool(
+                    HashManager.Instance.DicMainParams[TransitionParameter.Grounded]))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
