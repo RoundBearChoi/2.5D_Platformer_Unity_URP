@@ -64,8 +64,6 @@ namespace Roundbeargames
 
             characterState.characterControl.animationProgress.disallowEarlyTurn = false;
             characterState.characterControl.animationProgress.LockDirectionNextState = false;
-
-            UpdateMoveOnHit(characterState.characterControl);
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -133,34 +131,6 @@ namespace Roundbeargames
             }
         }
 
-        void UpdateMoveOnHit(CharacterControl control)
-        {
-            if (!MoveOnHit)
-            {
-                return;
-            }
-
-            if (control.damageDetector.Attacker != null)
-            {
-                Vector3 dir = control.transform.position - control.damageDetector.Attacker.transform.position;
-
-                if (dir.z > 0f)
-                {
-                    if (Speed < 0f)
-                    {
-                        Speed *= -1f;
-                    }
-                }
-                else if (dir.z < 0f)
-                {
-                    if (Speed > 0f)
-                    {
-                        Speed *= -1f;
-                    }
-                }
-            }
-        }
-
         private void UpdateMomentum(CharacterControl control, AnimatorStateInfo stateInfo)
         {
             if (!control.animationProgress.RightSideIsBlocked())
@@ -218,7 +188,24 @@ namespace Roundbeargames
         {
             if (!IsBlocked(control, Speed, stateInfo))
             {
-                control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
+                if (MoveOnHit)
+                {
+                    Vector3 vec = control.damageDetector.Attacker.transform.position -
+                        control.transform.position;
+
+                    if (vec.z < 0f)
+                    {
+                        control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
+                    }
+                    else if (vec.z > 0f)
+                    {
+                        control.MoveForward(-Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
+                    }
+                }
+                else
+                {
+                    control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
+                }
             }
 
             if (!control.MoveRight && !control.MoveLeft)
