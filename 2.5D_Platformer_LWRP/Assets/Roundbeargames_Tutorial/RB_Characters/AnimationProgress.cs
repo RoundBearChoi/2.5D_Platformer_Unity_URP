@@ -232,9 +232,52 @@ namespace Roundbeargames
             }
         }
 
+        public bool IsFacingAttacker()
+        {
+            Vector3 vec = control.damageDetector.Attacker.transform.position -
+                control.transform.position;
+
+            if (vec.z < 0f)
+            {
+                return false;
+            }
+            else if (vec.z > 0f)
+            {
+                return true;
+            }
+
+            return true;
+        }
+
+        bool ForwardIsReversed()
+        {
+            if (LatestMoveForward.MoveOnHit)
+            {
+                if (IsFacingAttacker())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            if (LatestMoveForward.Speed > 0f)
+            {
+                return false;
+            }
+            else if (LatestMoveForward.Speed < 0f)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         void CheckFrontBlocking()
         {
-            if (LatestMoveForward.Speed > 0)
+            if (!ForwardIsReversed())
             {
                 FrontSpheresList = control.collisionSpheres.FrontSpheres;
                 DirBlock = 1f;

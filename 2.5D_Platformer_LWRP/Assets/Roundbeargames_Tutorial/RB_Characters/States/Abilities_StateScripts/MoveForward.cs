@@ -190,14 +190,11 @@ namespace Roundbeargames
             {
                 if (MoveOnHit)
                 {
-                    Vector3 vec = control.damageDetector.Attacker.transform.position -
-                        control.transform.position;
-
-                    if (vec.z < 0f)
+                    if (!control.animationProgress.IsFacingAttacker())
                     {
                         control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
                     }
-                    else if (vec.z > 0f)
+                    else
                     {
                         control.MoveForward(-Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
                     }
