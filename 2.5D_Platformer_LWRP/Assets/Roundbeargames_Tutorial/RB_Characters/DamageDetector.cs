@@ -19,6 +19,7 @@ namespace Roundbeargames
         public CharacterControl Attacker;
         public TriggerDetector DamagedTrigger;
         public GameObject AttackingPart;
+        public AttackInfo BlockedAttack;
 
         private void Awake()
         {
@@ -166,6 +167,36 @@ namespace Roundbeargames
             }
         }
 
+        bool IsBlocked(AttackInfo info)
+        {
+            if (info == BlockedAttack)
+            {
+                return true;
+            }
+
+            if (control.animationProgress.IsRunning(typeof(Block)))
+            {
+                Vector3 dir = info.Attacker.transform.position - control.transform.position;
+
+                if (dir.z > 0f)
+                {
+                    if (control.IsFacingForward())
+                    {
+                        return true;
+                    }
+                }
+                else if (dir.z < 0f)
+                {
+                    if (!control.IsFacingForward())
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
         public void TakeDamage(AttackInfo info)
         {
             if (IsDead())
@@ -179,24 +210,10 @@ namespace Roundbeargames
                 return;
             }
 
-            if (control.animationProgress.IsRunning(typeof(Block)))
+            if (IsBlocked(info))
             {
-                Vector3 dir = info.Attacker.transform.position - control.transform.position;
-
-                if (dir.z > 0f)
-                {
-                    if (control.IsFacingForward())
-                    {
-                        return;
-                    }
-                }
-                else if (dir.z < 0f)
-                {
-                    if (!control.IsFacingForward())
-                    {
-                        return;
-                    }
-                }
+                BlockedAttack = info;
+                return;
             }
 
             if (info.MustCollide)

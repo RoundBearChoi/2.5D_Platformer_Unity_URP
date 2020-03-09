@@ -239,11 +239,25 @@ namespace Roundbeargames
 
             if (vec.z < 0f)
             {
-                return false;
+                if (control.IsFacingForward())
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
             else if (vec.z > 0f)
             {
-                return true;
+                if (control.IsFacingForward())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
 
             return true;
