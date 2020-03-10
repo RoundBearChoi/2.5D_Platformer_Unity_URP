@@ -169,7 +169,7 @@ namespace Roundbeargames
 
         bool IsBlocked(AttackInfo info)
         {
-            if (info == BlockedAttack)
+            if (info == BlockedAttack && BlockedAttack != null)
             {
                 return true;
             }

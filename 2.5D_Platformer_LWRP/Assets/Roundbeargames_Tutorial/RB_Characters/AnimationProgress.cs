@@ -204,11 +204,14 @@ namespace Roundbeargames
 
                     if (c != null)
                     {
-                        if (c != control)
+                        if (c.boxCollider.center.y + c.transform.position.y < control.transform.position.y)
                         {
-                            if (!MarioStompTargets.Contains(c))
+                            if (c != control)
                             {
-                                MarioStompTargets.Add(c);
+                                if (!MarioStompTargets.Contains(c))
+                                {
+                                    MarioStompTargets.Add(c);
+                                }
                             }
                         }
                     }
