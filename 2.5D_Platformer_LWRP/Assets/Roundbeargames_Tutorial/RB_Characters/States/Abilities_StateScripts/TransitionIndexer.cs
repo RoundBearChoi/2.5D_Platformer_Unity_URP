@@ -33,6 +33,7 @@ namespace Roundbeargames
         NOT_RUN,
         BLOCKING,
         NOT_BLOCKING,
+        ATTACK_IS_BLOCKED,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
@@ -360,6 +361,14 @@ namespace Roundbeargames
                     case TransitionConditionType.NOT_BLOCKING:
                         {
                             if (control.Block)
+                            {
+                                return false;
+                            }
+                        }
+                        break;
+                    case TransitionConditionType.ATTACK_IS_BLOCKED:
+                        {
+                            if (control.damageDetector.BlockedAttack == null)
                             {
                                 return false;
                             }
