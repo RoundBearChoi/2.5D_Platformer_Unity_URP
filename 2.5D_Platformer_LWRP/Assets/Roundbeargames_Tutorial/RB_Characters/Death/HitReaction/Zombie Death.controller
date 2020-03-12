@@ -64,6 +64,7 @@ MonoBehaviour:
   characterControl: {fileID: 0}
   ListAbilityData:
   - {fileID: 11400000, guid: 168022941784b2842b101b3a000bf23a, type: 2}
+  - {fileID: 11400000, guid: a38fd2273c995264187bda318312527d, type: 2}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0

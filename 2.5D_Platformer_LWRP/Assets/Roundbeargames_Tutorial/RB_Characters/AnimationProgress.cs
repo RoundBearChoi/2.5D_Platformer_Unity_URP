@@ -141,12 +141,25 @@ namespace Roundbeargames
                 {
                     CheckUpBlocking();
 
-                    if (UpBlockingObjs.Count > 0)
+                    foreach(KeyValuePair<GameObject, GameObject> data in UpBlockingObjs)
                     {
-                        control.RIGID_BODY.velocity = new Vector3(
-                            control.RIGID_BODY.velocity.x,
-                            0f,
-                            control.RIGID_BODY.velocity.z);
+                        CharacterControl c = CharacterManager.Instance.GetCharacter(
+                            data.Value.transform.root.gameObject);
+
+                        if (c == null)
+                        {
+                            NullifyUpVelocity();
+                            break;
+                        }
+                        else
+                        {
+                            if (control.transform.position.y + control.boxCollider.center.y <
+                                c.transform.position.y)
+                            {
+                                NullifyUpVelocity();
+                                break;
+                            }
+                        }
                     }
                 }
                 else
@@ -159,6 +172,14 @@ namespace Roundbeargames
             }
 
             CheckMarioStomp();
+        }
+
+        void NullifyUpVelocity()
+        {
+            control.RIGID_BODY.velocity = new Vector3(
+                            control.RIGID_BODY.velocity.x,
+                            0f,
+                            control.RIGID_BODY.velocity.z);
         }
 
         void CheckMarioStomp()
