@@ -47,6 +47,7 @@ namespace Roundbeargames
         public AIController aiController;
         public BoxCollider boxCollider;
         public NavMeshObstacle navMeshObstacle;
+        public InstaKill instaKill;
 
         [Header("Gravity")]
         public ContactPoint[] contactPoints;
@@ -84,6 +85,7 @@ namespace Roundbeargames
             damageDetector = GetComponentInChildren<DamageDetector>();
             boxCollider = GetComponent<BoxCollider>();
             navMeshObstacle = GetComponent<NavMeshObstacle>();
+            instaKill = GetComponentInChildren<InstaKill>();
 
             collisionSpheres = GetComponentInChildren<CollisionSpheres>();
             collisionSpheres.owner = this;
