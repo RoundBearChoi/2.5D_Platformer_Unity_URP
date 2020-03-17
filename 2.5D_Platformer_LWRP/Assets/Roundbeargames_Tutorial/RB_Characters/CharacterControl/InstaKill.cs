@@ -61,7 +61,19 @@ namespace Roundbeargames
                         continue;
                     }
 
-                    Debug.Log("kill!");
+                    if (c.damageDetector.IsDead())
+                    {
+                        continue;
+                    }
+
+                    if (control.damageDetector.IsDead())
+                    {
+                        continue;
+                    }
+
+                    Debug.Log("instaKill");
+                    c.damageDetector.DeathByInstaKill(control);
+
                     return;
                 }
             }

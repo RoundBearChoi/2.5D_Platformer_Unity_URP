@@ -21,6 +21,10 @@ namespace Roundbeargames
         public GameObject AttackingPart;
         public AttackInfo BlockedAttack;
 
+        [Header("InstaKill")]
+        public RuntimeAnimatorController Assassination_A;
+        public RuntimeAnimatorController Assassination_B;
+
         private void Awake()
         {
             control = GetComponent<CharacterControl>();
@@ -289,6 +293,33 @@ namespace Roundbeargames
         public void DeathBySpikes()
         {
             control.damageDetector.DamagedTrigger = null;
+            hp = 0f;
+        }
+
+        public void DeathByInstaKill(CharacterControl attacker)
+        {
+            control.RIGID_BODY.useGravity = false;
+            control.boxCollider.enabled = false;
+            control.SkinnedMeshAnimator.runtimeAnimatorController = Assassination_B;
+
+            attacker.RIGID_BODY.useGravity = false;
+            attacker.boxCollider.enabled = false;
+            attacker.SkinnedMeshAnimator.runtimeAnimatorController = Assassination_A;
+
+            Vector3 dir = control.transform.position - attacker.transform.position;
+
+            if (dir.z < 0f)
+            {
+                attacker.FaceForward(false);
+            }
+            else if (dir.z > 0f)
+            {
+                attacker.FaceForward(true);
+            }
+
+            control.transform.forward = attacker.transform.forward;
+            control.transform.position = attacker.transform.position + (attacker.transform.forward * 0.45f);
+
             hp = 0f;
         }
     }

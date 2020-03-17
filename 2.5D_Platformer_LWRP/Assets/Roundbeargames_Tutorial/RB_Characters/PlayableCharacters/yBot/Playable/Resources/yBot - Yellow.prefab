@@ -6295,6 +6295,7 @@ MonoBehaviour:
   aiController: {fileID: 0}
   boxCollider: {fileID: 0}
   navMeshObstacle: {fileID: 0}
+  instaKill: {fileID: 0}
   playableCharacterType: 1
   SkinnedMeshAnimator: {fileID: 3363093133717548819}
   RagdollParts:
@@ -6389,6 +6390,8 @@ MonoBehaviour:
   DamagedTrigger: {fileID: 0}
   AttackingPart: {fileID: 0}
   BlockedAttack: {fileID: 0}
+  Assassination_A: {fileID: 9100000, guid: 2c591432c965b1041b880ee5668fdf0c, type: 2}
+  Assassination_B: {fileID: 9100000, guid: 10f7c43e2afdfee49bd01286cb794ef5, type: 2}
 --- !u!114 &9096092891286109750
 MonoBehaviour:
   m_ObjectHideFlags: 0
