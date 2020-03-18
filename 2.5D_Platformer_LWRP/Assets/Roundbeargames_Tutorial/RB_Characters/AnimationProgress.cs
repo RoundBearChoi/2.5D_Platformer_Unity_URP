@@ -458,15 +458,27 @@ namespace Roundbeargames
 
         public bool StateNameContains(string str)
         {
-            foreach (KeyValuePair<StateData, int> data in CurrentRunningAbilities)
+            AnimatorClipInfo[] arr = control.SkinnedMeshAnimator.GetCurrentAnimatorClipInfo(0);
+
+            foreach(AnimatorClipInfo clipInfo in arr)
             {
-                if (data.Key.name.Contains(str))
+                if (clipInfo.clip.name.Contains(str))
                 {
                     return true;
                 }
             }
 
             return false;
+
+            //foreach (KeyValuePair<StateData, int> data in CurrentRunningAbilities)
+            //{
+            //    if (data.Key.name.Contains(str))
+            //    {
+            //        return true;
+            //    }
+            //}
+            //
+            //return false;
         }
 
         public bool RightSideIsBlocked()

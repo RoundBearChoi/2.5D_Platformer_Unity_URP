@@ -298,6 +298,9 @@ namespace Roundbeargames
 
         public void DeathByInstaKill(CharacterControl attacker)
         {
+            control.animationProgress.CurrentRunningAbilities.Clear();
+            attacker.animationProgress.CurrentRunningAbilities.Clear();
+
             control.RIGID_BODY.useGravity = false;
             control.boxCollider.enabled = false;
             control.SkinnedMeshAnimator.runtimeAnimatorController = Assassination_B;
@@ -317,7 +320,7 @@ namespace Roundbeargames
                 attacker.FaceForward(true);
             }
 
-            control.transform.forward = attacker.transform.forward;
+            control.transform.LookAt(control.transform.position + (attacker.transform.forward * 5f), Vector3.up);
             control.transform.position = attacker.transform.position + (attacker.transform.forward * 0.45f);
 
             hp = 0f;
