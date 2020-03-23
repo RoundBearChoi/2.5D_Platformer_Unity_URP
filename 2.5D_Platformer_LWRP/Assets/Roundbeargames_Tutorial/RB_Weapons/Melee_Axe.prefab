@@ -56,6 +56,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -105,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  control: {fileID: 0}
   LastPosition: {x: 0, y: 0, z: 0}
   LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6364605337725328771
@@ -171,3 +173,4 @@ MonoBehaviour:
   triggerDetector: {fileID: 5077084673776002202}
   CustomPosition: {x: 0, y: 0.000776, z: 0.000357}
   CustomRotation: {x: 3.625, y: -171.995, z: 269.495}
+  ThrowOffset: {x: 0, y: 1.1, z: 0.35}
