@@ -13,6 +13,9 @@ namespace Roundbeargames
         public Vector3 CustomPosition = new Vector3();
         public Vector3 CustomRotation = new Vector3();
 
+        [Header("WeaponThrow")]
+        public Vector3 ThrowOffset = new Vector3();
+
         private void Update()
         {
             if (control != null)
@@ -57,6 +60,32 @@ namespace Roundbeargames
                 }
                 
                 w.transform.position = control.transform.position + (Vector3.up * 0.0225f);
+
+                control.animationProgress.HoldingWeapon = null;
+                control = null;
+                w.triggerDetector.control = null;
+            }
+        }
+
+        public void ThrowWeapon()
+        {
+            MeleeWeapon w = control.animationProgress.HoldingWeapon;
+
+            if (w != null)
+            {
+                w.transform.parent = null;
+
+                if (control.IsFacingForward())
+                {
+                    w.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+                }
+                else
+                {
+                    w.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+                }
+
+                w.transform.position = control.transform.position + (Vector3.up * ThrowOffset.y);
+                w.transform.position += (control.transform.forward * ThrowOffset.z);
 
                 control.animationProgress.HoldingWeapon = null;
                 control = null;

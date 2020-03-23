@@ -24,6 +24,11 @@ namespace Roundbeargames
 
         void CheckCollidingBodyParts(Collider col)
         {
+            if (control == null)
+            {
+                return;
+            }
+
             if (control.RagdollParts.Contains(col))
             {
                 return;
