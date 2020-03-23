@@ -42,7 +42,7 @@ linkedin: https://linkedin.com/in/roundbeargames-choi-15041a9a
 
 **Blog**
 
-https://steemit.com/@roundbeargames
+https://peakd.com/@roundbeargames/posts
 
 ----
 
