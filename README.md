@@ -28,7 +28,7 @@ https://youtube.com/roundbeargames
 
 **Social**
 
-discord: https://discord.gg/RbxjBu3
+discord: https://discord.gg/hAFTgcA
 
 twitter: https://twitter.com/roundbeargames
 
