@@ -59,11 +59,22 @@ namespace Roundbeargames
 
         void CheckCollidingWeapons(Collider col)
         {
-            if (col.transform.root.gameObject.GetComponent<MeleeWeapon>() == null)
+            MeleeWeapon w = col.transform.root.gameObject.GetComponent<MeleeWeapon>();
+
+            if (w == null)
             {
                 return;
             }
 
+            if (w.IsThrown)
+            {
+                if (w.Thrower != control)
+                {
+                    w.IsThrown = false;
+                    return;
+                }
+            }
+                       
             if (!control.animationProgress.CollidingWeapons.ContainsKey(this))
             {
                 control.animationProgress.CollidingWeapons.Add(this, new List<Collider>());

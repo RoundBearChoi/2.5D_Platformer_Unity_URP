@@ -15,6 +15,16 @@ namespace Roundbeargames
 
         [Header("WeaponThrow")]
         public Vector3 ThrowOffset = new Vector3();
+        public bool IsThrown;
+        public bool FlyForward;
+        public float FlightSpeed;
+        public float RotationSpeed;
+        public CharacterControl Thrower;
+
+        private void Start()
+        {
+            IsThrown = false;
+        }
 
         private void Update()
         {
@@ -27,6 +37,23 @@ namespace Roundbeargames
             {
                 PickUpCollider.enabled = true;
                 AttackCollider.enabled = false;
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            if (IsThrown)
+            {
+                if (FlyForward)
+                {
+                    this.transform.position += (Vector3.forward * FlightSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    this.transform.position -= (Vector3.forward * FlightSpeed * Time.deltaTime);
+                }
+
+                this.transform.Rotate(Vector3.forward, RotationSpeed * Time.deltaTime);
             }
         }
 
@@ -84,12 +111,17 @@ namespace Roundbeargames
                     w.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
                 }
 
+                FlyForward = control.IsFacingForward();
+
                 w.transform.position = control.transform.position + (Vector3.up * ThrowOffset.y);
                 w.transform.position += (control.transform.forward * ThrowOffset.z);
 
+                Thrower = control;
                 control.animationProgress.HoldingWeapon = null;
                 control = null;
                 w.triggerDetector.control = null;
+
+                IsThrown = true;
             }
         }
     }
