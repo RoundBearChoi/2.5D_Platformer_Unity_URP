@@ -70,6 +70,16 @@ namespace Roundbeargames
             {
                 if (w.Thrower != control)
                 {
+                    AttackInfo info = new AttackInfo();
+                    info.CopyInfo(control.damageDetector.AxeThrow, control);
+
+                    control.damageDetector.DamagedTrigger = this;
+                    control.damageDetector.Attack = control.damageDetector.AxeThrow;
+                    control.damageDetector.Attacker = w.Thrower;
+                    control.damageDetector.AttackingPart = control.RightHand_Attack;
+
+                    control.damageDetector.TakeDamage(info);
+
                     w.IsThrown = false;
                     return;
                 }

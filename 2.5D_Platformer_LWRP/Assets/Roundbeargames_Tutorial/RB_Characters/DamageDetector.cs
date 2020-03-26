@@ -24,6 +24,10 @@ namespace Roundbeargames
         [Header("InstaKill")]
         public RuntimeAnimatorController Assassination_A;
         public RuntimeAnimatorController Assassination_B;
+        
+        [Header("Attack")]
+        public Attack MarioStompAttack;
+        public Attack AxeThrow;
 
         private void Awake()
         {

@@ -60,7 +60,7 @@ namespace Roundbeargames
         public GameObject RightHand_Attack;
         public GameObject LeftFoot_Attack;
         public GameObject RightFoot_Attack;
-
+        
         private Dictionary<string, GameObject> ChildObjects = new Dictionary<string, GameObject>();
 
         private Rigidbody rigid;

@@ -6392,6 +6392,8 @@ MonoBehaviour:
   BlockedAttack: {fileID: 0}
   Assassination_A: {fileID: 9100000, guid: 2c591432c965b1041b880ee5668fdf0c, type: 2}
   Assassination_B: {fileID: 9100000, guid: 10f7c43e2afdfee49bd01286cb794ef5, type: 2}
+  MarioStompAttack: {fileID: 11400000, guid: 92ce7c8391eaac44d87d389d84d90066, type: 2}
+  AxeThrow: {fileID: 11400000, guid: 053e61407dc88804e92699c3fb3162be, type: 2}
 --- !u!114 &9096092891286109750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6422,7 +6424,6 @@ MonoBehaviour:
   CanWallJump: 0
   CheckWallBlock: 0
   MarioStompTargets: []
-  MarioStompAttack: {fileID: 11400000, guid: 92ce7c8391eaac44d87d389d84d90066, type: 2}
   UpdatingSpheres: 0
   TargetSize: {x: 0, y: 0, z: 0}
   Size_Speed: 0

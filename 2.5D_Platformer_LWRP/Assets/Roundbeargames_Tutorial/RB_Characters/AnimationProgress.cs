@@ -49,7 +49,6 @@ namespace Roundbeargames
         public bool CanWallJump;
         public bool CheckWallBlock;
         public List<CharacterControl> MarioStompTargets = new List<CharacterControl>();
-        public Attack MarioStompAttack;
 
         [Header("UpdateBoxCollider")]
         public bool UpdatingSpheres;
@@ -199,11 +198,11 @@ namespace Roundbeargames
                 foreach(CharacterControl c in MarioStompTargets)
                 {
                     AttackInfo info = new AttackInfo();
-                    info.CopyInfo(MarioStompAttack, control);
+                    info.CopyInfo(c.damageDetector.MarioStompAttack, control);
 
                     int index = Random.Range(0, c.RagdollParts.Count);
                     c.damageDetector.DamagedTrigger = c.RagdollParts[index].GetComponent<TriggerDetector>();
-                    c.damageDetector.Attack = MarioStompAttack;
+                    c.damageDetector.Attack = c.damageDetector.MarioStompAttack;
                     c.damageDetector.Attacker = control;
                     c.damageDetector.AttackingPart = control.RightFoot_Attack;
 
