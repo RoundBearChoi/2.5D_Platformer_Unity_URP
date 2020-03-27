@@ -29,6 +29,8 @@ namespace Roundbeargames
 
                     w.control = characterState.characterControl;
                     w.triggerDetector.control = characterState.characterControl;
+
+                    w.RemoveWeaponFromDictionary(characterState.characterControl);
                 }
             }
         }

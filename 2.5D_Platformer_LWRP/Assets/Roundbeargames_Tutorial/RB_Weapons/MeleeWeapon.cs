@@ -85,7 +85,9 @@ namespace Roundbeargames
                 {
                     w.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
                 }
-                
+
+                RemoveWeaponFromDictionary(control);
+
                 w.transform.position = control.transform.position + (Vector3.up * 0.0225f);
 
                 control.animationProgress.HoldingWeapon = null;
@@ -122,6 +124,64 @@ namespace Roundbeargames
                 w.triggerDetector.control = null;
 
                 IsThrown = true;
+
+                RemoveWeaponFromDictionary(Thrower);
+            }
+        }
+
+        public void RemoveWeaponFromDictionary(CharacterControl c)
+        {
+            foreach(Collider col in c.RagdollParts)
+            {
+                TriggerDetector t = col.GetComponent<TriggerDetector>();
+
+                if (t != null)
+                {
+                    ProcRemove(c.animationProgress.CollidingWeapons, t);
+                    ProcRemove(c.animationProgress.CollidingBodyParts, t);
+                }
+
+                //if (t != null)
+                //{
+                //    if (c.animationProgress.CollidingWeapons.ContainsKey(t))
+                //    {
+                //        if (c.animationProgress.CollidingWeapons[t].Contains(PickUpCollider))
+                //        {
+                //            c.animationProgress.CollidingWeapons[t].Remove(PickUpCollider);
+                //        }
+                //
+                //        if (c.animationProgress.CollidingWeapons[t].Contains(AttackCollider))
+                //        {
+                //            c.animationProgress.CollidingWeapons[t].Remove(AttackCollider);
+                //        }
+                //
+                //        if (c.animationProgress.CollidingWeapons[t].Count == 0)
+                //        {
+                //            c.animationProgress.CollidingWeapons.Remove(t);
+                //        }
+                //    }
+                //}
+            }
+        }
+
+        void ProcRemove(Dictionary<TriggerDetector, List<Collider>> d, TriggerDetector t)
+        {
+            if (d.ContainsKey(t))
+            {
+                if (d[t].Contains(PickUpCollider))
+                {
+                    d[t].Remove(PickUpCollider);
+                }
+
+                if (d[t].Contains(AttackCollider))
+                {
+                    d[t].Remove(AttackCollider);
+                }
+
+                if (d[t].Count == 0)
+                {
+                    d.Remove(t);
+                }
             }
         }
     }

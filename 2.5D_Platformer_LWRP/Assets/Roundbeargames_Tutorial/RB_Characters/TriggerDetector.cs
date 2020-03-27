@@ -76,7 +76,7 @@ namespace Roundbeargames
                     control.damageDetector.DamagedTrigger = this;
                     control.damageDetector.Attack = control.damageDetector.AxeThrow;
                     control.damageDetector.Attacker = w.Thrower;
-                    control.damageDetector.AttackingPart = control.RightHand_Attack;
+                    control.damageDetector.AttackingPart = w.Thrower.RightHand_Attack;
 
                     control.damageDetector.TakeDamage(info);
 
