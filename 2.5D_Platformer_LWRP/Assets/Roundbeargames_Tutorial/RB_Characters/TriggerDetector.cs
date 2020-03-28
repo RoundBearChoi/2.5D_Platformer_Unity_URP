@@ -80,6 +80,20 @@ namespace Roundbeargames
 
                     control.damageDetector.TakeDamage(info);
 
+                    if (w.FlyForward)
+                    {
+                        w.transform.rotation = Quaternion.Euler(0f, 90f, 45f);
+                    }
+                    else
+                    {
+                        w.transform.rotation = Quaternion.Euler(0f, -90f, 45f);
+                    }
+
+                    w.transform.parent = this.transform;
+
+                    Vector3 offset = this.transform.position - w.AxeTip.transform.position;
+                    w.transform.position += offset;
+
                     w.IsThrown = false;
                     return;
                 }

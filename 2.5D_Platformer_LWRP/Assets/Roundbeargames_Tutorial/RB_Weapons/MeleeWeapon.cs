@@ -20,6 +20,7 @@ namespace Roundbeargames
         public float FlightSpeed;
         public float RotationSpeed;
         public CharacterControl Thrower;
+        public GameObject AxeTip;
 
         private void Start()
         {
