@@ -11,17 +11,17 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-
+            characterState.characterControl.animationProgress.HoldingWeapon =
+                characterState.characterControl.animationProgress.GetTouchingWeapon();
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             if (stateInfo.normalizedTime > PickUpTiming)
             {
-                if (characterState.characterControl.animationProgress.HoldingWeapon == null)
+                if (characterState.characterControl.animationProgress.HoldingWeapon.control == null)
                 {
-                    MeleeWeapon w = characterState.characterControl.animationProgress.GetTouchingWeapon();
-                    characterState.characterControl.animationProgress.HoldingWeapon = w;
+                    MeleeWeapon w = characterState.characterControl.animationProgress.HoldingWeapon;
 
                     w.transform.parent = characterState.characterControl.RightHand_Attack.transform;
                     w.transform.localPosition = w.CustomPosition;
