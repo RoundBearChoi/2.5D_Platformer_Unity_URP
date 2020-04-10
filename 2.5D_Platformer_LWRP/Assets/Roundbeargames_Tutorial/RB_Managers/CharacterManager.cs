@@ -51,7 +51,7 @@ namespace Roundbeargames
         {
             foreach (CharacterControl control in Characters)
             {
-                ManualInput manualInput = control.GetComponent<ManualInput>();
+                ManualInput manualInput = control.GetComponentInChildren<ManualInput>();
 
                 if (manualInput != null)
                 {

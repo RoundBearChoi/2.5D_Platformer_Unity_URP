@@ -38,7 +38,7 @@ namespace Roundbeargames
         public bool Block;
 
         [Header("SubComponents")]
-        public ManualInput manualInput;
+        //public ManualInput manualInput;
         public LedgeChecker ledgeChecker;
         public AnimationProgress animationProgress;
         public AIProgress aiProgress;
@@ -48,6 +48,10 @@ namespace Roundbeargames
         public BoxCollider boxCollider;
         public NavMeshObstacle navMeshObstacle;
         public InstaKill instaKill;
+        public Dictionary<SubComponents, SubComponent> SubComponentsDic = new Dictionary<SubComponents, SubComponent>();
+
+        public Dictionary<BoolData, GetBool> GetBoolDic = new Dictionary<BoolData, GetBool>();
+        public delegate bool GetBool();
 
         [Header("Gravity")]
         public ContactPoint[] contactPoints;
@@ -78,7 +82,7 @@ namespace Roundbeargames
 
         private void Awake()
         {
-            manualInput = GetComponent<ManualInput>();
+            //manualInput = GetComponent<ManualInput>();
             ledgeChecker = GetComponentInChildren<LedgeChecker>();
             animationProgress = GetComponent<AnimationProgress>();
             aiProgress = GetComponentInChildren<AIProgress>();
@@ -247,6 +251,14 @@ namespace Roundbeargames
                     Time.deltaTime * animationProgress.Center_Speed);
 
                 animationProgress.UpdatingSpheres = true;
+            }
+        }
+
+        private void Update()
+        {
+            if (SubComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
+            {
+                SubComponentsDic[SubComponents.MANUALINPUT].OnUpdate();
             }
         }
 

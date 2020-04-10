@@ -259,7 +259,12 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.DOUBLE_TAP_UP:
                         {
-                            if (!control.manualInput.DoubleTaps.Contains(InputKeyType.KEY_MOVE_UP))
+                            if (!control.SubComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
+                            {
+                                return false;
+                            }
+
+                            if (!control.GetBoolDic[BoolData.DOUBLETAP_UP]())
                             {
                                 return false;
                             }
@@ -267,7 +272,12 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.DOUBLE_TAP_DOWN:
                         {
-                            if (!control.manualInput.DoubleTaps.Contains(InputKeyType.KEY_MOVE_DOWN))
+                            if (!control.SubComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
+                            {
+                                return false;
+                            }
+
+                            if (!control.GetBoolDic[BoolData.DOUBLETAP_DOWN]())
                             {
                                 return false;
                             }

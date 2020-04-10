@@ -65,7 +65,7 @@ namespace Roundbeargames
                                 c.point.y,
                                 c.point.z);
 
-                            if (control.manualInput.enabled)
+                            if (control.SubComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
                             {
                                 TESTING_SPHERE.transform.position = control.animationProgress.LandingPosition;
                             }
@@ -92,7 +92,7 @@ namespace Roundbeargames
                                 0f,
                                 hit.point.y,
                                 hit.point.z);
-                            if (control.manualInput.enabled)
+                            if (control.SubComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
                             {
                                 TESTING_SPHERE.transform.position = control.animationProgress.LandingPosition;
                             }
