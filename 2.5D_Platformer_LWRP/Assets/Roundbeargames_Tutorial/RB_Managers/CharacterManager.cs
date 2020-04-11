@@ -51,14 +51,9 @@ namespace Roundbeargames
         {
             foreach (CharacterControl control in Characters)
             {
-                ManualInput manualInput = control.GetComponentInChildren<ManualInput>();
-
-                if (manualInput != null)
+                if (control.SubComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
                 {
-                    if (manualInput.enabled == true)
-                    {
-                        return control;
-                    }
+                    return control;
                 }
             }
 

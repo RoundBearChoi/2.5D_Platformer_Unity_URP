@@ -39,7 +39,7 @@ namespace Roundbeargames
 
         [Header("SubComponents")]
         //public ManualInput manualInput;
-        public LedgeChecker ledgeChecker;
+        //public LedgeChecker ledgeChecker;
         public AnimationProgress animationProgress;
         public AIProgress aiProgress;
         public DamageDetector damageDetector;
@@ -50,8 +50,11 @@ namespace Roundbeargames
         public InstaKill instaKill;
         public Dictionary<SubComponents, SubComponent> SubComponentsDic = new Dictionary<SubComponents, SubComponent>();
 
-        public Dictionary<BoolData, GetBool> GetBoolDic = new Dictionary<BoolData, GetBool>();
+        public Dictionary<BoolData, GetBool> BoolDic = new Dictionary<BoolData, GetBool>();
         public delegate bool GetBool();
+
+        public Dictionary<CharacterProc, CharacterProcDel> ProcDic = new Dictionary<CharacterProc, CharacterProcDel>();
+        public delegate void CharacterProcDel();
 
         [Header("Gravity")]
         public ContactPoint[] contactPoints;
@@ -83,7 +86,7 @@ namespace Roundbeargames
         private void Awake()
         {
             //manualInput = GetComponent<ManualInput>();
-            ledgeChecker = GetComponentInChildren<LedgeChecker>();
+            //ledgeChecker = GetComponentInChildren<LedgeChecker>();
             animationProgress = GetComponent<AnimationProgress>();
             aiProgress = GetComponentInChildren<AIProgress>();
             damageDetector = GetComponentInChildren<DamageDetector>();
@@ -254,16 +257,31 @@ namespace Roundbeargames
             }
         }
 
+        void UpdateSubComponent(SubComponents type)
+        {
+            if (SubComponentsDic.ContainsKey(type))
+            {
+                SubComponentsDic[type].OnUpdate();
+            }
+        }
+
+        void FixedUpdateSubComponent(SubComponents type)
+        {
+            if (SubComponentsDic.ContainsKey(type))
+            {
+                SubComponentsDic[type].OnFixedUpdate();
+            }
+        }
+
         private void Update()
         {
-            if (SubComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
-            {
-                SubComponentsDic[SubComponents.MANUALINPUT].OnUpdate();
-            }
+            UpdateSubComponent(SubComponents.MANUALINPUT);
         }
 
         private void FixedUpdate()
         {
+            FixedUpdateSubComponent(SubComponents.LEDGECHECKER);
+
             if (!animationProgress.CancelPull)
             {
                 if (RIGID_BODY.velocity.y > 0f && !Jump)

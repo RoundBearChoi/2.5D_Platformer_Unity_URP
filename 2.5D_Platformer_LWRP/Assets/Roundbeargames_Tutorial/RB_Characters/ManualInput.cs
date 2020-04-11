@@ -15,8 +15,13 @@ namespace Roundbeargames
         {
             control.SubComponentsDic.Add(SubComponents.MANUALINPUT, this);
 
-            control.GetBoolDic.Add(BoolData.DOUBLETAP_UP, IsDoubleTap_Up);
-            control.GetBoolDic.Add(BoolData.DOUBLETAP_DOWN, IsDoubleTap_Down);
+            control.BoolDic.Add(BoolData.DOUBLETAP_UP, IsDoubleTap_Up);
+            control.BoolDic.Add(BoolData.DOUBLETAP_DOWN, IsDoubleTap_Down);
+        }
+
+        public override void OnFixedUpdate()
+        {
+            throw new System.NotImplementedException();
         }
 
         public override void OnUpdate()

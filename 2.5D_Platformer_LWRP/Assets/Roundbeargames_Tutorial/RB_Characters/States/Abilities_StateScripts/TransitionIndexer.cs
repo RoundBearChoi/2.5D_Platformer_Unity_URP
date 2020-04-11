@@ -139,7 +139,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.GRABBING_LEDGE:
                         {
-                            if (!control.ledgeChecker.IsGrabbingLedge)
+                            if (!control.BoolDic[BoolData.GRABBING_LEDGE]())
                             {
                                 return false;
                             }
@@ -147,7 +147,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.NOT_GRABBING_LEDGE:
                         {
-                            if (control.ledgeChecker.IsGrabbingLedge)
+                            if (control.BoolDic[BoolData.GRABBING_LEDGE]())
                             {
                                 return false;
                             }
@@ -264,7 +264,7 @@ namespace Roundbeargames
                                 return false;
                             }
 
-                            if (!control.GetBoolDic[BoolData.DOUBLETAP_UP]())
+                            if (!control.BoolDic[BoolData.DOUBLETAP_UP]())
                             {
                                 return false;
                             }
@@ -277,7 +277,7 @@ namespace Roundbeargames
                                 return false;
                             }
 
-                            if (!control.GetBoolDic[BoolData.DOUBLETAP_DOWN]())
+                            if (!control.BoolDic[BoolData.DOUBLETAP_DOWN]())
                             {
                                 return false;
                             }

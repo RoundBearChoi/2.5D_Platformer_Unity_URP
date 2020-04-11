@@ -8,6 +8,7 @@ namespace Roundbeargames
     {
         NONE,
         MANUALINPUT,
+        LEDGECHECKER,
     }
 
     public enum BoolData
@@ -15,6 +16,13 @@ namespace Roundbeargames
         NONE,
         DOUBLETAP_UP,
         DOUBLETAP_DOWN,
+        GRABBING_LEDGE,
+    }
+
+    public enum CharacterProc
+    {
+        NONE,
+        LEDGE_COLLIDERS_OFF,
     }
 
     public abstract class SubComponent : MonoBehaviour
@@ -27,5 +35,6 @@ namespace Roundbeargames
         }
 
         public abstract void OnUpdate();
+        public abstract void OnFixedUpdate();
     }
 }

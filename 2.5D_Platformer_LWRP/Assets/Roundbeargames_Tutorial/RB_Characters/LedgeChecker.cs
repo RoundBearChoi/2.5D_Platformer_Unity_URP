@@ -4,11 +4,10 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    public class LedgeChecker : MonoBehaviour
+    public class LedgeChecker : SubComponent
     {
-        public bool IsGrabbingLedge;
+        public bool isGrabbingLedge;
         public Vector3 LedgeCalibration = new Vector3();
-        CharacterControl control;
 
         public LedgeCollider Collider1;
         public LedgeCollider Collider2;
@@ -17,17 +16,26 @@ namespace Roundbeargames
 
         private void Start()
         {
-            IsGrabbingLedge = false;
-            control = GetComponentInParent<CharacterControl>();
+            isGrabbingLedge = false;
+
+            control.SubComponentsDic.Add(SubComponents.LEDGECHECKER, this);
+
+            control.ProcDic.Add(CharacterProc.LEDGE_COLLIDERS_OFF, LedgeCollidersOff);
+            control.BoolDic.Add(BoolData.GRABBING_LEDGE, IsGrabbingLedge);
         }
 
-        private void FixedUpdate()
+        public override void OnUpdate()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void OnFixedUpdate()
         {
             if (control.SkinnedMeshAnimator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]))
             {
                 if (control.RIGID_BODY.useGravity)
                 {
-                    IsGrabbingLedge = false;
+                    isGrabbingLedge = false;
                 }
             }
 
@@ -71,18 +79,18 @@ namespace Roundbeargames
                     }
                     else
                     {
-                        IsGrabbingLedge = false;
+                        isGrabbingLedge = false;
                     }
                 }
             }
             else
             {
-                IsGrabbingLedge = false;
+                isGrabbingLedge = false;
             }
 
             if (Collider1.CollidedObjects.Count == 0)
             {
-                IsGrabbingLedge = false;
+                isGrabbingLedge = false;
             }
         }
 
@@ -95,12 +103,12 @@ namespace Roundbeargames
                 return false;
             }
 
-            if (IsGrabbingLedge)
+            if (isGrabbingLedge)
             {
                 return false;
             }
 
-            IsGrabbingLedge = true;
+            isGrabbingLedge = true;
             control.RIGID_BODY.useGravity = false;
             control.RIGID_BODY.velocity = Vector3.zero;
 
@@ -132,6 +140,17 @@ namespace Roundbeargames
             }
 
             return true;
+        }
+
+        public void LedgeCollidersOff()
+        {
+            Collider1.GetComponent<BoxCollider>().enabled = false;
+            Collider2.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        public bool IsGrabbingLedge()
+        {
+            return isGrabbingLedge;
         }
     }
 }
