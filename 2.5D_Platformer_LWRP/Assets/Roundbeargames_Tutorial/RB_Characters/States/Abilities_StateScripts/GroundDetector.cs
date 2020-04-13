@@ -67,7 +67,7 @@ namespace Roundbeargames
 
                             if (control.SubComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
                             {
-                                TESTING_SPHERE.transform.position = control.animationProgress.LandingPosition;
+                                //TESTING_SPHERE.transform.position = control.animationProgress.LandingPosition;
                             }
                             return true;
                         }
@@ -94,7 +94,7 @@ namespace Roundbeargames
                                 hit.point.z);
                             if (control.SubComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
                             {
-                                TESTING_SPHERE.transform.position = control.animationProgress.LandingPosition;
+                                //TESTING_SPHERE.transform.position = control.animationProgress.LandingPosition;
                             }
                             return true;
                         }

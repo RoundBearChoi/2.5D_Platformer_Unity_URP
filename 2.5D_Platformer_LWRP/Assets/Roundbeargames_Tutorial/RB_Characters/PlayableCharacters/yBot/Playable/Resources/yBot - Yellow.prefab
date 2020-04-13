@@ -6360,7 +6360,7 @@ MonoBehaviour:
   instaKill: {fileID: 0}
   playableCharacterType: 1
   SkinnedMeshAnimator: {fileID: 3363093133717548819}
-  RagdollParts:
+  BodyParts:
   - {fileID: 525899230488404067}
   - {fileID: 5233113156182876579}
   - {fileID: 3284810136949030276}
@@ -6457,7 +6457,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraShaken: 0
   SpawnedObjList: 
-  RagdollTriggered: 0
   LatestMoveForward: {fileID: 0}
   LatestMoveUp: {fileID: 0}
   AttackTriggered: 0
