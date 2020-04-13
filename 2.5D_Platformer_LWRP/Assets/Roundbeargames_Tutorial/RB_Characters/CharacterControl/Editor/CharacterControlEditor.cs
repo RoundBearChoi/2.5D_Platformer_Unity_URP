@@ -16,7 +16,7 @@ namespace Roundbeargames
 
             if (GUILayout.Button("Setup RagdollParts (BodyParts)"))
             {
-                control.SetRagdollParts();
+                control.SetupBodyParts();
             }
         }
     }

@@ -83,7 +83,7 @@ namespace Roundbeargames
                     RaycastHit hit;
                     if (Physics.Raycast(o.transform.position, -Vector3.up, out hit, Distance))
                     {
-                        if (!control.RagdollParts.Contains(hit.collider)
+                        if (!control.BodyParts.Contains(hit.collider)
                             && !Ledge.IsLedgeChecker(hit.collider.gameObject)
                             && !Ledge.IsCharacter(hit.collider.gameObject))
                         {

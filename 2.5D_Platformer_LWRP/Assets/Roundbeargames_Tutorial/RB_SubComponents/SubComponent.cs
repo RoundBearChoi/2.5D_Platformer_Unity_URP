@@ -23,6 +23,7 @@ namespace Roundbeargames
     {
         NONE,
         LEDGE_COLLIDERS_OFF,
+        RAGDOLL_ON,
     }
 
     public abstract class SubComponent : MonoBehaviour

@@ -20,13 +20,7 @@ namespace Roundbeargames
 
             if (stateInfo.normalizedTime >= TriggerTiming)
             {
-                if (!characterState.characterControl.animationProgress.RagdollTriggered)
-                {
-                    if (characterState.characterControl.SkinnedMeshAnimator.enabled)
-                    {
-                        characterState.characterControl.animationProgress.RagdollTriggered = true;
-                    }
-                }
+                characterState.characterControl.ProcDic[CharacterProc.RAGDOLL_ON]();
             }
         }
 

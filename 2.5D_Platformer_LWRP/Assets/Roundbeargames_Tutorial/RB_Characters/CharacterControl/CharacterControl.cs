@@ -62,7 +62,7 @@ namespace Roundbeargames
         [Header("Setup")]
         public PlayableCharacterType playableCharacterType;
         public Animator SkinnedMeshAnimator;
-        public List<Collider> RagdollParts = new List<Collider>();
+        public List<Collider> BodyParts = new List<Collider>();
         public GameObject LeftHand_Attack;
         public GameObject RightHand_Attack;
         public GameObject LeftFoot_Attack;
@@ -133,9 +133,9 @@ namespace Roundbeargames
             }
         }
         
-        public void SetRagdollParts()
+        public void SetupBodyParts()
         {
-            RagdollParts.Clear();
+            BodyParts.Clear();
 
             Collider[] colliders = this.gameObject.GetComponentsInChildren<Collider>();
 
@@ -143,10 +143,11 @@ namespace Roundbeargames
             {
                 if (c.gameObject != this.gameObject)
                 {
-                    if (c.gameObject.GetComponent<LedgeChecker>() == null)
+                    if (c.gameObject.GetComponent<LedgeChecker>() == null &&
+                        c.gameObject.GetComponent<LedgeCollider>() == null)
                     {
                         c.isTrigger = true;
-                        RagdollParts.Add(c);
+                        BodyParts.Add(c);
                         c.attachedRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
                         c.attachedRigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
@@ -165,52 +166,13 @@ namespace Roundbeargames
             }
         }
 
-        public void TurnOnRagdoll()
-        {
-            //change layers
-            Transform[] arr = GetComponentsInChildren<Transform>();
-            foreach(Transform t in arr)
-            {
-                t.gameObject.layer = LayerMask.NameToLayer(RB_Layers.DEADBODY.ToString());
-            }
-
-            //save bodypart positions
-            foreach (Collider c in RagdollParts)
-            {
-                TriggerDetector det = c.GetComponent<TriggerDetector>();
-                det.LastPosition = c.gameObject.transform.localPosition;
-                det.LastRotation = c.gameObject.transform.localRotation;
-            }
-
-            //turn off animator/avatar/etc
-            RIGID_BODY.useGravity = false;
-            RIGID_BODY.velocity = Vector3.zero;
-            this.gameObject.GetComponent<BoxCollider>().enabled = false;
-            SkinnedMeshAnimator.enabled = false;
-            SkinnedMeshAnimator.avatar = null;
-
-            //turn on ragdoll
-            foreach(Collider c in RagdollParts)
-            {
-                c.isTrigger = false;
-
-                TriggerDetector det = c.GetComponent<TriggerDetector>();
-                c.transform.localPosition = det.LastPosition;
-                c.transform.localRotation = det.LastRotation;
-
-                c.attachedRigidbody.velocity = Vector3.zero;
-            }
-
-            AddForceToDamagedPart(false);
-        }
-
         public void AddForceToDamagedPart(bool zeroVelocity)
         {
             if (damageDetector.DamagedTrigger != null)
             {
                 if (zeroVelocity)
                 {
-                    foreach (Collider c in RagdollParts)
+                    foreach (Collider c in BodyParts)
                     {
                         c.attachedRigidbody.velocity = Vector3.zero;
                     }
@@ -310,12 +272,6 @@ namespace Roundbeargames
                 }
             }
 
-            if (animationProgress.RagdollTriggered)
-            {
-                TurnOnRagdoll();
-                animationProgress.RagdollTriggered = false;
-            }
-
             //slow down wallslide
             if (animationProgress.MaxFallVelocity.y != 0f)
             {
@@ -367,7 +323,7 @@ namespace Roundbeargames
 
         public Collider GetBodyPart(string name)
         {
-            foreach(Collider c in RagdollParts)
+            foreach(Collider c in BodyParts)
             {
                 if (c.name.Contains(name))
                 {

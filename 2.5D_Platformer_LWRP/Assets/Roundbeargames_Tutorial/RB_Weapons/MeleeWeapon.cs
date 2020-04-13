@@ -132,7 +132,7 @@ namespace Roundbeargames
 
         public void RemoveWeaponFromDictionary(CharacterControl c)
         {
-            foreach(Collider col in c.RagdollParts)
+            foreach(Collider col in c.BodyParts)
             {
                 TriggerDetector t = col.GetComponent<TriggerDetector>();
 
