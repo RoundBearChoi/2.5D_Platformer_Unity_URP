@@ -9,6 +9,7 @@ namespace Roundbeargames
         NONE,
         MANUALINPUT,
         LEDGECHECKER,
+        RAGDOLL,
     }
 
     public enum BoolData

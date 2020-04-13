@@ -6,14 +6,20 @@ namespace Roundbeargames
 {
     public class Ragdoll : SubComponent
     {
+        bool RagdollTriggered = false;
+
         private void Start()
         {
+            control.SubComponentsDic.Add(SubComponents.RAGDOLL, this);
             control.ProcDic.Add(CharacterProc.RAGDOLL_ON, TurnOnRagdoll);
         }
 
         public override void OnFixedUpdate()
         {
-            throw new System.NotImplementedException();
+            if (RagdollTriggered)
+            {
+                ProcRagdoll();
+            }
         }
 
         public override void OnUpdate()
@@ -23,12 +29,17 @@ namespace Roundbeargames
 
         public void TurnOnRagdoll()
         {
-            if (control.animationProgress.RagdollTriggered)
+            RagdollTriggered = true;
+        }
+
+        void ProcRagdoll()
+        {
+            RagdollTriggered = false;
+
+            if (control.SkinnedMeshAnimator.avatar == null)
             {
                 return;
             }
-
-            control.animationProgress.RagdollTriggered = true;
 
             //change layers
             Transform[] arr = control.gameObject.GetComponentsInChildren<Transform>();
@@ -41,8 +52,8 @@ namespace Roundbeargames
             foreach (Collider c in control.BodyParts)
             {
                 TriggerDetector det = c.GetComponent<TriggerDetector>();
-                det.LastPosition = c.gameObject.transform.localPosition;
-                det.LastRotation = c.gameObject.transform.localRotation;
+                det.LastPosition = c.gameObject.transform.position;
+                det.LastRotation = c.gameObject.transform.rotation;
             }
 
             //turn off animator/avatar
@@ -68,8 +79,8 @@ namespace Roundbeargames
                 c.isTrigger = false;
 
                 TriggerDetector det = c.GetComponent<TriggerDetector>();
-                c.transform.localPosition = det.LastPosition;
-                c.transform.localRotation = det.LastRotation;
+                c.attachedRigidbody.MovePosition(det.LastPosition);
+                c.attachedRigidbody.MoveRotation(det.LastRotation);
 
                 c.attachedRigidbody.velocity = Vector3.zero;
             }

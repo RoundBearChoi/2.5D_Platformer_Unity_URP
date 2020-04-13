@@ -11,7 +11,6 @@ namespace Roundbeargames
 
         public bool CameraShaken;
         public List<PoolObjectType> SpawnedObjList = new List<PoolObjectType>();
-        public bool RagdollTriggered;
 
         public MoveForward LatestMoveForward;
         public MoveUp LatestMoveUp;

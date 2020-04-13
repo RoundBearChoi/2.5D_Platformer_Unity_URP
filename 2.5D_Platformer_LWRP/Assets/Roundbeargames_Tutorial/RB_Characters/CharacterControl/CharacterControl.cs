@@ -243,6 +243,7 @@ namespace Roundbeargames
         private void FixedUpdate()
         {
             FixedUpdateSubComponent(SubComponents.LEDGECHECKER);
+            FixedUpdateSubComponent(SubComponents.RAGDOLL);
 
             if (!animationProgress.CancelPull)
             {
