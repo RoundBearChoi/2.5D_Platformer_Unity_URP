@@ -40,6 +40,8 @@ namespace Roundbeargames
         public Dictionary<GameObject, GameObject> DownBlockingObjs =
             new Dictionary<GameObject, GameObject>();
 
+        public Vector3 CollidingPoint = new Vector3();
+
         [Header("AirControl")]
         public bool Jumped;
         public float AirMomentum;
@@ -238,11 +240,43 @@ namespace Roundbeargames
             }
         }
 
+        void AddBlockingObjToDic(Dictionary<GameObject, GameObject> dic, GameObject key, GameObject value)
+        {
+            if (dic.ContainsKey(key))
+            {
+                dic[key] = value;
+            }
+            else
+            {
+                dic.Add(key, value);
+            }
+        }
+
+        void RemoveBlockingObjFromDic(Dictionary<GameObject, GameObject> dic, GameObject key)
+        {
+            if (dic.ContainsKey(key))
+            {
+                dic.Remove(key);
+            }
+        }
+
         void CheckDownBlocking()
         {
             foreach (GameObject o in control.collisionSpheres.BottomSpheres)
             {
-                CheckRaycastCollision(o, Vector3.down, 0.1f, DownBlockingObjs);
+                GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, Vector3.down, 0.1f,
+                    ref control.animationProgress.CollidingPoint);
+
+                if (blockingObj != null)
+                {
+                    AddBlockingObjToDic(DownBlockingObjs, o, blockingObj);
+                }
+                else
+                {
+                    RemoveBlockingObjFromDic(DownBlockingObjs, o);
+                }
+
+                //CheckRaycastCollision(o, Vector3.down, 0.1f, DownBlockingObjs);
             }
         }
 
@@ -250,7 +284,19 @@ namespace Roundbeargames
         {
             foreach (GameObject o in control.collisionSpheres.UpSpheres)
             {
-                CheckRaycastCollision(o, this.transform.up, 0.3f, UpBlockingObjs);
+                GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, this.transform.up, 0.3f,
+                    ref control.animationProgress.CollidingPoint);
+
+                if (blockingObj != null)
+                {
+                    AddBlockingObjToDic(UpBlockingObjs, o, blockingObj);
+                }
+                else
+                {
+                    RemoveBlockingObjFromDic(UpBlockingObjs, o);
+                }
+
+                //CheckRaycastCollision(o, this.transform.up, 0.3f, UpBlockingObjs);
             }
         }
 
@@ -342,102 +388,21 @@ namespace Roundbeargames
 
             foreach (GameObject o in FrontSpheresList)
             {
-                CheckRaycastCollision(o, this.transform.forward * DirBlock, LatestMoveForward.BlockDistance,
-                    FrontBlockingObjs);
-            }
-        }
+                GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, this.transform.forward * DirBlock,
+                    LatestMoveForward.BlockDistance,
+                    ref control.animationProgress.CollidingPoint);
 
-        void CheckRaycastCollision(GameObject obj, Vector3 dir, float blockDistance,
-            Dictionary<GameObject, GameObject> BlockingObjDic)
-        {
-            //Draw debug line
-            Debug.DrawRay(obj.transform.position, dir * blockDistance, Color.yellow);
-
-            //Check collision
-            RaycastHit hit;
-            if (Physics.Raycast(obj.transform.position, dir,
-                out hit,
-                blockDistance))
-            {
-                if (!IsBodyPart(hit.collider) &&
-                    !IsIgnoringCharacter(hit.collider) &&
-                    !Ledge.IsLedgeChecker(hit.collider.gameObject) &&
-                    !MeleeWeapon.IsWeapon(hit.collider.gameObject) &&
-                    !TrapSpikes.IsTrap(hit.collider.gameObject))
+                if (blockingObj != null)
                 {
-                    if (BlockingObjDic.ContainsKey(obj))
-                    {
-                        BlockingObjDic[obj] = hit.collider.transform.root.gameObject;
-                    }
-                    else
-                    {
-                        BlockingObjDic.Add(obj, hit.collider.transform.root.gameObject);
-                    }
+                    AddBlockingObjToDic(FrontBlockingObjs, o, blockingObj);
                 }
                 else
                 {
-                    if (BlockingObjDic.ContainsKey(obj))
-                    {
-                        BlockingObjDic.Remove(obj);
-                    }
-                }
-            }
-            else
-            {
-                if (BlockingObjDic.ContainsKey(obj))
-                {
-                    BlockingObjDic.Remove(obj);
-                }
-            }
-        }
-
-        bool IsIgnoringCharacter(Collider col)
-        {
-            if (!IsIgnoreCharacterTime)
-            {
-                return false;
-            }
-            else
-            {
-                CharacterControl blockingChar = CharacterManager.Instance.GetCharacter(col.transform.root.gameObject);
-
-                if (blockingChar == null)
-                {
-                    return false;
+                    RemoveBlockingObjFromDic(FrontBlockingObjs, o);
                 }
 
-                if (blockingChar == control)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-        }
-
-        bool IsBodyPart(Collider col)
-        {
-            if (col.transform.root.gameObject == control.gameObject)
-            {
-                return true;
-            }
-
-            CharacterControl target = CharacterManager.Instance.GetCharacter(col.transform.root.gameObject);
-
-            if (target == null)
-            {
-                return false;
-            }
-
-            if (target.damageDetector.IsDead())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
+                //CheckRaycastCollision(o, this.transform.forward * DirBlock, LatestMoveForward.BlockDistance,
+                //    FrontBlockingObjs);
             }
         }
 

@@ -79,23 +79,20 @@ namespace Roundbeargames
             {
                 foreach (GameObject o in control.collisionSpheres.BottomSpheres)
                 {
-                    Debug.DrawRay(o.transform.position, -Vector3.up * Distance, Color.yellow);
-                    RaycastHit hit;
-                    if (Physics.Raycast(o.transform.position, -Vector3.up, out hit, Distance))
+                    GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, -Vector3.up, Distance,
+                        ref control.animationProgress.CollidingPoint);
+
+                    if (blockingObj != null)
                     {
-                        if (!control.BodyParts.Contains(hit.collider)
-                            && !Ledge.IsLedgeChecker(hit.collider.gameObject)
-                            && !Ledge.IsCharacter(hit.collider.gameObject))
+                        CharacterControl c = CharacterManager.Instance.GetCharacter(blockingObj.transform.root.gameObject);
+
+                        if (c == null)
                         {
-                            control.animationProgress.Ground = hit.collider.transform.root.gameObject;
+                            control.animationProgress.Ground = blockingObj.transform.root.gameObject;
                             control.animationProgress.LandingPosition = new Vector3(
                                 0f,
-                                hit.point.y,
-                                hit.point.z);
-                            if (control.SubComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
-                            {
-                                //TESTING_SPHERE.transform.position = control.animationProgress.LandingPosition;
-                            }
+                                control.animationProgress.CollidingPoint.y,
+                                control.animationProgress.CollidingPoint.z);
                             return true;
                         }
                     }
