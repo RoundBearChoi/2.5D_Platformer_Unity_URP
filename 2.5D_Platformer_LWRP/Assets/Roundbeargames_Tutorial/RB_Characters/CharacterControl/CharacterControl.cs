@@ -53,6 +53,9 @@ namespace Roundbeargames
         public Dictionary<BoolData, GetBool> BoolDic = new Dictionary<BoolData, GetBool>();
         public delegate bool GetBool();
 
+        public Dictionary<ListData, GetList> ListDic = new Dictionary<ListData, GetList>();
+        public delegate List<GameObject> GetList();
+
         public Dictionary<CharacterProc, CharacterProcDel> ProcDic = new Dictionary<CharacterProc, CharacterProcDel>();
         public delegate void CharacterProcDel();
 
@@ -244,6 +247,7 @@ namespace Roundbeargames
         {
             FixedUpdateSubComponent(SubComponents.LEDGECHECKER);
             FixedUpdateSubComponent(SubComponents.RAGDOLL);
+            FixedUpdateSubComponent(SubComponents.BLOCKINGOBJECTS);
 
             if (!animationProgress.CancelPull)
             {

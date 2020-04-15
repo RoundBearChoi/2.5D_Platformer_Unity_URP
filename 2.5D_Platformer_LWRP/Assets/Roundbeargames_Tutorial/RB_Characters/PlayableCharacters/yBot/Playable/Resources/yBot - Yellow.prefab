@@ -4510,6 +4510,7 @@ Transform:
   - {fileID: 3690009214983129773}
   - {fileID: 8413069498202938682}
   - {fileID: 3518825847605337136}
+  - {fileID: 734756287284424899}
   m_Father: {fileID: 7198515055300973108}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5683,6 +5684,53 @@ Transform:
   m_Father: {fileID: 5178236106632405231}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5998177520171330423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 734756287284424899}
+  - component: {fileID: 8171604794166710795}
+  m_Layer: 9
+  m_Name: BlockingObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &734756287284424899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5998177520171330423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8457966283628990782}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8171604794166710795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5998177520171330423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da350e455f304504dbcdea6196a09bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  control: {fileID: 0}
+  MarioStompTargets: []
+  FrontBlockingObjsList: []
+  FrontBlockingCharacters: []
 --- !u!1 &6095560223106577404
 GameObject:
   m_ObjectHideFlags: 0
@@ -6465,13 +6513,13 @@ MonoBehaviour:
   LockDirectionNextState: 0
   IsIgnoreCharacterTime: 0
   Ground: {fileID: 0}
+  CollidingPoint: {x: 0, y: 0, z: 0}
   Jumped: 0
   AirMomentum: 0
   CancelPull: 0
   MaxFallVelocity: {x: 0, y: 0, z: 0}
   CanWallJump: 0
   CheckWallBlock: 0
-  MarioStompTargets: []
   UpdatingSpheres: 0
   TargetSize: {x: 0, y: 0, z: 0}
   Size_Speed: 0

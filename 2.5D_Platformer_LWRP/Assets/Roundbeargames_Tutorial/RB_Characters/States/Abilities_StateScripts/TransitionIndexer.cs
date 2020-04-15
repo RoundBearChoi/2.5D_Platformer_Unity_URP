@@ -239,11 +239,11 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.MOVING_TO_BLOCKING_OBJ:
                         {
-                            foreach(KeyValuePair<GameObject, GameObject> data in
-                                control.animationProgress.FrontBlockingObjs)
+                            List<GameObject> objs = control.ListDic[ListData.FRONTBLOCKING_OBJS]();
+
+                            foreach(GameObject o in objs)
                             {
-                                Vector3 dir = data.Value.transform.position -
-                                control.transform.position;
+                                Vector3 dir = o.transform.position - control.transform.position;
 
                                 if (dir.z > 0f && !control.MoveRight)
                                 {

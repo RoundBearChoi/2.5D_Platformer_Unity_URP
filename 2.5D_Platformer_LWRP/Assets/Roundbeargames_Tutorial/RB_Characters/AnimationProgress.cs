@@ -14,7 +14,6 @@ namespace Roundbeargames
 
         public MoveForward LatestMoveForward;
         public MoveUp LatestMoveUp;
-        private List<GameObject> FrontSpheresList;
 
         [Header("Attack Button")]
         public bool AttackTriggered;
@@ -24,7 +23,6 @@ namespace Roundbeargames
         public bool disallowEarlyTurn;
         public bool LockDirectionNextState;
         public bool IsIgnoreCharacterTime;
-        private float DirBlock;
 
         [Header("Colliding Objects")]
         public GameObject Ground;
@@ -32,13 +30,6 @@ namespace Roundbeargames
             new Dictionary<TriggerDetector, List<Collider>>();
         public Dictionary<TriggerDetector, List<Collider>> CollidingBodyParts =
             new Dictionary<TriggerDetector, List<Collider>>();
-
-        public Dictionary<GameObject, GameObject> FrontBlockingObjs =
-            new Dictionary<GameObject, GameObject>();
-        public Dictionary<GameObject, GameObject> UpBlockingObjs =
-            new Dictionary<GameObject, GameObject>();
-        public Dictionary<GameObject, GameObject> DownBlockingObjs =
-            new Dictionary<GameObject, GameObject>();
 
         public Vector3 CollidingPoint = new Vector3();
 
@@ -49,7 +40,6 @@ namespace Roundbeargames
         public Vector3 MaxFallVelocity;
         public bool CanWallJump;
         public bool CheckWallBlock;
-        public List<CharacterControl> MarioStompTargets = new List<CharacterControl>();
 
         [Header("UpdateBoxCollider")]
         public bool UpdatingSpheres;
@@ -112,192 +102,12 @@ namespace Roundbeargames
             }
         }
 
-        private void FixedUpdate()
-        {
-            if (IsRunning(typeof(MoveForward)))
-            {
-                CheckFrontBlocking();
-            }
-            else
-            {
-                if (FrontBlockingObjs.Count != 0)
-                {
-                    FrontBlockingObjs.Clear();
-                }
-            }
-
-            // checking while ledge grabbing
-            if (IsRunning(typeof(MoveUp)))
-            {
-                if (LatestMoveUp.Speed > 0f)
-                {
-                    CheckUpBlocking();
-                }
-            }
-            else
-            {
-                // checking while jumping up
-                if (control.RIGID_BODY.velocity.y > 0.001f)
-                {
-                    CheckUpBlocking();
-
-                    foreach(KeyValuePair<GameObject, GameObject> data in UpBlockingObjs)
-                    {
-                        CharacterControl c = CharacterManager.Instance.GetCharacter(
-                            data.Value.transform.root.gameObject);
-
-                        if (c == null)
-                        {
-                            NullifyUpVelocity();
-                            break;
-                        }
-                        else
-                        {
-                            if (control.transform.position.y + control.boxCollider.center.y <
-                                c.transform.position.y)
-                            {
-                                NullifyUpVelocity();
-                                break;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if (UpBlockingObjs.Count != 0)
-                    {
-                        UpBlockingObjs.Clear();
-                    }
-                }
-            }
-
-            CheckMarioStomp();
-        }
-
-        void NullifyUpVelocity()
+        public void NullifyUpVelocity()
         {
             control.RIGID_BODY.velocity = new Vector3(
                             control.RIGID_BODY.velocity.x,
                             0f,
                             control.RIGID_BODY.velocity.z);
-        }
-
-        void CheckMarioStomp()
-        {
-            if (control.RIGID_BODY.velocity.y >= 0f)
-            {
-                MarioStompTargets.Clear();
-                DownBlockingObjs.Clear();
-                return;
-            }
-
-            if (MarioStompTargets.Count > 0)
-            {
-                control.RIGID_BODY.velocity = Vector3.zero;
-                control.RIGID_BODY.AddForce(Vector3.up * 250f);
-
-                foreach(CharacterControl c in MarioStompTargets)
-                {
-                    AttackInfo info = new AttackInfo();
-                    info.CopyInfo(c.damageDetector.MarioStompAttack, control);
-
-                    int index = Random.Range(0, c.BodyParts.Count);
-                    c.damageDetector.DamagedTrigger = c.BodyParts[index].GetComponent<TriggerDetector>();
-                    c.damageDetector.Attack = c.damageDetector.MarioStompAttack;
-                    c.damageDetector.Attacker = control;
-                    c.damageDetector.AttackingPart = control.RightFoot_Attack;
-
-                    c.damageDetector.TakeDamage(info);
-                }
-
-                MarioStompTargets.Clear();
-                return;
-            }
-
-            CheckDownBlocking();
-
-            if (DownBlockingObjs.Count > 0)
-            {
-                foreach(KeyValuePair<GameObject, GameObject> data in DownBlockingObjs)
-                {
-                    CharacterControl c = CharacterManager.Instance.
-                        GetCharacter(data.Value.transform.root.gameObject);
-
-                    if (c != null)
-                    {
-                        if (c.boxCollider.center.y + c.transform.position.y < control.transform.position.y)
-                        {
-                            if (c != control)
-                            {
-                                if (!MarioStompTargets.Contains(c))
-                                {
-                                    MarioStompTargets.Add(c);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        void AddBlockingObjToDic(Dictionary<GameObject, GameObject> dic, GameObject key, GameObject value)
-        {
-            if (dic.ContainsKey(key))
-            {
-                dic[key] = value;
-            }
-            else
-            {
-                dic.Add(key, value);
-            }
-        }
-
-        void RemoveBlockingObjFromDic(Dictionary<GameObject, GameObject> dic, GameObject key)
-        {
-            if (dic.ContainsKey(key))
-            {
-                dic.Remove(key);
-            }
-        }
-
-        void CheckDownBlocking()
-        {
-            foreach (GameObject o in control.collisionSpheres.BottomSpheres)
-            {
-                GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, Vector3.down, 0.1f,
-                    ref control.animationProgress.CollidingPoint);
-
-                if (blockingObj != null)
-                {
-                    AddBlockingObjToDic(DownBlockingObjs, o, blockingObj);
-                }
-                else
-                {
-                    RemoveBlockingObjFromDic(DownBlockingObjs, o);
-                }
-
-                //CheckRaycastCollision(o, Vector3.down, 0.1f, DownBlockingObjs);
-            }
-        }
-
-        void CheckUpBlocking()
-        {
-            foreach (GameObject o in control.collisionSpheres.UpSpheres)
-            {
-                GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, this.transform.up, 0.3f,
-                    ref control.animationProgress.CollidingPoint);
-
-                if (blockingObj != null)
-                {
-                    AddBlockingObjToDic(UpBlockingObjs, o, blockingObj);
-                }
-                else
-                {
-                    RemoveBlockingObjFromDic(UpBlockingObjs, o);
-                }
-
-                //CheckRaycastCollision(o, this.transform.up, 0.3f, UpBlockingObjs);
-            }
         }
 
         public bool IsFacingAttacker()
@@ -331,7 +141,7 @@ namespace Roundbeargames
             return true;
         }
 
-        bool ForwardIsReversed()
+        public bool ForwardIsReversed()
         {
             if (LatestMoveForward.MoveOnHit)
             {
@@ -357,55 +167,6 @@ namespace Roundbeargames
             return false;
         }
 
-        void CheckFrontBlocking()
-        {
-            if (!ForwardIsReversed())
-            {
-                FrontSpheresList = control.collisionSpheres.FrontSpheres;
-                DirBlock = 1f;
-
-                foreach(GameObject s in control.collisionSpheres.BackSpheres)
-                {
-                    if (FrontBlockingObjs.ContainsKey(s))
-                    {
-                        FrontBlockingObjs.Remove(s);
-                    }
-                }
-            }
-            else
-            {
-                FrontSpheresList = control.collisionSpheres.BackSpheres;
-                DirBlock = -1f;
-
-                foreach (GameObject s in control.collisionSpheres.FrontSpheres)
-                {
-                    if (FrontBlockingObjs.ContainsKey(s))
-                    {
-                        FrontBlockingObjs.Remove(s);
-                    }
-                }
-            }
-
-            foreach (GameObject o in FrontSpheresList)
-            {
-                GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, this.transform.forward * DirBlock,
-                    LatestMoveForward.BlockDistance,
-                    ref control.animationProgress.CollidingPoint);
-
-                if (blockingObj != null)
-                {
-                    AddBlockingObjToDic(FrontBlockingObjs, o, blockingObj);
-                }
-                else
-                {
-                    RemoveBlockingObjFromDic(FrontBlockingObjs, o);
-                }
-
-                //CheckRaycastCollision(o, this.transform.forward * DirBlock, LatestMoveForward.BlockDistance,
-                //    FrontBlockingObjs);
-            }
-        }
-
         public bool IsRunning(System.Type type)
         {
             foreach(KeyValuePair<StateData, int> data in CurrentRunningAbilities)
@@ -426,42 +187,6 @@ namespace Roundbeargames
             foreach(AnimatorClipInfo clipInfo in arr)
             {
                 if (clipInfo.clip.name.Contains(str))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-
-            //foreach (KeyValuePair<StateData, int> data in CurrentRunningAbilities)
-            //{
-            //    if (data.Key.name.Contains(str))
-            //    {
-            //        return true;
-            //    }
-            //}
-            //
-            //return false;
-        }
-
-        public bool RightSideIsBlocked()
-        {
-            foreach(KeyValuePair<GameObject, GameObject> data in FrontBlockingObjs)
-            {
-                if ((data.Value.transform.position - control.transform.position).z > 0f)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        public bool LeftSideIsBlocked()
-        {
-            foreach (KeyValuePair<GameObject, GameObject> data in FrontBlockingObjs)
-            {
-                if ((data.Value.transform.position - control.transform.position).z < 0f)
                 {
                     return true;
                 }

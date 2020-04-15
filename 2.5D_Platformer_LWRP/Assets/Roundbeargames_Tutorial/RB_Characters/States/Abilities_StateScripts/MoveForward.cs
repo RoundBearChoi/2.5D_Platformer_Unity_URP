@@ -133,7 +133,7 @@ namespace Roundbeargames
 
         private void UpdateMomentum(CharacterControl control, AnimatorStateInfo stateInfo)
         {
-            if (!control.animationProgress.RightSideIsBlocked())
+            if (!control.BoolDic[BoolData.RIGHTSIDE_BLOCKED]())
             {
                 if (control.MoveRight)
                 {
@@ -141,7 +141,7 @@ namespace Roundbeargames
                 }
             }
             
-            if (!control.animationProgress.LeftSideIsBlocked())
+            if (!control.BoolDic[BoolData.LEFTSIDE_BLOCKED]())
             {
                 if (control.MoveLeft)
                 {
@@ -149,8 +149,7 @@ namespace Roundbeargames
                 }
             }
 
-            if (control.animationProgress.RightSideIsBlocked() ||
-                control.animationProgress.LeftSideIsBlocked())
+            if (control.BoolDic[BoolData.RIGHTSIDE_BLOCKED]() || control.BoolDic[BoolData.LEFTSIDE_BLOCKED]())
             {
                 control.animationProgress.AirMomentum =
                     Mathf.Lerp(control.animationProgress.AirMomentum, 0f, Time.deltaTime * 1.5f);  
@@ -284,7 +283,7 @@ namespace Roundbeargames
            
         bool IsBlocked(CharacterControl control, float speed, AnimatorStateInfo stateInfo)
         {
-            if (control.animationProgress.FrontBlockingObjs.Count != 0)
+            if (!control.BoolDic[BoolData.FRONTBLOCKINGOBJDIC_EMPTY]())
             {
                 return true;
             }

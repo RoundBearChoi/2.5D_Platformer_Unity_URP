@@ -42,16 +42,17 @@ namespace Roundbeargames
             }
 
             // path is blocked
-            if (characterState.characterControl.animationProgress.FrontBlockingObjs.Count == 0)
+            if (characterState.characterControl.BoolDic[BoolData.FRONTBLOCKINGOBJDIC_EMPTY]())
             {
                 characterState.characterControl.aiProgress.BlockingCharacter = null;
             }
             else
             {
-                foreach (KeyValuePair<GameObject, GameObject> data in
-                characterState.characterControl.animationProgress.FrontBlockingObjs)
+                List<GameObject> objs = characterState.characterControl.ListDic[ListData.FRONTBLOCKING_CHARACTERS]();
+
+                foreach(GameObject o in objs)
                 {
-                    CharacterControl blockingChar = CharacterManager.Instance.GetCharacter(data.Value);
+                    CharacterControl blockingChar = CharacterManager.Instance.GetCharacter(o);
 
                     if (blockingChar != null)
                     {
