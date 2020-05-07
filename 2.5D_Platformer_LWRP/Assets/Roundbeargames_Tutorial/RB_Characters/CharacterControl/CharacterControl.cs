@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Roundbeargames.Datasets;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -50,6 +51,8 @@ namespace Roundbeargames
         public InstaKill instaKill;
         public Dictionary<SubComponents, SubComponent> SubComponentsDic = new Dictionary<SubComponents, SubComponent>();
 
+        public DataProcessor dataProcessor;
+
         public Dictionary<BoolData, GetBool> BoolDic = new Dictionary<BoolData, GetBool>();
         public delegate bool GetBool();
 
@@ -100,6 +103,12 @@ namespace Roundbeargames
             collisionSpheres = GetComponentInChildren<CollisionSpheres>();
             collisionSpheres.owner = this;
             collisionSpheres.SetColliderSpheres();
+
+            dataProcessor = this.gameObject.GetComponentInChildren<DataProcessor>();
+            System.Type[] arr = { 
+                typeof(AirControl),
+                typeof(SomeDataset)};
+            dataProcessor.InitializeSets(arr);
 
             aiController = GetComponentInChildren<AIController>();
             if (aiController == null)
