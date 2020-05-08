@@ -53,11 +53,11 @@ namespace Roundbeargames
 
         public DataProcessor dataProcessor;
 
-        public AirControl AIR_CONTROL
+        public Dataset AIR_CONTROL
         {
             get
             {
-                return (AirControl)dataProcessor.GetDataset(typeof(AirControl));
+                return dataProcessor.GetDataset(typeof(AirControl));
             }
         }
 
