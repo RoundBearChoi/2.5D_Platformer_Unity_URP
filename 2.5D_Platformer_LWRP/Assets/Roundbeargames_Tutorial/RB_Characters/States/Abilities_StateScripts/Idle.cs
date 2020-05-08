@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Roundbeargames.Datasets;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +24,9 @@ namespace Roundbeargames
 
             if (characterState.characterControl.Jump)
             {
-                if (!characterState.characterControl.animationProgress.Jumped)
+                bool jumped = characterState.characterControl.AIR_CONTROL.GetBool((int)AirControlBool.JUMPED);
+
+                if (!jumped)
                 {
                     if (characterState.characterControl.animationProgress.Ground != null)
                     {
@@ -36,7 +39,7 @@ namespace Roundbeargames
                 if (!characterState.characterControl.animationProgress.
                     IsRunning(typeof(Jump)))
                 {
-                    characterState.characterControl.animationProgress.Jumped = false;
+                    characterState.characterControl.AIR_CONTROL.SetBool((int)AirControlBool.JUMPED, false);
                 }
             }
 

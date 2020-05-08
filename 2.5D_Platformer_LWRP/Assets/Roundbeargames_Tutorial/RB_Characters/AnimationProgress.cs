@@ -33,14 +33,6 @@ namespace Roundbeargames
 
         public Vector3 CollidingPoint = new Vector3();
 
-        [Header("AirControl")]
-        public bool Jumped;
-        public float AirMomentum;
-        public bool CancelPull;
-        public Vector3 MaxFallVelocity;
-        public bool CanWallJump;
-        public bool CheckWallBlock;
-
         [Header("UpdateBoxCollider")]
         public bool UpdatingSpheres;
         public Vector3 TargetSize;

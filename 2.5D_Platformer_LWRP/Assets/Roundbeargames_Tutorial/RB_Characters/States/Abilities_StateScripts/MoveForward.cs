@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Roundbeargames.Datasets;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -54,11 +55,11 @@ namespace Roundbeargames
             {
                 if (characterState.characterControl.IsFacingForward())
                 {
-                    characterState.characterControl.animationProgress.AirMomentum = StartingMomentum;
+                    characterState.characterControl.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, StartingMomentum);
                 }
                 else
                 {
-                    characterState.characterControl.animationProgress.AirMomentum = -StartingMomentum;
+                    characterState.characterControl.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, -StartingMomentum);
                 }
             }
 
@@ -127,17 +128,21 @@ namespace Roundbeargames
         {
             if (ClearMomentumOnExit)
             {
-                characterState.characterControl.animationProgress.AirMomentum = 0f;
+                characterState.characterControl.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, 0f);
             }
         }
 
         private void UpdateMomentum(CharacterControl control, AnimatorStateInfo stateInfo)
         {
+            // current air momentum
+            float momentum = control.AIR_CONTROL.GetFloat((int)AirControlFloat.AIR_MOMENTUM);
+            float speed = SpeedGraph.Evaluate(stateInfo.normalizedTime) * Speed * Time.deltaTime;
+
             if (!control.BoolDic[BoolData.RIGHTSIDE_BLOCKED]())
             {
                 if (control.MoveRight)
                 {
-                    control.animationProgress.AirMomentum += SpeedGraph.Evaluate(stateInfo.normalizedTime) * Speed * Time.deltaTime;
+                    control.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, momentum + speed);
                 }
             }
             
@@ -145,41 +150,42 @@ namespace Roundbeargames
             {
                 if (control.MoveLeft)
                 {
-                    control.animationProgress.AirMomentum -= SpeedGraph.Evaluate(stateInfo.normalizedTime) * Speed * Time.deltaTime;
+                    control.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, momentum - speed);
                 }
             }
 
             if (control.BoolDic[BoolData.RIGHTSIDE_BLOCKED]() || control.BoolDic[BoolData.LEFTSIDE_BLOCKED]())
             {
-                control.animationProgress.AirMomentum =
-                    Mathf.Lerp(control.animationProgress.AirMomentum, 0f, Time.deltaTime * 1.5f);  
+                float lerped = Mathf.Lerp(momentum, 0f, Time.deltaTime * 1.5f);
+
+                control.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, lerped);
             }
             
 
-            if (Mathf.Abs(control.animationProgress.AirMomentum) >= MaxMomentum)
+            if (Mathf.Abs(momentum) >= MaxMomentum)
             {
-                if (control.animationProgress.AirMomentum > 0f)
+                if (momentum > 0f)
                 {
-                    control.animationProgress.AirMomentum = MaxMomentum;
+                    control.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, MaxMomentum);
                 }
-                else if (control.animationProgress.AirMomentum < 0f)
+                else if (momentum < 0f)
                 {
-                    control.animationProgress.AirMomentum = -MaxMomentum;
+                    control.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, -MaxMomentum);
                 }
             }
 
-            if (control.animationProgress.AirMomentum > 0f)
+            if (momentum > 0f)
             {
                 control.FaceForward(true);
             }
-            else if (control.animationProgress.AirMomentum < 0f)
+            else if (momentum < 0f)
             {
                 control.FaceForward(false);
             }
 
             if (!IsBlocked(control, Speed, stateInfo))
             {
-                control.MoveForward(Speed, Mathf.Abs(control.animationProgress.AirMomentum));
+                control.MoveForward(Speed, Mathf.Abs(momentum));
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Roundbeargames.Datasets;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Roundbeargames
 
         private void FixedUpdate()
         {
-            if (control.animationProgress.CheckWallBlock)
+            if (control.AIR_CONTROL.GetBool((int)AirControlBool.CHECK_WALL_BLOCK))
             {
                 if (control.collisionSpheres.FrontOverlapCheckers.Contains(this))
                 {

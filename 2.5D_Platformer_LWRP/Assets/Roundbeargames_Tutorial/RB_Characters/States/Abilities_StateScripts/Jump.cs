@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Roundbeargames.Datasets;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,25 +17,25 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            characterState.characterControl.animationProgress.Jumped = false;
+            characterState.characterControl.AIR_CONTROL.SetBool((int)AirControlBool.JUMPED, false);
 
             if (JumpTiming == 0f)
             {
                 characterState.characterControl.RIGID_BODY.AddForce(Vector3.up * JumpForce);
-                characterState.characterControl.animationProgress.Jumped = true;
+                characterState.characterControl.AIR_CONTROL.SetBool((int)AirControlBool.JUMPED, true);
             }
 
-            characterState.characterControl.animationProgress.CancelPull = CancelPull;
+            characterState.characterControl.AIR_CONTROL.SetBool((int)AirControlBool.CANCEL_PULL, CancelPull);
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //characterState.characterControl.PullMultiplier = Pull.Evaluate(stateInfo.normalizedTime);
+            bool jumped = characterState.characterControl.AIR_CONTROL.GetBool((int)AirControlBool.JUMPED);
 
-            if (!characterState.characterControl.animationProgress.Jumped && stateInfo.normalizedTime >= JumpTiming)
+            if (!jumped && stateInfo.normalizedTime >= JumpTiming)
             {
                 characterState.characterControl.RIGID_BODY.AddForce(Vector3.up * JumpForce);
-                characterState.characterControl.animationProgress.Jumped = true;
+                characterState.characterControl.AIR_CONTROL.SetBool((int)AirControlBool.JUMPED, true);
             }
         }
 
