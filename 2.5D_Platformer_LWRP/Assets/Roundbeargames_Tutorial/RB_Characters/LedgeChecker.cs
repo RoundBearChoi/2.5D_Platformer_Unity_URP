@@ -18,7 +18,7 @@ namespace Roundbeargames
         {
             isGrabbingLedge = false;
 
-            control.SubComponentsDic.Add(SubComponents.LEDGECHECKER, this);
+            subComponentProcessor.ComponentsDic.Add(SubComponents.LEDGECHECKER, this);
 
             control.ProcDic.Add(CharacterProc.LEDGE_COLLIDERS_OFF, LedgeCollidersOff);
             control.BoolDic.Add(BoolData.GRABBING_LEDGE, IsGrabbingLedge);

@@ -262,7 +262,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.DOUBLE_TAP_UP:
                         {
-                            if (!control.SubComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
+                            if (!control.subComponentProcessor.ComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
                             {
                                 return false;
                             }
@@ -275,7 +275,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.DOUBLE_TAP_DOWN:
                         {
-                            if (!control.SubComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
+                            if (!control.subComponentProcessor.ComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
                             {
                                 return false;
                             }

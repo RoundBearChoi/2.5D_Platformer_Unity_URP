@@ -10,7 +10,7 @@ namespace Roundbeargames
 
         private void Start()
         {
-            control.SubComponentsDic.Add(SubComponents.RAGDOLL, this);
+            subComponentProcessor.ComponentsDic.Add(SubComponents.RAGDOLL, this);
             control.ProcDic.Add(CharacterProc.RAGDOLL_ON, TurnOnRagdoll);
         }
 

@@ -4489,6 +4489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8457966283628990782}
+  - component: {fileID: 4370680994593391371}
   m_Layer: 9
   m_Name: SubComponents
   m_TagString: Untagged
@@ -4514,6 +4515,19 @@ Transform:
   m_Father: {fileID: 7198515055300973108}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4370680994593391371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140155050568985211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0b081e242c4ed478fc91208b9e457b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  control: {fileID: 0}
 --- !u!1 &3299876615741576762
 GameObject:
   m_ObjectHideFlags: 0
@@ -5178,7 +5192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc215bbaa6952747bfc74ab07edcb41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
 --- !u!1 &4213738526981836892
 GameObject:
   m_ObjectHideFlags: 0
@@ -5610,7 +5623,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894bdb8c91ebe594395957cbb32d7090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
   isGrabbingLedge: 0
   LedgeCalibration: {x: 0, y: -2.3, z: -0.1}
   Collider1: {fileID: 6935082071955424662}
@@ -5727,7 +5739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da350e455f304504dbcdea6196a09bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
   MarioStompTargets: []
   FrontBlockingObjsList: []
   FrontBlockingCharacters: []
@@ -5926,7 +5937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535d000348085b545a007c16dc5c17b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
   DoubleTaps: 
 --- !u!1 &6578704641465820538
 GameObject:
@@ -6442,6 +6452,7 @@ MonoBehaviour:
   Jump: 0
   Attack: 0
   Block: 0
+  subComponentProcessor: {fileID: 0}
   animationProgress: {fileID: 0}
   aiProgress: {fileID: 0}
   damageDetector: {fileID: 0}
@@ -6559,12 +6570,6 @@ MonoBehaviour:
   IsIgnoreCharacterTime: 0
   Ground: {fileID: 0}
   CollidingPoint: {x: 0, y: 0, z: 0}
-  Jumped: 0
-  AirMomentum: 0
-  CancelPull: 0
-  MaxFallVelocity: {x: 0, y: 0, z: 0}
-  CanWallJump: 0
-  CheckWallBlock: 0
   UpdatingSpheres: 0
   TargetSize: {x: 0, y: 0, z: 0}
   Size_Speed: 0

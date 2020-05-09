@@ -13,7 +13,7 @@ namespace Roundbeargames
 
         private void Start()
         {
-            control.SubComponentsDic.Add(SubComponents.MANUALINPUT, this);
+            subComponentProcessor.ComponentsDic.Add(SubComponents.MANUALINPUT, this);
 
             control.BoolDic.Add(BoolData.DOUBLETAP_UP, IsDoubleTap_Up);
             control.BoolDic.Add(BoolData.DOUBLETAP_DOWN, IsDoubleTap_Down);

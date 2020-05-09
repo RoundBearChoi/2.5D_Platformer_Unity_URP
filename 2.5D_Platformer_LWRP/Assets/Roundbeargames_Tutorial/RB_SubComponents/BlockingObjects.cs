@@ -20,7 +20,7 @@ namespace Roundbeargames
 
         private void Start()
         {
-            control.SubComponentsDic.Add(SubComponents.BLOCKINGOBJECTS, this);
+            subComponentProcessor.ComponentsDic.Add(SubComponents.BLOCKINGOBJECTS, this);
 
             control.ProcDic.Add(CharacterProc.CLEAR_FRONTBLOCKINGOBJDIC, ClearFrontBlockingObjDic);
 

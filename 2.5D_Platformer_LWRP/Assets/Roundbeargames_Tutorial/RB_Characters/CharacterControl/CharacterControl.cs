@@ -39,6 +39,7 @@ namespace Roundbeargames
         public bool Block;
 
         [Header("SubComponents")]
+        public SubComponentProcessor subComponentProcessor;
         //public ManualInput manualInput;
         //public LedgeChecker ledgeChecker;
         public AnimationProgress animationProgress;
@@ -49,7 +50,6 @@ namespace Roundbeargames
         public BoxCollider boxCollider;
         public NavMeshObstacle navMeshObstacle;
         public InstaKill instaKill;
-        public Dictionary<SubComponents, SubComponent> SubComponentsDic = new Dictionary<SubComponents, SubComponent>();
 
         public DataProcessor dataProcessor;
 
@@ -99,6 +99,7 @@ namespace Roundbeargames
 
         private void Awake()
         {
+            subComponentProcessor = GetComponentInChildren<SubComponentProcessor>();
             //manualInput = GetComponent<ManualInput>();
             //ledgeChecker = GetComponentInChildren<LedgeChecker>();
             animationProgress = GetComponent<AnimationProgress>();
@@ -239,32 +240,14 @@ namespace Roundbeargames
             }
         }
 
-        void UpdateSubComponent(SubComponents type)
-        {
-            if (SubComponentsDic.ContainsKey(type))
-            {
-                SubComponentsDic[type].OnUpdate();
-            }
-        }
-
-        void FixedUpdateSubComponent(SubComponents type)
-        {
-            if (SubComponentsDic.ContainsKey(type))
-            {
-                SubComponentsDic[type].OnFixedUpdate();
-            }
-        }
-
         private void Update()
         {
-            UpdateSubComponent(SubComponents.MANUALINPUT);
+            subComponentProcessor.UpdateSubComponents();
         }
 
         private void FixedUpdate()
         {
-            FixedUpdateSubComponent(SubComponents.LEDGECHECKER);
-            FixedUpdateSubComponent(SubComponents.RAGDOLL);
-            FixedUpdateSubComponent(SubComponents.BLOCKINGOBJECTS);
+            subComponentProcessor.FixedUpdateSubComponents();
 
             bool cancelPull = AIR_CONTROL.GetBool((int)AirControlBool.CANCEL_PULL);
 
