@@ -6,26 +6,34 @@ namespace Roundbeargames
 {
     public class BlockingObjects : SubComponent
     {
-        public Dictionary<GameObject, GameObject> FrontBlockingObjs = new Dictionary<GameObject, GameObject>();
-        public Dictionary<GameObject, GameObject> UpBlockingObjs = new Dictionary<GameObject, GameObject>();
-        public Dictionary<GameObject, GameObject> DownBlockingObjs = new Dictionary<GameObject, GameObject>();
+        public BlockingObjData blockingData;
 
-        public List<CharacterControl> MarioStompTargets = new List<CharacterControl>();
+        Dictionary<GameObject, GameObject> FrontBlockingObjs = new Dictionary<GameObject, GameObject>();
+        Dictionary<GameObject, GameObject> UpBlockingObjs = new Dictionary<GameObject, GameObject>();
+        Dictionary<GameObject, GameObject> DownBlockingObjs = new Dictionary<GameObject, GameObject>();
 
-        public List<GameObject> FrontBlockingObjsList = new List<GameObject>();
-        public List<GameObject> FrontBlockingCharacters = new List<GameObject>();
+        List<CharacterControl> MarioStompTargets = new List<CharacterControl>();
 
-        private List<GameObject> FrontSpheresList;
-        private float DirBlock;
+        List<GameObject> FrontBlockingObjsList = new List<GameObject>();
+        List<GameObject> FrontBlockingCharacters = new List<GameObject>();
+
+        List<GameObject> FrontSpheresList;
+        float DirBlock;
 
         private void Start()
         {
+            blockingData = new BlockingObjData
+            {
+                FrontBlockingDicCount = 0,
+                UpBlockingDicCount = 0,
+            };
+
+            subComponentProcessor.blockingData = blockingData;
+
             subComponentProcessor.ComponentsDic.Add(SubComponents.BLOCKINGOBJECTS, this);
 
             control.ProcDic.Add(CharacterProc.CLEAR_FRONTBLOCKINGOBJDIC, ClearFrontBlockingObjDic);
 
-            control.BoolDic.Add(BoolData.UPBLOCKINGOBJDIC_EMPTY, UpBlockingObjDicIsEmpty);
-            control.BoolDic.Add(BoolData.FRONTBLOCKINGOBJDIC_EMPTY, FrontBlockingObjDicIsEmpty);
             control.BoolDic.Add(BoolData.RIGHTSIDE_BLOCKED, RightSideIsBlocked);
             control.BoolDic.Add(BoolData.LEFTSIDE_BLOCKED, LeftSideIsBlocked);
 
@@ -93,6 +101,9 @@ namespace Roundbeargames
             }
 
             CheckMarioStomp();
+
+            blockingData.FrontBlockingDicCount = FrontBlockingObjs.Count;
+            blockingData.UpBlockingDicCount = UpBlockingObjs.Count;
         }
 
         public override void OnUpdate()

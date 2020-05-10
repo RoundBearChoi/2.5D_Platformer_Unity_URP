@@ -20,8 +20,6 @@ namespace Roundbeargames
         DOUBLETAP_DOWN,
         GRABBING_LEDGE,
 
-        UPBLOCKINGOBJDIC_EMPTY,
-        FRONTBLOCKINGOBJDIC_EMPTY,
         RIGHTSIDE_BLOCKED,
         LEFTSIDE_BLOCKED,
     }

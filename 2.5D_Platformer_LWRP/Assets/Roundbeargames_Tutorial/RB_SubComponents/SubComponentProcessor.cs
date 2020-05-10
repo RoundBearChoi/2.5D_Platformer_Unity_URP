@@ -9,6 +9,8 @@ namespace Roundbeargames
         public Dictionary<SubComponents, SubComponent> ComponentsDic = new Dictionary<SubComponents, SubComponent>();
         public CharacterControl control;
 
+        public BlockingObjData blockingData;
+
         private void Awake()
         {
             control = GetComponentInParent<CharacterControl>();

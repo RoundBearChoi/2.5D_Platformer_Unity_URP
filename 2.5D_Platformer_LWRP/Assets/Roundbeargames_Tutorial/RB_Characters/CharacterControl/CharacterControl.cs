@@ -53,6 +53,8 @@ namespace Roundbeargames
 
         public DataProcessor dataProcessor;
 
+        public BlockingObjData BLOCKING_DATA => subComponentProcessor.blockingData;
+
         public Dataset AIR_CONTROL
         {
             get

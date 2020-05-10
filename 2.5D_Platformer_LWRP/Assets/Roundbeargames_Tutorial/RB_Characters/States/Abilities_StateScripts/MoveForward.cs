@@ -183,7 +183,7 @@ namespace Roundbeargames
                 control.FaceForward(false);
             }
 
-            if (!IsBlocked(control, Speed, stateInfo))
+            if (!IsBlocked(control))
             {
                 control.MoveForward(Speed, Mathf.Abs(momentum));
             }
@@ -191,7 +191,7 @@ namespace Roundbeargames
 
         private void ConstantMove(CharacterControl control, Animator animator, AnimatorStateInfo stateInfo)
         {
-            if (!IsBlocked(control, Speed, stateInfo))
+            if (!IsBlocked(control))
             {
                 if (MoveOnHit)
                 {
@@ -236,7 +236,7 @@ namespace Roundbeargames
 
             if (control.MoveRight)
             {
-                if (!IsBlocked(control, Speed, stateInfo))
+                if (!IsBlocked(control))
                 {
                     control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
                 }
@@ -244,7 +244,7 @@ namespace Roundbeargames
 
             if (control.MoveLeft)
             {
-                if (!IsBlocked(control, Speed, stateInfo))
+                if (!IsBlocked(control))
                 {
                     control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
                 }
@@ -287,9 +287,9 @@ namespace Roundbeargames
             }
         }
            
-        bool IsBlocked(CharacterControl control, float speed, AnimatorStateInfo stateInfo)
+        bool IsBlocked(CharacterControl control)
         {
-            if (!control.BoolDic[BoolData.FRONTBLOCKINGOBJDIC_EMPTY]())
+            if (control.BLOCKING_DATA.FrontBlockingDicCount != 0)
             {
                 return true;
             }

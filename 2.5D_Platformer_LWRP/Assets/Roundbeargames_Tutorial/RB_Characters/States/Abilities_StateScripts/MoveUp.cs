@@ -19,7 +19,7 @@ namespace Roundbeargames
         {
             if (!characterState.characterControl.RIGID_BODY.useGravity)
             {
-                if (characterState.characterControl.BoolDic[BoolData.UPBLOCKINGOBJDIC_EMPTY]())
+                if (characterState.BLOCKING_DATA.UpBlockingDicCount == 0)
                 {
                     characterState.characterControl.transform.
                         Translate(Vector3.up * Speed *

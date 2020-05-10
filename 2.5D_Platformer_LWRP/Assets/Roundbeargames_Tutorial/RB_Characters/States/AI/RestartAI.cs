@@ -42,7 +42,7 @@ namespace Roundbeargames
             }
 
             // path is blocked
-            if (characterState.characterControl.BoolDic[BoolData.FRONTBLOCKINGOBJDIC_EMPTY]())
+            if (characterState.BLOCKING_DATA.FrontBlockingDicCount == 0)
             {
                 characterState.characterControl.aiProgress.BlockingCharacter = null;
             }
