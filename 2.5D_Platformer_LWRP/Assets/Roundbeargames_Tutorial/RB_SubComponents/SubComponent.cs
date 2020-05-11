@@ -19,15 +19,6 @@ namespace Roundbeargames
         DOUBLETAP_UP,
         DOUBLETAP_DOWN,
         GRABBING_LEDGE,
-
-        RIGHTSIDE_BLOCKED,
-        LEFTSIDE_BLOCKED,
-    }
-
-    public enum ListData
-    {
-        FRONTBLOCKING_CHARACTERS,
-        FRONTBLOCKING_OBJS,
     }
 
     public enum CharacterProc
@@ -35,8 +26,6 @@ namespace Roundbeargames
         NONE,
         LEDGE_COLLIDERS_OFF,
         RAGDOLL_ON,
-
-        CLEAR_FRONTBLOCKINGOBJDIC,
     }
 
     public abstract class SubComponent : MonoBehaviour

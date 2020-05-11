@@ -15,7 +15,7 @@ namespace Roundbeargames
             animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
 
             characterState.characterControl.animationProgress.disallowEarlyTurn = false;
-            characterState.characterControl.ProcDic[CharacterProc.CLEAR_FRONTBLOCKINGOBJDIC]();
+            characterState.BLOCKING_DATA.ClearFrontBlockingObjDic();
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

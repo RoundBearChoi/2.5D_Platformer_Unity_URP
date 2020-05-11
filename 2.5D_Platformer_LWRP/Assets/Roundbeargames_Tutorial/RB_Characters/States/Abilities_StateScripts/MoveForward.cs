@@ -138,7 +138,7 @@ namespace Roundbeargames
             float momentum = control.AIR_CONTROL.GetFloat((int)AirControlFloat.AIR_MOMENTUM);
             float speed = SpeedGraph.Evaluate(stateInfo.normalizedTime) * Speed * Time.deltaTime;
 
-            if (!control.BoolDic[BoolData.RIGHTSIDE_BLOCKED]())
+            if (!control.BLOCKING_DATA.RightSideBlocked())
             {
                 if (control.MoveRight)
                 {
@@ -146,7 +146,7 @@ namespace Roundbeargames
                 }
             }
             
-            if (!control.BoolDic[BoolData.LEFTSIDE_BLOCKED]())
+            if (!control.BLOCKING_DATA.LeftSideBlocked())
             {
                 if (control.MoveLeft)
                 {
@@ -154,7 +154,7 @@ namespace Roundbeargames
                 }
             }
 
-            if (control.BoolDic[BoolData.RIGHTSIDE_BLOCKED]() || control.BoolDic[BoolData.LEFTSIDE_BLOCKED]())
+            if (control.BLOCKING_DATA.RightSideBlocked() || control.BLOCKING_DATA.LeftSideBlocked())
             {
                 float lerped = Mathf.Lerp(momentum, 0f, Time.deltaTime * 1.5f);
 

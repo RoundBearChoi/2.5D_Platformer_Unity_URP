@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    public class BlockingObjects : SubComponent
+    public class BlockingObj : SubComponent
     {
         public BlockingObjData blockingData;
 
@@ -26,19 +26,15 @@ namespace Roundbeargames
             {
                 FrontBlockingDicCount = 0,
                 UpBlockingDicCount = 0,
+                ClearFrontBlockingObjDic = ClearFrontBlockingObjDic,
+                LeftSideBlocked = LeftSideIsBlocked,
+                RightSideBlocked = RightSideIsBlocked,
+                GetFrontBlockingCharacterList = GetFrontBlockingCharacterList,
+                GetFrontBlockingObjList = GetFrontBlockingObjList,
             };
 
             subComponentProcessor.blockingData = blockingData;
-
             subComponentProcessor.ComponentsDic.Add(SubComponents.BLOCKINGOBJECTS, this);
-
-            control.ProcDic.Add(CharacterProc.CLEAR_FRONTBLOCKINGOBJDIC, ClearFrontBlockingObjDic);
-
-            control.BoolDic.Add(BoolData.RIGHTSIDE_BLOCKED, RightSideIsBlocked);
-            control.BoolDic.Add(BoolData.LEFTSIDE_BLOCKED, LeftSideIsBlocked);
-
-            control.ListDic.Add(ListData.FRONTBLOCKING_CHARACTERS, GetFrontBlockingCharacters);
-            control.ListDic.Add(ListData.FRONTBLOCKING_OBJS, GetFrontBlockingObjList);
         }
 
         public override void OnFixedUpdate()
@@ -333,7 +329,7 @@ namespace Roundbeargames
             }
         }
 
-        List<GameObject> GetFrontBlockingCharacters()
+        List<GameObject> GetFrontBlockingCharacterList()
         {
             FrontBlockingCharacters.Clear();
 
