@@ -9,7 +9,8 @@ namespace Roundbeargames
         public Dictionary<SubComponents, SubComponent> ComponentsDic = new Dictionary<SubComponents, SubComponent>();
         public CharacterControl control;
 
-        public BlockingObjData blockingData;
+        [Space(15)] public BlockingObjData blockingData;
+        [Space(15)] public LedgeGrabData ledgeGrabData;
 
         private void Awake()
         {

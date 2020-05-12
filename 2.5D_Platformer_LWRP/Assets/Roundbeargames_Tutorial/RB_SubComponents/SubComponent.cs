@@ -18,13 +18,11 @@ namespace Roundbeargames
         NONE,
         DOUBLETAP_UP,
         DOUBLETAP_DOWN,
-        GRABBING_LEDGE,
     }
 
     public enum CharacterProc
     {
         NONE,
-        LEDGE_COLLIDERS_OFF,
         RAGDOLL_ON,
     }
 

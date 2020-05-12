@@ -140,7 +140,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.GRABBING_LEDGE:
                         {
-                            if (!control.BoolDic[BoolData.GRABBING_LEDGE]())
+                            if (!control.LEDGE_GRAB_DATA.isGrabbingLedge)
                             {
                                 return false;
                             }
@@ -148,7 +148,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.NOT_GRABBING_LEDGE:
                         {
-                            if (control.BoolDic[BoolData.GRABBING_LEDGE]())
+                            if (control.LEDGE_GRAB_DATA.isGrabbingLedge)
                             {
                                 return false;
                             }

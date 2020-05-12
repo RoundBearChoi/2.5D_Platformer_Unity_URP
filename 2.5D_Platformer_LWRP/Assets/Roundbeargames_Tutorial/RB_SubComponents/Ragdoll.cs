@@ -64,7 +64,7 @@ namespace Roundbeargames
             control.SkinnedMeshAnimator.avatar = null;
 
             //turn off ledge colliders
-            control.ProcDic[CharacterProc.LEDGE_COLLIDERS_OFF]();
+            control.LEDGE_GRAB_DATA.LedgeCollidersOff();
 
             //turn off ai
             if (control.aiController != null)

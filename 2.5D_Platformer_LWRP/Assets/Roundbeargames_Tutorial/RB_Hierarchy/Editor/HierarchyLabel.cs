@@ -25,6 +25,17 @@ namespace Roundbeargames
                 EditorGUI.DrawRect(selectionRect, Color.grey);
                 EditorGUI.DropShadowLabel(selectionRect, obj.name.Replace("-", "").ToString());
             }
+
+            HighlightObj(obj, "LedgeChecker", selectionRect);
+        }
+
+        static void HighlightObj(GameObject obj, string objname, Rect selectionRect)
+        {
+            if (obj != null && obj.name.Equals(objname))
+            {
+                EditorGUI.DrawRect(selectionRect, Color.magenta);
+                EditorGUI.DropShadowLabel(selectionRect, obj.name);
+            }
         }
     }
 }

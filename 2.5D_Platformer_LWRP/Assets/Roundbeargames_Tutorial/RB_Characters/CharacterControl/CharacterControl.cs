@@ -54,6 +54,7 @@ namespace Roundbeargames
         public DataProcessor dataProcessor;
 
         public BlockingObjData BLOCKING_DATA => subComponentProcessor.blockingData;
+        public LedgeGrabData LEDGE_GRAB_DATA => subComponentProcessor.ledgeGrabData;
 
         public Dataset AIR_CONTROL
         {
