@@ -11,6 +11,7 @@ namespace Roundbeargames
         public List<StateData> ListAbilityData = new List<StateData>();
 
         public BlockingObjData BLOCKING_DATA => characterControl.subComponentProcessor.blockingData;
+        public RagdollData RAGDOLL_DATA => characterControl.subComponentProcessor.ragdollData;
 
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {

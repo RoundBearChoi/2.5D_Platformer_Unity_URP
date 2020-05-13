@@ -6,17 +6,24 @@ namespace Roundbeargames
 {
     public class Ragdoll : SubComponent
     {
-        bool RagdollTriggered = false;
+        public RagdollData ragdollData;
 
         private void Start()
         {
+            ragdollData = new RagdollData
+            {
+                RagdollTriggered = false,
+                BodyParts = new List<Collider>(),
+            };
+
+            SetupBodyParts();
+            subComponentProcessor.ragdollData = ragdollData;
             subComponentProcessor.ComponentsDic.Add(SubComponents.RAGDOLL, this);
-            control.ProcDic.Add(CharacterProc.RAGDOLL_ON, TurnOnRagdoll);
         }
 
         public override void OnFixedUpdate()
         {
-            if (RagdollTriggered)
+            if (ragdollData.RagdollTriggered)
             {
                 ProcRagdoll();
             }
@@ -27,14 +34,42 @@ namespace Roundbeargames
             throw new System.NotImplementedException();
         }
 
-        public void TurnOnRagdoll()
+        public void SetupBodyParts()
         {
-            RagdollTriggered = true;
+            ragdollData.BodyParts.Clear();
+
+            Collider[] colliders = control.gameObject.GetComponentsInChildren<Collider>();
+
+            foreach (Collider c in colliders)
+            {
+                if (c.gameObject != control.gameObject)
+                {
+                    if (c.gameObject.GetComponent<LedgeChecker>() == null &&
+                        c.gameObject.GetComponent<LedgeCollider>() == null)
+                    {
+                        c.isTrigger = true;
+                        ragdollData.BodyParts.Add(c);
+                        c.attachedRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+                        c.attachedRigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+                        CharacterJoint joint = c.GetComponent<CharacterJoint>();
+                        if (joint != null)
+                        {
+                            joint.enableProjection = true;
+                        }
+
+                        if (c.GetComponent<TriggerDetector>() == null)
+                        {
+                            c.gameObject.AddComponent<TriggerDetector>();
+                        }
+                    }
+                }
+            }
         }
 
         void ProcRagdoll()
         {
-            RagdollTriggered = false;
+            ragdollData.RagdollTriggered = false;
 
             if (control.SkinnedMeshAnimator.avatar == null)
             {
@@ -49,7 +84,7 @@ namespace Roundbeargames
             }
 
             //save bodypart positions
-            foreach (Collider c in control.BodyParts)
+            foreach (Collider c in ragdollData.BodyParts)
             {
                 TriggerDetector det = c.GetComponent<TriggerDetector>();
                 det.LastPosition = c.gameObject.transform.position;
@@ -74,7 +109,7 @@ namespace Roundbeargames
             }
 
             //turn on ragdoll
-            foreach (Collider c in control.BodyParts)
+            foreach (Collider c in ragdollData.BodyParts)
             {
                 c.isTrigger = false;
 

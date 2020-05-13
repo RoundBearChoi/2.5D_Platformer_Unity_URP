@@ -143,7 +143,7 @@ namespace Roundbeargames
 
         private bool IsInLethalRange(AttackInfo info)
         {
-            foreach(Collider c in control.BodyParts)
+            foreach(Collider c in control.RAGDOLL_DATA.BodyParts)
             {
                 float dist = Vector3.SqrMagnitude(c.transform.position - info.Attacker.transform.position);
 
@@ -152,9 +152,9 @@ namespace Roundbeargames
                     control.damageDetector.Attack = info.AttackAbility;
                     control.damageDetector.Attacker = info.Attacker;
 
-                    int index = Random.Range(0, control.BodyParts.Count);
+                    int index = Random.Range(0, control.RAGDOLL_DATA.BodyParts.Count);
                     control.damageDetector.DamagedTrigger =
-                        control.BodyParts[index].GetComponent<TriggerDetector>();
+                        control.RAGDOLL_DATA.BodyParts[index].GetComponent<TriggerDetector>();
 
                     return true;
                 }
@@ -262,7 +262,7 @@ namespace Roundbeargames
 
             if (IsDead())
             {
-                control.ProcDic[CharacterProc.RAGDOLL_ON]();
+                control.RAGDOLL_DATA.RagdollTriggered = true;
             }
             else
             {

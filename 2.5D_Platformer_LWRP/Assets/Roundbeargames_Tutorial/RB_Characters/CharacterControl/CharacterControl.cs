@@ -55,6 +55,7 @@ namespace Roundbeargames
 
         public BlockingObjData BLOCKING_DATA => subComponentProcessor.blockingData;
         public LedgeGrabData LEDGE_GRAB_DATA => subComponentProcessor.ledgeGrabData;
+        public RagdollData RAGDOLL_DATA => subComponentProcessor.ragdollData;
 
         public Dataset AIR_CONTROL
         {
@@ -67,16 +68,12 @@ namespace Roundbeargames
         public Dictionary<BoolData, GetBool> BoolDic = new Dictionary<BoolData, GetBool>();
         public delegate bool GetBool();
 
-        public Dictionary<CharacterProc, CharacterProcDel> ProcDic = new Dictionary<CharacterProc, CharacterProcDel>();
-        public delegate void CharacterProcDel();
-
         [Header("Gravity")]
         public ContactPoint[] contactPoints;
 
         [Header("Setup")]
         public PlayableCharacterType playableCharacterType;
         public Animator SkinnedMeshAnimator;
-        public List<Collider> BodyParts = new List<Collider>();
         public GameObject LeftHand_Attack;
         public GameObject RightHand_Attack;
         public GameObject LeftFoot_Attack;
@@ -153,39 +150,6 @@ namespace Roundbeargames
                 CharacterManager.Instance.Characters.Add(this);
             }
         }
-        
-        public void SetupBodyParts()
-        {
-            BodyParts.Clear();
-
-            Collider[] colliders = this.gameObject.GetComponentsInChildren<Collider>();
-
-            foreach(Collider c in colliders)
-            {
-                if (c.gameObject != this.gameObject)
-                {
-                    if (c.gameObject.GetComponent<LedgeChecker>() == null &&
-                        c.gameObject.GetComponent<LedgeCollider>() == null)
-                    {
-                        c.isTrigger = true;
-                        BodyParts.Add(c);
-                        c.attachedRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
-                        c.attachedRigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-
-                        CharacterJoint joint = c.GetComponent<CharacterJoint>();
-                        if (joint != null)
-                        {
-                            joint.enableProjection = true;
-                        }
-
-                        if (c.GetComponent<TriggerDetector>() == null)
-                        {
-                            c.gameObject.AddComponent<TriggerDetector>();
-                        }
-                    }
-                }
-            }
-        }
 
         public void AddForceToDamagedPart(bool zeroVelocity)
         {
@@ -193,7 +157,7 @@ namespace Roundbeargames
             {
                 if (zeroVelocity)
                 {
-                    foreach (Collider c in BodyParts)
+                    foreach (Collider c in RAGDOLL_DATA.BodyParts) 
                     {
                         c.attachedRigidbody.velocity = Vector3.zero;
                     }
@@ -332,7 +296,7 @@ namespace Roundbeargames
 
         public Collider GetBodyPart(string name)
         {
-            foreach(Collider c in BodyParts)
+            foreach(Collider c in RAGDOLL_DATA.BodyParts)
             {
                 if (c.name.Contains(name))
                 {

@@ -86,7 +86,7 @@ namespace Roundbeargames
 
             foreach (CharacterControl control in ListSpikeVictims)
             {
-                control.ProcDic[CharacterProc.RAGDOLL_ON]();
+                control.RAGDOLL_DATA.RagdollTriggered = true;
             }
 
             yield return new WaitForSeconds(1f);

@@ -20,12 +20,6 @@ namespace Roundbeargames
         DOUBLETAP_DOWN,
     }
 
-    public enum CharacterProc
-    {
-        NONE,
-        RAGDOLL_ON,
-    }
-
     public abstract class SubComponent : MonoBehaviour
     {
         protected SubComponentProcessor subComponentProcessor;

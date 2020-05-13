@@ -29,7 +29,7 @@ namespace Roundbeargames
                 return;
             }
 
-            if (control.BodyParts.Contains(col))
+            if (control.RAGDOLL_DATA.BodyParts.Contains(col))
             {
                 return;
             }
