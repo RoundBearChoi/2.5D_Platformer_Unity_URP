@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1072373152}
   - component: {fileID: 4942891548418384651}
   - component: {fileID: 5133814679352895625}
-  - component: {fileID: 3492496261851279782}
   m_Layer: 0
   m_Name: Hips
   m_TagString: Untagged
@@ -64,22 +63,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
---- !u!114 &3492496261851279782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
+  m_CollisionDetection: 1
 --- !u!1 &1072464258
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +76,6 @@ GameObject:
   - component: {fileID: 6819055981701293399}
   - component: {fileID: 3254381059893927841}
   - component: {fileID: 1291252506448152679}
-  - component: {fileID: 5833770330229734172}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -142,7 +125,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &1291252506448152679
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -188,21 +171,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &5833770330229734172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464260
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +183,6 @@ GameObject:
   - component: {fileID: 7902853963040985963}
   - component: {fileID: 2351379358404698326}
   - component: {fileID: 8385208034534860908}
-  - component: {fileID: 8395947157004601442}
   m_Layer: 0
   m_Name: Hand.R
   m_TagString: Untagged
@@ -268,7 +235,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &8385208034534860908
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -314,21 +281,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &8395947157004601442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464262
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +293,6 @@ GameObject:
   - component: {fileID: 4430076810806673832}
   - component: {fileID: 5268665767613790843}
   - component: {fileID: 3831317638762515099}
-  - component: {fileID: 6483903363646548007}
   m_Layer: 0
   m_Name: Hand.L
   m_TagString: Untagged
@@ -394,7 +345,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &3831317638762515099
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -440,21 +391,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &6483903363646548007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464264
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +403,6 @@ GameObject:
   - component: {fileID: 150247866724417301}
   - component: {fileID: 4366370995256546665}
   - component: {fileID: 7863658927675684935}
-  - component: {fileID: 7290543224479603006}
   m_Layer: 0
   m_Name: Foot.R
   m_TagString: Untagged
@@ -519,7 +454,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &7863658927675684935
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -565,21 +500,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &7290543224479603006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464266
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +512,6 @@ GameObject:
   - component: {fileID: 2122867387116345508}
   - component: {fileID: 615428697413070273}
   - component: {fileID: 1090181210945381041}
-  - component: {fileID: 5795017394531707764}
   m_Layer: 0
   m_Name: Foot.L
   m_TagString: Untagged
@@ -644,7 +563,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &1090181210945381041
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -690,21 +609,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &5795017394531707764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,7 +1043,6 @@ GameObject:
   - component: {fileID: 8301003448375759770}
   - component: {fileID: 7758023827320013211}
   - component: {fileID: 6413318695491965414}
-  - component: {fileID: 8031866965021514207}
   m_Layer: 0
   m_Name: UpperLeg.R
   m_TagString: Untagged
@@ -1191,7 +1094,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &6413318695491965414
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1237,21 +1140,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &8031866965021514207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,7 +1152,6 @@ GameObject:
   - component: {fileID: 2566056617450396210}
   - component: {fileID: 3734517727510725846}
   - component: {fileID: 8918945960743553304}
-  - component: {fileID: 8006272254302473395}
   m_Layer: 0
   m_Name: UpperLeg.L
   m_TagString: Untagged
@@ -1316,7 +1203,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &8918945960743553304
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1362,21 +1249,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &8006272254302473395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,7 +1261,6 @@ GameObject:
   - component: {fileID: 7333656348738198441}
   - component: {fileID: 122447636052940984}
   - component: {fileID: 4366783897807303608}
-  - component: {fileID: 446549030750944732}
   m_Layer: 0
   m_Name: UpperArm.r
   m_TagString: Untagged
@@ -1441,7 +1312,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &4366783897807303608
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1487,21 +1358,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &446549030750944732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,7 +1370,6 @@ GameObject:
   - component: {fileID: 2357041694954647407}
   - component: {fileID: 702327195845064301}
   - component: {fileID: 2300761176404857756}
-  - component: {fileID: 7495726529416162147}
   m_Layer: 0
   m_Name: UpperArm.l
   m_TagString: Untagged
@@ -1566,7 +1421,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &2300761176404857756
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1612,21 +1467,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &7495726529416162147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,7 +1723,6 @@ GameObject:
   - component: {fileID: 3117176483440430398}
   - component: {fileID: 857049819595080158}
   - component: {fileID: 2001475437088839669}
-  - component: {fileID: 7764869355536416478}
   m_Layer: 0
   m_Name: Spine
   m_TagString: Untagged
@@ -1934,7 +1773,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &2001475437088839669
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1980,21 +1819,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &7764869355536416478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,7 +2108,6 @@ GameObject:
   - component: {fileID: 7632319880641341956}
   - component: {fileID: 4110105563786261092}
   - component: {fileID: 6060952578715353999}
-  - component: {fileID: 7425290857581487398}
   m_Layer: 0
   m_Name: LowerLeg.R
   m_TagString: Untagged
@@ -2336,7 +2159,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &6060952578715353999
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -2382,21 +2205,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &7425290857581487398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,7 +2217,6 @@ GameObject:
   - component: {fileID: 8429906745635160715}
   - component: {fileID: 3970580850426159675}
   - component: {fileID: 694436348651044107}
-  - component: {fileID: 7870314763104227698}
   m_Layer: 0
   m_Name: LowerLeg.L
   m_TagString: Untagged
@@ -2461,7 +2268,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &694436348651044107
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -2507,21 +2314,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &7870314763104227698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2534,7 +2326,6 @@ GameObject:
   - component: {fileID: 3722502708867905347}
   - component: {fileID: 2308123036688173804}
   - component: {fileID: 3967281988821360254}
-  - component: {fileID: 7180183505686393577}
   m_Layer: 0
   m_Name: LowerArm.R
   m_TagString: Untagged
@@ -2586,7 +2377,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &3967281988821360254
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -2632,21 +2423,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &7180183505686393577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1072464382
 GameObject:
   m_ObjectHideFlags: 0
@@ -2659,7 +2435,6 @@ GameObject:
   - component: {fileID: 1107643248274100782}
   - component: {fileID: 3944923417032671797}
   - component: {fileID: 3237657841414857398}
-  - component: {fileID: 7659796424976940245}
   m_Layer: 0
   m_Name: LowerArm.L
   m_TagString: Untagged
@@ -2711,7 +2486,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!144 &3237657841414857398
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -2757,21 +2532,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &7659796424976940245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072464382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ad8cc25367464c9cf7f6178af4d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  LastPosition: {x: 0, y: 0, z: 0}
-  LastRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &108123440768055017
 GameObject:
   m_ObjectHideFlags: 0
