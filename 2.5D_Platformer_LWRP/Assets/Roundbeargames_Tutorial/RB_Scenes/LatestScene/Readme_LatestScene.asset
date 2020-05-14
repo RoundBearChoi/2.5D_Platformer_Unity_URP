@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf7219bab7fe46a1ad266029b2fee19, type: 3}
   m_Name: Readme_LatestScene
   m_EditorClassIdentifier: 
-  icon: {fileID: 2800000, guid: 70179d6cd0fd6cc47919915466446b78, type: 3}
+  icon: {fileID: 2800000, guid: d3705f925b1b2df4aa838c8f1b404375, type: 3}
   title: Welcome to Roundbeargames
   sections:
   - heading: Welcome to Roundbeargames
-    text: If you have any questions you can contact me on my discord server.
+    text: If you have any questions you can contact me on my Discord server.
     linkText: Discord
-    url: https://discord.gg/RbxjBu3
+    url: https://discord.gg/hAFTgcA
   - heading: Check out my YouTube tutorials.
     text: 
     linkText: YouTube
