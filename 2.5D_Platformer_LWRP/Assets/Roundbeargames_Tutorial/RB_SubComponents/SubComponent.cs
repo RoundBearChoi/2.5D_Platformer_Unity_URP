@@ -13,13 +13,6 @@ namespace Roundbeargames
         BLOCKINGOBJECTS,
     }
 
-    public enum BoolData
-    {
-        NONE,
-        DOUBLETAP_UP,
-        DOUBLETAP_DOWN,
-    }
-
     public abstract class SubComponent : MonoBehaviour
     {
         protected SubComponentProcessor subComponentProcessor;

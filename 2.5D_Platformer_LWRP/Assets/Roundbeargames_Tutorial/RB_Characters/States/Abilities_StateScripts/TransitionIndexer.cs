@@ -267,7 +267,7 @@ namespace Roundbeargames
                                 return false;
                             }
 
-                            if (!control.BoolDic[BoolData.DOUBLETAP_UP]())
+                            if (!control.MANUAL_INPUT_DATA.DoubleTapUp())
                             {
                                 return false;
                             }
@@ -280,7 +280,7 @@ namespace Roundbeargames
                                 return false;
                             }
 
-                            if (!control.BoolDic[BoolData.DOUBLETAP_DOWN]())
+                            if (!control.MANUAL_INPUT_DATA.DoubleTapDown())
                             {
                                 return false;
                             }

@@ -56,6 +56,7 @@ namespace Roundbeargames
         public BlockingObjData BLOCKING_DATA => subComponentProcessor.blockingData;
         public LedgeGrabData LEDGE_GRAB_DATA => subComponentProcessor.ledgeGrabData;
         public RagdollData RAGDOLL_DATA => subComponentProcessor.ragdollData;
+        public ManualInputData MANUAL_INPUT_DATA => subComponentProcessor.manualInputData;
 
         public Dataset AIR_CONTROL
         {
@@ -64,9 +65,6 @@ namespace Roundbeargames
                 return dataProcessor.GetDataset(typeof(AirControl));
             }
         }
-
-        public Dictionary<BoolData, GetBool> BoolDic = new Dictionary<BoolData, GetBool>();
-        public delegate bool GetBool();
 
         [Header("Gravity")]
         public ContactPoint[] contactPoints;

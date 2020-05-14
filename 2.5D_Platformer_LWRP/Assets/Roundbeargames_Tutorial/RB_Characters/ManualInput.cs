@@ -6,17 +6,22 @@ namespace Roundbeargames
 {
     public class ManualInput : SubComponent
     {
-        public List<InputKeyType> DoubleTaps = new List<InputKeyType>();
+        public ManualInputData manualInputData;
 
-        private List<InputKeyType> UpKeys = new List<InputKeyType>();
-        private Dictionary<InputKeyType, float> DicDoubleTapTimings = new Dictionary<InputKeyType, float>();
+        List<InputKeyType> DoubleTaps = new List<InputKeyType>();
+        List<InputKeyType> UpKeys = new List<InputKeyType>();
+        Dictionary<InputKeyType, float> DicDoubleTapTimings = new Dictionary<InputKeyType, float>();
 
         private void Start()
         {
-            subComponentProcessor.ComponentsDic.Add(SubComponents.MANUALINPUT, this);
+            manualInputData = new ManualInputData
+            {
+                DoubleTapDown = IsDoubleTap_Down,
+                DoubleTapUp = IsDoubleTap_Up,
+            };
 
-            control.BoolDic.Add(BoolData.DOUBLETAP_UP, IsDoubleTap_Up);
-            control.BoolDic.Add(BoolData.DOUBLETAP_DOWN, IsDoubleTap_Down);
+            subComponentProcessor.manualInputData = manualInputData;
+            subComponentProcessor.ComponentsDic.Add(SubComponents.MANUALINPUT, this);
         }
 
         public override void OnFixedUpdate()
@@ -140,7 +145,7 @@ namespace Roundbeargames
             }
         }
 
-        public bool IsDoubleTap_Up()
+        bool IsDoubleTap_Up()
         {
             if (DoubleTaps.Contains(InputKeyType.KEY_MOVE_UP))
             {
@@ -152,7 +157,7 @@ namespace Roundbeargames
             }
         }
 
-        public bool IsDoubleTap_Down()
+        bool IsDoubleTap_Down()
         {
             if (DoubleTaps.Contains(InputKeyType.KEY_MOVE_DOWN))
             {
