@@ -24,6 +24,7 @@ namespace Roundbeargames
     {
         TutorialScene_CharacterSelect,
         TutorialScene_Sample,
+        TutorialScene_Sample_Night,
     }
 
     public class CharacterControl : MonoBehaviour
@@ -290,19 +291,6 @@ namespace Roundbeargames
             {
                 return false;
             }
-        }
-
-        public Collider GetBodyPart(string name)
-        {
-            foreach(Collider c in RAGDOLL_DATA.BodyParts)
-            {
-                if (c.name.Contains(name))
-                {
-                    return c;
-                }
-            }
-
-            return null;
         }
 
         public GameObject GetChildObj(string name)

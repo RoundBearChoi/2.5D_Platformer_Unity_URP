@@ -18,16 +18,23 @@ namespace Roundbeargames
 
         private void FixedUpdate()
         {
-            if (control.AIR_CONTROL.GetBool((int)AirControlBool.CHECK_WALL_BLOCK))
+            try
             {
-                if (control.collisionSpheres.FrontOverlapCheckers.Contains(this))
+                if (control.AIR_CONTROL.GetBool((int)AirControlBool.CHECK_WALL_BLOCK))
                 {
-                    ObjIsOverlapping = CheckObj();
+                    if (control.collisionSpheres.FrontOverlapCheckers.Contains(this))
+                    {
+                        ObjIsOverlapping = CheckObj();
+                    }
+                }
+                else
+                {
+                    ObjIsOverlapping = false;
                 }
             }
-            else
+            catch(System.Exception e)
             {
-                ObjIsOverlapping = false;
+                Debug.Log(e);
             }
         }
 

@@ -12,7 +12,14 @@ namespace Roundbeargames.Datasets
 
         public bool GetBool(int index)
         {
-            return BoolDictionary[index];
+            if (BoolDictionary.ContainsKey(index))
+            {
+                return BoolDictionary[index];
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void SetBool(int index, bool b)
@@ -22,7 +29,14 @@ namespace Roundbeargames.Datasets
 
         public float GetFloat(int index)
         {
-            return FloatDictionary[index];
+            if (FloatDictionary.ContainsKey(index))
+            {
+                return FloatDictionary[index];
+            }
+            else
+            {
+                return 0f;
+            }
         }
 
         public void SetFloat(int index, float f)
@@ -32,7 +46,14 @@ namespace Roundbeargames.Datasets
 
         public Vector3 GetVector3(int index)
         {
-            return Vector3Dictionary[index];
+            if (Vector3Dictionary.ContainsKey(index))
+            {
+                return Vector3Dictionary[index];
+            }
+            else
+            {
+                return Vector3.zero;
+            }
         }
 
         public void SetVector3(int index, Vector3 v)

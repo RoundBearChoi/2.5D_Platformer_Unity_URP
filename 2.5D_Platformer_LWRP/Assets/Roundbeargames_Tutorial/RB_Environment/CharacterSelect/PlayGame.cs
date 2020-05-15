@@ -14,7 +14,7 @@ namespace Roundbeargames
             {
                 if (characterSelect.SelectedCharacterType != PlayableCharacterType.NONE)
                 {
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(RBScenes.TutorialScene_Sample.ToString());
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(RBScenes.TutorialScene_Sample_Night.ToString());
                 }
                 else
                 {

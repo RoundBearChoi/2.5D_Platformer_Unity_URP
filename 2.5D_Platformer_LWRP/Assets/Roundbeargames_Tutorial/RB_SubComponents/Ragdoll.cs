@@ -14,6 +14,7 @@ namespace Roundbeargames
             {
                 RagdollTriggered = false,
                 BodyParts = new List<Collider>(),
+                GetBody = GetBodyPart,
             };
 
             SetupBodyParts();
@@ -121,6 +122,19 @@ namespace Roundbeargames
             }
 
             control.AddForceToDamagedPart(false);
+        }
+
+        Collider GetBodyPart(string name)
+        {
+            foreach (Collider c in ragdollData.BodyParts)
+            {
+                if (c.name.Contains(name))
+                {
+                    return c;
+                }
+            }
+
+            return null;
         }
     }
 }
