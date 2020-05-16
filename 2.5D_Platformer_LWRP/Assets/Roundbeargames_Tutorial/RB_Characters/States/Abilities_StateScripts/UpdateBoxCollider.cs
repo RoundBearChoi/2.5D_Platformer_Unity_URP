@@ -18,15 +18,15 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            characterState.characterControl.animationProgress.TargetSize = TargetSize;
-            characterState.characterControl.animationProgress.Size_Speed = SizeUpdateSpeed;
+            characterState.BOX_COLLIDER_DATA.TargetSize = TargetSize;
+            characterState.BOX_COLLIDER_DATA.Size_Update_Speed = SizeUpdateSpeed;
 
-            characterState.characterControl.animationProgress.TargetCenter = TargetCenter;
-            characterState.characterControl.animationProgress.Center_Speed = CenterUpdateSpeed;
+            characterState.BOX_COLLIDER_DATA.TargetCenter = TargetCenter;
+            characterState.BOX_COLLIDER_DATA.Center_Update_Speed = CenterUpdateSpeed;
 
             if (stateInfo.IsName(LandingState))
             {
-                characterState.characterControl.animationProgress.IsLanding = true;
+                characterState.BOX_COLLIDER_DATA.IsLanding = true;
             }
         }
 
@@ -38,16 +38,16 @@ namespace Roundbeargames
                 {
                     if (animator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]) == true)
                     {
-                        characterState.characterControl.animationProgress.IsLanding = true;
+                        characterState.BOX_COLLIDER_DATA.IsLanding = true;
                     }
                     else
                     {
-                        characterState.characterControl.animationProgress.IsLanding = false;
+                        characterState.BOX_COLLIDER_DATA.IsLanding = false;
                     }
                 }
                 else
                 {
-                    characterState.characterControl.animationProgress.IsLanding = false;
+                    characterState.BOX_COLLIDER_DATA.IsLanding = false;
                 }
             }
         }
@@ -57,7 +57,7 @@ namespace Roundbeargames
             if (stateInfo.IsName(LandingState) ||
                 stateInfo.IsName(ClimbingState))
             {
-                characterState.characterControl.animationProgress.IsLanding = false;
+                characterState.BOX_COLLIDER_DATA.IsLanding = false;
             }
         }
     }

@@ -58,6 +58,7 @@ namespace Roundbeargames
         public LedgeGrabData LEDGE_GRAB_DATA => subComponentProcessor.ledgeGrabData;
         public RagdollData RAGDOLL_DATA => subComponentProcessor.ragdollData;
         public ManualInputData MANUAL_INPUT_DATA => subComponentProcessor.manualInputData;
+        public BoxColliderData BOX_COLLIDER_DATA => subComponentProcessor.boxColliderData;
 
         public Dataset AIR_CONTROL
         {
@@ -176,13 +177,13 @@ namespace Roundbeargames
                 return;
             }
 
-            if (Vector3.SqrMagnitude(boxCollider.size - animationProgress.TargetSize) > 0.00001f)
+            if (Vector3.SqrMagnitude(boxCollider.size - BOX_COLLIDER_DATA.TargetSize) > 0.00001f)
             {
                 boxCollider.size = Vector3.Lerp(boxCollider.size,
-                    animationProgress.TargetSize,
-                    Time.deltaTime * animationProgress.Size_Speed);
+                    BOX_COLLIDER_DATA.TargetSize,
+                    Time.deltaTime * BOX_COLLIDER_DATA.Size_Update_Speed);
 
-                animationProgress.UpdatingSpheres = true;
+                BOX_COLLIDER_DATA.IsUpdatingSpheres = true;
             }
         }
 
@@ -193,13 +194,13 @@ namespace Roundbeargames
                 return;
             }
 
-            if (Vector3.SqrMagnitude(boxCollider.center - animationProgress.TargetCenter) > 0.00001f)
+            if (Vector3.SqrMagnitude(boxCollider.center - BOX_COLLIDER_DATA.TargetCenter) > 0.00001f)
             {
                 boxCollider.center = Vector3.Lerp(boxCollider.center,
-                    animationProgress.TargetCenter,
-                    Time.deltaTime * animationProgress.Center_Speed);
+                    BOX_COLLIDER_DATA.TargetCenter,
+                    Time.deltaTime * BOX_COLLIDER_DATA.Center_Update_Speed);
 
-                animationProgress.UpdatingSpheres = true;
+                BOX_COLLIDER_DATA.IsUpdatingSpheres = true;
             }
         }
 
@@ -222,22 +223,22 @@ namespace Roundbeargames
                 }
             }
 
-            animationProgress.UpdatingSpheres = false;
+            BOX_COLLIDER_DATA.IsUpdatingSpheres = false;
             UpdateBoxCollider_Size();
             UpdateBoxCollider_Center();
-            if (animationProgress.UpdatingSpheres)
+            if (BOX_COLLIDER_DATA.IsUpdatingSpheres)
             {
                 collisionSpheres.Reposition_FrontSpheres();
                 collisionSpheres.Reposition_BottomSpheres();
                 collisionSpheres.Reposition_BackSpheres();
                 collisionSpheres.Reposition_UpSpheres();
 
-                if (animationProgress.IsLanding)
+                if (BOX_COLLIDER_DATA.IsLanding)
                 {
                     //Debug.Log("repositioning y");
                     RIGID_BODY.MovePosition(new Vector3(
                         0f,
-                        animationProgress.LandingPosition.y,
+                        BOX_COLLIDER_DATA.LandingPosition.y,
                         this.transform.position.z));
                 }
             }

@@ -12,6 +12,7 @@ namespace Roundbeargames
 
         public BlockingObjData BLOCKING_DATA => characterControl.subComponentProcessor.blockingData;
         public RagdollData RAGDOLL_DATA => characterControl.subComponentProcessor.ragdollData;
+        public BoxColliderData BOX_COLLIDER_DATA => characterControl.subComponentProcessor.boxColliderData;
 
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {

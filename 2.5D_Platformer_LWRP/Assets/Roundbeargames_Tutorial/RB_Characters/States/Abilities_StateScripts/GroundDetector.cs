@@ -60,7 +60,7 @@ namespace Roundbeargames
                         if (Mathf.Abs(control.RIGID_BODY.velocity.y) < 0.001f)
                         {
                             control.animationProgress.Ground = c.otherCollider.transform.root.gameObject;
-                            control.animationProgress.LandingPosition = new Vector3(
+                            control.BOX_COLLIDER_DATA.LandingPosition = new Vector3(
                                 0f,
                                 c.point.y,
                                 c.point.z);
@@ -85,7 +85,7 @@ namespace Roundbeargames
                         if (c == null)
                         {
                             control.animationProgress.Ground = blockingObj.transform.root.gameObject;
-                            control.animationProgress.LandingPosition = new Vector3(
+                            control.BOX_COLLIDER_DATA.LandingPosition = new Vector3(
                                 0f,
                                 control.animationProgress.CollidingPoint.y,
                                 control.animationProgress.CollidingPoint.z);

@@ -32,15 +32,6 @@ namespace Roundbeargames
             new Dictionary<TriggerDetector, List<Collider>>();
 
         public Vector3 CollidingPoint = new Vector3();
-
-        [Header("UpdateBoxCollider")]
-        public bool UpdatingSpheres;
-        public Vector3 TargetSize;
-        public float Size_Speed;
-        public Vector3 TargetCenter;
-        public float Center_Speed;
-        public Vector3 LandingPosition;
-        public bool IsLanding;
         
         [Header("Transition")]
         public bool LockTransition;
