@@ -6,7 +6,7 @@ namespace Roundbeargames
 {
     public class SubComponentProcessor : MonoBehaviour
     {
-        public Dictionary<SubComponents, SubComponent> ComponentsDic = new Dictionary<SubComponents, SubComponent>();
+        public Dictionary<SubComponentType, SubComponent> ComponentsDic = new Dictionary<SubComponentType, SubComponent>();
         public CharacterControl control;
 
         [Space(15)] public BlockingObjData blockingData;
@@ -22,17 +22,18 @@ namespace Roundbeargames
 
         public void FixedUpdateSubComponents()
         {
-            FixedUpdateSubComponent(SubComponents.LEDGECHECKER);
-            FixedUpdateSubComponent(SubComponents.RAGDOLL);
-            FixedUpdateSubComponent(SubComponents.BLOCKINGOBJECTS);
+            FixedUpdateSubComponent(SubComponentType.LEDGECHECKER);
+            FixedUpdateSubComponent(SubComponentType.RAGDOLL);
+            FixedUpdateSubComponent(SubComponentType.BLOCKINGOBJECTS);
+            FixedUpdateSubComponent(SubComponentType.BOX_COLLIDER_UPDATER);
         }
 
         public void UpdateSubComponents()
         {
-            UpdateSubComponent(SubComponents.MANUALINPUT);
+            UpdateSubComponent(SubComponentType.MANUALINPUT);
         }
 
-        void UpdateSubComponent(SubComponents type)
+        void UpdateSubComponent(SubComponentType type)
         {
             if (ComponentsDic.ContainsKey(type))
             {
@@ -40,7 +41,7 @@ namespace Roundbeargames
             }
         }
 
-        void FixedUpdateSubComponent(SubComponents type)
+        void FixedUpdateSubComponent(SubComponentType type)
         {
             if (ComponentsDic.ContainsKey(type))
             {

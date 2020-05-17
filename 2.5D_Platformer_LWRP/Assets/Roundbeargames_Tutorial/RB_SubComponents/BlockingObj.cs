@@ -34,7 +34,7 @@ namespace Roundbeargames
             };
 
             subComponentProcessor.blockingData = blockingData;
-            subComponentProcessor.ComponentsDic.Add(SubComponents.BLOCKINGOBJECTS, this);
+            subComponentProcessor.ComponentsDic.Add(SubComponentType.BLOCKINGOBJECTS, this);
         }
 
         public override void OnFixedUpdate()

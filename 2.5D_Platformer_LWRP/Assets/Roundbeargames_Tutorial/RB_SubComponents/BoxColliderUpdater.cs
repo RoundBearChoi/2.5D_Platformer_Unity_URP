@@ -24,16 +24,71 @@ namespace Roundbeargames
             };
 
             subComponentProcessor.boxColliderData = boxColliderData;
+            subComponentProcessor.ComponentsDic.Add(SubComponentType.BOX_COLLIDER_UPDATER, this);
         }
 
         public override void OnFixedUpdate()
         {
-            throw new System.NotImplementedException();
+            boxColliderData.IsUpdatingSpheres = false;
+
+            UpdateBoxCollider_Size();
+            UpdateBoxCollider_Center();
+
+            if (boxColliderData.IsUpdatingSpheres)
+            {
+                control.collisionSpheres.Reposition_FrontSpheres();
+                control.collisionSpheres.Reposition_BottomSpheres();
+                control.collisionSpheres.Reposition_BackSpheres();
+                control.collisionSpheres.Reposition_UpSpheres();
+
+                if (boxColliderData.IsLanding)
+                {
+                    //Debug.Log("repositioning y");
+                    control.RIGID_BODY.MovePosition(new Vector3(
+                        0f,
+                        boxColliderData.LandingPosition.y,
+                        this.transform.position.z));
+                }
+            }
         }
 
         public override void OnUpdate()
         {
             throw new System.NotImplementedException();
+        }
+
+        public void UpdateBoxCollider_Size()
+        {
+            if (!control.animationProgress.IsRunning(typeof(UpdateBoxCollider)))
+            {
+                return;
+            }
+
+            if (Vector3.SqrMagnitude(control.boxCollider.size - boxColliderData.TargetSize) > 0.00001f)
+            {
+                control.boxCollider.size = Vector3.Lerp(control.boxCollider.size,
+                    boxColliderData.TargetSize,
+                    Time.deltaTime * boxColliderData.Size_Update_Speed);
+
+                boxColliderData.IsUpdatingSpheres = true;
+            }
+        }
+
+        public void UpdateBoxCollider_Center()
+        {
+            if (!control.animationProgress.IsRunning(typeof(UpdateBoxCollider)))
+            {
+                return;
+            }
+
+            if (Vector3.SqrMagnitude(control.boxCollider.center - boxColliderData.TargetCenter) > 0.00001f)
+            {
+                control.boxCollider.center = Vector3.Lerp(control.boxCollider.center,
+                    boxColliderData.TargetCenter,
+                    Time.deltaTime * boxColliderData.Center_Update_Speed);
+
+                boxColliderData.IsUpdatingSpheres = true;
+            }
         }
     }
 }

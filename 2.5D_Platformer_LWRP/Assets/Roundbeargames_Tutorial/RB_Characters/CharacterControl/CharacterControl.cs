@@ -128,6 +128,43 @@ namespace Roundbeargames
             RegisterCharacter();
         }
 
+
+        private void Update()
+        {
+            subComponentProcessor.UpdateSubComponents();
+        }
+
+        private void FixedUpdate()
+        {
+            subComponentProcessor.FixedUpdateSubComponents();
+
+            bool cancelPull = AIR_CONTROL.GetBool((int)AirControlBool.CANCEL_PULL);
+
+            if (!cancelPull)
+            {
+                if (RIGID_BODY.velocity.y > 0f && !Jump)
+                {
+                    RIGID_BODY.velocity -= (Vector3.up * RIGID_BODY.velocity.y * 0.1f);
+                }
+            }
+
+            Vector3 maxFallVelocity = AIR_CONTROL.GetVector3((int)AirControlVector3.MAX_FALL_VELOCITY);
+
+            //slow down wallslide
+            if (maxFallVelocity.y != 0f)
+            {
+                if (RIGID_BODY.velocity.y <= maxFallVelocity.y)
+                {
+                    RIGID_BODY.velocity = maxFallVelocity;
+                }
+            }
+        }
+
+        private void OnCollisionStay(Collision collision)
+        {
+            contactPoints = collision.contacts;
+        }
+
         public void CacheCharacterControl(Animator animator)
         {
             CharacterState[] arr = animator.GetBehaviours<CharacterState>();
@@ -136,11 +173,6 @@ namespace Roundbeargames
             {
                 c.characterControl = this;
             }
-        }
-
-        private void OnCollisionStay(Collision collision)
-        {
-            contactPoints = collision.contacts;
         }
 
         private void RegisterCharacter()
@@ -170,91 +202,6 @@ namespace Roundbeargames
             }
         }
 
-        public void UpdateBoxCollider_Size()
-        {
-            if (!animationProgress.IsRunning(typeof(UpdateBoxCollider)))
-            {
-                return;
-            }
-
-            if (Vector3.SqrMagnitude(boxCollider.size - BOX_COLLIDER_DATA.TargetSize) > 0.00001f)
-            {
-                boxCollider.size = Vector3.Lerp(boxCollider.size,
-                    BOX_COLLIDER_DATA.TargetSize,
-                    Time.deltaTime * BOX_COLLIDER_DATA.Size_Update_Speed);
-
-                BOX_COLLIDER_DATA.IsUpdatingSpheres = true;
-            }
-        }
-
-        public void UpdateBoxCollider_Center()
-        {
-            if (!animationProgress.IsRunning(typeof(UpdateBoxCollider)))
-            {
-                return;
-            }
-
-            if (Vector3.SqrMagnitude(boxCollider.center - BOX_COLLIDER_DATA.TargetCenter) > 0.00001f)
-            {
-                boxCollider.center = Vector3.Lerp(boxCollider.center,
-                    BOX_COLLIDER_DATA.TargetCenter,
-                    Time.deltaTime * BOX_COLLIDER_DATA.Center_Update_Speed);
-
-                BOX_COLLIDER_DATA.IsUpdatingSpheres = true;
-            }
-        }
-
-        private void Update()
-        {
-            subComponentProcessor.UpdateSubComponents();
-        }
-
-        private void FixedUpdate()
-        {
-            subComponentProcessor.FixedUpdateSubComponents();
-
-            bool cancelPull = AIR_CONTROL.GetBool((int)AirControlBool.CANCEL_PULL);
-
-            if (!cancelPull)
-            {
-                if (RIGID_BODY.velocity.y > 0f && !Jump)
-                {
-                    RIGID_BODY.velocity -= (Vector3.up * RIGID_BODY.velocity.y * 0.1f);
-                }
-            }
-
-            BOX_COLLIDER_DATA.IsUpdatingSpheres = false;
-            UpdateBoxCollider_Size();
-            UpdateBoxCollider_Center();
-            if (BOX_COLLIDER_DATA.IsUpdatingSpheres)
-            {
-                collisionSpheres.Reposition_FrontSpheres();
-                collisionSpheres.Reposition_BottomSpheres();
-                collisionSpheres.Reposition_BackSpheres();
-                collisionSpheres.Reposition_UpSpheres();
-
-                if (BOX_COLLIDER_DATA.IsLanding)
-                {
-                    //Debug.Log("repositioning y");
-                    RIGID_BODY.MovePosition(new Vector3(
-                        0f,
-                        BOX_COLLIDER_DATA.LandingPosition.y,
-                        this.transform.position.z));
-                }
-            }
-
-            Vector3 maxFallVelocity = AIR_CONTROL.GetVector3((int)AirControlVector3.MAX_FALL_VELOCITY);
-
-            //slow down wallslide
-            if (maxFallVelocity.y != 0f)
-            {
-                if (RIGID_BODY.velocity.y <= maxFallVelocity.y)
-                {
-                    RIGID_BODY.velocity = maxFallVelocity;
-                }
-            }
-        }
-        
         public void MoveForward(float Speed, float SpeedGraph)
         {
             transform.Translate(Vector3.forward * Speed * SpeedGraph * Time.deltaTime);

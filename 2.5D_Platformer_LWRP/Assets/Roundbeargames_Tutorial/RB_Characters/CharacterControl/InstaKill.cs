@@ -15,7 +15,7 @@ namespace Roundbeargames
 
         private void FixedUpdate()
         {
-            if (control.subComponentProcessor.ComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
+            if (control.subComponentProcessor.ComponentsDic.ContainsKey(SubComponentType.MANUALINPUT))
             {
                 return;
             }
@@ -36,7 +36,7 @@ namespace Roundbeargames
                         continue;
                     }
 
-                    if (!c.subComponentProcessor.ComponentsDic.ContainsKey(SubComponents.MANUALINPUT))
+                    if (!c.subComponentProcessor.ComponentsDic.ContainsKey(SubComponentType.MANUALINPUT))
                     {
                         continue;
                     }
