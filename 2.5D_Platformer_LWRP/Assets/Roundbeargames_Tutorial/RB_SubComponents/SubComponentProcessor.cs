@@ -14,6 +14,7 @@ namespace Roundbeargames
         [Space(15)] public RagdollData ragdollData;
         [Space(15)] public ManualInputData manualInputData;
         [Space(15)] public BoxColliderData boxColliderData;
+        [Space(15)] public VerticalVelocityData verticalVelocityData;
 
         private void Awake()
         {
@@ -26,6 +27,7 @@ namespace Roundbeargames
             FixedUpdateSubComponent(SubComponentType.RAGDOLL);
             FixedUpdateSubComponent(SubComponentType.BLOCKINGOBJECTS);
             FixedUpdateSubComponent(SubComponentType.BOX_COLLIDER_UPDATER);
+            FixedUpdateSubComponent(SubComponentType.VERTICAL_VELOCITY);
         }
 
         public void UpdateSubComponents()

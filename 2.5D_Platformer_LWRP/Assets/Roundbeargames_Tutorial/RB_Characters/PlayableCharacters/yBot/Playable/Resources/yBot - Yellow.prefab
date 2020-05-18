@@ -2624,6 +2624,49 @@ Transform:
   m_Father: {fileID: 3138073301657642697}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &273939970065944530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8104933904284061724}
+  - component: {fileID: 2236100335575290224}
+  m_Layer: 9
+  m_Name: VerticalVelocity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8104933904284061724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273939970065944530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8457966283628990782}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2236100335575290224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273939970065944530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2047dc6e51f65b42b75d24c2393a206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &319097897894110478
 GameObject:
   m_ObjectHideFlags: 0
@@ -4177,6 +4220,7 @@ Transform:
   - {fileID: 3518825847605337136}
   - {fileID: 734756287284424899}
   - {fileID: 3522839599814080229}
+  - {fileID: 8104933904284061724}
   m_Father: {fileID: 7198515055300973108}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4201,6 +4245,14 @@ MonoBehaviour:
   ragdollData:
     RagdollTriggered: 0
     BodyParts: []
+  boxColliderData:
+    IsUpdatingSpheres: 0
+    IsLanding: 0
+    Size_Update_Speed: 0
+    Center_Update_Speed: 0
+    TargetSize: {x: 0, y: 0, z: 0}
+    TargetCenter: {x: 0, y: 0, z: 0}
+    LandingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &3299876615741576762
 GameObject:
   m_ObjectHideFlags: 0
@@ -4336,6 +4388,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc623dc4424bcae47bbdcf7c51662fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxColliderData:
+    IsUpdatingSpheres: 0
+    IsLanding: 0
+    Size_Update_Speed: 0
+    Center_Update_Speed: 0
+    TargetSize: {x: 0, y: 0, z: 0}
+    TargetCenter: {x: 0, y: 0, z: 0}
+    LandingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &3532624835290403015
 GameObject:
   m_ObjectHideFlags: 0
@@ -5233,7 +5293,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8413069498202938682}
-  - component: {fileID: 6567238384836022228}
   - component: {fileID: 6240635253796913622}
   m_Layer: 0
   m_Name: LedgeChecker
@@ -5258,14 +5317,6 @@ Transform:
   m_Father: {fileID: 8457966283628990782}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6567238384836022228
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5636626730070129921}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &6240635253796913622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6193,13 +6244,6 @@ MonoBehaviour:
   IsIgnoreCharacterTime: 0
   Ground: {fileID: 0}
   CollidingPoint: {x: 0, y: 0, z: 0}
-  UpdatingSpheres: 0
-  TargetSize: {x: 0, y: 0, z: 0}
-  Size_Speed: 0
-  TargetCenter: {x: 0, y: 0, z: 0}
-  Center_Speed: 0
-  LandingPosition: {x: 0, y: 0, z: 0}
-  IsLanding: 0
   LockTransition: 0
   HoldingWeapon: {fileID: 0}
 --- !u!114 &3396805944348958970

@@ -12,6 +12,7 @@ namespace Roundbeargames
         RAGDOLL,
         BLOCKINGOBJECTS,
         BOX_COLLIDER_UPDATER,
+        VERTICAL_VELOCITY,
     }
 
     public abstract class SubComponent : MonoBehaviour

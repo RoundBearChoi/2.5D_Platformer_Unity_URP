@@ -137,27 +137,6 @@ namespace Roundbeargames
         private void FixedUpdate()
         {
             subComponentProcessor.FixedUpdateSubComponents();
-
-            bool cancelPull = AIR_CONTROL.GetBool((int)AirControlBool.CANCEL_PULL);
-
-            if (!cancelPull)
-            {
-                if (RIGID_BODY.velocity.y > 0f && !Jump)
-                {
-                    RIGID_BODY.velocity -= (Vector3.up * RIGID_BODY.velocity.y * 0.1f);
-                }
-            }
-
-            Vector3 maxFallVelocity = AIR_CONTROL.GetVector3((int)AirControlVector3.MAX_FALL_VELOCITY);
-
-            //slow down wallslide
-            if (maxFallVelocity.y != 0f)
-            {
-                if (RIGID_BODY.velocity.y <= maxFallVelocity.y)
-                {
-                    RIGID_BODY.velocity = maxFallVelocity;
-                }
-            }
         }
 
         private void OnCollisionStay(Collision collision)
