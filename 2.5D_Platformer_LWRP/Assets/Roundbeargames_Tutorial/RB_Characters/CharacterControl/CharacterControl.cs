@@ -59,6 +59,7 @@ namespace Roundbeargames
         public RagdollData RAGDOLL_DATA => subComponentProcessor.ragdollData;
         public ManualInputData MANUAL_INPUT_DATA => subComponentProcessor.manualInputData;
         public BoxColliderData BOX_COLLIDER_DATA => subComponentProcessor.boxColliderData;
+        public DamageData DAMAGE_DATA => subComponentProcessor.damageData;
 
         public Dataset AIR_CONTROL
         {
@@ -175,9 +176,9 @@ namespace Roundbeargames
                 }
 
                 damageDetector.DamagedTrigger.GetComponent<Rigidbody>().
-                    AddForce(damageDetector.Attacker.transform.forward * damageDetector.Attack.ForwardForce +
-                    damageDetector.Attacker.transform.right * damageDetector.Attack.RightForce +
-                    damageDetector.Attacker.transform.up * damageDetector.Attack.UpForce);
+                    AddForce(DAMAGE_DATA.Attacker.transform.forward * damageDetector.Attack.ForwardForce +
+                    DAMAGE_DATA.Attacker.transform.right * damageDetector.Attack.RightForce +
+                    DAMAGE_DATA.Attacker.transform.up * damageDetector.Attack.UpForce);
             }
         }
 

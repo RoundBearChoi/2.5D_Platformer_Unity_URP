@@ -13,6 +13,7 @@ namespace Roundbeargames
         BLOCKINGOBJECTS,
         BOX_COLLIDER_UPDATER,
         VERTICAL_VELOCITY,
+        DAMAGE_DETECTOR,
     }
 
     public abstract class SubComponent : MonoBehaviour

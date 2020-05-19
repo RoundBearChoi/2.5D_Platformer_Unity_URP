@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    public class DamageDetector : MonoBehaviour
+    public class DamageDetector : SubComponent
     {
-        CharacterControl control;
+        public DamageData damageData;
 
         [SerializeField]
         private float hp;
@@ -16,7 +16,6 @@ namespace Roundbeargames
 
         [Header("Damage Info")]
         public Attack Attack;
-        public CharacterControl Attacker;
         public TriggerDetector DamagedTrigger;
         public GameObject AttackingPart;
         public AttackInfo BlockedAttack;
@@ -29,12 +28,23 @@ namespace Roundbeargames
         public Attack MarioStompAttack;
         public Attack AxeThrow;
 
-        private void Awake()
+        private void Start()
         {
-            control = GetComponent<CharacterControl>();
+            damageData = new DamageData
+            {
+
+            };
+
+            subComponentProcessor.damageData = damageData;
+            subComponentProcessor.ComponentsDic.Add(SubComponentType.DAMAGE_DETECTOR, this);
         }
 
-        private void Update()
+        public override void OnFixedUpdate()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void OnUpdate()
         {
             if (AttackManager.Instance.CurrentAttacks.Count > 0)
             {
@@ -126,7 +136,7 @@ namespace Roundbeargames
                             collider.gameObject)
                         {
                             control.damageDetector.Attack = info.AttackAbility;
-                            control.damageDetector.Attacker = info.Attacker;
+                            damageData.Attacker = info.Attacker;
 
                             control.damageDetector.DamagedTrigger = data.Key;
                             control.damageDetector.AttackingPart =
@@ -150,7 +160,7 @@ namespace Roundbeargames
                 if (dist <= info.LethalRange)
                 {
                     control.damageDetector.Attack = info.AttackAbility;
-                    control.damageDetector.Attacker = info.Attacker;
+                    damageData.Attacker = info.Attacker;
 
                     int index = Random.Range(0, control.RAGDOLL_DATA.BodyParts.Count);
                     control.damageDetector.DamagedTrigger =
