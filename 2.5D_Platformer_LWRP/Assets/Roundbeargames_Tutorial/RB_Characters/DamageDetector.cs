@@ -14,12 +14,6 @@ namespace Roundbeargames
         [SerializeField]
         List<RuntimeAnimatorController> HitReactionList = new List<RuntimeAnimatorController>();
 
-        [Header("Damage Info")]
-        public Attack Attack;
-        public TriggerDetector DamagedTrigger;
-        public GameObject AttackingPart;
-        public AttackInfo BlockedAttack;
-
         [Header("InstaKill")]
         public RuntimeAnimatorController Assassination_A;
         public RuntimeAnimatorController Assassination_B;
@@ -32,7 +26,13 @@ namespace Roundbeargames
         {
             damageData = new DamageData
             {
+                Attacker = null,
+                Attack = null,
+                DamagedTrigger = null,
+                AttackingPart = null,
+                BlockedAttack = null,
 
+                IsDead = IsDead,
             };
 
             subComponentProcessor.damageData = damageData;
@@ -52,7 +52,7 @@ namespace Roundbeargames
             }
         }
 
-        private bool AttackIsValid(AttackInfo info)
+        bool AttackIsValid(AttackInfo info)
         {
             if (info == null)
             {
@@ -96,7 +96,7 @@ namespace Roundbeargames
             return true;
         }
 
-        private void CheckAttack()
+        void CheckAttack()
         {
             foreach (AttackInfo info in AttackManager.Instance.CurrentAttacks)
             {
@@ -123,7 +123,7 @@ namespace Roundbeargames
             }
         }
 
-        private bool IsCollided(AttackInfo info)
+        bool IsCollided(AttackInfo info)
         {
             foreach(KeyValuePair<TriggerDetector, List<Collider>> data in
                 control.animationProgress.CollidingBodyParts)
@@ -135,12 +135,11 @@ namespace Roundbeargames
                         if (info.Attacker.GetAttackingPart(part) ==
                             collider.gameObject)
                         {
-                            control.damageDetector.Attack = info.AttackAbility;
+                            damageData.Attack = info.AttackAbility;
                             damageData.Attacker = info.Attacker;
 
-                            control.damageDetector.DamagedTrigger = data.Key;
-                            control.damageDetector.AttackingPart =
-                                info.Attacker.GetAttackingPart(part);
+                            damageData.DamagedTrigger = data.Key;
+                            damageData.AttackingPart = info.Attacker.GetAttackingPart(part);
 
                             return true;
                         }
@@ -151,7 +150,7 @@ namespace Roundbeargames
             return false;
         }
 
-        private bool IsInLethalRange(AttackInfo info)
+        bool IsInLethalRange(AttackInfo info)
         {
             foreach(Collider c in control.RAGDOLL_DATA.BodyParts)
             {
@@ -159,11 +158,11 @@ namespace Roundbeargames
 
                 if (dist <= info.LethalRange)
                 {
-                    control.damageDetector.Attack = info.AttackAbility;
+                    damageData.Attack = info.AttackAbility;
                     damageData.Attacker = info.Attacker;
 
                     int index = Random.Range(0, control.RAGDOLL_DATA.BodyParts.Count);
-                    control.damageDetector.DamagedTrigger =
+                    damageData.DamagedTrigger =
                         control.RAGDOLL_DATA.BodyParts[index].GetComponent<TriggerDetector>();
 
                     return true;
@@ -173,7 +172,7 @@ namespace Roundbeargames
             return false;
         }
 
-        public bool IsDead()
+        bool IsDead()
         {
             if (hp <= 0f)
             {
@@ -187,7 +186,7 @@ namespace Roundbeargames
 
         bool IsBlocked(AttackInfo info)
         {
-            if (info == BlockedAttack && BlockedAttack != null)
+            if (info == damageData.BlockedAttack && damageData.BlockedAttack != null)
             {
                 return true;
             }
@@ -230,7 +229,7 @@ namespace Roundbeargames
 
             if (IsBlocked(info))
             {
-                BlockedAttack = info;
+                damageData.BlockedAttack = info;
                 return;
             }
 
@@ -246,7 +245,7 @@ namespace Roundbeargames
                             PoolManager.Instance.GetObject(info.AttackAbility.ParticleType);
 
                         vfx.transform.position =
-                            control.damageDetector.AttackingPart.transform.position;
+                            damageData.AttackingPart.transform.position;
 
                         vfx.SetActive(true);
 
@@ -295,7 +294,7 @@ namespace Roundbeargames
 
         public void DeathBySpikes()
         {
-            control.damageDetector.DamagedTrigger = null;
+            damageData.DamagedTrigger = null;
             hp = 0f;
         }
 

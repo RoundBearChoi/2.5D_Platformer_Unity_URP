@@ -127,10 +127,10 @@ namespace Roundbeargames
                     info.CopyInfo(c.damageDetector.MarioStompAttack, control);
 
                     int index = Random.Range(0, c.RAGDOLL_DATA.BodyParts.Count);
-                    c.damageDetector.DamagedTrigger = c.RAGDOLL_DATA.BodyParts[index].GetComponent<TriggerDetector>();
-                    c.damageDetector.Attack = c.damageDetector.MarioStompAttack;
+                    c.DAMAGE_DATA.DamagedTrigger = c.RAGDOLL_DATA.BodyParts[index].GetComponent<TriggerDetector>();
+                    c.DAMAGE_DATA.Attack = c.damageDetector.MarioStompAttack;
                     c.DAMAGE_DATA.Attacker = control;
-                    c.damageDetector.AttackingPart = control.RightFoot_Attack;
+                    c.DAMAGE_DATA.AttackingPart = control.RightFoot_Attack;
 
                     c.damageDetector.TakeDamage(info);
                 }

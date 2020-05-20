@@ -8,5 +8,13 @@ namespace Roundbeargames
     public class DamageData
     {
         public CharacterControl Attacker;
+        public Attack Attack;
+        public TriggerDetector DamagedTrigger;
+        public GameObject AttackingPart;
+        public AttackInfo BlockedAttack;
+
+        public delegate bool ReturnBool();
+
+        public ReturnBool IsDead;
     }
 }

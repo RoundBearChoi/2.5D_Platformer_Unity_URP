@@ -80,7 +80,7 @@ namespace Roundbeargames
                 return false;
             }
 
-            if (target.damageDetector.IsDead())
+            if (target.DAMAGE_DATA.IsDead())
             {
                 return true;
             }

@@ -61,12 +61,12 @@ namespace Roundbeargames
                         continue;
                     }
 
-                    if (c.damageDetector.IsDead())
+                    if (c.DAMAGE_DATA.IsDead())
                     {
                         continue;
                     }
 
-                    if (control.damageDetector.IsDead())
+                    if (control.DAMAGE_DATA.IsDead())
                     {
                         continue;
                     }

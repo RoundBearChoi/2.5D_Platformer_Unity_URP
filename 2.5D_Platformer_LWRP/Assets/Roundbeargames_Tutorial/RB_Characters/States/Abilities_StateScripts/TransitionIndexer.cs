@@ -381,7 +381,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.ATTACK_IS_BLOCKED:
                         {
-                            if (control.damageDetector.BlockedAttack == null)
+                            if (control.DAMAGE_DATA.BlockedAttack == null)
                             {
                                 return false;
                             }

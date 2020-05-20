@@ -109,9 +109,9 @@ namespace Roundbeargames
 
                         foreach(CharacterControl c in CharacterManager.Instance.Characters)
                         {
-                            if (c.damageDetector.BlockedAttack == info)
+                            if (c.DAMAGE_DATA.BlockedAttack == info)
                             {
-                                c.damageDetector.BlockedAttack = null;
+                                c.DAMAGE_DATA.BlockedAttack = null;
                             }
                         }
 
