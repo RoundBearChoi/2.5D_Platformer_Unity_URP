@@ -16,5 +16,17 @@ namespace Roundbeargames
         public delegate bool ReturnBool();
 
         public ReturnBool IsDead;
+
+        public void SetData(
+            CharacterControl attacker,
+            Attack attack,
+            TriggerDetector damagedTrigger,
+            GameObject attackingPart)
+        {
+            Attacker = attacker;
+            Attack = attack;
+            DamagedTrigger = damagedTrigger;
+            AttackingPart = attackingPart;
+        }
     }
 }

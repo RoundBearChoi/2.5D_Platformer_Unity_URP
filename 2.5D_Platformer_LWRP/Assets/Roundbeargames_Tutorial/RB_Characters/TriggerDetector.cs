@@ -73,10 +73,11 @@ namespace Roundbeargames
                     AttackInfo info = new AttackInfo();
                     info.CopyInfo(control.damageDetector.AxeThrow, control);
 
-                    control.DAMAGE_DATA.DamagedTrigger = this;
-                    control.DAMAGE_DATA.Attack = control.damageDetector.AxeThrow;
-                    control.DAMAGE_DATA.Attacker = w.Thrower;
-                    control.DAMAGE_DATA.AttackingPart = w.Thrower.RightHand_Attack;
+                    control.DAMAGE_DATA.SetData(
+                        w.Thrower,
+                        control.damageDetector.AxeThrow,
+                        this,
+                        null);
 
                     control.damageDetector.TakeDamage(info);
 

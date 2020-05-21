@@ -135,11 +135,11 @@ namespace Roundbeargames
                         if (info.Attacker.GetAttackingPart(part) ==
                             collider.gameObject)
                         {
-                            damageData.Attack = info.AttackAbility;
-                            damageData.Attacker = info.Attacker;
-
-                            damageData.DamagedTrigger = data.Key;
-                            damageData.AttackingPart = info.Attacker.GetAttackingPart(part);
+                            damageData.SetData(
+                                info.Attacker,
+                                info.AttackAbility,
+                                data.Key,
+                                info.Attacker.GetAttackingPart(part));
 
                             return true;
                         }
@@ -158,12 +158,14 @@ namespace Roundbeargames
 
                 if (dist <= info.LethalRange)
                 {
-                    damageData.Attack = info.AttackAbility;
-                    damageData.Attacker = info.Attacker;
-
                     int index = Random.Range(0, control.RAGDOLL_DATA.BodyParts.Count);
-                    damageData.DamagedTrigger =
-                        control.RAGDOLL_DATA.BodyParts[index].GetComponent<TriggerDetector>();
+                    TriggerDetector triggerDetector = control.RAGDOLL_DATA.BodyParts[index].GetComponent<TriggerDetector>();
+
+                    damageData.SetData(
+                        info.Attacker,
+                        info.AttackAbility,
+                        triggerDetector,
+                        null);
 
                     return true;
                 }
