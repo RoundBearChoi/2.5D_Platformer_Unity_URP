@@ -15,7 +15,7 @@ namespace Roundbeargames
             characterState.characterControl.MoveLeft = false;
             characterState.characterControl.MoveRight = false;
 
-            characterState.characterControl.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, 0f);
+            characterState.MOMENTUM_DATA.Momentum = 0f;
             characterState.characterControl.AIR_CONTROL.SetBool((int)AirControlBool.CAN_WALL_JUMP, false);
 
             characterState.VERTICAL_VELOCITY_DATA.MaxWallSlideVelocity = MaxFallVelocity;

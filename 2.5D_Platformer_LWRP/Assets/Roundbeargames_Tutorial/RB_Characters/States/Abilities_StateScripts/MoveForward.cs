@@ -55,11 +55,11 @@ namespace Roundbeargames
             {
                 if (characterState.characterControl.IsFacingForward())
                 {
-                    characterState.characterControl.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, StartingMomentum);
+                    characterState.MOMENTUM_DATA.Momentum = StartingMomentum;
                 }
                 else
                 {
-                    characterState.characterControl.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, -StartingMomentum);
+                    characterState.MOMENTUM_DATA.Momentum = -StartingMomentum;
                 }
             }
 
@@ -109,7 +109,7 @@ namespace Roundbeargames
 
             if (UseMomentum)
             {
-                UpdateMomentum(characterState.characterControl, stateInfo);
+                MoveOnMomentum(characterState.characterControl, stateInfo);
             }
             else
             {
@@ -128,64 +128,27 @@ namespace Roundbeargames
         {
             if (ClearMomentumOnExit)
             {
-                characterState.characterControl.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, 0f);
+                characterState.MOMENTUM_DATA.Momentum = 0f;
             }
         }
 
-        private void UpdateMomentum(CharacterControl control, AnimatorStateInfo stateInfo)
+        private void MoveOnMomentum(CharacterControl control, AnimatorStateInfo stateInfo)
         {
-            // current air momentum
-            float momentum = control.AIR_CONTROL.GetFloat((int)AirControlFloat.AIR_MOMENTUM);
             float speed = SpeedGraph.Evaluate(stateInfo.normalizedTime) * Speed * Time.deltaTime;
+            control.MOMENTUM_DATA.CalculateMomentum(speed, MaxMomentum);
 
-            if (!control.BLOCKING_DATA.RightSideBlocked())
-            {
-                if (control.MoveRight)
-                {
-                    control.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, momentum + speed);
-                }
-            }
-            
-            if (!control.BLOCKING_DATA.LeftSideBlocked())
-            {
-                if (control.MoveLeft)
-                {
-                    control.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, momentum - speed);
-                }
-            }
-
-            if (control.BLOCKING_DATA.RightSideBlocked() || control.BLOCKING_DATA.LeftSideBlocked())
-            {
-                float lerped = Mathf.Lerp(momentum, 0f, Time.deltaTime * 1.5f);
-
-                control.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, lerped);
-            }
-            
-
-            if (Mathf.Abs(momentum) >= MaxMomentum)
-            {
-                if (momentum > 0f)
-                {
-                    control.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, MaxMomentum);
-                }
-                else if (momentum < 0f)
-                {
-                    control.AIR_CONTROL.SetFloat((int)AirControlFloat.AIR_MOMENTUM, -MaxMomentum);
-                }
-            }
-
-            if (momentum > 0f)
+            if (control.MOMENTUM_DATA.Momentum > 0f)
             {
                 control.FaceForward(true);
             }
-            else if (momentum < 0f)
+            else if (control.MOMENTUM_DATA.Momentum < 0f)
             {
                 control.FaceForward(false);
             }
 
             if (!IsBlocked(control))
             {
-                control.MoveForward(Speed, Mathf.Abs(momentum));
+                control.MoveForward(Speed, Mathf.Abs(control.MOMENTUM_DATA.Momentum));
             }
         }
 

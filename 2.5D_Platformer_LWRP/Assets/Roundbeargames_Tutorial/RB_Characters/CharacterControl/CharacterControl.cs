@@ -60,6 +60,7 @@ namespace Roundbeargames
         public ManualInputData MANUAL_INPUT_DATA => subComponentProcessor.manualInputData;
         public BoxColliderData BOX_COLLIDER_DATA => subComponentProcessor.boxColliderData;
         public DamageData DAMAGE_DATA => subComponentProcessor.damageData;
+        public MomentumData MOMENTUM_DATA => subComponentProcessor.momentumData;
 
         public Dataset AIR_CONTROL
         {
