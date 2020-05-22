@@ -8,6 +8,8 @@ namespace Roundbeargames
     {
         public DamageData damageData;
 
+        // temp
+
         [SerializeField]
         private float hp;
 
