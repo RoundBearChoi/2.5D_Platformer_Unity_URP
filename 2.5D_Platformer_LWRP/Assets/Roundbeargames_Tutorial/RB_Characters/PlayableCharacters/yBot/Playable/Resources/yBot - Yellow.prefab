@@ -1014,6 +1014,52 @@ Transform:
   m_Father: {fileID: 6668471384438810398}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2283964232901559216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2696082333354280608}
+  - component: {fileID: 4688593178332440705}
+  m_Layer: 9
+  m_Name: PlayerRotation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2696082333354280608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283964232901559216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8457966283628990782}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4688593178332440705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283964232901559216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91dc96668be87f42aebb0378c029517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationData:
+    LockEarlyTurn: 0
+    LockDirectionNextState: 0
 --- !u!1 &2334154454243288051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +1740,7 @@ Transform:
   - {fileID: 8104933904284061724}
   - {fileID: 1191723561896776799}
   - {fileID: 2819649221303187868}
+  - {fileID: 2696082333354280608}
   m_Father: {fileID: 7198515055300973108}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1735,6 +1782,11 @@ MonoBehaviour:
     DamagedTrigger: {fileID: 0}
     AttackingPart: {fileID: 0}
     BlockedAttack: {fileID: 0}
+  momentumData:
+    Momentum: 0
+  rotationData:
+    LockEarlyTurn: 0
+    LockDirectionNextState: 0
 --- !u!1 &3299876615741576762
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,6 +3633,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e4dea3e05cf334dad7861df0df3723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  momentumData:
+    Momentum: 0
 --- !u!1 &7200667830176523006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3737,8 +3791,6 @@ MonoBehaviour:
   LatestMoveUp: {fileID: 0}
   AttackTriggered: 0
   AttackButtonIsReset: 0
-  disallowEarlyTurn: 0
-  LockDirectionNextState: 0
   IsIgnoreCharacterTime: 0
   Ground: {fileID: 0}
   CollidingPoint: {x: 0, y: 0, z: 0}

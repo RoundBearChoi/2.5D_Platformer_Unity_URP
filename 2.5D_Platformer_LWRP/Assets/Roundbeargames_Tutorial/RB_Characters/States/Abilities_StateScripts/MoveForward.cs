@@ -36,9 +36,10 @@ namespace Roundbeargames
         {
             characterState.characterControl.animationProgress.LatestMoveForward = this;
 
-            if (AllowEarlyTurn && !characterState.characterControl.animationProgress.disallowEarlyTurn)
+            if (AllowEarlyTurn)
             {
-                if (!characterState.characterControl.animationProgress.LockDirectionNextState)
+                // early turn can be locked by previous states
+                if (!characterState.ROTATION_DATA.EarlyTurnIsLocked())
                 {
                     if (characterState.characterControl.MoveLeft)
                     {
@@ -63,8 +64,8 @@ namespace Roundbeargames
                 }
             }
 
-            characterState.characterControl.animationProgress.disallowEarlyTurn = false;
-            characterState.characterControl.animationProgress.LockDirectionNextState = false;
+            characterState.ROTATION_DATA.LockEarlyTurn = false;
+            characterState.ROTATION_DATA.LockDirectionNextState = false;
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -74,7 +75,7 @@ namespace Roundbeargames
                 Debug.Log(stateInfo.normalizedTime);
             }
 
-            characterState.characterControl.animationProgress.LockDirectionNextState = LockDirectionNextState;
+            characterState.ROTATION_DATA.LockDirectionNextState = LockDirectionNextState;
 
             if (characterState.characterControl.animationProgress.
                 LatestMoveForward != this)

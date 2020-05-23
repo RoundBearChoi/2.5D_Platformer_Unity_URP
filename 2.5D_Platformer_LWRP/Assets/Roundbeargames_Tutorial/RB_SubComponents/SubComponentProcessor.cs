@@ -17,6 +17,7 @@ namespace Roundbeargames
         [Space(15)] public VerticalVelocityData verticalVelocityData;
         [Space(15)] public DamageData damageData;
         [Space(15)] public MomentumData momentumData;
+        [Space(15)] public RotationData rotationData;
 
         private void Awake()
         {

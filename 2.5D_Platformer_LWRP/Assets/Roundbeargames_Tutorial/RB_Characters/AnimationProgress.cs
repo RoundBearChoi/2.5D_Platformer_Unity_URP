@@ -20,8 +20,6 @@ namespace Roundbeargames
         public bool AttackButtonIsReset;
 
         [Header("GroundMovement")]
-        public bool disallowEarlyTurn;
-        public bool LockDirectionNextState;
         public bool IsIgnoreCharacterTime;
 
         [Header("Colliding Objects")]

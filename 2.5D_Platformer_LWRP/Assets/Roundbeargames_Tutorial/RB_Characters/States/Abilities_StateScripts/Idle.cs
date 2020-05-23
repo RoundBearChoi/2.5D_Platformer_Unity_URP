@@ -14,13 +14,13 @@ namespace Roundbeargames
             animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Attack], false);
             animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
 
-            characterState.characterControl.animationProgress.disallowEarlyTurn = false;
+            characterState.ROTATION_DATA.LockEarlyTurn = false;
             characterState.BLOCKING_DATA.ClearFrontBlockingObjDic();
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            characterState.characterControl.animationProgress.LockDirectionNextState = false;
+            characterState.ROTATION_DATA.LockEarlyTurn = false;
 
             if (characterState.characterControl.Jump)
             {
