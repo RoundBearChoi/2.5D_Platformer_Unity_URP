@@ -115,7 +115,7 @@ namespace Roundbeargames
 
             float y, z;
             y = platform.transform.position.y + (boxCollider.size.y / 2f);
-            if (control.IsFacingForward())
+            if (control.ROTATION_DATA.IsFacingForward())
             {
                 z = platform.transform.position.z - (boxCollider.size.z / 2f);
             }
@@ -129,7 +129,7 @@ namespace Roundbeargames
             GameObject TestingSphere = GameObject.Find("TestingSphere");
             TestingSphere.transform.position = platformEdge;
 
-            if (control.IsFacingForward())
+            if (control.ROTATION_DATA.IsFacingForward())
             {
                 control.RIGID_BODY.MovePosition(
                     platformEdge + LedgeCalibration);

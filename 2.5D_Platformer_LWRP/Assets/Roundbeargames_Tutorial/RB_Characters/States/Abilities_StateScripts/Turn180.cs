@@ -11,13 +11,13 @@ namespace Roundbeargames
         {
             //CharacterControl control = characterState.GetCharacterControl(animator);
 
-            if (characterState.characterControl.IsFacingForward())
+            if (characterState.ROTATION_DATA.IsFacingForward())
             {
-                characterState.characterControl.FaceForward(false);
+                characterState.ROTATION_DATA.FaceForward(false);
             }
             else
             {
-                characterState.characterControl.FaceForward(true);
+                characterState.ROTATION_DATA.FaceForward(true);
             }
         }
 

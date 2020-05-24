@@ -78,7 +78,7 @@ namespace Roundbeargames
             {
                 w.transform.parent = null;
 
-                if (control.IsFacingForward())
+                if (control.ROTATION_DATA.IsFacingForward())
                 {
                     w.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
                 }
@@ -105,7 +105,7 @@ namespace Roundbeargames
             {
                 w.transform.parent = null;
 
-                if (control.IsFacingForward())
+                if (control.ROTATION_DATA.IsFacingForward())
                 {
                     w.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
                 }
@@ -114,7 +114,7 @@ namespace Roundbeargames
                     w.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
                 }
 
-                FlyForward = control.IsFacingForward();
+                FlyForward = control.ROTATION_DATA.IsFacingForward();
 
                 w.transform.position = control.transform.position + (Vector3.up * ThrowOffset.y);
                 w.transform.position += (control.transform.forward * ThrowOffset.z);

@@ -177,7 +177,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.MOVE_FORWARD:
                         {
-                            if (control.IsFacingForward())
+                            if (control.ROTATION_DATA.IsFacingForward())
                             {
                                 if (!control.MoveRight)
                                 {

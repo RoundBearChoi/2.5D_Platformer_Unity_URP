@@ -11,7 +11,10 @@ namespace Roundbeargames
         public bool LockDirectionNextState;
 
         public delegate bool ReturnBool();
+        public delegate void DoSomething(bool faceForward);
 
         public ReturnBool EarlyTurnIsLocked;
+        public ReturnBool IsFacingForward;
+        public DoSomething FaceForward;
     }
 }

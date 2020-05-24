@@ -76,14 +76,14 @@ namespace Roundbeargames
             if ((control.aiProgress.pathfindingAgent.target.transform.position -
                 control.transform.position).z > 0f)
             {
-                if (control.IsFacingForward())
+                if (control.ROTATION_DATA.IsFacingForward())
                 {
                     return true;
                 }
             }
             else
             {
-                if (!control.IsFacingForward())
+                if (!control.ROTATION_DATA.IsFacingForward())
                 {
                     return true;
                 }

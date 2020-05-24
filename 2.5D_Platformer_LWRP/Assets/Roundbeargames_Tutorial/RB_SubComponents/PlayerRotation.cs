@@ -7,6 +7,7 @@ namespace Roundbeargames
     public class PlayerRotation : SubComponent
     {
         public RotationData rotationData;
+        static string TutorialScene_CharacterSelect = "TutorialScene_CharacterSelect";
 
         private void Start()
         {
@@ -15,6 +16,8 @@ namespace Roundbeargames
                 LockEarlyTurn = false,
                 LockDirectionNextState = false,
                 EarlyTurnIsLocked = EarlyTurnIsLocked,
+                FaceForward = FaceForward,
+                IsFacingForward = IsFacingForward,
             };
 
             subComponentProcessor.rotationData = rotationData;
@@ -33,6 +36,40 @@ namespace Roundbeargames
         bool EarlyTurnIsLocked()
         {
             if (rotationData.LockEarlyTurn || rotationData.LockDirectionNextState)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        void FaceForward(bool forward)
+        {
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name.Equals(TutorialScene_CharacterSelect))
+            {
+                return;
+            }
+
+            if (!control.SkinnedMeshAnimator.enabled)
+            {
+                return;
+            }
+
+            if (forward)
+            {
+                control.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
+            else
+            {
+                control.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+        }
+
+        bool IsFacingForward()
+        {
+            if (control.transform.forward.z > 0f)
             {
                 return true;
             }

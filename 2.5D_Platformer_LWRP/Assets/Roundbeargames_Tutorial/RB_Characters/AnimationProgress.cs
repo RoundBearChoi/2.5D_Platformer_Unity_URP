@@ -98,7 +98,7 @@ namespace Roundbeargames
 
             if (vec.z < 0f)
             {
-                if (control.IsFacingForward())
+                if (control.ROTATION_DATA.IsFacingForward())
                 {
                     return false;
                 }
@@ -109,7 +109,7 @@ namespace Roundbeargames
             }
             else if (vec.z > 0f)
             {
-                if (control.IsFacingForward())
+                if (control.ROTATION_DATA.IsFacingForward())
                 {
                     return true;
                 }

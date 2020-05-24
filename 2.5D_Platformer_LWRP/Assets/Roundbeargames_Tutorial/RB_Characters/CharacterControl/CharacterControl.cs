@@ -61,6 +61,7 @@ namespace Roundbeargames
         public BoxColliderData BOX_COLLIDER_DATA => subComponentProcessor.boxColliderData;
         public DamageData DAMAGE_DATA => subComponentProcessor.damageData;
         public MomentumData MOMENTUM_DATA => subComponentProcessor.momentumData;
+        public RotationData ROTATION_DATA => subComponentProcessor.rotationData;
 
         public Dataset AIR_CONTROL
         {
@@ -186,40 +187,6 @@ namespace Roundbeargames
         public void MoveForward(float Speed, float SpeedGraph)
         {
             transform.Translate(Vector3.forward * Speed * SpeedGraph * Time.deltaTime);
-        }
-
-        public void FaceForward(bool forward)
-        {
-            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name.Equals(RBScenes.TutorialScene_CharacterSelect.ToString()))
-            {
-                return;
-            }
-
-            if (!SkinnedMeshAnimator.enabled)
-            {
-                return;
-            }
-
-            if (forward)
-            {
-                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-            }
-        }
-
-        public bool IsFacingForward()
-        {
-            if (transform.forward.z > 0f)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
 
         public GameObject GetChildObj(string name)

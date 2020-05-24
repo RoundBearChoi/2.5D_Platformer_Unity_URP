@@ -14,9 +14,7 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-
-            if (characterState.characterControl.IsFacingForward())
+            if (characterState.ROTATION_DATA.IsFacingForward())
             {
                 if (characterState.characterControl.MoveLeft)
                 {
@@ -24,7 +22,7 @@ namespace Roundbeargames
                 }
             }
 
-            if (!characterState.characterControl.IsFacingForward())
+            if (!characterState.ROTATION_DATA.IsFacingForward())
             {
                 if (characterState.characterControl.MoveRight)
                 {
