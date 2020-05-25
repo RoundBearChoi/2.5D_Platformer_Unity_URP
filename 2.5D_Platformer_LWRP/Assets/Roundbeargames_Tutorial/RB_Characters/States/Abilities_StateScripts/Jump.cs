@@ -17,12 +17,12 @@ namespace Roundbeargames
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            characterState.characterControl.AIR_CONTROL.SetBool((int)AirControlBool.JUMPED, false);
+            characterState.JUMP_DATA.Jumped = false;
 
             if (JumpTiming == 0f)
             {
                 characterState.characterControl.RIGID_BODY.AddForce(Vector3.up * JumpForce);
-                characterState.characterControl.AIR_CONTROL.SetBool((int)AirControlBool.JUMPED, true);
+                characterState.JUMP_DATA.Jumped = true;
             }
 
             characterState.VERTICAL_VELOCITY_DATA.NoJumpCancel = CancelPull;
@@ -30,18 +30,16 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            bool jumped = characterState.characterControl.AIR_CONTROL.GetBool((int)AirControlBool.JUMPED);
-
-            if (!jumped && stateInfo.normalizedTime >= JumpTiming)
+            if (!characterState.JUMP_DATA.Jumped && stateInfo.normalizedTime >= JumpTiming)
             {
                 characterState.characterControl.RIGID_BODY.AddForce(Vector3.up * JumpForce);
-                characterState.characterControl.AIR_CONTROL.SetBool((int)AirControlBool.JUMPED, true);
+                characterState.JUMP_DATA.Jumped = true;
             }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //characterState.characterControl.PullMultiplier = 0f;
+
         }
     }
 }

@@ -8,7 +8,6 @@ namespace Roundbeargames.Datasets
     {
         NONE,
 
-        JUMPED,
         CAN_WALL_JUMP,
         CHECK_WALL_BLOCK
     }
@@ -17,7 +16,6 @@ namespace Roundbeargames.Datasets
     {
         private void Start()
         {
-            BoolDictionary.Add((int)AirControlBool.JUMPED, false);
             BoolDictionary.Add((int)AirControlBool.CAN_WALL_JUMP, false);
             BoolDictionary.Add((int)AirControlBool.CHECK_WALL_BLOCK, false);
         }

@@ -15,18 +15,18 @@ namespace Roundbeargames
             animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
 
             characterState.ROTATION_DATA.LockEarlyTurn = false;
+            characterState.ROTATION_DATA.LockDirectionNextState = false;
             characterState.BLOCKING_DATA.ClearFrontBlockingObjDic();
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             characterState.ROTATION_DATA.LockEarlyTurn = false;
+            characterState.ROTATION_DATA.LockDirectionNextState = false;
 
             if (characterState.characterControl.Jump)
             {
-                bool jumped = characterState.characterControl.AIR_CONTROL.GetBool((int)AirControlBool.JUMPED);
-
-                if (!jumped)
+                if (!characterState.JUMP_DATA.Jumped)
                 {
                     if (characterState.characterControl.animationProgress.Ground != null)
                     {
@@ -39,7 +39,7 @@ namespace Roundbeargames
                 if (!characterState.characterControl.animationProgress.
                     IsRunning(typeof(Jump)))
                 {
-                    characterState.characterControl.AIR_CONTROL.SetBool((int)AirControlBool.JUMPED, false);
+                    characterState.JUMP_DATA.Jumped = false;
                 }
             }
 

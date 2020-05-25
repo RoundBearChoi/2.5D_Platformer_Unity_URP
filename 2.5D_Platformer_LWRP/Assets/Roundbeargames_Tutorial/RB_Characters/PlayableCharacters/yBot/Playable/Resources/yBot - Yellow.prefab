@@ -1060,6 +1060,49 @@ MonoBehaviour:
   rotationData:
     LockEarlyTurn: 0
     LockDirectionNextState: 0
+--- !u!1 &2284176468906571315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1691088609046099153}
+  - component: {fileID: 3896753346790013866}
+  m_Layer: 9
+  m_Name: PlayerJump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1691088609046099153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2284176468906571315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8457966283628990782}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3896753346790013866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2284176468906571315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2823f8418cf2d654390faa3554eb8d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2334154454243288051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,6 +1784,7 @@ Transform:
   - {fileID: 1191723561896776799}
   - {fileID: 2819649221303187868}
   - {fileID: 2696082333354280608}
+  - {fileID: 1691088609046099153}
   m_Father: {fileID: 7198515055300973108}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
