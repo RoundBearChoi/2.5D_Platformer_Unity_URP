@@ -37,3 +37,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Custom/Paid assets
+Roundbeargames_Custom/
