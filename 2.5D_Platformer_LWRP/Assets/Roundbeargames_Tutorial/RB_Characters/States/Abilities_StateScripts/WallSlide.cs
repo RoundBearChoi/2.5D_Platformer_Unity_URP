@@ -1,5 +1,4 @@
-﻿using Roundbeargames.Datasets;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +15,7 @@ namespace Roundbeargames
             characterState.characterControl.MoveRight = false;
 
             characterState.MOMENTUM_DATA.Momentum = 0f;
-            characterState.characterControl.AIR_CONTROL.SetBool((int)AirControlBool.CAN_WALL_JUMP, false);
+            characterState.JUMP_DATA.CanWallJump = false;
 
             characterState.VERTICAL_VELOCITY_DATA.MaxWallSlideVelocity = MaxFallVelocity;
         }
@@ -25,7 +24,7 @@ namespace Roundbeargames
         {
             if (!characterState.characterControl.Jump)
             {
-                characterState.characterControl.AIR_CONTROL.SetBool((int)AirControlBool.CAN_WALL_JUMP, true);
+                characterState.JUMP_DATA.CanWallJump = true;
             }
         }
 

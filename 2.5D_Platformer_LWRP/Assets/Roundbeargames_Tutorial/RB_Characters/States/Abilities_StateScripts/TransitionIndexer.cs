@@ -1,5 +1,4 @@
-﻿using Roundbeargames.Datasets;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -53,8 +52,7 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            characterState.characterControl.AIR_CONTROL.SetBool(
-                (int)AirControlBool.CHECK_WALL_BLOCK, StartCheckingWallBlock());
+            characterState.JUMP_DATA.CheckWallBlock = StartCheckingWallBlock();
 
             if (animator.GetInteger(HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex]) == 0)
             {
@@ -232,9 +230,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.CAN_WALLJUMP:
                         {
-                            bool canWallJump = control.AIR_CONTROL.GetBool((int)AirControlBool.CAN_WALL_JUMP);
-
-                            if (!canWallJump)
+                            if (!control.JUMP_DATA.CanWallJump)
                             {
                                 return false;
                             }

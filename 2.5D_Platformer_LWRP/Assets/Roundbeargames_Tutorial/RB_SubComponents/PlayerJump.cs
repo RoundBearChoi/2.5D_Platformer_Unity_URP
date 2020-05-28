@@ -13,6 +13,8 @@ namespace Roundbeargames
             jumpData = new JumpData
             {
                 Jumped = false,
+                CanWallJump = false,
+                CheckWallBlock = false,
             };
 
             subComponentProcessor.jumpData = jumpData;

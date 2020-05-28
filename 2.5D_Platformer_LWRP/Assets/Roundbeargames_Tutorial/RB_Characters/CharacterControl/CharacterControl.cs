@@ -1,5 +1,4 @@
-﻿using Roundbeargames.Datasets;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -52,8 +51,6 @@ namespace Roundbeargames
         public NavMeshObstacle navMeshObstacle;
         public InstaKill instaKill;
 
-        public DataProcessor dataProcessor;
-
         public BlockingObjData BLOCKING_DATA => subComponentProcessor.blockingData;
         public LedgeGrabData LEDGE_GRAB_DATA => subComponentProcessor.ledgeGrabData;
         public RagdollData RAGDOLL_DATA => subComponentProcessor.ragdollData;
@@ -62,14 +59,7 @@ namespace Roundbeargames
         public DamageData DAMAGE_DATA => subComponentProcessor.damageData;
         public MomentumData MOMENTUM_DATA => subComponentProcessor.momentumData;
         public RotationData ROTATION_DATA => subComponentProcessor.rotationData;
-
-        public Dataset AIR_CONTROL
-        {
-            get
-            {
-                return dataProcessor.GetDataset(typeof(AirControl));
-            }
-        }
+        public JumpData JUMP_DATA => subComponentProcessor.jumpData;
 
         [Header("Gravity")]
         public ContactPoint[] contactPoints;
@@ -112,12 +102,6 @@ namespace Roundbeargames
             collisionSpheres = GetComponentInChildren<CollisionSpheres>();
             collisionSpheres.owner = this;
             collisionSpheres.SetColliderSpheres();
-
-            dataProcessor = this.gameObject.GetComponentInChildren<DataProcessor>();
-            System.Type[] arr = { 
-                typeof(AirControl),
-                typeof(SomeDataset)};
-            dataProcessor.InitializeSets(arr);
 
             aiController = GetComponentInChildren<AIController>();
             if (aiController == null)

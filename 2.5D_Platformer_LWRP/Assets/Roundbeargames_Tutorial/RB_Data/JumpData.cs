@@ -8,5 +8,7 @@ namespace Roundbeargames
     public class JumpData
     {
         public bool Jumped;
+        public bool CanWallJump;
+        public bool CheckWallBlock;
     }
 }
