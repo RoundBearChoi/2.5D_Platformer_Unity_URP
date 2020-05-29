@@ -100,7 +100,6 @@ namespace Roundbeargames
             instaKill = GetComponentInChildren<InstaKill>();
 
             collisionSpheres = GetComponentInChildren<CollisionSpheres>();
-            collisionSpheres.owner = this;
             collisionSpheres.SetColliderSpheres();
 
             aiController = GetComponentInChildren<AIController>();

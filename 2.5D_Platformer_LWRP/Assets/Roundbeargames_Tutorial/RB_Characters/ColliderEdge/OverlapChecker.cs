@@ -15,7 +15,7 @@ namespace Roundbeargames
             control = this.transform.root.gameObject.GetComponent<CharacterControl>();
         }
 
-        private void FixedUpdate()
+        public void UpdateChecker()
         {
             try
             {

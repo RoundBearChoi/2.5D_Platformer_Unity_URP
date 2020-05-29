@@ -32,6 +32,7 @@ namespace Roundbeargames
             FixedUpdateSubComponent(SubComponentType.BLOCKINGOBJECTS);
             FixedUpdateSubComponent(SubComponentType.BOX_COLLIDER_UPDATER);
             FixedUpdateSubComponent(SubComponentType.VERTICAL_VELOCITY);
+            FixedUpdateSubComponent(SubComponentType.COLLISION_SPHERES);
         }
 
         public void UpdateSubComponents()
