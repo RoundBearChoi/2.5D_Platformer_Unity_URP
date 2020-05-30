@@ -17,6 +17,7 @@ namespace Roundbeargames
         public MomentumData MOMENTUM_DATA => characterControl.subComponentProcessor.momentumData;
         public RotationData ROTATION_DATA => characterControl.subComponentProcessor.rotationData;
         public JumpData JUMP_DATA => characterControl.subComponentProcessor.jumpData;
+        public CollisionData COLLISION_DATA => characterControl.subComponentProcessor.collisionData;
 
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {

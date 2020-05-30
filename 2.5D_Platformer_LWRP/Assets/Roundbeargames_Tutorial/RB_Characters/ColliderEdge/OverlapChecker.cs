@@ -21,7 +21,7 @@ namespace Roundbeargames
             {
                 if (control.JUMP_DATA.CheckWallBlock)
                 {
-                    if (control.collisionSpheres.FrontOverlapCheckers.Contains(this))
+                    if (control.COLLISION_DATA.FrontOverlapCheckers.Contains(this))
                     {
                         ObjIsOverlapping = CheckObj();
                     }

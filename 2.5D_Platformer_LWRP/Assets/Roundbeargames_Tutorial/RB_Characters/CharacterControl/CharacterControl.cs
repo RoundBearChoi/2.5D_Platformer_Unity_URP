@@ -42,10 +42,10 @@ namespace Roundbeargames
         public SubComponentProcessor subComponentProcessor;
         //public ManualInput manualInput;
         //public LedgeChecker ledgeChecker;
+        //public CollisionSpheres collisionSpheres;
         public AnimationProgress animationProgress;
         public AIProgress aiProgress;
         public DamageDetector damageDetector;
-        public CollisionSpheres collisionSpheres;
         public AIController aiController;
         public BoxCollider boxCollider;
         public NavMeshObstacle navMeshObstacle;
@@ -60,6 +60,7 @@ namespace Roundbeargames
         public MomentumData MOMENTUM_DATA => subComponentProcessor.momentumData;
         public RotationData ROTATION_DATA => subComponentProcessor.rotationData;
         public JumpData JUMP_DATA => subComponentProcessor.jumpData;
+        public CollisionData COLLISION_DATA => subComponentProcessor.collisionData;
 
         [Header("Gravity")]
         public ContactPoint[] contactPoints;
@@ -92,15 +93,13 @@ namespace Roundbeargames
             subComponentProcessor = GetComponentInChildren<SubComponentProcessor>();
             //manualInput = GetComponent<ManualInput>();
             //ledgeChecker = GetComponentInChildren<LedgeChecker>();
+            //collisionSpheres = GetComponentInChildren<CollisionSpheres>();
             animationProgress = GetComponent<AnimationProgress>();
             aiProgress = GetComponentInChildren<AIProgress>();
             damageDetector = GetComponentInChildren<DamageDetector>();
             boxCollider = GetComponent<BoxCollider>();
             navMeshObstacle = GetComponent<NavMeshObstacle>();
             instaKill = GetComponentInChildren<InstaKill>();
-
-            collisionSpheres = GetComponentInChildren<CollisionSpheres>();
-            collisionSpheres.SetColliderSpheres();
 
             aiController = GetComponentInChildren<AIController>();
             if (aiController == null)

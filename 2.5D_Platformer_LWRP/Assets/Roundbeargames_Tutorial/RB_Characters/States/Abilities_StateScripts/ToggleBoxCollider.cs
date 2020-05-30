@@ -43,10 +43,10 @@ namespace Roundbeargames
 
             if (RepositionSpheres)
             {
-                control.collisionSpheres.Reposition_FrontSpheres();
-                control.collisionSpheres.Reposition_BottomSpheres();
-                control.collisionSpheres.Reposition_BackSpheres();
-                control.collisionSpheres.Reposition_UpSpheres();
+                control.COLLISION_DATA.Reposition_FrontSpheres();
+                control.COLLISION_DATA.Reposition_BottomSpheres();
+                control.COLLISION_DATA.Reposition_BackSpheres();
+                control.COLLISION_DATA.Reposition_UpSpheres();
             }
         }
     }

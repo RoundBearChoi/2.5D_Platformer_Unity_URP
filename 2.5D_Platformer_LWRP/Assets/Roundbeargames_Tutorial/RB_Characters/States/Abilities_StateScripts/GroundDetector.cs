@@ -73,7 +73,7 @@ namespace Roundbeargames
 
             if (control.RIGID_BODY.velocity.y < 0f)
             {
-                foreach (GameObject o in control.collisionSpheres.BottomSpheres)
+                foreach (GameObject o in control.COLLISION_DATA.BottomSpheres)
                 {
                     GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, -Vector3.up, Distance,
                         ref control.animationProgress.CollidingPoint);
