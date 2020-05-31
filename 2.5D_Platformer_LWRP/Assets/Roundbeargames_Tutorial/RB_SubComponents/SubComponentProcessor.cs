@@ -20,6 +20,7 @@ namespace Roundbeargames
         [Space(15)] public RotationData rotationData;
         [Space(15)] public JumpData jumpData;
         [Space(15)] public CollisionData collisionData;
+        [Space(15)] public InstaKillData instaKillData;
 
         private void Awake()
         {
@@ -34,6 +35,7 @@ namespace Roundbeargames
             FixedUpdateSubComponent(SubComponentType.BOX_COLLIDER_UPDATER);
             FixedUpdateSubComponent(SubComponentType.VERTICAL_VELOCITY);
             FixedUpdateSubComponent(SubComponentType.COLLISION_SPHERES);
+            FixedUpdateSubComponent(SubComponentType.INSTA_KILL);
         }
 
         public void UpdateSubComponents()

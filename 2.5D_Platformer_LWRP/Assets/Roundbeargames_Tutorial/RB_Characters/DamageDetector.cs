@@ -15,10 +15,6 @@ namespace Roundbeargames
 
         [SerializeField]
         List<RuntimeAnimatorController> HitReactionList = new List<RuntimeAnimatorController>();
-
-        [Header("InstaKill")]
-        public RuntimeAnimatorController Assassination_A;
-        public RuntimeAnimatorController Assassination_B;
         
         [Header("Attack")]
         public Attack MarioStompAttack;
@@ -309,11 +305,11 @@ namespace Roundbeargames
 
             control.RIGID_BODY.useGravity = false;
             control.boxCollider.enabled = false;
-            control.SkinnedMeshAnimator.runtimeAnimatorController = Assassination_B;
+            control.SkinnedMeshAnimator.runtimeAnimatorController = control.INSTA_KILL_DATA.Animation_B;
 
             attacker.RIGID_BODY.useGravity = false;
             attacker.boxCollider.enabled = false;
-            attacker.SkinnedMeshAnimator.runtimeAnimatorController = Assassination_A;
+            attacker.SkinnedMeshAnimator.runtimeAnimatorController = control.INSTA_KILL_DATA.Animation_A;
 
             Vector3 dir = control.transform.position - attacker.transform.position;
 

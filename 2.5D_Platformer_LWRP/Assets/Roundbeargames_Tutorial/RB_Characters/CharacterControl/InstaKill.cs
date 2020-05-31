@@ -4,16 +4,26 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    public class InstaKill : MonoBehaviour
+    public class InstaKill : SubComponent
     {
-        CharacterControl control;
+        public InstaKillData instaKillData;
+
+        [SerializeField] RuntimeAnimatorController Assassination_A;
+        [SerializeField] RuntimeAnimatorController Assassination_B;
 
         private void Start()
         {
-            control = this.gameObject.GetComponentInParent<CharacterControl>();
+            instaKillData = new InstaKillData
+            {
+                Animation_A = Assassination_A,
+                Animation_B = Assassination_B,
+            };
+
+            subComponentProcessor.instaKillData = instaKillData;
+            subComponentProcessor.ComponentsDic.Add(SubComponentType.INSTA_KILL, this);
         }
 
-        private void FixedUpdate()
+        public override void OnFixedUpdate()
         {
             if (control.subComponentProcessor.ComponentsDic.ContainsKey(SubComponentType.MANUALINPUT))
             {
@@ -24,10 +34,10 @@ namespace Roundbeargames
             {
                 return;
             }
-            
-            foreach(KeyValuePair<TriggerDetector, List<Collider>> data in control.animationProgress.CollidingBodyParts)
+
+            foreach (KeyValuePair<TriggerDetector, List<Collider>> data in control.animationProgress.CollidingBodyParts)
             {
-                foreach(Collider col in data.Value)
+                foreach (Collider col in data.Value)
                 {
                     CharacterControl c = CharacterManager.Instance.GetCharacter(col.transform.root.gameObject);
 
@@ -77,6 +87,11 @@ namespace Roundbeargames
                     return;
                 }
             }
+        }
+
+        public override void OnUpdate()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

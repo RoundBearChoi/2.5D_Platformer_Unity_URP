@@ -40,16 +40,14 @@ namespace Roundbeargames
 
         [Header("SubComponents")]
         public SubComponentProcessor subComponentProcessor;
-        //public ManualInput manualInput;
-        //public LedgeChecker ledgeChecker;
-        //public CollisionSpheres collisionSpheres;
+
+        // temp
         public AnimationProgress animationProgress;
         public AIProgress aiProgress;
         public DamageDetector damageDetector;
         public AIController aiController;
         public BoxCollider boxCollider;
         public NavMeshObstacle navMeshObstacle;
-        public InstaKill instaKill;
 
         public BlockingObjData BLOCKING_DATA => subComponentProcessor.blockingData;
         public LedgeGrabData LEDGE_GRAB_DATA => subComponentProcessor.ledgeGrabData;
@@ -61,6 +59,7 @@ namespace Roundbeargames
         public RotationData ROTATION_DATA => subComponentProcessor.rotationData;
         public JumpData JUMP_DATA => subComponentProcessor.jumpData;
         public CollisionData COLLISION_DATA => subComponentProcessor.collisionData;
+        public InstaKillData INSTA_KILL_DATA => subComponentProcessor.instaKillData;
 
         [Header("Gravity")]
         public ContactPoint[] contactPoints;
@@ -91,15 +90,13 @@ namespace Roundbeargames
         private void Awake()
         {
             subComponentProcessor = GetComponentInChildren<SubComponentProcessor>();
-            //manualInput = GetComponent<ManualInput>();
-            //ledgeChecker = GetComponentInChildren<LedgeChecker>();
-            //collisionSpheres = GetComponentInChildren<CollisionSpheres>();
+
+            // temp
             animationProgress = GetComponent<AnimationProgress>();
             aiProgress = GetComponentInChildren<AIProgress>();
             damageDetector = GetComponentInChildren<DamageDetector>();
             boxCollider = GetComponent<BoxCollider>();
             navMeshObstacle = GetComponent<NavMeshObstacle>();
-            instaKill = GetComponentInChildren<InstaKill>();
 
             aiController = GetComponentInChildren<AIController>();
             if (aiController == null)

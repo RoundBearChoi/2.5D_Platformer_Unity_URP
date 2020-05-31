@@ -15,6 +15,7 @@ namespace Roundbeargames
         VERTICAL_VELOCITY,
         DAMAGE_DETECTOR,
         COLLISION_SPHERES,
+        INSTA_KILL,
     }
 
     public abstract class SubComponent : MonoBehaviour
