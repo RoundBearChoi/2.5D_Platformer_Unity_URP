@@ -27,6 +27,7 @@ namespace Roundbeargames
             }
 
             HighlightObj(obj, "LedgeChecker", selectionRect);
+            HighlightObj(obj, "DamageDetector", selectionRect);
         }
 
         static void HighlightObj(GameObject obj, string objname, Rect selectionRect)

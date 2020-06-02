@@ -12,6 +12,9 @@ namespace Roundbeargames
         public TriggerDetector DamagedTrigger;
         public GameObject AttackingPart;
         public AttackInfo BlockedAttack;
+        public float hp;
+        public Attack MarioStompAttack;
+        public Attack AxeThrow;
 
         public delegate bool ReturnBool();
 

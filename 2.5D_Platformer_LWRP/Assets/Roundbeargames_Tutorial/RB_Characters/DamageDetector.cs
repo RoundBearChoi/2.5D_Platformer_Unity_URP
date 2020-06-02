@@ -8,17 +8,16 @@ namespace Roundbeargames
     {
         public DamageData damageData;
 
-        // temp
-
-        [SerializeField]
-        private float hp;
+        [Header("Damage Setup")]
 
         [SerializeField]
         List<RuntimeAnimatorController> HitReactionList = new List<RuntimeAnimatorController>();
         
-        [Header("Attack")]
-        public Attack MarioStompAttack;
-        public Attack AxeThrow;
+        [SerializeField]
+        Attack MarioStompAttack;
+
+        [SerializeField]
+        Attack AxeThrow;
 
         private void Start()
         {
@@ -29,6 +28,9 @@ namespace Roundbeargames
                 DamagedTrigger = null,
                 AttackingPart = null,
                 BlockedAttack = null,
+                hp = 3f,
+                MarioStompAttack = MarioStompAttack,
+                AxeThrow = AxeThrow,
 
                 IsDead = IsDead,
             };
@@ -174,7 +176,7 @@ namespace Roundbeargames
 
         bool IsDead()
         {
-            if (hp <= 0f)
+            if (damageData.hp <= 0f)
             {
                 return true;
             }
@@ -264,7 +266,7 @@ namespace Roundbeargames
             Debug.Log(info.Attacker.gameObject.name + " hits: " + this.gameObject.name);
 
             info.CurrentHits++;
-            hp -= info.AttackAbility.Damage;
+            damageData.hp -= info.AttackAbility.Damage;
 
             AttackManager.Instance.ForceDeregister(control);
             control.animationProgress.CurrentRunningAbilities.Clear();
@@ -285,17 +287,6 @@ namespace Roundbeargames
             {
                 info.RegisteredTargets.Add(this.control);
             }
-        }
-
-        public void TriggerSpikeDeath(RuntimeAnimatorController animator)
-        {
-            control.SkinnedMeshAnimator.runtimeAnimatorController = animator;
-        }
-
-        public void DeathBySpikes()
-        {
-            damageData.DamagedTrigger = null;
-            hp = 0f;
         }
 
         public void DeathByInstaKill(CharacterControl attacker)
@@ -325,7 +316,7 @@ namespace Roundbeargames
             control.transform.LookAt(control.transform.position + (attacker.transform.forward * 5f), Vector3.up);
             control.transform.position = attacker.transform.position + (attacker.transform.forward * 0.45f);
 
-            hp = 0f;
+            damageData.hp = 0f;
         }
     }
 }

@@ -2929,7 +2929,7 @@ GameObject:
   - component: {fileID: 6060677883382741281}
   - component: {fileID: 4220393663933224027}
   m_Layer: 0
-  m_Name: Sophie
+  m_Name: Sophie Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2954,7 +2954,7 @@ Transform:
   - {fileID: 1785201305365800749}
   - {fileID: 6044121531228593063}
   m_Father: {fileID: 6007956786168187632}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4220393663933224027
 Animator:
@@ -4081,7 +4081,7 @@ PrefabInstance:
     - target: {fileID: 8457966283628990782, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8538052468259975290, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}

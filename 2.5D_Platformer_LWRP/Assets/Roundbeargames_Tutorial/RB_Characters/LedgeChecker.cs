@@ -8,6 +8,8 @@ namespace Roundbeargames
     {
         public LedgeGrabData ledgeGrabData;
 
+        [Header("Ledge Setup")]
+
         [SerializeField] Vector3 LedgeCalibration = new Vector3();
         [SerializeField] LedgeCollider Collider1;
         [SerializeField] LedgeCollider Collider2;

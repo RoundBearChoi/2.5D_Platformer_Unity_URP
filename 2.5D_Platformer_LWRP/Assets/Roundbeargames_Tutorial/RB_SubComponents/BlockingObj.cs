@@ -124,14 +124,14 @@ namespace Roundbeargames
                 foreach (CharacterControl c in MarioStompTargets)
                 {
                     AttackInfo info = new AttackInfo();
-                    info.CopyInfo(c.damageDetector.MarioStompAttack, control);
+                    info.CopyInfo(c.DAMAGE_DATA.MarioStompAttack, control);
 
                     int index = Random.Range(0, c.RAGDOLL_DATA.BodyParts.Count);
                     TriggerDetector randomPart = c.RAGDOLL_DATA.BodyParts[index].GetComponent<TriggerDetector>();
 
                     c.DAMAGE_DATA.SetData(
                         control,
-                        c.damageDetector.MarioStompAttack,
+                        c.DAMAGE_DATA.MarioStompAttack,
                         randomPart,
                         control.RightFoot_Attack);
 

@@ -42,7 +42,8 @@ namespace Roundbeargames
                             if (!ListSpikeVictims.Contains(control))
                             {
                                 ListSpikeVictims.Add(control);
-                                control.damageDetector.DeathBySpikes();
+                                control.DAMAGE_DATA.hp = 0f;
+                                control.DAMAGE_DATA.DamagedTrigger = null;
                             }
                         }
                     }
@@ -74,7 +75,7 @@ namespace Roundbeargames
 
             foreach(CharacterControl control in ListSpikeVictims)
             {
-                control.damageDetector.TriggerSpikeDeath(SpikeDeathAnimator);
+                control.SkinnedMeshAnimator.runtimeAnimatorController = SpikeDeathAnimator;
             }
 
             yield return new WaitForSeconds(1.5f);

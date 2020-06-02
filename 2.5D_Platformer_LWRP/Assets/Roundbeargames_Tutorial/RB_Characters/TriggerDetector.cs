@@ -71,11 +71,11 @@ namespace Roundbeargames
                 if (w.Thrower != control)
                 {
                     AttackInfo info = new AttackInfo();
-                    info.CopyInfo(control.damageDetector.AxeThrow, control);
+                    info.CopyInfo(control.DAMAGE_DATA.AxeThrow, control);
 
                     control.DAMAGE_DATA.SetData(
                         w.Thrower,
-                        control.damageDetector.AxeThrow,
+                        control.DAMAGE_DATA.AxeThrow,
                         this,
                         null);
 

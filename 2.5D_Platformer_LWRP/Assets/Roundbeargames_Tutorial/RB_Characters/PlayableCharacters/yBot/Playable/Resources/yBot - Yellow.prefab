@@ -121,7 +121,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8457966283628990782}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2236100335575290224
 MonoBehaviour:
@@ -1780,13 +1780,13 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3690009214983129773}
   - {fileID: 8413069498202938682}
+  - {fileID: 1191723561896776799}
+  - {fileID: 3690009214983129773}
   - {fileID: 3518825847605337136}
   - {fileID: 734756287284424899}
   - {fileID: 3522839599814080229}
   - {fileID: 8104933904284061724}
-  - {fileID: 1191723561896776799}
   - {fileID: 2819649221303187868}
   - {fileID: 2696082333354280608}
   - {fileID: 1691088609046099153}
@@ -1833,6 +1833,9 @@ MonoBehaviour:
     DamagedTrigger: {fileID: 0}
     AttackingPart: {fileID: 0}
     BlockedAttack: {fileID: 0}
+    hp: 0
+    MarioStompAttack: {fileID: 0}
+    AxeThrow: {fileID: 0}
   momentumData:
     Momentum: 0
   rotationData:
@@ -1973,7 +1976,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8457966283628990782}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2173132001925180628
 MonoBehaviour:
@@ -2505,7 +2508,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8457966283628990782}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2449093303563504298
 MonoBehaviour:
@@ -2914,7 +2917,7 @@ Transform:
   - {fileID: 2313432416435127714}
   - {fileID: 6078944732893157102}
   m_Father: {fileID: 8457966283628990782}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6240635253796913622
 MonoBehaviour:
@@ -3031,7 +3034,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8457966283628990782}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8171604794166710795
 MonoBehaviour:
@@ -3229,7 +3232,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8457966283628990782}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1569241050424550966
 MonoBehaviour:
@@ -4227,7 +4230,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8457966283628990782}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5817997786973411500
 MonoBehaviour:
@@ -4247,7 +4250,9 @@ MonoBehaviour:
     DamagedTrigger: {fileID: 0}
     AttackingPart: {fileID: 0}
     BlockedAttack: {fileID: 0}
-  hp: 3
+    hp: 0
+    MarioStompAttack: {fileID: 0}
+    AxeThrow: {fileID: 0}
   HitReactionList:
   - {fileID: 9100000, guid: f8173f94fbcc5144ea70d64c6b0662b3, type: 2}
   - {fileID: 9100000, guid: 1fde60ddf602e4841aceed73d676a341, type: 2}
@@ -4438,7 +4443,7 @@ GameObject:
   - component: {fileID: 4622409157308220009}
   - component: {fileID: 3363093133717548819}
   m_Layer: 0
-  m_Name: ybot
+  m_Name: yBot Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
