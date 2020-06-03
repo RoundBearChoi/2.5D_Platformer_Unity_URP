@@ -17,6 +17,8 @@ namespace Roundbeargames
             {
                 Animation_A = Assassination_A,
                 Animation_B = Assassination_B,
+
+                DeathByInstaKill = DeathByInstaKill,
             };
 
             subComponentProcessor.instaKillData = instaKillData;
@@ -82,7 +84,7 @@ namespace Roundbeargames
                     }
 
                     Debug.Log("instaKill");
-                    c.damageDetector.DeathByInstaKill(control);
+                    c.INSTA_KILL_DATA.DeathByInstaKill(control);
 
                     return;
                 }
@@ -92,6 +94,36 @@ namespace Roundbeargames
         public override void OnUpdate()
         {
             throw new System.NotImplementedException();
+        }
+
+        void DeathByInstaKill(CharacterControl attacker)
+        {
+            control.animationProgress.CurrentRunningAbilities.Clear();
+            attacker.animationProgress.CurrentRunningAbilities.Clear();
+
+            control.RIGID_BODY.useGravity = false;
+            control.boxCollider.enabled = false;
+            control.SkinnedMeshAnimator.runtimeAnimatorController = control.INSTA_KILL_DATA.Animation_B;
+
+            attacker.RIGID_BODY.useGravity = false;
+            attacker.boxCollider.enabled = false;
+            attacker.SkinnedMeshAnimator.runtimeAnimatorController = control.INSTA_KILL_DATA.Animation_A;
+
+            Vector3 dir = control.transform.position - attacker.transform.position;
+
+            if (dir.z < 0f)
+            {
+                attacker.ROTATION_DATA.FaceForward(false);
+            }
+            else if (dir.z > 0f)
+            {
+                attacker.ROTATION_DATA.FaceForward(true);
+            }
+
+            control.transform.LookAt(control.transform.position + (attacker.transform.forward * 5f), Vector3.up);
+            control.transform.position = attacker.transform.position + (attacker.transform.forward * 0.45f);
+
+            control.DAMAGE_DATA.hp = 0f;
         }
     }
 }

@@ -14,7 +14,9 @@ namespace Roundbeargames
             {
                 RagdollTriggered = false,
                 BodyParts = new List<Collider>(),
+
                 GetBody = GetBodyPart,
+                AddForceToDamagedPart = AddForceToDamagedPart,
             };
 
             SetupBodyParts();
@@ -121,7 +123,7 @@ namespace Roundbeargames
                 c.attachedRigidbody.velocity = Vector3.zero;
             }
 
-            control.AddForceToDamagedPart(false);
+            AddForceToDamagedPart(false);
         }
 
         Collider GetBodyPart(string name)
@@ -135,6 +137,25 @@ namespace Roundbeargames
             }
 
             return null;
+        }
+
+        void AddForceToDamagedPart(bool zeroVelocity)
+        {
+            if (control.DAMAGE_DATA.DamagedTrigger != null)
+            {
+                if (zeroVelocity)
+                {
+                    foreach (Collider c in ragdollData.BodyParts)
+                    {
+                        c.attachedRigidbody.velocity = Vector3.zero;
+                    }
+                }
+
+                control.DAMAGE_DATA.DamagedTrigger.GetComponent<Rigidbody>().
+                    AddForce(control.DAMAGE_DATA.Attacker.transform.forward * control.DAMAGE_DATA.Attack.ForwardForce +
+                    control.DAMAGE_DATA.Attacker.transform.right * control.DAMAGE_DATA.Attack.RightForce +
+                    control.DAMAGE_DATA.Attacker.transform.up * control.DAMAGE_DATA.Attack.UpForce);
+            }
         }
     }
 }

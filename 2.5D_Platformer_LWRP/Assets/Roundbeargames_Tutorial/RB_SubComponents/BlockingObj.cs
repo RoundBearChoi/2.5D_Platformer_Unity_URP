@@ -135,7 +135,7 @@ namespace Roundbeargames
                         randomPart,
                         control.RightFoot_Attack);
 
-                    c.damageDetector.TakeDamage(info);
+                    c.DAMAGE_DATA.TakeDamage(info);
                 }
 
                 MarioStompTargets.Clear();

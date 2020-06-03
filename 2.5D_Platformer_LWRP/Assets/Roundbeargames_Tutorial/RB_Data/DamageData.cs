@@ -17,8 +17,10 @@ namespace Roundbeargames
         public Attack AxeThrow;
 
         public delegate bool ReturnBool();
+        public delegate void DoSomething(AttackInfo info);
 
         public ReturnBool IsDead;
+        public DoSomething TakeDamage;
 
         public void SetData(
             CharacterControl attacker,

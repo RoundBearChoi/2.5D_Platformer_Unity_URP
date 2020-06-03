@@ -11,6 +11,9 @@ namespace Roundbeargames
         public List<Collider> BodyParts;
 
         public delegate Collider GetCollider(string name);
+        public delegate void DoSomething(bool boolData);
+
         public GetCollider GetBody;
+        public DoSomething AddForceToDamagedPart;
     }
 }

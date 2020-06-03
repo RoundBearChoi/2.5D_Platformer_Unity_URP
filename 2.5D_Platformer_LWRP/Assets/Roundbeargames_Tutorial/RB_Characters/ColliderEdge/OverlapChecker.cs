@@ -17,6 +17,11 @@ namespace Roundbeargames
 
         public void UpdateChecker()
         {
+            if (control == null)
+            {
+                return;
+            }
+
             try
             {
                 if (control.JUMP_DATA.CheckWallBlock)

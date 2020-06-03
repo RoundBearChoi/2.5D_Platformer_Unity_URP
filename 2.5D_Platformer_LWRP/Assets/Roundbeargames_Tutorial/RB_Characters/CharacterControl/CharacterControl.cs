@@ -44,7 +44,6 @@ namespace Roundbeargames
         // temp
         public AnimationProgress animationProgress;
         public AIProgress aiProgress;
-        public DamageDetector damageDetector;
         public AIController aiController;
         public BoxCollider boxCollider;
         public NavMeshObstacle navMeshObstacle;
@@ -94,7 +93,6 @@ namespace Roundbeargames
             // temp
             animationProgress = GetComponent<AnimationProgress>();
             aiProgress = GetComponentInChildren<AIProgress>();
-            damageDetector = GetComponentInChildren<DamageDetector>();
             boxCollider = GetComponent<BoxCollider>();
             navMeshObstacle = GetComponent<NavMeshObstacle>();
 
@@ -141,25 +139,6 @@ namespace Roundbeargames
             if (!CharacterManager.Instance.Characters.Contains(this))
             {
                 CharacterManager.Instance.Characters.Add(this);
-            }
-        }
-
-        public void AddForceToDamagedPart(bool zeroVelocity)
-        {
-            if (DAMAGE_DATA.DamagedTrigger != null)
-            {
-                if (zeroVelocity)
-                {
-                    foreach (Collider c in RAGDOLL_DATA.BodyParts) 
-                    {
-                        c.attachedRigidbody.velocity = Vector3.zero;
-                    }
-                }
-
-                DAMAGE_DATA.DamagedTrigger.GetComponent<Rigidbody>().
-                    AddForce(DAMAGE_DATA.Attacker.transform.forward * DAMAGE_DATA.Attack.ForwardForce +
-                    DAMAGE_DATA.Attacker.transform.right * DAMAGE_DATA.Attack.RightForce +
-                    DAMAGE_DATA.Attacker.transform.up * DAMAGE_DATA.Attack.UpForce);
             }
         }
 

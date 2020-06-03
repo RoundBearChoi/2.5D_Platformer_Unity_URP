@@ -33,6 +33,7 @@ namespace Roundbeargames
                 AxeThrow = AxeThrow,
 
                 IsDead = IsDead,
+                TakeDamage = TakeDamage,
             };
 
             subComponentProcessor.damageData = damageData;
@@ -216,14 +217,14 @@ namespace Roundbeargames
             return false;
         }
 
-        public void TakeDamage(AttackInfo info)
+        void TakeDamage(AttackInfo info)
         {
             if (IsDead())
             {
                 if (!info.RegisteredTargets.Contains(this.control))
                 {
                     info.RegisteredTargets.Add(this.control);
-                    control.AddForceToDamagedPart(true);
+                    control.RAGDOLL_DATA.AddForceToDamagedPart(true);
                 }
 
                 return;
@@ -287,36 +288,6 @@ namespace Roundbeargames
             {
                 info.RegisteredTargets.Add(this.control);
             }
-        }
-
-        public void DeathByInstaKill(CharacterControl attacker)
-        {
-            control.animationProgress.CurrentRunningAbilities.Clear();
-            attacker.animationProgress.CurrentRunningAbilities.Clear();
-
-            control.RIGID_BODY.useGravity = false;
-            control.boxCollider.enabled = false;
-            control.SkinnedMeshAnimator.runtimeAnimatorController = control.INSTA_KILL_DATA.Animation_B;
-
-            attacker.RIGID_BODY.useGravity = false;
-            attacker.boxCollider.enabled = false;
-            attacker.SkinnedMeshAnimator.runtimeAnimatorController = control.INSTA_KILL_DATA.Animation_A;
-
-            Vector3 dir = control.transform.position - attacker.transform.position;
-
-            if (dir.z < 0f)
-            {
-                attacker.ROTATION_DATA.FaceForward(false);
-            }
-            else if (dir.z > 0f)
-            {
-                attacker.ROTATION_DATA.FaceForward(true);
-            }
-
-            control.transform.LookAt(control.transform.position + (attacker.transform.forward * 5f), Vector3.up);
-            control.transform.position = attacker.transform.position + (attacker.transform.forward * 0.45f);
-
-            damageData.hp = 0f;
         }
     }
 }

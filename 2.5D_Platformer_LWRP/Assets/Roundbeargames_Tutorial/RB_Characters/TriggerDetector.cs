@@ -79,7 +79,7 @@ namespace Roundbeargames
                         this,
                         null);
 
-                    control.damageDetector.TakeDamage(info);
+                    control.DAMAGE_DATA.TakeDamage(info);
 
                     if (w.FlyForward)
                     {
