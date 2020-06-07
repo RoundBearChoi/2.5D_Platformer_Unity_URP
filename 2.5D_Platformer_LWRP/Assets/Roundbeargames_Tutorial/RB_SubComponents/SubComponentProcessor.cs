@@ -21,6 +21,7 @@ namespace Roundbeargames
         [Space(15)] public JumpData jumpData;
         [Space(15)] public CollisionData collisionData;
         [Space(15)] public InstaKillData instaKillData;
+        [Space(15)] public GroundData groundData;
 
         private void Awake()
         {

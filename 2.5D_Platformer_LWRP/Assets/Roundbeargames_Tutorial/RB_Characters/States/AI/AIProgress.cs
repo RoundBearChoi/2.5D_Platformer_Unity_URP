@@ -100,9 +100,9 @@ namespace Roundbeargames
 
         public bool TargetIsOnSamePlatform()
         {
-            if (CharacterManager.Instance.GetCharacter(control.aiProgress.pathfindingAgent.target).
-                animationProgress.Ground ==
-                control.animationProgress.Ground)
+            CharacterControl target = CharacterManager.Instance.GetCharacter(control.aiProgress.pathfindingAgent.target);
+
+            if (target.GROUND_DATA.Ground == control.GROUND_DATA.Ground)
             {
                 return true;
             }
@@ -114,8 +114,8 @@ namespace Roundbeargames
 
         public bool TargetIsGrounded()
         {
-            if (CharacterManager.Instance.GetCharacter(control.aiProgress.pathfindingAgent.target).
-                animationProgress.Ground == null)
+            CharacterControl target = CharacterManager.Instance.GetCharacter(control.aiProgress.pathfindingAgent.target);
+            if (target.GROUND_DATA.Ground == null)
             {
                 return false;
             }

@@ -92,7 +92,7 @@ namespace Roundbeargames
 
             if (characterState.characterControl.Jump)
             {
-                if (characterState.characterControl.animationProgress.Ground != null)
+                if (characterState.GROUND_DATA.Ground != null)
                 {
                     animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Jump], true);
                 }

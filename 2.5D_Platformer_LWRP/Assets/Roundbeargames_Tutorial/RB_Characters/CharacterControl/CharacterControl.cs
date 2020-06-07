@@ -59,9 +59,7 @@ namespace Roundbeargames
         public JumpData JUMP_DATA => subComponentProcessor.jumpData;
         public CollisionData COLLISION_DATA => subComponentProcessor.collisionData;
         public InstaKillData INSTA_KILL_DATA => subComponentProcessor.instaKillData;
-
-        [Header("Gravity")]
-        public ContactPoint[] contactPoints;
+        public GroundData GROUND_DATA => subComponentProcessor.groundData;
 
         [Header("Setup")]
         public PlayableCharacterType playableCharacterType;
@@ -121,7 +119,7 @@ namespace Roundbeargames
 
         private void OnCollisionStay(Collision collision)
         {
-            contactPoints = collision.contacts;
+            GROUND_DATA.BoxColliderContacts = collision.contacts;
         }
 
         public void CacheCharacterControl(Animator animator)

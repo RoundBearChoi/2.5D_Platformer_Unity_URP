@@ -47,9 +47,9 @@ namespace Roundbeargames
 
         bool IsGrounded(CharacterControl control)
         {
-            if (control.contactPoints != null)
+            if (control.GROUND_DATA.BoxColliderContacts != null)
             {
-                foreach (ContactPoint c in control.contactPoints)
+                foreach (ContactPoint c in control.GROUND_DATA.BoxColliderContacts)
                 {
                     float colliderBottom = (control.transform.position.y + control.boxCollider.center.y)
                         - (control.boxCollider.size.y / 2f);
@@ -59,7 +59,7 @@ namespace Roundbeargames
                     {
                         if (Mathf.Abs(control.RIGID_BODY.velocity.y) < 0.001f)
                         {
-                            control.animationProgress.Ground = c.otherCollider.transform.root.gameObject;
+                            control.GROUND_DATA.Ground = c.otherCollider.transform.root.gameObject;
                             control.BOX_COLLIDER_DATA.LandingPosition = new Vector3(
                                 0f,
                                 c.point.y,
@@ -84,7 +84,7 @@ namespace Roundbeargames
 
                         if (c == null)
                         {
-                            control.animationProgress.Ground = blockingObj.transform.root.gameObject;
+                            control.GROUND_DATA.Ground = blockingObj.transform.root.gameObject;
                             control.BOX_COLLIDER_DATA.LandingPosition = new Vector3(
                                 0f,
                                 control.animationProgress.CollidingPoint.y,
@@ -95,7 +95,7 @@ namespace Roundbeargames
                 }
             }
 
-            control.animationProgress.Ground = null;
+            control.GROUND_DATA.Ground = null;
             return false;
         }
     }

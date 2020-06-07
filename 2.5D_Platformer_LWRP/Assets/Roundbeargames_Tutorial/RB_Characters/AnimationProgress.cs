@@ -23,7 +23,6 @@ namespace Roundbeargames
         public bool IsIgnoreCharacterTime;
 
         [Header("Colliding Objects")]
-        public GameObject Ground;
         public Dictionary<TriggerDetector, List<Collider>> CollidingWeapons =
             new Dictionary<TriggerDetector, List<Collider>>();
         public Dictionary<TriggerDetector, List<Collider>> CollidingBodyParts =

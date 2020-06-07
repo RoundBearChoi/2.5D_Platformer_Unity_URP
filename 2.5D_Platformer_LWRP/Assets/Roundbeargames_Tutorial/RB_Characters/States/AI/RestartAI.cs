@@ -68,7 +68,7 @@ namespace Roundbeargames
 
             if (characterState.characterControl.aiProgress.BlockingCharacter != null)
             {
-                if (characterState.characterControl.animationProgress.Ground != null)
+                if (characterState.GROUND_DATA.Ground != null)
                 {
                     if (!characterState.characterControl.animationProgress.IsRunning(typeof(Jump)) &&
                         !characterState.characterControl.animationProgress.IsRunning(typeof(JumpPrep)))
@@ -85,7 +85,7 @@ namespace Roundbeargames
             }
 
             //startsphere height
-            if (characterState.characterControl.animationProgress.Ground != null &&
+            if (characterState.GROUND_DATA.Ground != null &&
                 !characterState.characterControl.animationProgress.IsRunning(typeof(Jump)) &&
                 !characterState.characterControl.animationProgress.IsRunning(typeof(WallJumpPrep)))
             {
