@@ -22,7 +22,7 @@ namespace Roundbeargames
             }
 
             float platformDist = characterState.characterControl.aiProgress.pathfindingAgent.EndSphere.transform.position.y -
-                characterState.COLLISION_DATA.FrontSpheres[0].transform.position.y;
+                characterState.COLLISION_SPHERE_DATA.FrontSpheres[0].transform.position.y;
 
             if (platformDist > 0.5f)
             {

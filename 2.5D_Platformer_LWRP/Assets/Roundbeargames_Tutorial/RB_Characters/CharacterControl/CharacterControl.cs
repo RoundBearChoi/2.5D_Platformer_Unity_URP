@@ -57,7 +57,7 @@ namespace Roundbeargames
         public MomentumData MOMENTUM_DATA => subComponentProcessor.momentumData;
         public RotationData ROTATION_DATA => subComponentProcessor.rotationData;
         public JumpData JUMP_DATA => subComponentProcessor.jumpData;
-        public CollisionData COLLISION_DATA => subComponentProcessor.collisionData;
+        public CollisionSphereData COLLISION_SPHERE_DATA => subComponentProcessor.collisionSphereData;
         public InstaKillData INSTA_KILL_DATA => subComponentProcessor.instaKillData;
         public GroundData GROUND_DATA => subComponentProcessor.groundData;
 

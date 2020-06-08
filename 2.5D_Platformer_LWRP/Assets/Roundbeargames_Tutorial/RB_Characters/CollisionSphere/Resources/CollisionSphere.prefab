@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5843728259741836333}
   - component: {fileID: -8380910412700011376}
   m_Layer: 0
-  m_Name: ColliderEdge
+  m_Name: CollisionSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325421526767168362}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

@@ -9,20 +9,6 @@ namespace Roundbeargames
     {
         public float Distance;
 
-        private GameObject testingSphere;
-
-        public GameObject TESTING_SPHERE
-        {
-            get
-            {
-                if (testingSphere == null)
-                {
-                    testingSphere = GameObject.Find("TestingSphere");
-                }
-                return testingSphere;
-            }
-        }
-
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
 
@@ -73,10 +59,10 @@ namespace Roundbeargames
 
             if (control.RIGID_BODY.velocity.y < 0f)
             {
-                foreach (GameObject o in control.COLLISION_DATA.BottomSpheres)
+                foreach (GameObject o in control.COLLISION_SPHERE_DATA.BottomSpheres)
                 {
                     GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, -Vector3.up, Distance,
-                        ref control.animationProgress.CollidingPoint);
+                        ref control.BLOCKING_DATA.RaycastContact);
 
                     if (blockingObj != null)
                     {
@@ -87,8 +73,8 @@ namespace Roundbeargames
                             control.GROUND_DATA.Ground = blockingObj.transform.root.gameObject;
                             control.BOX_COLLIDER_DATA.LandingPosition = new Vector3(
                                 0f,
-                                control.animationProgress.CollidingPoint.y,
-                                control.animationProgress.CollidingPoint.z);
+                                control.BLOCKING_DATA.RaycastContact.y,
+                                control.BLOCKING_DATA.RaycastContact.z);
                             return true;
                         }
                     }

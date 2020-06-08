@@ -19,7 +19,7 @@ namespace Roundbeargames
         [Space(15)] public MomentumData momentumData;
         [Space(15)] public RotationData rotationData;
         [Space(15)] public JumpData jumpData;
-        [Space(15)] public CollisionData collisionData;
+        [Space(15)] public CollisionSphereData collisionSphereData;
         [Space(15)] public InstaKillData instaKillData;
         [Space(15)] public GroundData groundData;
 

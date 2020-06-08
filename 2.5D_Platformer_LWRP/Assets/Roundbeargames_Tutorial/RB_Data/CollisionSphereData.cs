@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [System.Serializable]
-    public class CollisionData
+    public class CollisionSphereData
     {
         public List<GameObject> BottomSpheres;
         public List<GameObject> FrontSpheres;

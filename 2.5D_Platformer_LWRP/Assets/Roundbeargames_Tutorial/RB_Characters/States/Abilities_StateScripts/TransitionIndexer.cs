@@ -201,7 +201,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.BLOCKED_BY_WALL:
                         {
-                            foreach(OverlapChecker oc in control.COLLISION_DATA.FrontOverlapCheckers)
+                            foreach(OverlapChecker oc in control.COLLISION_SPHERE_DATA.FrontOverlapCheckers)
                             {
                                 if (!oc.ObjIsOverlapping)
                                 {
@@ -214,7 +214,7 @@ namespace Roundbeargames
                         {
                             bool AllIsOverlapping = true;
 
-                            foreach (OverlapChecker oc in control.COLLISION_DATA.FrontOverlapCheckers)
+                            foreach (OverlapChecker oc in control.COLLISION_SPHERE_DATA.FrontOverlapCheckers)
                             {
                                 if (!oc.ObjIsOverlapping)
                                 {

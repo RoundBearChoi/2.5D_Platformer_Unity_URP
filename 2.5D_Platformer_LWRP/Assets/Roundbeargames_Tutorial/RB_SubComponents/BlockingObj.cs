@@ -172,10 +172,10 @@ namespace Roundbeargames
         {
             if (!control.animationProgress.ForwardIsReversed())
             {
-                FrontSpheresList = control.COLLISION_DATA.FrontSpheres;
+                FrontSpheresList = control.COLLISION_SPHERE_DATA.FrontSpheres;
                 DirBlock = 1f;
 
-                foreach (GameObject s in control.COLLISION_DATA.BackSpheres)
+                foreach (GameObject s in control.COLLISION_SPHERE_DATA.BackSpheres)
                 {
                     if (FrontBlockingObjs.ContainsKey(s))
                     {
@@ -185,10 +185,10 @@ namespace Roundbeargames
             }
             else
             {
-                FrontSpheresList = control.COLLISION_DATA.BackSpheres;
+                FrontSpheresList = control.COLLISION_SPHERE_DATA.BackSpheres;
                 DirBlock = -1f;
 
-                foreach (GameObject s in control.COLLISION_DATA.FrontSpheres)
+                foreach (GameObject s in control.COLLISION_SPHERE_DATA.FrontSpheres)
                 {
                     if (FrontBlockingObjs.ContainsKey(s))
                     {
@@ -201,7 +201,7 @@ namespace Roundbeargames
             {
                 GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, this.transform.forward * DirBlock,
                     control.animationProgress.LatestMoveForward.BlockDistance,
-                    ref control.animationProgress.CollidingPoint);
+                    ref control.BLOCKING_DATA.RaycastContact);
 
                 if (blockingObj != null)
                 {
@@ -216,10 +216,10 @@ namespace Roundbeargames
 
         void CheckDownBlocking()
         {
-            foreach (GameObject o in control.COLLISION_DATA.BottomSpheres)
+            foreach (GameObject o in control.COLLISION_SPHERE_DATA.BottomSpheres)
             {
                 GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, Vector3.down, 0.1f,
-                    ref control.animationProgress.CollidingPoint);
+                    ref control.BLOCKING_DATA.RaycastContact);
 
                 if (blockingObj != null)
                 {
@@ -234,10 +234,10 @@ namespace Roundbeargames
 
         void CheckUpBlocking()
         {
-            foreach (GameObject o in control.COLLISION_DATA.UpSpheres)
+            foreach (GameObject o in control.COLLISION_SPHERE_DATA.UpSpheres)
             {
                 GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, this.transform.up, 0.3f,
-                    ref control.animationProgress.CollidingPoint);
+                    ref control.BLOCKING_DATA.RaycastContact);
 
                 if (blockingObj != null)
                 {

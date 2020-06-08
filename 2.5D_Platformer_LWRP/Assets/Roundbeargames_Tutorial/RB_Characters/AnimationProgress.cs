@@ -27,9 +27,7 @@ namespace Roundbeargames
             new Dictionary<TriggerDetector, List<Collider>>();
         public Dictionary<TriggerDetector, List<Collider>> CollidingBodyParts =
             new Dictionary<TriggerDetector, List<Collider>>();
-
-        public Vector3 CollidingPoint = new Vector3();
-        
+                
         [Header("Transition")]
         public bool LockTransition;
 

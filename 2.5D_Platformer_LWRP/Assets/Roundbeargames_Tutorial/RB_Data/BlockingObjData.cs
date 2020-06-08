@@ -7,6 +7,8 @@ namespace Roundbeargames
     [System.Serializable]
     public class BlockingObjData
     {
+        public Vector3 RaycastContact = new Vector3();
+
         public int FrontBlockingDicCount;
         public int UpBlockingDicCount;
 
