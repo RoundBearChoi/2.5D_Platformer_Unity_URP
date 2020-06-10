@@ -53,7 +53,7 @@ namespace Roundbeargames
             }
         }
 
-        bool AttackIsValid(AttackInfo info)
+        bool AttackIsValid(AttackCondition info)
         {
             if (info == null)
             {
@@ -99,7 +99,7 @@ namespace Roundbeargames
 
         void CheckAttack()
         {
-            foreach (AttackInfo info in AttackManager.Instance.CurrentAttacks)
+            foreach (AttackCondition info in AttackManager.Instance.CurrentAttacks)
             {
                 if (AttackIsValid(info))
                 {
@@ -124,7 +124,7 @@ namespace Roundbeargames
             }
         }
 
-        bool IsCollided(AttackInfo info)
+        bool IsCollided(AttackCondition info)
         {
             foreach(KeyValuePair<TriggerDetector, List<Collider>> data in
                 control.animationProgress.CollidingBodyParts)
@@ -151,7 +151,7 @@ namespace Roundbeargames
             return false;
         }
 
-        bool IsInLethalRange(AttackInfo info)
+        bool IsInLethalRange(AttackCondition info)
         {
             foreach(Collider c in control.RAGDOLL_DATA.BodyParts)
             {
@@ -187,7 +187,7 @@ namespace Roundbeargames
             }
         }
 
-        bool IsBlocked(AttackInfo info)
+        bool IsBlocked(AttackCondition info)
         {
             if (info == damageData.BlockedAttack && damageData.BlockedAttack != null)
             {
@@ -217,7 +217,7 @@ namespace Roundbeargames
             return false;
         }
 
-        void TakeDamage(AttackInfo info)
+        void TakeDamage(AttackCondition info)
         {
             if (IsDead())
             {

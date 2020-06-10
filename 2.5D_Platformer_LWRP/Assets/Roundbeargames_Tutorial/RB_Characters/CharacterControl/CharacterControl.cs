@@ -60,6 +60,7 @@ namespace Roundbeargames
         public CollisionSphereData COLLISION_SPHERE_DATA => subComponentProcessor.collisionSphereData;
         public InstaKillData INSTA_KILL_DATA => subComponentProcessor.instaKillData;
         public GroundData GROUND_DATA => subComponentProcessor.groundData;
+        public AttackData ATTACK_DATA => subComponentProcessor.attackData;
 
         [Header("Setup")]
         public PlayableCharacterType playableCharacterType;

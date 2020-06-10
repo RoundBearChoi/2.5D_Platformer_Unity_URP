@@ -22,6 +22,7 @@ namespace Roundbeargames
         [Space(15)] public CollisionSphereData collisionSphereData;
         [Space(15)] public InstaKillData instaKillData;
         [Space(15)] public GroundData groundData;
+        [Space(15)] public AttackData attackData;
 
         private void Awake()
         {
@@ -43,6 +44,7 @@ namespace Roundbeargames
         {
             UpdateSubComponent(SubComponentType.MANUALINPUT);
             UpdateSubComponent(SubComponentType.DAMAGE_DETECTOR);
+            UpdateSubComponent(SubComponentType.PLAYER_ATTACK);
         }
 
         void UpdateSubComponent(SubComponentType type)

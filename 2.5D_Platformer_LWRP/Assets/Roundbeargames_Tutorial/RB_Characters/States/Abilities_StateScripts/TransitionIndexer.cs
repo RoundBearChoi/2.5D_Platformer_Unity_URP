@@ -122,7 +122,7 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.ATTACK:
                         {
-                            if (!control.animationProgress.AttackTriggered)
+                            if (!control.ATTACK_DATA.AttackTriggered)
                             {
                                 return false;
                             }

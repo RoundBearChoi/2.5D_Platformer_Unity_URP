@@ -41,16 +41,16 @@ namespace Roundbeargames
         public bool UseDeathParticles;
         public PoolObjectType ParticleType;
 
-        private List<AttackInfo> FinishedAttacks = new List<AttackInfo>();
+        private List<AttackCondition> FinishedAttacks = new List<AttackCondition>();
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            characterState.characterControl.animationProgress.AttackTriggered = false;
+            characterState.ATTACK_DATA.AttackTriggered = false;
 
             animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Attack], false);
             
-            GameObject obj = PoolManager.Instance.GetObject(PoolObjectType.ATTACKINFO); 
-            AttackInfo info = obj.GetComponent<AttackInfo>();
+            GameObject obj = PoolManager.Instance.GetObject(PoolObjectType.ATTACK_CONDITION); 
+            AttackCondition info = obj.GetComponent<AttackCondition>();
 
             obj.SetActive(true);
             info.ResetInfo(this, characterState.characterControl);
@@ -72,7 +72,7 @@ namespace Roundbeargames
         {
             if (StartAttackTime <= stateInfo.normalizedTime && EndAttackTime > stateInfo.normalizedTime)
             {
-                foreach(AttackInfo info in AttackManager.Instance.CurrentAttacks)
+                foreach(AttackCondition info in AttackManager.Instance.CurrentAttacks)
                 {
                     if (info == null)
                     {
@@ -95,7 +95,7 @@ namespace Roundbeargames
         {
             if (stateInfo.normalizedTime >= EndAttackTime)
             {
-                foreach(AttackInfo info in AttackManager.Instance.CurrentAttacks)
+                foreach(AttackCondition info in AttackManager.Instance.CurrentAttacks)
                 {
                     if (info == null)
                     {
@@ -130,7 +130,7 @@ namespace Roundbeargames
             {
                 if (stateInfo.normalizedTime <= ComboEndTime)
                 {
-                    if (characterState.characterControl.animationProgress.AttackTriggered)
+                    if (characterState.ATTACK_DATA.AttackTriggered)
                     {
                         animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Attack], true);
                     }
@@ -148,7 +148,7 @@ namespace Roundbeargames
         {
             FinishedAttacks.Clear();
 
-            foreach(AttackInfo info in AttackManager.Instance.CurrentAttacks)
+            foreach(AttackCondition info in AttackManager.Instance.CurrentAttacks)
             {
                 if (info == null || info.AttackAbility == this /*info.isFinished*/)
                 {
@@ -156,7 +156,7 @@ namespace Roundbeargames
                 }
             }
 
-            foreach(AttackInfo info in FinishedAttacks)
+            foreach(AttackCondition info in FinishedAttacks)
             {
                 if (AttackManager.Instance.CurrentAttacks.Contains(info))
                 {

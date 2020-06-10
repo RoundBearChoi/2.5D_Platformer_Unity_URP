@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6781576113345320825}
-  - component: {fileID: 1140477309509522428}
   - component: {fileID: 6881163917618217348}
+  - component: {fileID: 8765235766418896949}
   m_Layer: 0
-  m_Name: AttackInfo
+  m_Name: AttackCondition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,28 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1140477309509522428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4721868963547552382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8d729a8939319a4085ba9a6e95614d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Attacker: {fileID: 0}
-  AttackAbility: {fileID: 0}
-  ColliderNames: []
-  MustCollide: 0
-  MustFaceAttacker: 0
-  LethalRange: 0
-  MaxHits: 0
-  CurrentHits: 0
-  isRegisterd: 0
-  isFinished: 0
 --- !u!114 &6881163917618217348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,3 +46,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObjectType: 0
   ScheduledOffTime: 5
+--- !u!114 &8765235766418896949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4721868963547552382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4329a155a8e04b34ca2d03a6af3eeb05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attacker: {fileID: 0}
+  AttackAbility: {fileID: 0}
+  AttackParts: 
+  deathType: 0
+  MustCollide: 0
+  MustFaceAttacker: 0
+  LethalRange: 0
+  MaxHits: 0
+  CurrentHits: 0
+  isRegisterd: 0
+  isFinished: 0
+  UseRagdollDeath: 0
+  RegisteredTargets: []

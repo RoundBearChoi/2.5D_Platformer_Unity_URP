@@ -15,10 +15,6 @@ namespace Roundbeargames
         public MoveForward LatestMoveForward;
         public MoveUp LatestMoveUp;
 
-        [Header("Attack Button")]
-        public bool AttackTriggered;
-        public bool AttackButtonIsReset;
-
         [Header("GroundMovement")]
         public bool IsIgnoreCharacterTime;
 
@@ -43,20 +39,6 @@ namespace Roundbeargames
 
         private void Update()
         {
-            if (control.Attack)
-            {
-                if (AttackButtonIsReset)
-                {
-                    AttackTriggered = true;
-                    AttackButtonIsReset = false;
-                }
-            }
-            else
-            {
-                AttackButtonIsReset = true;
-                AttackTriggered = false;
-            }
-
             if (IsRunning(typeof(LockTransition)))
             {
                 if (control.animationProgress.LockTransition)

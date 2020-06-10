@@ -343,7 +343,7 @@ Transform:
   - {fileID: 6680915461594341225}
   - {fileID: 8922859008939496903}
   m_Father: {fileID: 8457966283628990782}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1522991742612985302
 MonoBehaviour:
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c1ad271352e024c81546a5bb198196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionData:
+  collisionSphereData:
     BottomSpheres: []
     FrontSpheres: []
     BackSpheres: []
@@ -1595,6 +1595,49 @@ CapsuleCollider:
   m_Height: 0.4059544
   m_Direction: 1
   m_Center: {x: 0, y: -0.2029772, z: 0}
+--- !u!1 &2814349897332298780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 725336820369213357}
+  - component: {fileID: 6665601005251125965}
+  m_Layer: 9
+  m_Name: PlayerAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &725336820369213357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2814349897332298780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8457966283628990782}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6665601005251125965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2814349897332298780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c75817733e68b44b31aabbea641082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2851301061069850952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,6 +1834,7 @@ Transform:
   - {fileID: 2696082333354280608}
   - {fileID: 1691088609046099153}
   - {fileID: 761330134800999697}
+  - {fileID: 725336820369213357}
   - {fileID: 2349239871843678024}
   - {fileID: 8174262158065827851}
   m_Father: {fileID: 7198515055300973108}
@@ -1810,6 +1854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   control: {fileID: 0}
   blockingData:
+    RaycastContact: {x: 0, y: 0, z: 0}
     FrontBlockingDicCount: 0
     UpBlockingDicCount: 0
   ledgeGrabData:
@@ -1846,7 +1891,7 @@ MonoBehaviour:
     Jumped: 0
     CanWallJump: 0
     CheckWallBlock: 0
-  collisionData:
+  collisionSphereData:
     BottomSpheres: []
     FrontSpheres: []
     BackSpheres: []
@@ -3052,6 +3097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockingData:
+    RaycastContact: {x: 0, y: 0, z: 0}
     FrontBlockingDicCount: 0
     UpBlockingDicCount: 0
 --- !u!1 &6095560223106577404
@@ -3813,7 +3859,6 @@ MonoBehaviour:
   AttackTriggered: 0
   AttackButtonIsReset: 0
   IsIgnoreCharacterTime: 0
-  CollidingPoint: {x: 0, y: 0, z: 0}
   LockTransition: 0
   HoldingWeapon: {fileID: 0}
 --- !u!114 &3396805944348958970
@@ -4001,7 +4046,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8457966283628990782}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5581300177534573246
 MonoBehaviour:

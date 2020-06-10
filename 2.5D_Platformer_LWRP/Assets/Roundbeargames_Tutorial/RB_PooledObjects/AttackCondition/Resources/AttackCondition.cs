@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    public class AttackInfo : MonoBehaviour
+    public class AttackCondition : MonoBehaviour
     {
         public CharacterControl Attacker = null;
         public Attack AttackAbility;
