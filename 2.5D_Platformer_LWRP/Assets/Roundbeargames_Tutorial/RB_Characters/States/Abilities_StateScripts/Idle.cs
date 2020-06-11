@@ -9,7 +9,6 @@ namespace Roundbeargames
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Jump], false);
             animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Attack], false);
             animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
 
@@ -25,13 +24,7 @@ namespace Roundbeargames
 
             if (characterState.characterControl.Jump)
             {
-                if (!characterState.JUMP_DATA.Jumped)
-                {
-                    if (characterState.GROUND_DATA.Ground != null)
-                    {
-                        animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Jump], true);
-                    }
-                }
+                // do nothing
             }
             else
             {

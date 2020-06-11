@@ -90,14 +90,6 @@ namespace Roundbeargames
 
             UpdateCharacterIgnoreTime(characterState.characterControl, stateInfo);
 
-            if (characterState.characterControl.Jump)
-            {
-                if (characterState.GROUND_DATA.Ground != null)
-                {
-                    animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Jump], true);
-                }
-            }
-
             if (characterState.characterControl.Turbo)
             {
                 animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], true);

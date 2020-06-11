@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dfc3080ff22eac4da6ff3c00a39e808, type: 3}
-  m_Name: Player_Walk_TransitionIndexer_UnethicalKick_2
+  m_Name: Player_TransitionIndexer_Walking_SpinningBackKick_1
   m_EditorClassIdentifier: 
-  Index: 2
-  transitionConditions: 0100000004000000
+  Index: 1
+  transitionConditions: 04000000

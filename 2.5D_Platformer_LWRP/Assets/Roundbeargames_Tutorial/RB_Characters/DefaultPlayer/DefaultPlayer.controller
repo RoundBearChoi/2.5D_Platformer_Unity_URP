@@ -2380,6 +2380,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7164afe565c29af45ab6c8e1040029c1, type: 2}
   - {fileID: 11400000, guid: d14ed38f9b79f41458a36e81bbff728d, type: 2}
   - {fileID: 11400000, guid: 4e287c6a0919e344fba95f9fa1ce7b34, type: 2}
+  - {fileID: 11400000, guid: c53c7b343d704e14e9a554a222acdfdc, type: 2}
 --- !u!114 &114907193628521876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2404,6 +2405,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d3c29c751af5cb43b4792674d574935, type: 2}
   - {fileID: 11400000, guid: f4c235ec05bad3247991dd632f26858c, type: 2}
   - {fileID: 11400000, guid: 08ad02d474b20d242b6a5fa1c00723b6, type: 2}
+  - {fileID: 11400000, guid: 7e06ce912a81052489def7457cdd8649, type: 2}
 --- !u!114 &162616196101899265
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2833,9 +2835,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Jump
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: TransitionIndex
+    m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102689705079908882}
   m_Solo: 0
@@ -3014,9 +3016,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Jump
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: TransitionIndex
+    m_EventTreshold: 7
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102689705079908882}
   m_Solo: 0
@@ -3521,9 +3523,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Jump
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: TransitionIndex
+    m_EventTreshold: 4
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6164692530225993319}
   m_Solo: 0
@@ -4683,6 +4685,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1140945eb8fd3334ab7e0510c643e784, type: 2}
   - {fileID: 11400000, guid: e7bf502a91dd1b5498b29d4b239a7bcc, type: 2}
   - {fileID: 11400000, guid: 35c0d16ff01c31b41b109853cf41e037, type: 2}
+  - {fileID: 11400000, guid: 1d8082f5b52222d438e461ab49d32c33, type: 2}
 --- !u!1102 &5918502982548731602
 AnimatorState:
   serializedVersion: 5
@@ -4927,11 +4930,11 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
+  - first: {fileID: -7127493026812690429}
+    second: []
   - first: {fileID: 1559308484210744654}
     second: []
   - first: {fileID: 3615597234190260423}
-    second: []
-  - first: {fileID: -7127493026812690429}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -200, y: -290, z: 0}

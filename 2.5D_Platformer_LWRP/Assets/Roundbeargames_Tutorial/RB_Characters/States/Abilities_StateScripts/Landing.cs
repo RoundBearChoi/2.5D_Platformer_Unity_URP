@@ -9,7 +9,6 @@ namespace Roundbeargames
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Jump], false);
             animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
         }
 

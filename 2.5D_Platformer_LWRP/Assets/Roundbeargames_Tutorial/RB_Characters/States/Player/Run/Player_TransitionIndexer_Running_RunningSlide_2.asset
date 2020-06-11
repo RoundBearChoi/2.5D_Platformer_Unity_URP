@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dfc3080ff22eac4da6ff3c00a39e808, type: 3}
-  m_Name: Player_ForwardRoll_TransitionIndexer_3
+  m_Name: Player_TransitionIndexer_Running_RunningSlide_2
   m_EditorClassIdentifier: 
-  Index: 3
-  transitionConditions: 00000000
+  Index: 2
+  transitionConditions: 01000000
