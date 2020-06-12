@@ -20,6 +20,7 @@ namespace Roundbeargames
         public CollisionSphereData COLLISION_SPHERE_DATA => characterControl.subComponentProcessor.collisionSphereData;
         public GroundData GROUND_DATA => characterControl.subComponentProcessor.groundData;
         public AttackData ATTACK_DATA => characterControl.subComponentProcessor.attackData;
+        public AnimationData ANIMATION_DATA => characterControl.subComponentProcessor.animationData;
 
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
@@ -33,16 +34,13 @@ namespace Roundbeargames
             {
                 d.OnEnter(this, animator, stateInfo);
 
-                if (characterControl.animationProgress.
-                    CurrentRunningAbilities.ContainsKey(d))
+                if (characterControl.ANIMATION_DATA.CurrentRunningAbilities.ContainsKey(d))
                 {
-                    characterControl.animationProgress.
-                        CurrentRunningAbilities[d] += 1;
+                    characterControl.ANIMATION_DATA.CurrentRunningAbilities[d] += 1;
                 }
                 else
                 {
-                    characterControl.animationProgress.
-                        CurrentRunningAbilities.Add(d, 1);
+                    characterControl.ANIMATION_DATA.CurrentRunningAbilities.Add(d, 1);
                 }
             }
         }
@@ -66,17 +64,13 @@ namespace Roundbeargames
             {
                 d.OnExit(this, animator, stateInfo);
 
-                if (characterControl.animationProgress.
-                    CurrentRunningAbilities.ContainsKey(d))
+                if (characterControl.ANIMATION_DATA.CurrentRunningAbilities.ContainsKey(d))
                 {
-                    characterControl.animationProgress.
-                        CurrentRunningAbilities[d] -= 1;
+                    characterControl.ANIMATION_DATA.CurrentRunningAbilities[d] -= 1;
 
-                    if (characterControl.animationProgress.
-                        CurrentRunningAbilities[d] <= 0)
+                    if (characterControl.ANIMATION_DATA.CurrentRunningAbilities[d] <= 0)
                     {
-                        characterControl.animationProgress.
-                        CurrentRunningAbilities.Remove(d);
+                        characterControl.ANIMATION_DATA.CurrentRunningAbilities.Remove(d);
                     }
                 }
             }

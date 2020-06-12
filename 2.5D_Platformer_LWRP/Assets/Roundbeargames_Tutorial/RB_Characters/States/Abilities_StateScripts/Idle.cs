@@ -28,8 +28,7 @@ namespace Roundbeargames
             }
             else
             {
-                if (!characterState.characterControl.animationProgress.
-                    IsRunning(typeof(Jump)))
+                if (!characterState.ANIMATION_DATA.IsRunning(typeof(Jump)))
                 {
                     characterState.JUMP_DATA.Jumped = false;
                 }

@@ -39,7 +39,7 @@ namespace Roundbeargames
 
         public override void OnFixedUpdate()
         {
-            if (control.animationProgress.IsRunning(typeof(MoveForward)))
+            if (control.ANIMATION_DATA.IsRunning(typeof(MoveForward)))
             {
                 CheckFrontBlocking();
             }
@@ -52,7 +52,7 @@ namespace Roundbeargames
             }
 
             // checking while ledge grabbing
-            if (control.animationProgress.IsRunning(typeof(MoveUp)))
+            if (control.ANIMATION_DATA.IsRunning(typeof(MoveUp)))
             {
                 if (control.animationProgress.LatestMoveUp.Speed > 0f)
                 {

@@ -61,6 +61,7 @@ namespace Roundbeargames
         public InstaKillData INSTA_KILL_DATA => subComponentProcessor.instaKillData;
         public GroundData GROUND_DATA => subComponentProcessor.groundData;
         public AttackData ATTACK_DATA => subComponentProcessor.attackData;
+        public AnimationData ANIMATION_DATA => subComponentProcessor.animationData;
 
         [Header("Setup")]
         public PlayableCharacterType playableCharacterType;

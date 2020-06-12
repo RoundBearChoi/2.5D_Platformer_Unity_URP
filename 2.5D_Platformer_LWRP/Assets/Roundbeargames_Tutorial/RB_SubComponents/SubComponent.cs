@@ -17,6 +17,7 @@ namespace Roundbeargames
         COLLISION_SPHERES,
         INSTA_KILL,
         PLAYER_ATTACK,
+        PLAYER_ANIMATION,
     }
 
     public abstract class SubComponent : MonoBehaviour

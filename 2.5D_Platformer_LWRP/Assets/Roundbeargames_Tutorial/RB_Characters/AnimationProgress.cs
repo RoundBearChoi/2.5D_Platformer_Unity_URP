@@ -6,9 +6,6 @@ namespace Roundbeargames
 {
     public class AnimationProgress : MonoBehaviour
     {
-        public Dictionary<StateData, int> CurrentRunningAbilities =
-            new Dictionary<StateData, int>();
-
         public bool CameraShaken;
         public List<PoolObjectType> SpawnedObjList = new List<PoolObjectType>();
 
@@ -35,31 +32,6 @@ namespace Roundbeargames
         private void Awake()
         {
             control = GetComponent<CharacterControl>();
-        }
-
-        private void Update()
-        {
-            if (IsRunning(typeof(LockTransition)))
-            {
-                if (control.animationProgress.LockTransition)
-                {
-                    control.SkinnedMeshAnimator.
-                        SetBool(HashManager.Instance.DicMainParams[TransitionParameter.LockTransition],
-                        true);
-                }
-                else
-                {
-                    control.SkinnedMeshAnimator.
-                        SetBool(HashManager.Instance.DicMainParams[TransitionParameter.LockTransition],
-                        false);
-                }
-            }
-            else
-            {
-                control.SkinnedMeshAnimator.
-                    SetBool(HashManager.Instance.DicMainParams[TransitionParameter.LockTransition],
-                    false);
-            }
         }
 
         public void NullifyUpVelocity()
@@ -122,19 +94,6 @@ namespace Roundbeargames
             else if (LatestMoveForward.Speed < 0f)
             {
                 return true;
-            }
-
-            return false;
-        }
-
-        public bool IsRunning(System.Type type)
-        {
-            foreach(KeyValuePair<StateData, int> data in CurrentRunningAbilities)
-            {
-                if (data.Key.GetType() == type)
-                {
-                    return true;
-                }
             }
 
             return false;

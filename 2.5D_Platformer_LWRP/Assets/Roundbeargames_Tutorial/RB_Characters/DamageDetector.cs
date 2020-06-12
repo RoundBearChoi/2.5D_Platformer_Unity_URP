@@ -194,7 +194,7 @@ namespace Roundbeargames
                 return true;
             }
 
-            if (control.animationProgress.IsRunning(typeof(Block)))
+            if (control.ANIMATION_DATA.IsRunning(typeof(Block)))
             {
                 Vector3 dir = info.Attacker.transform.position - control.transform.position;
 
@@ -270,7 +270,7 @@ namespace Roundbeargames
             damageData.hp -= info.AttackAbility.Damage;
 
             AttackManager.Instance.ForceDeregister(control);
-            control.animationProgress.CurrentRunningAbilities.Clear();
+            control.ANIMATION_DATA.CurrentRunningAbilities.Clear();
 
             if (IsDead())
             {
