@@ -13,6 +13,7 @@ namespace Roundbeargames
 
     public enum AI_States
     {
+        SendPathfindingAgent,
         AI_Attack,
     }
 

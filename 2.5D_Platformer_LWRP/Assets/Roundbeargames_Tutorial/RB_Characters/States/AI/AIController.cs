@@ -32,9 +32,7 @@ namespace Roundbeargames
 
         public void InitializeAI()
         {
-            Debug.Log("Initializing AI...");
-            animatorController.gameObject.SetActive(false);
-            animatorController.gameObject.SetActive(true);
+            ANIMATOR.Play(HashManager.Instance.DicAIStates[AI_States.SendPathfindingAgent], 0);
         }
 
         public void WalkStraightToStartSphere()
