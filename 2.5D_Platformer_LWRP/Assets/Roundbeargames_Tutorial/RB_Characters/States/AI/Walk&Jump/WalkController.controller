@@ -21,6 +21,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 2176693517168043330}
     m_Position: {x: 410, y: 350, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 7327913044148723154}
+    m_Position: {x: 600, y: 170, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -59,6 +62,21 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-5644866150198793122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2112a3b23010d19469bc50211b6a226e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterControl: {fileID: 0}
+  ListAbilityData:
+  - {fileID: 11400000, guid: a0349eea3b01eea4c9d68873c09065f2, type: 2}
 --- !u!1101 &-4266120656944635002
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -283,6 +301,33 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1d0e9c6c324681045837d2994d29f4f2, type: 2}
   - {fileID: 11400000, guid: c9b986519be1e404c9ec9a4e09bdd6f3, type: 2}
   - {fileID: 11400000, guid: ce9873c5ad7af2941b0760eea3654a22, type: 2}
+--- !u!1102 &7327913044148723154
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AI Attack
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours:
+  - {fileID: -5644866150198793122}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!114 &8569735768275112191
 MonoBehaviour:
   m_ObjectHideFlags: 1

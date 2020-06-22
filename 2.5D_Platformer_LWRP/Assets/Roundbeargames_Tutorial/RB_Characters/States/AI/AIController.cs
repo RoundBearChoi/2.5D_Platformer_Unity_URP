@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
 namespace Roundbeargames
@@ -8,18 +9,32 @@ namespace Roundbeargames
     {
         Vector3 TargetDir = new Vector3();
         CharacterControl control;
-        Animator AIAnimator;
+        Animator animatorController;
+
+        public Animator ANIMATOR
+        {
+            get
+            {
+                return animatorController;
+            }
+
+            private set 
+            {
+            
+            }
+        }
 
         private void Awake()
         {
-            AIAnimator = this.gameObject.GetComponentInChildren<Animator>();
+            animatorController = this.gameObject.GetComponentInChildren<Animator>();
             control = this.gameObject.GetComponentInParent<CharacterControl>();
         }
 
         public void InitializeAI()
         {
-            AIAnimator.gameObject.SetActive(false);
-            AIAnimator.gameObject.SetActive(true);
+            Debug.Log("Initializing AI...");
+            animatorController.gameObject.SetActive(false);
+            animatorController.gameObject.SetActive(true);
         }
 
         public void WalkStraightToStartSphere()

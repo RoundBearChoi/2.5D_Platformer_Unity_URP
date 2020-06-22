@@ -6,15 +6,27 @@ namespace Roundbeargames
 {
     public class AIProgress : MonoBehaviour
     {
+        [Range(0f, 1f)]
+        public float FlyingKickProbability;
+
         public PathFindingAgent pathfindingAgent;
         public CharacterControl BlockingCharacter;
         public bool DoFlyingKick;
+
+        delegate void GroundAttack(CharacterControl control);
+        List<GroundAttack> ListGroundAttacks = new List<GroundAttack>();
+        int AttackIndex;
 
         CharacterControl control;
 
         private void Awake()
         {
             control = this.gameObject.GetComponentInParent<CharacterControl>();
+
+            ListGroundAttacks.Add(NormalGroundAttack);
+            ListGroundAttacks.Add(ForwardGroundAttack);
+
+            StartCoroutine(_RandomizeAttack());
         }
 
         public float AIDistanceToStartSphere()
@@ -176,7 +188,7 @@ namespace Roundbeargames
 
         public void SetRandomFlyingKick()
         {
-            if (Random.Range(0f, 1f) < 0.3f)
+            if (Random.Range(0f, 1f) < FlyingKickProbability)
             {
                 DoFlyingKick = true;
             }
@@ -191,6 +203,57 @@ namespace Roundbeargames
             Vector3 vec = control.transform.position - pathfindingAgent.StartSphere.transform.position;
 
             return Mathf.Abs(vec.y);
+        }
+
+        public void DoAttack()
+        {
+            ListGroundAttacks[AttackIndex](control);
+        }
+
+        IEnumerator _RandomizeAttack()
+        {
+            while (true)
+            {
+                AttackIndex = Random.Range(0, ListGroundAttacks.Count);
+                yield return new WaitForSeconds(2f);
+            }
+        }
+
+        void NormalGroundAttack(CharacterControl control)
+        {
+            control.MoveRight = false;
+            control.MoveLeft = false;
+
+            control.ATTACK_DATA.AttackTriggered = true;
+            control.Attack = false;
+        }
+
+        void ForwardGroundAttack(CharacterControl control)
+        {
+            if (control.aiProgress.TargetIsOnRightSide())
+            {
+                control.MoveRight = true;
+                control.MoveLeft = false;
+
+                ProcForwardGroundAttack(control);
+            }
+            else
+            {
+                control.MoveRight = false;
+                control.MoveLeft = true;
+
+                ProcForwardGroundAttack(control);
+            }
+        }
+
+        void ProcForwardGroundAttack(CharacterControl control)
+        {
+            if (control.aiProgress.IsFacingTarget() &&
+                    control.ANIMATION_DATA.IsRunning(typeof(MoveForward)))
+            {
+                control.ATTACK_DATA.AttackTriggered = true;
+                control.Attack = false;
+            }
         }
     }
 }
