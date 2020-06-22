@@ -245,10 +245,9 @@ namespace Roundbeargames
                         vfx.transform.position =
                             damageData.AttackingPart.GetComponent<Collider>().bounds.center;
 
-                        Debug.Log(control.gameObject.name + " damage detected: " + damageData.DamagedTrigger.gameObject.name);
-                        Debug.Log("attacking part: " + damageData.AttackingPart.gameObject.name);
-
-                        Debug.DrawLine(Vector3.zero, vfx.transform.position, Color.red, 60f);
+                        //Debug.Log(control.gameObject.name + " damage detected: " + damageData.DamagedTrigger.gameObject.name);
+                        //Debug.Log("attacking part: " + damageData.AttackingPart.gameObject.name);
+                        //Debug.DrawLine(Vector3.zero, vfx.transform.position, Color.red, 60f);
 
                         vfx.SetActive(true);
 
