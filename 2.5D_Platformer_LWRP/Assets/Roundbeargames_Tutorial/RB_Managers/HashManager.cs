@@ -17,6 +17,14 @@ namespace Roundbeargames
         AI_Attack,
     }
 
+    public enum Player_States
+    {
+        Head_Hit,
+        Zombie_Death,
+
+        COUNT,
+    }
+
     public class HashManager : Singleton<HashManager>
     {
         public Dictionary<TransitionParameter, int> DicMainParams =
@@ -29,7 +37,10 @@ namespace Roundbeargames
             new Dictionary<AI_Transitions, int>();
 
         public Dictionary<AI_States, int> DicAIStates =
-    new Dictionary<AI_States, int>();
+            new Dictionary<AI_States, int>();
+
+        public Dictionary<Player_States, int> DicPlayerStates =
+            new Dictionary<Player_States, int>();
 
         private void Awake()
         {
@@ -67,6 +78,15 @@ namespace Roundbeargames
             foreach(AI_States t in arrAIStates)
             {
                 DicAIStates.Add(t, Animator.StringToHash(t.ToString()));
+            }
+
+            // player states
+            Player_States[] arrPlayerStates = System.Enum.GetValues(typeof(Player_States))
+                as Player_States[];
+
+            foreach(Player_States t in arrPlayerStates)
+            {
+                DicPlayerStates.Add(t, Animator.StringToHash(t.ToString()));
             }
         }
     }

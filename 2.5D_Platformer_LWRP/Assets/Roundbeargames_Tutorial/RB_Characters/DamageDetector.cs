@@ -9,13 +9,8 @@ namespace Roundbeargames
         public DamageData damageData;
 
         [Header("Damage Setup")]
-
-        [SerializeField]
-        List<RuntimeAnimatorController> HitReactionList = new List<RuntimeAnimatorController>();
-        
         [SerializeField]
         Attack MarioStompAttack;
-
         [SerializeField]
         Attack AxeThrow;
 
@@ -278,10 +273,8 @@ namespace Roundbeargames
             }
             else
             {
-                int rand = Random.Range(0, HitReactionList.Count);
-
-                control.SkinnedMeshAnimator.runtimeAnimatorController = null;
-                control.SkinnedMeshAnimator.runtimeAnimatorController = HitReactionList[rand];
+                int randomIndex = Random.Range(0, (int)Player_States.COUNT);
+                control.SkinnedMeshAnimator.Play(HashManager.Instance.DicPlayerStates[(Player_States)randomIndex], 0);
             }
 
             if (!info.RegisteredTargets.Contains(this.control))
