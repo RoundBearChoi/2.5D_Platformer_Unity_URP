@@ -88,5 +88,19 @@ namespace Roundbeargames
 
             return false;
         }
+
+        public bool IsAttacking()
+        {
+            AnimatorStateInfo info = control.aiController.ANIMATOR.GetCurrentAnimatorStateInfo(0);
+
+            if (info.shortNameHash == HashManager.Instance.DicAIStates[AI_States.AI_Attack])
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

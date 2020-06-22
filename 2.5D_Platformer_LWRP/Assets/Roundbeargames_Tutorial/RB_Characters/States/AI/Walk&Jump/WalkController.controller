@@ -11,16 +11,16 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7242465213647243391}
-    m_Position: {x: 160, y: 170, z: 0}
+    m_Position: {x: 160, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3008946044258092566}
-    m_Position: {x: 260, y: 250, z: 0}
+    m_Position: {x: 250, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3232753163783350856}
-    m_Position: {x: 180, y: 350, z: 0}
+    m_Position: {x: 160, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2176693517168043330}
-    m_Position: {x: 410, y: 350, z: 0}
+    m_Position: {x: 400, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7327913044148723154}
     m_Position: {x: 600, y: 170, z: 0}
@@ -77,6 +77,7 @@ MonoBehaviour:
   characterControl: {fileID: 0}
   ListAbilityData:
   - {fileID: 11400000, guid: a0349eea3b01eea4c9d68873c09065f2, type: 2}
+  - {fileID: 11400000, guid: c9b986519be1e404c9ec9a4e09bdd6f3, type: 2}
 --- !u!1101 &-4266120656944635002
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

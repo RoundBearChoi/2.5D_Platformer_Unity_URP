@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -34,6 +35,21 @@ namespace Roundbeargames
                 characterState.characterControl.MoveRight = false;
                 characterState.characterControl.MoveDown = false;
                 characterState.characterControl.aiController.InitializeAI();
+            }
+
+            if (characterState.AI_CONTROLLER.IsAttacking())
+            {
+                if (characterState.characterControl.aiProgress.AIDistanceToTarget() > 3f ||
+                    !characterState.characterControl.aiProgress.TargetIsOnSamePlatform())
+                {
+                    characterState.characterControl.Turbo = false;
+                    characterState.characterControl.Jump = false;
+                    characterState.characterControl.MoveUp = false;
+                    characterState.characterControl.MoveLeft = false;
+                    characterState.characterControl.MoveRight = false;
+                    characterState.characterControl.MoveDown = false;
+                    characterState.characterControl.aiController.InitializeAI();
+                }
             }
 
             // path is blocked

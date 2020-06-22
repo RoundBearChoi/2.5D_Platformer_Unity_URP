@@ -63,18 +63,26 @@ namespace Roundbeargames
         {
             foreach (StateData d in ListAbilityData)
             {
-                d.OnExit(this, animator, stateInfo);
-
-                if (characterControl.ANIMATION_DATA.CurrentRunningAbilities.ContainsKey(d))
+                try
                 {
-                    characterControl.ANIMATION_DATA.CurrentRunningAbilities[d] -= 1;
+                    d.OnExit(this, animator, stateInfo);
 
-                    if (characterControl.ANIMATION_DATA.CurrentRunningAbilities[d] <= 0)
+                    if (characterControl.ANIMATION_DATA.CurrentRunningAbilities.ContainsKey(d))
                     {
-                        characterControl.ANIMATION_DATA.CurrentRunningAbilities.Remove(d);
+                        characterControl.ANIMATION_DATA.CurrentRunningAbilities[d] -= 1;
+
+                        if (characterControl.ANIMATION_DATA.CurrentRunningAbilities[d] <= 0)
+                        {
+                            characterControl.ANIMATION_DATA.CurrentRunningAbilities.Remove(d);
+                        }
                     }
                 }
+                catch (System.Exception e)
+                {
+                    Debug.Log(e);
+                }
             }
+            
         }
     }
 }
