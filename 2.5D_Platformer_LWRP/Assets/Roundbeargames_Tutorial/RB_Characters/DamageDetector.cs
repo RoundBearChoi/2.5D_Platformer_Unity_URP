@@ -37,15 +37,15 @@ namespace Roundbeargames
 
         public override void OnFixedUpdate()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public override void OnUpdate()
-        {
             if (AttackManager.Instance.CurrentAttacks.Count > 0)
             {
                 CheckAttack();
             }
+        }
+
+        public override void OnUpdate()
+        {
+            throw new System.NotImplementedException();
         }
 
         bool AttackIsValid(AttackCondition info)
@@ -243,7 +243,10 @@ namespace Roundbeargames
                             PoolManager.Instance.GetObject(info.AttackAbility.ParticleType);
 
                         vfx.transform.position =
-                            damageData.AttackingPart.transform.position;
+                            damageData.AttackingPart.GetComponent<Collider>().bounds.center;
+
+                        Debug.Log(control.gameObject.name + " damage detected: " + damageData.DamagedTrigger.gameObject.name);
+                        Debug.Log("attacking part: " + damageData.AttackingPart.gameObject.name);
 
                         Debug.DrawLine(Vector3.zero, vfx.transform.position, Color.red, 60f);
 
@@ -261,7 +264,7 @@ namespace Roundbeargames
                 }
             }
 
-            Debug.Log(info.Attacker.gameObject.name + " hits: " + this.gameObject.name);
+            //Debug.Log(info.Attacker.gameObject.name + " hits: " + this.gameObject.name);
 
             info.CurrentHits++;
             damageData.hp -= info.AttackAbility.Damage;
