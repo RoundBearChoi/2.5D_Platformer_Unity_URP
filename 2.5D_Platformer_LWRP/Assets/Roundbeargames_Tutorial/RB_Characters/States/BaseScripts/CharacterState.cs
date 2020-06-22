@@ -21,6 +21,7 @@ namespace Roundbeargames
         public GroundData GROUND_DATA => characterControl.subComponentProcessor.groundData;
         public AttackData ATTACK_DATA => characterControl.subComponentProcessor.attackData;
         public AnimationData ANIMATION_DATA => characterControl.subComponentProcessor.animationData;
+        public AIController AI_CONTROLLER => characterControl.aiController;
 
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {

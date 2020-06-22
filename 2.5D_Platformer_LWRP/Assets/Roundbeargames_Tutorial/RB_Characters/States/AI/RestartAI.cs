@@ -20,24 +20,19 @@ namespace Roundbeargames
                 return;
             }
 
-            // walking
-            if (characterState.characterControl.aiProgress.AIDistanceToEndSphere() < 1f)
+            if (characterState.AI_CONTROLLER.RestartWalk())
             {
-                if (characterState.characterControl.aiProgress.TargetDistanceToEndSphere() > 0.5f)
-                {
-                    if (characterState.characterControl.aiProgress.TargetIsGrounded())
-                    {
-                        characterState.characterControl.aiController.InitializeAI();
-                    }
-                }
+                characterState.AI_CONTROLLER.InitializeAI();
             }
 
-            // landing
             if (characterState.ANIMATION_DATA.IsRunning(typeof(Landing)))
             {
                 characterState.characterControl.Turbo = false;
                 characterState.characterControl.Jump = false;
                 characterState.characterControl.MoveUp = false;
+                characterState.characterControl.MoveLeft = false;
+                characterState.characterControl.MoveRight = false;
+                characterState.characterControl.MoveDown = false;
                 characterState.characterControl.aiController.InitializeAI();
             }
 

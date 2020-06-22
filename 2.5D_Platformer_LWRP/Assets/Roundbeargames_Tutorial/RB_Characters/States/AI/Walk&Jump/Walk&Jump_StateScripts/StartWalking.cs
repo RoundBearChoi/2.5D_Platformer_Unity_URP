@@ -11,7 +11,6 @@ namespace Roundbeargames
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             characterState.characterControl.aiProgress.SetRandomFlyingKick();
-            characterState.characterControl.aiController.WalkStraightToStartSphere();
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

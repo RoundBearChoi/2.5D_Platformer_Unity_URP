@@ -4,84 +4,22 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    public enum AI_TYPE
-    {
-        NONE,
-        WALK_AND_JUMP,
-    }
-
-
     public class AIController : MonoBehaviour
     {
-        public AI_TYPE InitialAI;
-
-        List<AISubset> AIList = new List<AISubset>();
-        Coroutine AIRoutine;
         Vector3 TargetDir = new Vector3();
         CharacterControl control;
+        Animator AIAnimator;
 
         private void Awake()
         {
+            AIAnimator = this.gameObject.GetComponentInChildren<Animator>();
             control = this.gameObject.GetComponentInParent<CharacterControl>();
-        }
-
-        private void Start()
-        {
-            InitializeAI();
         }
 
         public void InitializeAI()
         {
-            if (AIList.Count == 0)
-            {
-                AISubset[] arr = this.gameObject.GetComponentsInChildren<AISubset>();
-
-                foreach (AISubset s in arr)
-                {
-                    if (!AIList.Contains(s))
-                    {
-                        AIList.Add(s);
-                        s.gameObject.SetActive(false);
-                    }
-                }
-            }
-
-            AIRoutine = StartCoroutine(_InitAI());
-        }
-
-        private void OnEnable()
-        {
-            if (AIRoutine != null)
-            {
-                StopCoroutine(AIRoutine);
-            }
-        }
-
-        private IEnumerator _InitAI()
-        {
-            yield return new WaitForEndOfFrame();
-
-            TriggerAI(InitialAI);
-        }
-
-        public void TriggerAI(AI_TYPE aiType)
-        {
-            AISubset next = null;
-
-            foreach(AISubset s in AIList)
-            {
-                s.gameObject.SetActive(false);
-
-                if (s.aiType == aiType)
-                {
-                    next = s;
-                }
-            }
-
-            if (next != null)
-            {
-                next.gameObject.SetActive(true);
-            }
+            AIAnimator.gameObject.SetActive(false);
+            AIAnimator.gameObject.SetActive(true);
         }
 
         public void WalkStraightToStartSphere()
@@ -118,6 +56,22 @@ namespace Roundbeargames
                 control.MoveRight = false;
                 control.MoveLeft = true;
             }
+        }
+
+        public bool RestartWalk()
+        {
+            if (control.aiProgress.AIDistanceToEndSphere() < 1f)
+            {
+                if (control.aiProgress.TargetDistanceToEndSphere() > 0.5f)
+                {
+                    if (control.aiProgress.TargetIsGrounded())
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }
