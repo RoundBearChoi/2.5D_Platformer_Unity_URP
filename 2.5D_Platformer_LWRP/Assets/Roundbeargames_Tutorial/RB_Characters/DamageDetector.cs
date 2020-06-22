@@ -245,6 +245,8 @@ namespace Roundbeargames
                         vfx.transform.position =
                             damageData.AttackingPart.transform.position;
 
+                        Debug.DrawLine(Vector3.zero, vfx.transform.position, Color.red, 60f);
+
                         vfx.SetActive(true);
 
                         if (info.Attacker.ROTATION_DATA.IsFacingForward())
@@ -274,7 +276,7 @@ namespace Roundbeargames
             else
             {
                 int randomIndex = Random.Range(0, (int)Player_States.COUNT);
-                control.SkinnedMeshAnimator.Play(HashManager.Instance.DicPlayerStates[(Player_States)randomIndex], 0);
+                control.SkinnedMeshAnimator.Play(HashManager.Instance.DicPlayerStates[(Player_States)randomIndex], 0, 0f);
             }
 
             if (!info.RegisteredTargets.Contains(this.control))
