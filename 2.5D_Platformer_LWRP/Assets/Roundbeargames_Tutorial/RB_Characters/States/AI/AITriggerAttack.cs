@@ -8,8 +8,6 @@ namespace Roundbeargames
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AI/AITriggerAttack")]
     public class AITriggerAttack : StateData
     {
-        static string AIAttack = "AI Attack";
-
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             
@@ -58,7 +56,7 @@ namespace Roundbeargames
 
         void TriggerAttack(CharacterControl control)
         {
-            control.aiController.ANIMATOR.Play(AIAttack, 0);
+            control.aiController.ANIMATOR.Play(HashManager.Instance.DicAIStates[AI_States.AI_Attack], 0);
         }
     }
 }

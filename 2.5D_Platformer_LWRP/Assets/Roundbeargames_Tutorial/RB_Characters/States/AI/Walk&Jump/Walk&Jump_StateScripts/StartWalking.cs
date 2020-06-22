@@ -29,7 +29,7 @@ namespace Roundbeargames
                     characterState.characterControl.MoveLeft = false;
 
                     animator.SetBool(HashManager.Instance.
-                        DicAITrans[AI_Walk_Transitions.jump_platform], true);
+                        DicAITrans[AI_Transitions.jump_platform], true);
                     return;
                 }
             }
@@ -40,7 +40,7 @@ namespace Roundbeargames
                 characterState.characterControl.aiController.WalkStraightToEndSphere();
 
                 animator.SetBool(HashManager.Instance.
-                    DicAITrans[AI_Walk_Transitions.fall_platform], true);
+                    DicAITrans[AI_Transitions.fall_platform], true);
                 return;
             }
 
@@ -72,10 +72,10 @@ namespace Roundbeargames
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             animator.SetBool(HashManager.Instance.
-                DicAITrans[AI_Walk_Transitions.jump_platform], false);
+                DicAITrans[AI_Transitions.jump_platform], false);
 
             animator.SetBool(HashManager.Instance.
-                DicAITrans[AI_Walk_Transitions.fall_platform], false);
+                DicAITrans[AI_Transitions.fall_platform], false);
         }
     }
 }

@@ -5,13 +5,6 @@ using UnityEngine.AI;
 
 namespace Roundbeargames
 {
-    public enum AI_Walk_Transitions
-    {
-        start_walking,
-        jump_platform,
-        fall_platform,
-    }
-
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AI/SendPathfindingAgent")]
     public class SendPathfindingAgent : StateData
     {
@@ -38,14 +31,14 @@ namespace Roundbeargames
             if (characterState.characterControl.aiProgress.pathfindingAgent.StartWalk)
             {
                 animator.SetBool(HashManager.Instance.
-                    DicAITrans[AI_Walk_Transitions.start_walking], true);
+                    DicAITrans[AI_Transitions.start_walking], true);
             }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             animator.SetBool(HashManager.Instance.
-                DicAITrans[AI_Walk_Transitions.start_walking], false);
+                DicAITrans[AI_Transitions.start_walking], false);
         }
     }
 }
