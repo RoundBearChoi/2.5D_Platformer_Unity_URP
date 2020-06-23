@@ -26,6 +26,7 @@ namespace Roundbeargames
         public bool UseMomentum;
         public float StartingMomentum;
         public float MaxMomentum;
+        public bool StartFromPreviousMomentum;
         public bool ClearMomentumOnExit;
 
         [Header("MoveOnHit")]
@@ -51,15 +52,19 @@ namespace Roundbeargames
                 }
             }
 
-            if (StartingMomentum > 0.001f)
+            if (!StartFromPreviousMomentum)
             {
-                if (characterState.ROTATION_DATA.IsFacingForward())
+                if (StartingMomentum > 0.001f)
                 {
-                    characterState.MOMENTUM_DATA.Momentum = StartingMomentum;
-                }
-                else
-                {
-                    characterState.MOMENTUM_DATA.Momentum = -StartingMomentum;
+
+                    if (characterState.ROTATION_DATA.IsFacingForward())
+                    {
+                        characterState.MOMENTUM_DATA.Momentum = StartingMomentum;
+                    }
+                    else
+                    {
+                        characterState.MOMENTUM_DATA.Momentum = -StartingMomentum;
+                    }
                 }
             }
 
