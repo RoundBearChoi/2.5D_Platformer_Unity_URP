@@ -277,8 +277,8 @@ namespace Roundbeargames
             }
             else
             {
-                int randomIndex = Random.Range(0, (int)Player_States.COUNT);
-                control.SkinnedMeshAnimator.Play(HashManager.Instance.DicPlayerStates[(Player_States)randomIndex], 0, 0f);
+                int randomIndex = Random.Range(0, (int)Hit_Reaction_States.COUNT);
+                control.SkinnedMeshAnimator.Play(HashManager.Instance.DicHitReactionStates[(Hit_Reaction_States)randomIndex], 0, 0f);
             }
 
             if (!info.RegisteredTargets.Contains(this.control))

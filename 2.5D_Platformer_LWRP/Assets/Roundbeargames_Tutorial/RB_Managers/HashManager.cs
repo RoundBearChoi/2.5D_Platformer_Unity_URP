@@ -17,12 +17,18 @@ namespace Roundbeargames
         AI_Attack,
     }
 
-    public enum Player_States
+    public enum Hit_Reaction_States
     {
         Head_Hit,
         Zombie_Death,
 
         COUNT,
+    }
+
+    public enum Animation_States
+    {
+        Jump_Normal_Landing,
+        //Heroic_Fall,
     }
 
     public class HashManager : Singleton<HashManager>
@@ -39,8 +45,11 @@ namespace Roundbeargames
         public Dictionary<AI_States, int> DicAIStates =
             new Dictionary<AI_States, int>();
 
-        public Dictionary<Player_States, int> DicPlayerStates =
-            new Dictionary<Player_States, int>();
+        public Dictionary<Hit_Reaction_States, int> DicHitReactionStates =
+            new Dictionary<Hit_Reaction_States, int>();
+
+        public Dictionary<Animation_States, int> DicAnimationStates =
+            new Dictionary<Animation_States, int>();
 
         private void Awake()
         {
@@ -80,13 +89,22 @@ namespace Roundbeargames
                 DicAIStates.Add(t, Animator.StringToHash(t.ToString()));
             }
 
-            // player states
-            Player_States[] arrPlayerStates = System.Enum.GetValues(typeof(Player_States))
-                as Player_States[];
+            // hit reaction states
+            Hit_Reaction_States[] arrHitReactionStates = System.Enum.GetValues(typeof(Hit_Reaction_States))
+                as Hit_Reaction_States[];
 
-            foreach(Player_States t in arrPlayerStates)
+            foreach(Hit_Reaction_States t in arrHitReactionStates)
             {
-                DicPlayerStates.Add(t, Animator.StringToHash(t.ToString()));
+                DicHitReactionStates.Add(t, Animator.StringToHash(t.ToString()));
+            }
+
+            // animation states
+            Animation_States[] arrAnimationStates = System.Enum.GetValues(typeof(Animation_States))
+                as Animation_States[];
+
+            foreach(Animation_States t in arrAnimationStates)
+            {
+                DicAnimationStates.Add(t, Animator.StringToHash(t.ToString()));
             }
         }
     }
