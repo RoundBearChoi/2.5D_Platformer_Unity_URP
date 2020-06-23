@@ -2505,6 +2505,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f4c235ec05bad3247991dd632f26858c, type: 2}
   - {fileID: 11400000, guid: 08ad02d474b20d242b6a5fa1c00723b6, type: 2}
   - {fileID: 11400000, guid: 7e06ce912a81052489def7457cdd8649, type: 2}
+  - {fileID: 11400000, guid: 76642f784e1a67940af4d9c452382e98, type: 2}
 --- !u!114 &162616196101899265
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3140,12 +3141,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Move
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Turbo
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: TransitionIndex
+    m_EventTreshold: 8
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102434198838519514}
   m_Solo: 0
