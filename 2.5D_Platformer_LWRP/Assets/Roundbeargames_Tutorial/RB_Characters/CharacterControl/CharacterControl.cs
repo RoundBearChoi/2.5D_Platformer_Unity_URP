@@ -74,6 +74,7 @@ namespace Roundbeargames
         private Dictionary<string, GameObject> ChildObjects = new Dictionary<string, GameObject>();
 
         private Rigidbody rigid;
+
         public Rigidbody RIGID_BODY
         {
             get

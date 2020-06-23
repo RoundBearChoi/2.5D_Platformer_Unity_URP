@@ -82,7 +82,6 @@ namespace Roundbeargames
                     Debug.Log(e);
                 }
             }
-            
         }
     }
 }
