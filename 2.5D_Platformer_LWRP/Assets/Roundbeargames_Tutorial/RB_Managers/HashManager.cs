@@ -32,6 +32,9 @@ namespace Roundbeargames
         Hanging_Idle,
         Running_Jump,
         Idle,
+
+        Jump_Normal_Prep,
+        Jump_Running,
     }
 
     public enum Ledge_Trigger_States

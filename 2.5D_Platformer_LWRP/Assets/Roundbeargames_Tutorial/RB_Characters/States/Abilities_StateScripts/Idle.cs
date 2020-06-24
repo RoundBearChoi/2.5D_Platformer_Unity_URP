@@ -40,11 +40,11 @@ namespace Roundbeargames
             }
             else if (characterState.characterControl.MoveRight)
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], true);
+                //animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], true);
             }
             else if (characterState.characterControl.MoveLeft)
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], true);
+                //animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], true);
             }
         }
 
