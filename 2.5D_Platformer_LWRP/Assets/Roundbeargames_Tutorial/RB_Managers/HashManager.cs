@@ -28,7 +28,7 @@ namespace Roundbeargames
     public enum Animation_States
     {
         Jump_Normal_Landing,
-        //Heroic_Fall,
+        Jump_3m_Prep,
     }
 
     public class HashManager : Singleton<HashManager>
