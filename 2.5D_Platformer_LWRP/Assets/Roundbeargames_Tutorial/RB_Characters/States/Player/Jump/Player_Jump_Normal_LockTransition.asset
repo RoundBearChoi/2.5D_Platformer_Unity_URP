@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8d5f3581ab7db458c04e4b50531d06, type: 3}
   m_Name: Player_Jump_Normal_LockTransition
   m_EditorClassIdentifier: 
-  UnlockTime: 0.6
+  UnlockTime: 0.1
