@@ -116,7 +116,7 @@ namespace Roundbeargames
                             }
                         }
                         break;
-                    case TransitionConditionType.AIR:
+                    case TransitionConditionType.NOT_GROUNDED:
                         {
                             if (!control.SkinnedMeshAnimator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]) == false)
                             {
@@ -270,7 +270,7 @@ namespace Roundbeargames
                             }
                         }
                         break;
-                    case TransitionConditionType.NOT_RUN:
+                    case TransitionConditionType.NOT_RUNNING:
                         {
                             if (control.Turbo)
                             {

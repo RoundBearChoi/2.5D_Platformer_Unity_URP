@@ -6,34 +6,42 @@ namespace Roundbeargames
 {
     public enum TransitionConditionType
     {
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT,
-        ATTACK,
-        JUMP,
-        GRABBING_LEDGE,
-        LEFT_OR_RIGHT,
-        GROUNDED,
-        MOVE_FORWARD,
-        AIR,
-        BLOCKED_BY_WALL,
-        CAN_WALLJUMP,
-        NOT_GRABBING_LEDGE,
-        NOT_BLOCKED_BY_WALL,
-        MOVING_TO_BLOCKING_OBJ,
-        DOUBLE_TAP_UP,
-        DOUBLE_TAP_DOWN,
-        DOUBLE_TAP_LEFT,
-        DOUBLE_TAP_RIGHT,
-        TOUCHING_WEAPON,
-        HOLDING_AXE,
-        NOT_MOVING,
-        RUN,
-        NOT_RUN,
-        BLOCKING,
-        NOT_BLOCKING,
-        ATTACK_IS_BLOCKED,
+        UP = 0,
+        DOWN = 1,
+        LEFT = 2,
+        RIGHT = 3,
+        JUMP = 5,
+        LEFT_OR_RIGHT = 7,
+        MOVE_FORWARD = 9,
+        RUN = 23,
+        NOT_RUNNING = 24,
+        NOT_MOVING = 22,
+
+        DOUBLE_TAP_UP = 16,
+        DOUBLE_TAP_DOWN = 17,
+        DOUBLE_TAP_LEFT = 18,
+        DOUBLE_TAP_RIGHT = 19,
+
+        ATTACK = 4,
+        
+        GROUNDED = 8,
+        NOT_GROUNDED = 10,
+
+        GRABBING_LEDGE = 6,
+        NOT_GRABBING_LEDGE = 13,
+
+        BLOCKED_BY_WALL = 11,
+        NOT_BLOCKED_BY_WALL = 14,
+        CAN_WALLJUMP = 12,
+        
+        MOVING_TO_BLOCKING_OBJ = 15,
+
+        TOUCHING_WEAPON = 20,
+        HOLDING_AXE = 21,
+        
+        BLOCKING = 25,
+        NOT_BLOCKING = 26,
+        ATTACK_IS_BLOCKED = 27,
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
