@@ -25,10 +25,11 @@ namespace Roundbeargames
         COUNT,
     }
 
-    public enum Animation_States
+    public enum Instant_Transition_States
     {
         Jump_Normal_Landing,
         Jump_3m_Prep,
+        Hanging_Idle,
     }
 
     public enum Ledge_Trigger_States
@@ -62,8 +63,8 @@ namespace Roundbeargames
         public Dictionary<Hit_Reaction_States, int> DicHitReactionStates =
             new Dictionary<Hit_Reaction_States, int>();
 
-        public Dictionary<Animation_States, int> DicAnimationStates =
-            new Dictionary<Animation_States, int>();
+        public Dictionary<Instant_Transition_States, int> DicInstantTransitionStates =
+            new Dictionary<Instant_Transition_States, int>();
 
         public Dictionary<Ledge_Trigger_States, int> DicLedgeTriggerStates =
             new Dictionary<Ledge_Trigger_States, int>();
@@ -116,12 +117,12 @@ namespace Roundbeargames
             }
 
             // animation states
-            Animation_States[] arrAnimationStates = System.Enum.GetValues(typeof(Animation_States))
-                as Animation_States[];
+            Instant_Transition_States[] arrInstantTransitionStates = System.Enum.GetValues(typeof(Instant_Transition_States))
+                as Instant_Transition_States[];
 
-            foreach(Animation_States t in arrAnimationStates)
+            foreach(Instant_Transition_States t in arrInstantTransitionStates)
             {
-                DicAnimationStates.Add(t, Animator.StringToHash(t.ToString()));
+                DicInstantTransitionStates.Add(t, Animator.StringToHash(t.ToString()));
             }
 
             // ledge trigger states
