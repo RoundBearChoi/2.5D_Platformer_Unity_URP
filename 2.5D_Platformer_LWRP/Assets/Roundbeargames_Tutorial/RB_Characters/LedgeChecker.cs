@@ -13,7 +13,6 @@ namespace Roundbeargames
         [SerializeField] Vector3 LedgeCalibration = new Vector3();
         [SerializeField] LedgeCollider Collider1;
         [SerializeField] LedgeCollider Collider2;
-        [SerializeField] List<string> LedgeTriggerStateNames = new List<string>();
 
         private void Start()
         {
@@ -55,9 +54,10 @@ namespace Roundbeargames
                 return false;
             }
 
-            foreach(string s in LedgeTriggerStateNames)
+            foreach(KeyValuePair<Ledge_Trigger_States, int> data in HashManager.Instance.DicLedgeTriggerStates)
             {
-                if (control.animationProgress.StateNameContains(s))
+                AnimatorStateInfo info = control.SkinnedMeshAnimator.GetCurrentAnimatorStateInfo(0);
+                if (info.shortNameHash == data.Value)
                 {
                     return true;
                 }

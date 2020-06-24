@@ -31,6 +31,20 @@ namespace Roundbeargames
         Jump_3m_Prep,
     }
 
+    public enum Ledge_Trigger_States
+    {
+        Jump_Running_Fall,
+
+        // normal jump
+        Jump_Normal,
+        Heroic_Fall,
+
+        Jump_Running,
+        Fall,
+        WallSlide,
+        WallJump,
+    }
+
     public class HashManager : Singleton<HashManager>
     {
         public Dictionary<TransitionParameter, int> DicMainParams =
@@ -50,6 +64,9 @@ namespace Roundbeargames
 
         public Dictionary<Animation_States, int> DicAnimationStates =
             new Dictionary<Animation_States, int>();
+
+        public Dictionary<Ledge_Trigger_States, int> DicLedgeTriggerStates =
+            new Dictionary<Ledge_Trigger_States, int>();
 
         private void Awake()
         {
@@ -105,6 +122,15 @@ namespace Roundbeargames
             foreach(Animation_States t in arrAnimationStates)
             {
                 DicAnimationStates.Add(t, Animator.StringToHash(t.ToString()));
+            }
+
+            // ledge trigger states
+            Ledge_Trigger_States[] arrLedgeTriggerStates = System.Enum.GetValues(typeof(Ledge_Trigger_States))
+                as Ledge_Trigger_States[];
+
+            foreach(Ledge_Trigger_States t in arrLedgeTriggerStates)
+            {
+                DicLedgeTriggerStates.Add(t, Animator.StringToHash(t.ToString()));
             }
         }
     }

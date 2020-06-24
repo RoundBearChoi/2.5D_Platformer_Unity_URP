@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dfc3080ff22eac4da6ff3c00a39e808, type: 3}
-  m_Name: Player_Jump_LedgeGrab_Indexer_1
+  m_Name: Player_TransitionIndexer_RunningJumpFall_HangingIdle_1
   m_EditorClassIdentifier: 
   Index: 1
   transitionConditions: 0500000006000000
