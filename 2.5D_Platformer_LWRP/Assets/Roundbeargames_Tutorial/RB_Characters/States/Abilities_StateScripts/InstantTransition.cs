@@ -9,6 +9,7 @@ namespace Roundbeargames
     {
         public Animation_States TransitionTo;
         public List<TransitionConditionType> transitionConditions = new List<TransitionConditionType>();
+        public float CrossFade;
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
@@ -21,8 +22,16 @@ namespace Roundbeargames
             {
                 if (!characterState.characterControl.animationProgress.LockTransition)
                 {
-                    characterState.characterControl.SkinnedMeshAnimator.Play(
-                        HashManager.Instance.DicAnimationStates[TransitionTo], 0);
+                    if (CrossFade <= 0f)
+                    {
+                        characterState.characterControl.SkinnedMeshAnimator.Play(
+                            HashManager.Instance.DicAnimationStates[TransitionTo], 0);
+                    }
+                    else
+                    {
+                        characterState.characterControl.SkinnedMeshAnimator.CrossFade(
+                            HashManager.Instance.DicAnimationStates[TransitionTo], CrossFade, 0);
+                    }
                 }
             }
         }

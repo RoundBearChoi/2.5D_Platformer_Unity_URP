@@ -489,7 +489,7 @@ ModelImporter:
       name: Jump_Normal_Landing_Short
       takeName: mixamo.com
       internalID: 7400000
-      firstFrame: 0
+      firstFrame: 3
       lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 10
