@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302ef9ec43c75e1468c384c5b34f923d, type: 3}
+  m_Name: Player_InstantTransition_Idle
+  m_EditorClassIdentifier: 
+  TransitionTo: 4
+  transitionConditions: 16000000080000001a0000000d000000
+  CrossFade: 0.05

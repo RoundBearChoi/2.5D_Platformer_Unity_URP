@@ -169,27 +169,27 @@ namespace Roundbeargames
                 }
             }
 
-            if (!control.MoveRight && !control.MoveLeft)
-            {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
-            }
-            else
-            {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], true);
-            }
+            //if (!control.MoveRight && !control.MoveLeft)
+            //{
+            //    animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
+            //}
+            //else
+            //{
+            //    animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], true);
+            //}
         }
 
         private void ControlledMove(CharacterControl control, Animator animator, AnimatorStateInfo stateInfo)
         {
             if (control.MoveRight && control.MoveLeft)
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
+                //animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
                 return;
             }
 
             if (!control.MoveRight && !control.MoveLeft)
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
+                //animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
                 return;
             }
 
