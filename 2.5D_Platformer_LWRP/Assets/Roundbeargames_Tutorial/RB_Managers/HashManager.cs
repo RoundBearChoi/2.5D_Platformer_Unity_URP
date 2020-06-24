@@ -40,7 +40,11 @@ namespace Roundbeargames
         Jump_Normal,
         Heroic_Fall,
 
+        // running jump
+        Running_Jump,
+        Running_Heroic_Fall,
         Jump_Running,
+
         Fall,
         WallSlide,
         WallJump,
