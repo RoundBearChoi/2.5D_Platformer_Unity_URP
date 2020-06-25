@@ -2287,6 +2287,7 @@ MonoBehaviour:
   ListAbilityData:
   - {fileID: 11400000, guid: ca2923006f69ffe4192632741dd9eecb, type: 2}
   - {fileID: 11400000, guid: d94e9950c3365fb49bcd3113f0a232af, type: 2}
+  - {fileID: 11400000, guid: cb9429e0fe6381c408e944f789043062, type: 2}
 --- !u!1101 &10311518702507266
 AnimatorStateTransition:
   m_ObjectHideFlags: 3
@@ -5000,11 +5001,11 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
+  - first: {fileID: -7127493026812690429}
+    second: []
   - first: {fileID: 1559308484210744654}
     second: []
   - first: {fileID: 3615597234190260423}
-    second: []
-  - first: {fileID: -7127493026812690429}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -200, y: -290, z: 0}
