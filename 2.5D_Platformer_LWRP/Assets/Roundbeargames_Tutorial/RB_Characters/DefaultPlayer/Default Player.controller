@@ -177,8 +177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterControl: {fileID: 0}
   ListAbilityData:
-  - {fileID: 11400000, guid: 15d2e8d238ee2b34190a059d44f3c680, type: 2}
   - {fileID: 11400000, guid: ca2923006f69ffe4192632741dd9eecb, type: 2}
+  - {fileID: 11400000, guid: 15d2e8d238ee2b34190a059d44f3c680, type: 2}
+  - {fileID: 11400000, guid: 7b3e75bb473669646b20bcf75939aa86, type: 2}
 --- !u!1101 &-8276002011138476967
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
