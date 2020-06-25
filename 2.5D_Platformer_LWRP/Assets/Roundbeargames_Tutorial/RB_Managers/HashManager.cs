@@ -4,6 +4,12 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
+    public enum CameraTrigger
+    {
+        Default,
+        Shake,
+    }
+
     public enum AI_Transitions
     {
         start_walking,
@@ -55,6 +61,12 @@ namespace Roundbeargames
         WallJump,
     }
 
+    public enum Camera_States
+    {
+        Default,
+        Shake,
+    }
+
     public class HashManager : Singleton<HashManager>
     {
         public Dictionary<TransitionParameter, int> DicMainParams =
@@ -77,6 +89,9 @@ namespace Roundbeargames
 
         public Dictionary<Ledge_Trigger_States, int> DicLedgeTriggerStates =
             new Dictionary<Ledge_Trigger_States, int>();
+
+        public Dictionary<Camera_States, int> DicCameraStates =
+            new Dictionary<Camera_States, int>();
 
         private void Awake()
         {
@@ -141,6 +156,15 @@ namespace Roundbeargames
             foreach(Ledge_Trigger_States t in arrLedgeTriggerStates)
             {
                 DicLedgeTriggerStates.Add(t, Animator.StringToHash(t.ToString()));
+            }
+
+            // camera states
+            Camera_States[] arrCameraStates = System.Enum.GetValues(typeof(Camera_States))
+                as Camera_States[];
+
+            foreach(Camera_States t in arrCameraStates)
+            {
+                DicCameraStates.Add(t, Animator.StringToHash(t.ToString()));
             }
         }
     }

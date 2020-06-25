@@ -4,14 +4,12 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    public enum CameraTrigger
-    {
-        Default,
-        Shake,
-    }
-
     public class CameraController : MonoBehaviour
     {
+        public Cinemachine.CinemachineVirtualCamera DefaultCam;
+        public float ZoomOutSpeed;
+        public float ZoomInSpeed;
+
         private Animator animator;
         public Animator ANIMATOR
         {
