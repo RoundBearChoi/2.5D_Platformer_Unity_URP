@@ -15,7 +15,6 @@ MonoBehaviour:
   debug: 0
   AllowEarlyTurn: 0
   LockDirection: 1
-  LockDirectionNextState: 0
   Constant: 1
   SpeedGraph:
     serializedVersion: 2
@@ -23,17 +22,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -1.6666666
-      outSlope: -1.6666666
+      inSlope: -0.6789769
+      outSlope: -0.6789769
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 0.4375711
+      value: 0.70289934
+      inSlope: -0.46416798
+      outSlope: -0.46416798
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.10273742
+    - serializedVersion: 3
       time: 0.6
-      value: 0
-      inSlope: -1.6666666
-      outSlope: -1.6666666
+      value: 0.15
+      inSlope: -3.4039466
+      outSlope: -3.4039466
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -49,5 +57,6 @@ MonoBehaviour:
   UseMomentum: 0
   StartingMomentum: 0
   MaxMomentum: 0
+  StartFromPreviousMomentum: 0
   ClearMomentumOnExit: 0
   MoveOnHit: 0
