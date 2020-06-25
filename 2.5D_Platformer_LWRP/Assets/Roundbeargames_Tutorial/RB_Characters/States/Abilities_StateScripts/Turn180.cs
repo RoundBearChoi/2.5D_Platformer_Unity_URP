@@ -9,8 +9,6 @@ namespace Roundbeargames
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            //CharacterControl control = characterState.GetCharacterControl(animator);
-
             if (characterState.ROTATION_DATA.IsFacingForward())
             {
                 characterState.ROTATION_DATA.FaceForward(false);

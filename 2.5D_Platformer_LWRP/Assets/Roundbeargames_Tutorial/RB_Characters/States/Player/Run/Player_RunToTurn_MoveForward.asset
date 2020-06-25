@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b16b91d0c5247b442a689768502f9a3b, type: 3}
-  m_Name: Player_RunToTurn180_MoveForward
+  m_Name: Player_RunToTurn_MoveForward
   m_EditorClassIdentifier: 
   debug: 0
   AllowEarlyTurn: 0
   LockDirection: 1
-  LockDirectionNextState: 0
   Constant: 1
   SpeedGraph:
     serializedVersion: 2
@@ -49,4 +48,6 @@ MonoBehaviour:
   UseMomentum: 0
   StartingMomentum: 0
   MaxMomentum: 0
+  StartFromPreviousMomentum: 0
   ClearMomentumOnExit: 0
+  MoveOnHit: 0

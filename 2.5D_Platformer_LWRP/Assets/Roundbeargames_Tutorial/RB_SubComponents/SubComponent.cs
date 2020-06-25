@@ -18,6 +18,7 @@ namespace Roundbeargames
         INSTA_KILL,
         PLAYER_ATTACK,
         PLAYER_ANIMATION,
+        PLAYER_ROTATION,
     }
 
     public abstract class SubComponent : MonoBehaviour

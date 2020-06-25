@@ -4,17 +4,27 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/DisallowEarlyTurn")]
-    public class DisallowEarlyTurn : StateData
+    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/LockTurn")]
+    public class LockTurn : StateData
     {
+        [Range(0f, 1f)]
+        public float LockTiming;
+
+        [Range(0f, 1f)]
+        public float UnlockTiming;
+
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            characterState.ROTATION_DATA.LockEarlyTurn = true;
+
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-
+            if (stateInfo.normalizedTime >= LockTiming && !characterState.ROTATION_DATA.LockTurn)
+            {
+                characterState.ROTATION_DATA.LockTurn = true;
+                characterState.ROTATION_DATA.UnlockTiming = UnlockTiming;
+            }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

@@ -40,6 +40,7 @@ namespace Roundbeargames
             FixedUpdateSubComponent(SubComponentType.COLLISION_SPHERES);
             FixedUpdateSubComponent(SubComponentType.INSTA_KILL);
             FixedUpdateSubComponent(SubComponentType.DAMAGE_DETECTOR);
+            FixedUpdateSubComponent(SubComponentType.PLAYER_ROTATION);
         }
 
         public void UpdateSubComponents()

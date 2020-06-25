@@ -7,13 +7,12 @@ namespace Roundbeargames
     [System.Serializable]
     public class RotationData
     {
-        public bool LockEarlyTurn;
-        public bool LockDirectionNextState;
+        public bool LockTurn;
+        public float UnlockTiming;
 
         public delegate bool ReturnBool();
         public delegate void DoSomething(bool faceForward);
 
-        public ReturnBool EarlyTurnIsLocked;
         public ReturnBool IsFacingForward;
         public DoSomething FaceForward;
     }

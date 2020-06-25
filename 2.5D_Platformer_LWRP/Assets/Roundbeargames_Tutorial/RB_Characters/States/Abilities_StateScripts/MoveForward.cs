@@ -11,7 +11,6 @@ namespace Roundbeargames
 
         public bool AllowEarlyTurn;
         public bool LockDirection;
-        public bool LockDirectionNextState;
         public bool Constant;
         public AnimationCurve SpeedGraph;
         public float Speed;
@@ -38,17 +37,13 @@ namespace Roundbeargames
 
             if (AllowEarlyTurn)
             {
-                // early turn can be locked by previous states
-                if (!characterState.ROTATION_DATA.EarlyTurnIsLocked())
+                if (characterState.characterControl.MoveLeft)
                 {
-                    if (characterState.characterControl.MoveLeft)
-                    {
-                        characterState.ROTATION_DATA.FaceForward(false);
-                    }
-                    if (characterState.characterControl.MoveRight)
-                    {
-                        characterState.ROTATION_DATA.FaceForward(true);
-                    }
+                    characterState.ROTATION_DATA.FaceForward(false);
+                }
+                if (characterState.characterControl.MoveRight)
+                {
+                    characterState.ROTATION_DATA.FaceForward(true);
                 }
             }
 
@@ -56,7 +51,6 @@ namespace Roundbeargames
             {
                 if (StartingMomentum > 0.001f)
                 {
-
                     if (characterState.ROTATION_DATA.IsFacingForward())
                     {
                         characterState.MOMENTUM_DATA.Momentum = StartingMomentum;
@@ -67,9 +61,6 @@ namespace Roundbeargames
                     }
                 }
             }
-
-            characterState.ROTATION_DATA.LockEarlyTurn = false;
-            characterState.ROTATION_DATA.LockDirectionNextState = false;
         }
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -78,8 +69,6 @@ namespace Roundbeargames
             {
                 Debug.Log(stateInfo.normalizedTime);
             }
-
-            characterState.ROTATION_DATA.LockDirectionNextState = LockDirectionNextState;
 
             if (characterState.characterControl.animationProgress.
                 LatestMoveForward != this)

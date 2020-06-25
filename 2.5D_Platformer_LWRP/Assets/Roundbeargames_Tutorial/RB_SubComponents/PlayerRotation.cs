@@ -13,36 +13,24 @@ namespace Roundbeargames
         {
             rotationData = new RotationData
             {
-                LockEarlyTurn = false,
-                LockDirectionNextState = false,
-                EarlyTurnIsLocked = EarlyTurnIsLocked,
+                LockTurn = false,
+                UnlockTiming = 0f,
                 FaceForward = FaceForward,
                 IsFacingForward = IsFacingForward,
             };
 
             subComponentProcessor.rotationData = rotationData;
+            subComponentProcessor.ComponentsDic.Add(SubComponentType.PLAYER_ROTATION, this);
         }
 
         public override void OnFixedUpdate()
         {
-            throw new System.NotImplementedException();
+            ClearTurnLock();
         }
 
         public override void OnUpdate()
         {
             throw new System.NotImplementedException();
-        }
-
-        bool EarlyTurnIsLocked()
-        {
-            if (rotationData.LockEarlyTurn || rotationData.LockDirectionNextState)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
 
         void FaceForward(bool forward)
@@ -53,6 +41,11 @@ namespace Roundbeargames
             }
 
             if (!control.SkinnedMeshAnimator.enabled)
+            {
+                return;
+            }
+
+            if (control.ROTATION_DATA.LockTurn)
             {
                 return;
             }
@@ -76,6 +69,22 @@ namespace Roundbeargames
             else
             {
                 return false;
+            }
+        }
+
+        void ClearTurnLock()
+        {
+            if (!control.ANIMATION_DATA.IsRunning(typeof(LockTurn)))
+            {
+                if (rotationData.LockTurn)
+                {
+                    AnimatorStateInfo info = control.SkinnedMeshAnimator.GetCurrentAnimatorStateInfo(0);
+
+                    if (info.normalizedTime >= rotationData.UnlockTiming)
+                    {
+                        rotationData.LockTurn = false;
+                    }
+                }
             }
         }
     }
