@@ -3607,10 +3607,11 @@ MonoBehaviour:
   ListAbilityData:
   - {fileID: 11400000, guid: 468d1576944f6c747a4e76d122923fa7, type: 2}
   - {fileID: 11400000, guid: f6031a826b96fee429b35a828406b2a3, type: 2}
+  - {fileID: 11400000, guid: ca2923006f69ffe4192632741dd9eecb, type: 2}
   - {fileID: 11400000, guid: b1099cdd02bfba149a6d6e0be8245b0e, type: 2}
   - {fileID: 11400000, guid: aae225f4d89e2c34b95c8dfe67f0afb7, type: 2}
-  - {fileID: 11400000, guid: ca2923006f69ffe4192632741dd9eecb, type: 2}
   - {fileID: 11400000, guid: fdc510d5316c86747abeb6af3412c5ee, type: 2}
+  - {fileID: 11400000, guid: f6d262f1150567f4ea58dd26849ecee4, type: 2}
 --- !u!114 &1831879520812541925
 MonoBehaviour:
   m_ObjectHideFlags: 1
