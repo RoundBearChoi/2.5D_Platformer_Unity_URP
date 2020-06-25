@@ -25,17 +25,20 @@ namespace Roundbeargames
                     AnimatorStateInfo nextInfo = characterState.characterControl.SkinnedMeshAnimator.
                         GetNextAnimatorStateInfo(0);
 
-                    if (nextInfo.shortNameHash != HashManager.Instance.DicInstantTransitionStates[TransitionTo])
+                    if (!characterState.characterControl.ANIMATION_DATA.IsRunning(typeof(Attack)))
                     {
-                        if (CrossFade <= 0f)
+                        if (nextInfo.shortNameHash != HashManager.Instance.DicInstantTransitionStates[TransitionTo])
                         {
-                            characterState.characterControl.SkinnedMeshAnimator.Play(
-                                HashManager.Instance.DicInstantTransitionStates[TransitionTo], 0);
-                        }
-                        else
-                        {
-                            characterState.characterControl.SkinnedMeshAnimator.CrossFade(
-                                HashManager.Instance.DicInstantTransitionStates[TransitionTo], CrossFade, 0);
+                            if (CrossFade <= 0f)
+                            {
+                                characterState.characterControl.SkinnedMeshAnimator.Play(
+                                    HashManager.Instance.DicInstantTransitionStates[TransitionTo], 0);
+                            }
+                            else
+                            {
+                                characterState.characterControl.SkinnedMeshAnimator.CrossFade(
+                                    HashManager.Instance.DicInstantTransitionStates[TransitionTo], CrossFade, 0);
+                            }
                         }
                     }
                 }
