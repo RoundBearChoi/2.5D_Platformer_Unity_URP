@@ -70,8 +70,7 @@ namespace Roundbeargames
                 Debug.Log(stateInfo.normalizedTime);
             }
 
-            if (characterState.characterControl.animationProgress.
-                LatestMoveForward != this)
+            if (characterState.characterControl.animationProgress.LatestMoveForward != this)
             {
                 return;
             }
@@ -100,11 +99,11 @@ namespace Roundbeargames
             {
                 if (Constant)
                 {
-                    ConstantMove(characterState.characterControl, animator, stateInfo);
+                    ConstantMove(characterState.characterControl, stateInfo);
                 }
                 else
                 {
-                    ControlledMove(characterState.characterControl, animator, stateInfo);
+                    ControlledMove(characterState.characterControl, stateInfo);
                 }
             }
         }
@@ -137,7 +136,7 @@ namespace Roundbeargames
             }
         }
 
-        private void ConstantMove(CharacterControl control, Animator animator, AnimatorStateInfo stateInfo)
+        private void ConstantMove(CharacterControl control, AnimatorStateInfo stateInfo)
         {
             if (!IsBlocked(control))
             {
@@ -157,28 +156,17 @@ namespace Roundbeargames
                     control.MoveForward(Speed, SpeedGraph.Evaluate(stateInfo.normalizedTime));
                 }
             }
-
-            //if (!control.MoveRight && !control.MoveLeft)
-            //{
-            //    animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
-            //}
-            //else
-            //{
-            //    animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], true);
-            //}
         }
 
-        private void ControlledMove(CharacterControl control, Animator animator, AnimatorStateInfo stateInfo)
+        private void ControlledMove(CharacterControl control, AnimatorStateInfo stateInfo)
         {
             if (control.MoveRight && control.MoveLeft)
             {
-                //animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
                 return;
             }
 
             if (!control.MoveRight && !control.MoveLeft)
             {
-                //animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
                 return;
             }
 
@@ -207,12 +195,12 @@ namespace Roundbeargames
             {
                 if (control.MoveRight)
                 {
-                    control.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                    control.ROTATION_DATA.FaceForward(true);
                 }
 
                 if (control.MoveLeft)
                 {
-                    control.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                    control.ROTATION_DATA.FaceForward(false);
                 }
             }
         }
