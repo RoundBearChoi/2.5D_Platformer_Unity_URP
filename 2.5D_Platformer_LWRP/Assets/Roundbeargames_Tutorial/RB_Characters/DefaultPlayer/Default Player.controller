@@ -297,12 +297,12 @@ MonoBehaviour:
   characterControl: {fileID: 0}
   ListAbilityData:
   - {fileID: 11400000, guid: b98ae746719843e4d92aa62f71920b5d, type: 2}
-  - {fileID: 11400000, guid: 87c812ce3e3c76143b3659ccb4ce5670, type: 2}
-  - {fileID: 11400000, guid: 471d8ddcbddc15644bcd61869d96ed10, type: 2}
   - {fileID: 11400000, guid: 468d1576944f6c747a4e76d122923fa7, type: 2}
   - {fileID: 11400000, guid: f6031a826b96fee429b35a828406b2a3, type: 2}
-  - {fileID: 11400000, guid: a48d63beab6ffa74184019daea474500, type: 2}
   - {fileID: 11400000, guid: ca2923006f69ffe4192632741dd9eecb, type: 2}
+  - {fileID: 11400000, guid: 471d8ddcbddc15644bcd61869d96ed10, type: 2}
+  - {fileID: 11400000, guid: 87c812ce3e3c76143b3659ccb4ce5670, type: 2}
+  - {fileID: 11400000, guid: 25a2dbd7b99804e40a785c9f792c3b89, type: 2}
 --- !u!114 &-7640859494455542032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5000,11 +5000,11 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -7127493026812690429}
-    second: []
   - first: {fileID: 1559308484210744654}
     second: []
   - first: {fileID: 3615597234190260423}
+    second: []
+  - first: {fileID: -7127493026812690429}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -200, y: -290, z: 0}

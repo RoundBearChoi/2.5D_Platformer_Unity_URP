@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player_RunToTurn_LockTurn
   m_EditorClassIdentifier: 
   LockTiming: 0.05
-  UnlockTiming: 0.01
+  UnlockTiming: 0.1

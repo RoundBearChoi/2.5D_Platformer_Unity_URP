@@ -14,6 +14,12 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
+            if (characterState.ROTATION_DATA.LockTurn)
+            {
+                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turn], false);
+                return;
+            }
+
             if (characterState.ROTATION_DATA.IsFacingForward())
             {
                 if (characterState.characterControl.MoveLeft)
