@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 302ef9ec43c75e1468c384c5b34f923d, type: 3}
-  m_Name: Player_InstantTransition_Idle
+  m_Script: {fileID: 11500000, guid: 4dfc3080ff22eac4da6ff3c00a39e808, type: 3}
+  m_Name: Player_TransitionIndexer_Walking_Idle_4
   m_EditorClassIdentifier: 
-  TransitionTo: 4
-  transitionConditions: 16000000080000001a0000000d000000
-  CrossFade: 0.05
+  Index: 4
+  transitionConditions: 16000000
