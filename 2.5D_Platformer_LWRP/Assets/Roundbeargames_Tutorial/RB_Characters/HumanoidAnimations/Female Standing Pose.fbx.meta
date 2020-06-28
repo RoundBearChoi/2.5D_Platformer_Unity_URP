@@ -6,7 +6,17 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: Female Standing Pose
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Alpha_Body_MAT
+    second: {fileID: 2100000, guid: 21e8d65890be5194e847f91e246e5ad3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Alpha_Joints_MAT
+    second: {fileID: 2100000, guid: 65af319b87610924c8542c5deb3a5dbb, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
