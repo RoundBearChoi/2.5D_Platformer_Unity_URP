@@ -17,8 +17,9 @@ namespace Roundbeargames
                 BackSpheres = new GameObject[10], //new List<GameObject>(),
                 UpSpheres = new GameObject[5], //new List<GameObject>(),
 
-                FrontOverlapCheckers = new List<OverlapChecker>(),
-                AllOverlapCheckers = new List<OverlapChecker>(),
+                FrontOverlapCheckers = new OverlapChecker[10], //List<OverlapChecker>(),
+                //AllOverlapCheckers = new List<OverlapChecker>(),
+                FrontOverlapCheckerContains = FrontOverlapCheckerContains,
 
                 Reposition_FrontSpheres = Reposition_FrontSpheres,
                 Reposition_BottomSpheres = Reposition_BottomSpheres,
@@ -34,10 +35,15 @@ namespace Roundbeargames
 
         public override void OnFixedUpdate()
         {
-            foreach (OverlapChecker c in collisionSphereData.AllOverlapCheckers)
+            for (int i = 0; i < collisionSphereData.AllOverlapCheckers.Length; i++)
             {
-                c.UpdateChecker();
+                collisionSphereData.AllOverlapCheckers[i].UpdateChecker();
             }
+
+            //foreach (OverlapChecker c in collisionSphereData.AllOverlapCheckers)
+            //{
+            //    c.UpdateChecker();
+            //}
         }
 
         public override void OnUpdate()
@@ -84,7 +90,7 @@ namespace Roundbeargames
                 GameObject obj = LoadCollisionSphere();
 
                 collisionSphereData.FrontSpheres[i] = obj;
-                collisionSphereData.FrontOverlapCheckers.Add(obj.GetComponent<OverlapChecker>());
+                collisionSphereData.FrontOverlapCheckers[i] = obj.GetComponent<OverlapChecker>();
 
                 obj.transform.parent = this.transform.Find("Front");
             }
@@ -106,8 +112,8 @@ namespace Roundbeargames
             // add everything
 
             OverlapChecker[] arr = this.gameObject.GetComponentsInChildren<OverlapChecker>();
-            collisionSphereData.AllOverlapCheckers.Clear();
-            collisionSphereData.AllOverlapCheckers.AddRange(arr);
+            collisionSphereData.AllOverlapCheckers = arr;
+            //collisionSphereData.AllOverlapCheckers.AddRange(arr);
         }
 
         void Reposition_FrontSpheres()
@@ -192,6 +198,19 @@ namespace Roundbeargames
                 collisionSphereData.UpSpheres[i].transform.localPosition =
                     new Vector3(0f, top, back + (interval * (i - 1))) - control.transform.position;
             }
+        }
+
+        bool FrontOverlapCheckerContains(OverlapChecker checker)
+        {
+            for (int i = 0; i < collisionSphereData.FrontOverlapCheckers.Length; i++)
+            {
+                if (collisionSphereData.FrontOverlapCheckers[i] == checker)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

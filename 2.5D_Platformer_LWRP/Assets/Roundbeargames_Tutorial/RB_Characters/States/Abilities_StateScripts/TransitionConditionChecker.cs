@@ -126,26 +126,42 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.BLOCKED_BY_WALL:
                         {
-                            foreach (OverlapChecker oc in control.COLLISION_SPHERE_DATA.FrontOverlapCheckers)
+                            for (int i = 0; i < control.COLLISION_SPHERE_DATA.FrontOverlapCheckers.Length; i++)
                             {
-                                if (!oc.ObjIsOverlapping)
+                                if (!control.COLLISION_SPHERE_DATA.FrontOverlapCheckers[i].ObjIsOverlapping)
                                 {
                                     return false;
                                 }
                             }
+
+                            //foreach (OverlapChecker oc in control.COLLISION_SPHERE_DATA.FrontOverlapCheckers)
+                            //{
+                            //    if (!oc.ObjIsOverlapping)
+                            //    {
+                            //        return false;
+                            //    }
+                            //}
                         }
                         break;
                     case TransitionConditionType.NOT_BLOCKED_BY_WALL:
                         {
                             bool AllIsOverlapping = true;
 
-                            foreach (OverlapChecker oc in control.COLLISION_SPHERE_DATA.FrontOverlapCheckers)
+                            for (int i = 0; i < control.COLLISION_SPHERE_DATA.FrontOverlapCheckers.Length; i++)
                             {
-                                if (!oc.ObjIsOverlapping)
+                                if (!control.COLLISION_SPHERE_DATA.FrontOverlapCheckers[i].ObjIsOverlapping)
                                 {
                                     AllIsOverlapping = false;
                                 }
                             }
+
+                            //foreach (OverlapChecker oc in control.COLLISION_SPHERE_DATA.FrontOverlapCheckers)
+                            //{
+                            //    if (!oc.ObjIsOverlapping)
+                            //    {
+                            //        AllIsOverlapping = false;
+                            //    }
+                            //}
 
                             if (AllIsOverlapping)
                             {
