@@ -12,10 +12,10 @@ namespace Roundbeargames
         {
             collisionSphereData = new CollisionSphereData
             {
-                BottomSpheres = new List<GameObject>(),
-                FrontSpheres = new List<GameObject>(),
-                BackSpheres = new List<GameObject>(),
-                UpSpheres = new List<GameObject>(),
+                BottomSpheres = new GameObject[5], //new List<GameObject>(),
+                FrontSpheres = new GameObject[10], //List<GameObject>(),
+                BackSpheres = new GameObject[10], //new List<GameObject>(),
+                UpSpheres = new GameObject[5], //new List<GameObject>(),
 
                 FrontOverlapCheckers = new List<OverlapChecker>(),
                 AllOverlapCheckers = new List<OverlapChecker>(),
@@ -59,7 +59,7 @@ namespace Roundbeargames
             {
                 GameObject obj = LoadCollisionSphere();
 
-                collisionSphereData.BottomSpheres.Add(obj);
+                collisionSphereData.BottomSpheres[i] = obj;
                 obj.transform.parent = this.transform.Find("Bottom");
             }
 
@@ -71,7 +71,7 @@ namespace Roundbeargames
             {
                 GameObject obj = LoadCollisionSphere();
 
-                collisionSphereData.UpSpheres.Add(obj);
+                collisionSphereData.UpSpheres[i] = obj;
                 obj.transform.parent = this.transform.Find("Up");
             }
 
@@ -83,7 +83,7 @@ namespace Roundbeargames
             {
                 GameObject obj = LoadCollisionSphere();
 
-                collisionSphereData.FrontSpheres.Add(obj);
+                collisionSphereData.FrontSpheres[i] = obj;
                 collisionSphereData.FrontOverlapCheckers.Add(obj.GetComponent<OverlapChecker>());
 
                 obj.transform.parent = this.transform.Find("Front");
@@ -97,7 +97,7 @@ namespace Roundbeargames
             {
                 GameObject obj = LoadCollisionSphere();
 
-                collisionSphereData.BackSpheres.Add(obj);
+                collisionSphereData.BackSpheres[i] = obj;
                 obj.transform.parent = this.transform.Find("Back");
             }
 
@@ -124,7 +124,7 @@ namespace Roundbeargames
 
             float interval = (top - bottom + 0.05f) / 9;
 
-            for (int i = 2; i < collisionSphereData.FrontSpheres.Count; i++)
+            for (int i = 2; i < collisionSphereData.FrontSpheres.Length; i++)
             {
                 collisionSphereData.FrontSpheres[i].transform.localPosition =
                     new Vector3(0f, bottom + (interval * (i - 1)), front) - control.transform.position;
@@ -145,7 +145,7 @@ namespace Roundbeargames
 
             float interval = (top - bottom + 0.05f) / 9;
 
-            for (int i = 2; i < collisionSphereData.BackSpheres.Count; i++)
+            for (int i = 2; i < collisionSphereData.BackSpheres.Length; i++)
             {
                 collisionSphereData.BackSpheres[i].transform.localPosition =
                     new Vector3(0f, bottom + (interval * (i - 1)), back) - control.transform.position;
@@ -166,7 +166,7 @@ namespace Roundbeargames
 
             float interval = (front - back) / 4;
 
-            for (int i = 2; i < collisionSphereData.BottomSpheres.Count; i++)
+            for (int i = 2; i < collisionSphereData.BottomSpheres.Length; i++)
             {
                 collisionSphereData.BottomSpheres[i].transform.localPosition =
                     new Vector3(0f, bottom, back + (interval * (i - 1))) - control.transform.position;
@@ -187,7 +187,7 @@ namespace Roundbeargames
 
             float interval = (front - back) / 4;
 
-            for (int i = 2; i < collisionSphereData.UpSpheres.Count; i++)
+            for (int i = 2; i < collisionSphereData.UpSpheres.Length; i++)
             {
                 collisionSphereData.UpSpheres[i].transform.localPosition =
                     new Vector3(0f, top, back + (interval * (i - 1))) - control.transform.position;

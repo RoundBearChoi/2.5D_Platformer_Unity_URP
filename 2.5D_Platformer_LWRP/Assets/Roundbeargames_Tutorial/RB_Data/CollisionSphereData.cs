@@ -7,10 +7,10 @@ namespace Roundbeargames
     [System.Serializable]
     public class CollisionSphereData
     {
-        public List<GameObject> BottomSpheres;
-        public List<GameObject> FrontSpheres;
-        public List<GameObject> BackSpheres;
-        public List<GameObject> UpSpheres;
+        public GameObject[] BottomSpheres;
+        public GameObject[] FrontSpheres;
+        public GameObject[] BackSpheres;
+        public GameObject[] UpSpheres;
 
         public List<OverlapChecker> FrontOverlapCheckers;
         public List<OverlapChecker> AllOverlapCheckers;

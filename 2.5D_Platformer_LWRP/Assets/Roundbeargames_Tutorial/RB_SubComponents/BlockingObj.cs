@@ -17,7 +17,8 @@ namespace Roundbeargames
         List<GameObject> FrontBlockingObjsList = new List<GameObject>();
         List<GameObject> FrontBlockingCharacters = new List<GameObject>();
 
-        List<GameObject> FrontSpheresList;
+        GameObject[] FrontSpheresArray;
+        //List<GameObject> FrontSpheresList;
         float DirBlock;
 
         private void Start()
@@ -172,7 +173,7 @@ namespace Roundbeargames
         {
             if (!control.animationProgress.ForwardIsReversed())
             {
-                FrontSpheresList = control.COLLISION_SPHERE_DATA.FrontSpheres;
+                FrontSpheresArray = control.COLLISION_SPHERE_DATA.FrontSpheres;
                 DirBlock = 1f;
 
                 foreach (GameObject s in control.COLLISION_SPHERE_DATA.BackSpheres)
@@ -185,7 +186,7 @@ namespace Roundbeargames
             }
             else
             {
-                FrontSpheresList = control.COLLISION_SPHERE_DATA.BackSpheres;
+                FrontSpheresArray = control.COLLISION_SPHERE_DATA.BackSpheres;
                 DirBlock = -1f;
 
                 foreach (GameObject s in control.COLLISION_SPHERE_DATA.FrontSpheres)
@@ -197,21 +198,38 @@ namespace Roundbeargames
                 }
             }
 
-            foreach (GameObject o in FrontSpheresList)
+            for (int i = 0; i < FrontSpheresArray.Length; i++)
             {
-                GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, this.transform.forward * DirBlock,
+                GameObject blockingObj = CollisionDetection.GetCollidingObject(
+                    control, FrontSpheresArray[i], this.transform.forward * DirBlock,
                     control.animationProgress.LatestMoveForward.BlockDistance,
                     ref control.BLOCKING_DATA.RaycastContact);
 
                 if (blockingObj != null)
                 {
-                    AddBlockingObjToDic(FrontBlockingObjs, o, blockingObj);
+                    AddBlockingObjToDic(FrontBlockingObjs, FrontSpheresArray[i], blockingObj);
                 }
                 else
                 {
-                    RemoveBlockingObjFromDic(FrontBlockingObjs, o);
+                    RemoveBlockingObjFromDic(FrontBlockingObjs, FrontSpheresArray[i]);
                 }
             }
+
+            //foreach (GameObject o in FrontSpheresList)
+            //{
+            //    GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, this.transform.forward * DirBlock,
+            //        control.animationProgress.LatestMoveForward.BlockDistance,
+            //        ref control.BLOCKING_DATA.RaycastContact);
+            //
+            //    if (blockingObj != null)
+            //    {
+            //        AddBlockingObjToDic(FrontBlockingObjs, o, blockingObj);
+            //    }
+            //    else
+            //    {
+            //        RemoveBlockingObjFromDic(FrontBlockingObjs, o);
+            //    }
+            //}
         }
 
         void CheckDownBlocking()
