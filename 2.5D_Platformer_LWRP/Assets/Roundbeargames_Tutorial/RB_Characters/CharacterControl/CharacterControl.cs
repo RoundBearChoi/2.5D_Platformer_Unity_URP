@@ -110,6 +110,7 @@ namespace Roundbeargames
             }
 
             RegisterCharacter();
+            InitCharacterStates(SkinnedMeshAnimator);
         }
 
 
@@ -128,17 +129,18 @@ namespace Roundbeargames
             GROUND_DATA.BoxColliderContacts = collision.contacts;
         }
 
-        public void CacheCharacterControl(Animator animator)
+        void InitCharacterStates(Animator animator)
         {
             CharacterState[] arr = animator.GetBehaviours<CharacterState>();
 
             foreach(CharacterState c in arr)
             {
                 c.characterControl = this;
+                c.PutStatesInArray();
             }
         }
 
-        private void RegisterCharacter()
+        void RegisterCharacter()
         {
             if (!CharacterManager.Instance.Characters.Contains(this))
             {

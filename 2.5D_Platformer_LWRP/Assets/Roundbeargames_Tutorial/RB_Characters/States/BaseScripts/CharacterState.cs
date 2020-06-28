@@ -10,6 +10,9 @@ namespace Roundbeargames
         [Space(10)]
         public List<StateData> ListAbilityData = new List<StateData>();
 
+        [SerializeField]
+        private StateData[] States;
+
         public BlockingObjData BLOCKING_DATA => characterControl.subComponentProcessor.blockingData;
         public RagdollData RAGDOLL_DATA => characterControl.subComponentProcessor.ragdollData;
         public BoxColliderData BOX_COLLIDER_DATA => characterControl.subComponentProcessor.boxColliderData;
@@ -23,34 +26,38 @@ namespace Roundbeargames
         public AnimationData ANIMATION_DATA => characterControl.subComponentProcessor.animationData;
         public AIController AI_CONTROLLER => characterControl.aiController;
 
+        public void PutStatesInArray()
+        {
+            States = new StateData[ListAbilityData.Count];
+
+            for(int i = 0; i < ListAbilityData.Count; i++)
+            {
+                States[i] = ListAbilityData[i];
+            }
+        }
+
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (characterControl == null)
+            for (int i = 0; i < States.Length; i++)
             {
-                characterControl = animator.transform.root.GetComponent<CharacterControl>();
-                characterControl.CacheCharacterControl(animator);
-            }
+                States[i].OnEnter(this, animator, stateInfo);
 
-            foreach(StateData d in ListAbilityData)
-            {
-                d.OnEnter(this, animator, stateInfo);
-
-                if (characterControl.ANIMATION_DATA.CurrentRunningAbilities.ContainsKey(d))
+                if (characterControl.ANIMATION_DATA.CurrentRunningAbilities.ContainsKey(States[i]))
                 {
-                    characterControl.ANIMATION_DATA.CurrentRunningAbilities[d] += 1;
+                    characterControl.ANIMATION_DATA.CurrentRunningAbilities[States[i]] += 1;
                 }
                 else
                 {
-                    characterControl.ANIMATION_DATA.CurrentRunningAbilities.Add(d, 1);
+                    characterControl.ANIMATION_DATA.CurrentRunningAbilities.Add(States[i], 1);
                 }
             }
         }
 
         public void UpdateAll(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            foreach(StateData d in ListAbilityData)
+            for (int i = 0; i < States.Length; i++)
             {
-                d.UpdateAbility(characterState, animator, stateInfo);
+                States[i].UpdateAbility(characterState, animator, stateInfo);
             }
         }
 
@@ -61,19 +68,19 @@ namespace Roundbeargames
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            foreach (StateData d in ListAbilityData)
+            for (int i = 0; i < States.Length; i++)
             {
                 try
                 {
-                    d.OnExit(this, animator, stateInfo);
+                    States[i].OnExit(this, animator, stateInfo);
 
-                    if (characterControl.ANIMATION_DATA.CurrentRunningAbilities.ContainsKey(d))
+                    if (characterControl.ANIMATION_DATA.CurrentRunningAbilities.ContainsKey(States[i]))
                     {
-                        characterControl.ANIMATION_DATA.CurrentRunningAbilities[d] -= 1;
+                        characterControl.ANIMATION_DATA.CurrentRunningAbilities[States[i]] -= 1;
 
-                        if (characterControl.ANIMATION_DATA.CurrentRunningAbilities[d] <= 0)
+                        if (characterControl.ANIMATION_DATA.CurrentRunningAbilities[States[i]] <= 0)
                         {
-                            characterControl.ANIMATION_DATA.CurrentRunningAbilities.Remove(d);
+                            characterControl.ANIMATION_DATA.CurrentRunningAbilities.Remove(States[i]);
                         }
                     }
                 }
