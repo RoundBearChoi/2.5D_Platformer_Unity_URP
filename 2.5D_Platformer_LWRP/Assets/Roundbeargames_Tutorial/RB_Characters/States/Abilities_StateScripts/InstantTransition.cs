@@ -19,10 +19,9 @@ namespace Roundbeargames
 
         public override void UpdateAbility(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            if (TransitionConditionChecker.MakeTransition(characterState.characterControl, transitionConditions))
+            if (!Interfered(characterState.characterControl))
             {
-                if (!characterState.characterControl.animationProgress.LockTransition &&
-                    !characterState.ANIMATION_DATA.InstantTransitionMade)
+                if (TransitionConditionChecker.MakeTransition(characterState.characterControl, transitionConditions))
                 {
                     characterState.ANIMATION_DATA.InstantTransitionMade = true;
                     MakeInstantTransition(characterState.characterControl);
@@ -37,34 +36,59 @@ namespace Roundbeargames
 
         void MakeInstantTransition(CharacterControl control)
         {
-            AnimatorStateInfo nextInfo = control.SkinnedMeshAnimator.GetNextAnimatorStateInfo(0);
-
-            if (!control.ANIMATION_DATA.IsRunning(typeof(Attack)))
+            if (CrossFade <= 0f)
             {
-                if (nextInfo.shortNameHash != HashManager.Instance.DicInstantTransitionStates[TransitionTo])
+                control.SkinnedMeshAnimator.Play(
+                    HashManager.Instance.DicInstantTransitionStates[TransitionTo], 0);
+            }
+            else
+            {
+                if (Offset <= 0f)
                 {
-                    if (CrossFade <= 0f)
-                    {
-                        control.SkinnedMeshAnimator.Play(
-                            HashManager.Instance.DicInstantTransitionStates[TransitionTo], 0);
-                    }
-                    else
-                    {
-                        if (Offset <= 0f)
-                        {
-                            control.SkinnedMeshAnimator.CrossFade(
-                                HashManager.Instance.DicInstantTransitionStates[TransitionTo],
-                                CrossFade, 0);
-                        }
-                        else
-                        {
-                            control.SkinnedMeshAnimator.CrossFade(
-                                HashManager.Instance.DicInstantTransitionStates[TransitionTo],
-                                CrossFade, 0, Offset);
-                        }
-                    }
+                    control.SkinnedMeshAnimator.CrossFade(
+                        HashManager.Instance.DicInstantTransitionStates[TransitionTo],
+                        CrossFade, 0);
+                }
+                else
+                {
+                    control.SkinnedMeshAnimator.CrossFade(
+                        HashManager.Instance.DicInstantTransitionStates[TransitionTo],
+                        CrossFade, 0, Offset);
                 }
             }
+        }
+
+        bool Interfered(CharacterControl control)
+        {
+            if (control.animationProgress.LockTransition)
+            {
+                return true;
+            }
+
+            if (control.ANIMATION_DATA.InstantTransitionMade)
+            {
+                return true;
+            }
+
+            if (control.SkinnedMeshAnimator.GetInteger(
+                HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex]) != 0)
+            {
+                return true;
+            }
+
+            if (control.ANIMATION_DATA.IsRunning(typeof(Attack)))
+            {
+                return true;
+            }
+
+            AnimatorStateInfo nextInfo = control.SkinnedMeshAnimator.GetNextAnimatorStateInfo(0);
+
+            if (nextInfo.shortNameHash == HashManager.Instance.DicInstantTransitionStates[TransitionTo])
+            {
+                return true;
+            }
+            
+            return false;
         }
     }
 }
