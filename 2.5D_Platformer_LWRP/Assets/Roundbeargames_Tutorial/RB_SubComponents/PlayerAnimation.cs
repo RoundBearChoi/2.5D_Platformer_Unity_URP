@@ -12,6 +12,7 @@ namespace Roundbeargames
         {
             animationData = new AnimationData
             {
+                InstantTransitionMade = false,
                 CurrentRunningAbilities = new Dictionary<StateData, int>(),
                 IsRunning = IsRunning,
             };

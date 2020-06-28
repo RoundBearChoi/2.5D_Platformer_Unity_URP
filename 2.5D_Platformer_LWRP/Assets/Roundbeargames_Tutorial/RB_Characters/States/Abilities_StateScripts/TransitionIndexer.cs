@@ -16,6 +16,7 @@ namespace Roundbeargames
         RUN = 23,
         NOT_RUNNING = 24,
         NOT_MOVING = 22,
+        NOT_TURBO = 28,
 
         DOUBLE_TAP_UP = 16,
         DOUBLE_TAP_DOWN = 17,

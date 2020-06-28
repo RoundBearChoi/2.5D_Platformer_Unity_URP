@@ -6,6 +6,8 @@ namespace Roundbeargames
 {
     public class AnimationData
     {
+        public bool InstantTransitionMade;
+
         public Dictionary<StateData, int> CurrentRunningAbilities = new Dictionary<StateData, int>();
 
         public delegate bool bool_type(System.Type type);

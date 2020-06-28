@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AbilitySearch
   m_EditorClassIdentifier: 
   ControllerToSearch: {fileID: 9100000, guid: 0e564ea52cdf7dd43ae8952d1e745437, type: 2}
-  AbilityToSearch: {fileID: 11400000, guid: facb37d09119c2948bcf614741e8b075, type: 2}
+  AbilityToSearch: {fileID: 11400000, guid: 7904a4794b818724b88161c2e213c176, type: 2}

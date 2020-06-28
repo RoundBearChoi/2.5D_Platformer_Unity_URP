@@ -33,14 +33,16 @@ namespace Roundbeargames
 
     public enum Instant_Transition_States
     {
-        Jump_Normal_Landing,
-        Jump_3m_Prep,
-        Hanging_Idle,
-        Running_Jump,
-        Idle,
+        Jump_Normal_Landing = 0,
+        Jump_3m_Prep = 1,
+        Hanging_Idle = 2,
+        Idle = 4,
 
-        Jump_Normal_Prep,
-        Jump_Running,
+        Jump_Normal_Prep = 5,
+        Jump_Running = 6,
+
+        Running_Jump = 3,
+        Run_Stop_InPlace = 7,
     }
 
     public enum Ledge_Trigger_States
