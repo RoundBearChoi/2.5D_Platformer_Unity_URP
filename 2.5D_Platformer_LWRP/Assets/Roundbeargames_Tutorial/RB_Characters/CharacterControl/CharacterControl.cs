@@ -15,7 +15,6 @@ namespace Roundbeargames
         Jump,
         ForceTransition,
         Grounded,
-        Attack,
         ClickAnimation,
         TransitionIndex,
         Turbo,

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6d194d741eb244686df8329f7c9bfe, type: 3}
-  m_Name: AbilitySearch
+  m_Script: {fileID: 11500000, guid: 4dfc3080ff22eac4da6ff3c00a39e808, type: 3}
+  m_Name: Player_TransitionIndexer_123combo1_123combo2_1
   m_EditorClassIdentifier: 
-  ControllerToSearch: {fileID: 9100000, guid: 16c50b6a8cf62e148ae82be5c0a5afac, type: 2}
-  AbilityToSearch: {fileID: 11400000, guid: fe7fd30e43711e849ab6c061f7a65859, type: 2}
+  Index: 1
+  transitionConditions: 04000000

@@ -28,10 +28,6 @@ namespace Roundbeargames
         public int MaxHits;
         public float Damage;
 
-        [Header("Combo")]
-        public float ComboStartTime;
-        public float ComboEndTime;
-
         [Header("Ragdoll Death")]
         public float ForwardForce;
         public float RightForce;
@@ -46,9 +42,7 @@ namespace Roundbeargames
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
             characterState.ATTACK_DATA.AttackTriggered = false;
-
-            animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Attack], false);
-            
+                        
             GameObject obj = PoolManager.Instance.GetObject(PoolObjectType.ATTACK_CONDITION); 
             AttackCondition info = obj.GetComponent<AttackCondition>();
 
@@ -65,7 +59,6 @@ namespace Roundbeargames
         {
             RegisterAttack(characterState, animator, stateInfo);
             DeregisterAttack(characterState, animator, stateInfo);
-            CheckCombo(characterState, animator, stateInfo);
         }
 
         public void RegisterAttack(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
@@ -124,23 +117,8 @@ namespace Roundbeargames
             }
         }
 
-        public void CheckCombo(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
-        {
-            if (stateInfo.normalizedTime >= ComboStartTime)
-            {
-                if (stateInfo.normalizedTime <= ComboEndTime)
-                {
-                    if (characterState.ATTACK_DATA.AttackTriggered)
-                    {
-                        animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Attack], true);
-                    }
-                }
-            }
-        }
-
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Attack], false);
             ClearAttack();
         }
 
