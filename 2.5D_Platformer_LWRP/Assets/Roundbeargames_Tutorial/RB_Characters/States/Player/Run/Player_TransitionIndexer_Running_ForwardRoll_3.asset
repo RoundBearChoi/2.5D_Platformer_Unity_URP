@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player_TransitionIndexer_Running_ForwardRoll_3
   m_EditorClassIdentifier: 
   Index: 3
-  transitionConditions: 1700000000000000
+  transitionConditions: 00000000

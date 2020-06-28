@@ -8,6 +8,10 @@ namespace Roundbeargames
     public enum TransitionParameter
     {
         Move,
+        Left,
+        Right,
+        Up,
+        Down,
         Jump,
         ForceTransition,
         Grounded,
