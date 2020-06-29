@@ -196,15 +196,5 @@ namespace Roundbeargames
                 DicCameraStates.Add(t, Animator.StringToHash(t.ToString()));
             }
         }
-
-        public int GetHash(System.Type type, int index)
-        {
-            if (type == typeof(MainParameterType))
-            {
-                return ArrMainParams[index];
-            }
-
-            return 0;
-        }
     }
 }
