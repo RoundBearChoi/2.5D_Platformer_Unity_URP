@@ -14,6 +14,8 @@ namespace Roundbeargames
         [SerializeField]
         Attack AxeThrow;
 
+        static string VFX = "VFX";
+
         private void Start()
         {
             damageData = new DamageData
@@ -241,37 +243,7 @@ namespace Roundbeargames
 
         void TakeDamage(AttackCondition info)
         {
-            if (info.MustCollide)
-            {
-                CameraManager.Instance.ShakeCamera(0.3f);
-
-                if (info.AttackAbility.UseDeathParticles)
-                {
-                    if (info.AttackAbility.ParticleType.ToString().Contains("VFX"))
-                    {
-                        GameObject vfx =
-                            PoolManager.Instance.GetObject(info.AttackAbility.ParticleType);
-
-                        vfx.transform.position =
-                            damageData.AttackingPart.GetComponent<Collider>().bounds.center;
-
-                        //Debug.Log(control.gameObject.name + " damage detected: " + damageData.DamagedTrigger.gameObject.name);
-                        //Debug.Log("attacking part: " + damageData.AttackingPart.gameObject.name);
-                        //Debug.DrawLine(Vector3.zero, vfx.transform.position, Color.red, 60f);
-
-                        vfx.SetActive(true);
-
-                        if (info.Attacker.ROTATION_DATA.IsFacingForward())
-                        {
-                            vfx.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                        }
-                        else
-                        {
-                            vfx.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                        }
-                    }
-                }
-            }
+            ProcessHitParticles(info);
 
             info.CurrentHits++;
             damageData.hp -= info.AttackAbility.Damage;
@@ -292,6 +264,41 @@ namespace Roundbeargames
             if (!info.RegisteredTargets.Contains(this.control))
             {
                 info.RegisteredTargets.Add(this.control);
+            }
+        }
+
+        void ProcessHitParticles(AttackCondition info)
+        {
+            if (info.MustCollide)
+            {
+                CameraManager.Instance.ShakeCamera(0.3f);
+
+                if (info.AttackAbility.UseDeathParticles)
+                {
+                    if (info.AttackAbility.ParticleType.ToString().Contains(VFX))
+                    {
+                        ShowHitParticles(info.Attacker, info.AttackAbility.ParticleType);
+                    }
+                }
+            }
+        }
+
+        void ShowHitParticles(CharacterControl attacker, PoolObjectType EffectsType)
+        {
+            GameObject vfx = PoolManager.Instance.GetObject(EffectsType);
+
+            vfx.transform.position =
+                control.DAMAGE_DATA.DamagedTrigger.triggerCollider.bounds.center;
+
+            vfx.SetActive(true);
+
+            if (attacker.ROTATION_DATA.IsFacingForward())
+            {
+                vfx.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
+            else
+            {
+                vfx.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
             }
         }
     }

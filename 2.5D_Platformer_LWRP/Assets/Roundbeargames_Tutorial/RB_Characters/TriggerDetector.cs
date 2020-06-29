@@ -7,6 +7,7 @@ namespace Roundbeargames
     public class TriggerDetector : MonoBehaviour
     {
         public CharacterControl control;
+        public Collider triggerCollider;
 
         public Vector3 LastPosition;
         public Quaternion LastRotation;
@@ -14,6 +15,7 @@ namespace Roundbeargames
         private void Awake()
         {
             control = this.GetComponentInParent<CharacterControl>();
+            triggerCollider = this.gameObject.GetComponent<Collider>();
         }
 
         private void OnTriggerEnter(Collider col)
