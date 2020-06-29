@@ -80,6 +80,8 @@ namespace Roundbeargames
         Fall,
         WallSlide,
         WallJump,
+
+        COUNT,
     }
 
     public enum Camera_States
@@ -109,8 +111,9 @@ namespace Roundbeargames
         public Dictionary<Instant_Transition_States, int> DicInstantTransitionStates =
             new Dictionary<Instant_Transition_States, int>();
 
-        public Dictionary<Ledge_Trigger_States, int> DicLedgeTriggerStates =
-            new Dictionary<Ledge_Trigger_States, int>();
+        public int[] ArrLedgeTriggerStates;
+        //public Dictionary<Ledge_Trigger_States, int> DicLedgeTriggerStates =
+        //    new Dictionary<Ledge_Trigger_States, int>();
 
         public Dictionary<Camera_States, int> DicCameraStates =
             new Dictionary<Camera_States, int>();
@@ -179,13 +182,20 @@ namespace Roundbeargames
             }
 
             // ledge trigger states
-            Ledge_Trigger_States[] arrLedgeTriggerStates = System.Enum.GetValues(typeof(Ledge_Trigger_States))
-                as Ledge_Trigger_States[];
+            ArrLedgeTriggerStates = new int[(int)Ledge_Trigger_States.COUNT];
 
-            foreach(Ledge_Trigger_States t in arrLedgeTriggerStates)
+            for (int i = 0; i < ArrLedgeTriggerStates.Length; i++)
             {
-                DicLedgeTriggerStates.Add(t, Animator.StringToHash(t.ToString()));
+                ArrLedgeTriggerStates[i] = Animator.StringToHash(((Ledge_Trigger_States)i).ToString());
             }
+
+            //Ledge_Trigger_States[] arrLedgeTriggerStates = System.Enum.GetValues(typeof(Ledge_Trigger_States))
+            //    as Ledge_Trigger_States[];
+            //
+            //foreach(Ledge_Trigger_States t in arrLedgeTriggerStates)
+            //{
+            //    DicLedgeTriggerStates.Add(t, Animator.StringToHash(t.ToString()));
+            //}
 
             // camera states
             Camera_States[] arrCameraStates = System.Enum.GetValues(typeof(Camera_States))

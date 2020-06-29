@@ -56,14 +56,23 @@ namespace Roundbeargames
                 return false;
             }
 
-            foreach(KeyValuePair<Ledge_Trigger_States, int> data in HashManager.Instance.DicLedgeTriggerStates)
+            for (int i = 0; i < HashManager.Instance.ArrLedgeTriggerStates.Length; i++)
             {
                 AnimatorStateInfo info = control.SkinnedMeshAnimator.GetCurrentAnimatorStateInfo(0);
-                if (info.shortNameHash == data.Value)
+                if (info.shortNameHash == HashManager.Instance.ArrLedgeTriggerStates[i])
                 {
                     return true;
                 }
             }
+
+            //foreach(KeyValuePair<Ledge_Trigger_States, int> data in HashManager.Instance.DicLedgeTriggerStates)
+            //{
+            //    AnimatorStateInfo info = control.SkinnedMeshAnimator.GetCurrentAnimatorStateInfo(0);
+            //    if (info.shortNameHash == data.Value)
+            //    {
+            //        return true;
+            //    }
+            //}
 
             return false;
         }
