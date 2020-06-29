@@ -28,7 +28,8 @@ namespace Roundbeargames
             };
 
             subComponentProcessor.collisionSphereData = collisionSphereData;
-            subComponentProcessor.ComponentsDic.Add(SubComponentType.COLLISION_SPHERES, this);
+            subComponentProcessor.ArrSubComponents[(int)SubComponentType.COLLISION_SPHERES] = this;
+            //subComponentProcessor.ComponentsDic.Add(SubComponentType.COLLISION_SPHERES, this);
 
             SetColliderSpheres();
         }

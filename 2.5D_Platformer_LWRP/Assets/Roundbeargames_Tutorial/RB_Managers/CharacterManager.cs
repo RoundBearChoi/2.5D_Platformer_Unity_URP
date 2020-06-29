@@ -51,10 +51,14 @@ namespace Roundbeargames
         {
             foreach (CharacterControl control in Characters)
             {
-                if (control.subComponentProcessor.ComponentsDic.ContainsKey(SubComponentType.MANUALINPUT))
+                if (control.subComponentProcessor.ArrSubComponents[(int)SubComponentType.MANUALINPUT] != null)
                 {
                     return control;
                 }
+                //if (control.subComponentProcessor.ComponentsDic.ContainsKey(SubComponentType.MANUALINPUT))
+                //{
+                //    return control;
+                //}
             }
 
             return null;

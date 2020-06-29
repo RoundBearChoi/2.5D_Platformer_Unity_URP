@@ -17,7 +17,8 @@ namespace Roundbeargames
             };
 
             subComponentProcessor.verticalVelocityData = verticalVelocityData;
-            subComponentProcessor.ComponentsDic.Add(SubComponentType.VERTICAL_VELOCITY, this);
+            subComponentProcessor.ArrSubComponents[(int)SubComponentType.VERTICAL_VELOCITY] = this;
+            //subComponentProcessor.ComponentsDic.Add(SubComponentType.VERTICAL_VELOCITY, this);
         }
 
         public override void OnFixedUpdate()

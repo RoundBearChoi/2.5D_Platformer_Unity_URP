@@ -22,15 +22,20 @@ namespace Roundbeargames
             };
 
             subComponentProcessor.instaKillData = instaKillData;
-            subComponentProcessor.ComponentsDic.Add(SubComponentType.INSTA_KILL, this);
+            subComponentProcessor.ArrSubComponents[(int)SubComponentType.INSTA_KILL] = this;
+            //subComponentProcessor.ComponentsDic.Add(SubComponentType.INSTA_KILL, this);
         }
 
         public override void OnFixedUpdate()
         {
-            if (control.subComponentProcessor.ComponentsDic.ContainsKey(SubComponentType.MANUALINPUT))
+            if (control.subComponentProcessor.ArrSubComponents[(int)SubComponentType.MANUALINPUT] != null)
             {
                 return;
             }
+            //if (control.subComponentProcessor.ComponentsDic.ContainsKey(SubComponentType.MANUALINPUT))
+            //{
+            //    return;
+            //}
 
             if (!control.SkinnedMeshAnimator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]))
             {
@@ -48,10 +53,15 @@ namespace Roundbeargames
                         continue;
                     }
 
-                    if (!c.subComponentProcessor.ComponentsDic.ContainsKey(SubComponentType.MANUALINPUT))
+                    if (c.subComponentProcessor.ArrSubComponents[(int)SubComponentType.MANUALINPUT] == null)
                     {
                         continue;
                     }
+
+                    //if (!c.subComponentProcessor.ComponentsDic.ContainsKey(SubComponentType.MANUALINPUT))
+                    //{
+                    //    continue;
+                    //}
 
                     if (!c.SkinnedMeshAnimator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]))
                     {

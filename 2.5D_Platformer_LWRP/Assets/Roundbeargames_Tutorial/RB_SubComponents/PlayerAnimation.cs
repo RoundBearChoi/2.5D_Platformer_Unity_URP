@@ -19,7 +19,8 @@ namespace Roundbeargames
 
             subComponentProcessor.animationData = animationData;
 
-            subComponentProcessor.ComponentsDic.Add(SubComponentType.PLAYER_ANIMATION, this);
+            subComponentProcessor.ArrSubComponents[(int)SubComponentType.PLAYER_ANIMATION] = this;
+            //subComponentProcessor.ComponentsDic.Add(SubComponentType.PLAYER_ANIMATION, this);
         }
 
         public override void OnFixedUpdate()

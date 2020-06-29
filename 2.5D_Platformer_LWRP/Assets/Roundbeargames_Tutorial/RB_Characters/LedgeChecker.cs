@@ -23,7 +23,8 @@ namespace Roundbeargames
             };
 
             subComponentProcessor.ledgeGrabData = ledgeGrabData;
-            subComponentProcessor.ComponentsDic.Add(SubComponentType.LEDGECHECKER, this);
+            subComponentProcessor.ArrSubComponents[(int)SubComponentType.LEDGECHECKER] = this;
+            //subComponentProcessor.ComponentsDic.Add(SubComponentType.LEDGECHECKER, this);
         }
 
         public override void OnUpdate()

@@ -6,7 +6,6 @@ namespace Roundbeargames
 {
     public enum SubComponentType
     {
-        NONE,
         MANUALINPUT,
         LEDGECHECKER,
         RAGDOLL,
@@ -19,6 +18,8 @@ namespace Roundbeargames
         PLAYER_ATTACK,
         PLAYER_ANIMATION,
         PLAYER_ROTATION,
+
+        COUNT,
     }
 
     public abstract class SubComponent : MonoBehaviour

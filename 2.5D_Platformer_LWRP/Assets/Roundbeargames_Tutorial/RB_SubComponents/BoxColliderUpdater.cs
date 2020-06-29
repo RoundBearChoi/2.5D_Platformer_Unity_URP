@@ -24,7 +24,8 @@ namespace Roundbeargames
             };
 
             subComponentProcessor.boxColliderData = boxColliderData;
-            subComponentProcessor.ComponentsDic.Add(SubComponentType.BOX_COLLIDER_UPDATER, this);
+            subComponentProcessor.ArrSubComponents[(int)SubComponentType.BOX_COLLIDER_UPDATER] = this;
+            //subComponentProcessor.ComponentsDic.Add(SubComponentType.BOX_COLLIDER_UPDATER, this);
         }
 
         public override void OnFixedUpdate()

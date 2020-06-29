@@ -32,7 +32,8 @@ namespace Roundbeargames
             };
 
             subComponentProcessor.damageData = damageData;
-            subComponentProcessor.ComponentsDic.Add(SubComponentType.DAMAGE_DETECTOR, this);
+            subComponentProcessor.ArrSubComponents[(int)SubComponentType.DAMAGE_DETECTOR] = this;
+            //subComponentProcessor.ComponentsDic.Add(SubComponentType.DAMAGE_DETECTOR, this);
         }
 
         public override void OnFixedUpdate()

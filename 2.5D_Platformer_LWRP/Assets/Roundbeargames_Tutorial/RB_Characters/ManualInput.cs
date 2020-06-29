@@ -21,7 +21,8 @@ namespace Roundbeargames
             };
 
             subComponentProcessor.manualInputData = manualInputData;
-            subComponentProcessor.ComponentsDic.Add(SubComponentType.MANUALINPUT, this);
+            subComponentProcessor.ArrSubComponents[(int)SubComponentType.MANUALINPUT] = this;
+            //subComponentProcessor.ComponentsDic.Add(SubComponentType.MANUALINPUT, this);
         }
 
         public override void OnFixedUpdate()
