@@ -39,12 +39,7 @@ namespace Roundbeargames
                 }
             }
 
-            //if (control.RAGDOLL_DATA.BodyParts.Contains(col))
-            //{
-            //    return;
-            //}
-
-            CharacterControl attacker = col.transform.root.GetComponent<CharacterControl>();
+            CharacterControl attacker = CharacterManager.Instance.GetCharacter(col.transform.root.gameObject);
 
             if (attacker == null)
             {
