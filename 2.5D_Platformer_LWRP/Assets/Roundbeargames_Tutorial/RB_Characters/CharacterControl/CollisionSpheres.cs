@@ -12,13 +12,12 @@ namespace Roundbeargames
         {
             collisionSphereData = new CollisionSphereData
             {
-                BottomSpheres = new GameObject[5], //new List<GameObject>(),
-                FrontSpheres = new GameObject[10], //List<GameObject>(),
-                BackSpheres = new GameObject[10], //new List<GameObject>(),
-                UpSpheres = new GameObject[5], //new List<GameObject>(),
+                BottomSpheres = new GameObject[5],
+                FrontSpheres = new GameObject[10],
+                BackSpheres = new GameObject[10],
+                UpSpheres = new GameObject[5],
 
-                FrontOverlapCheckers = new OverlapChecker[10], //List<OverlapChecker>(),
-                //AllOverlapCheckers = new List<OverlapChecker>(),
+                FrontOverlapCheckers = new OverlapChecker[10],
                 FrontOverlapCheckerContains = FrontOverlapCheckerContains,
 
                 Reposition_FrontSpheres = Reposition_FrontSpheres,
@@ -40,11 +39,6 @@ namespace Roundbeargames
             {
                 collisionSphereData.AllOverlapCheckers[i].UpdateChecker();
             }
-
-            //foreach (OverlapChecker c in collisionSphereData.AllOverlapCheckers)
-            //{
-            //    c.UpdateChecker();
-            //}
         }
 
         public override void OnUpdate()
@@ -114,7 +108,6 @@ namespace Roundbeargames
 
             OverlapChecker[] arr = this.gameObject.GetComponentsInChildren<OverlapChecker>();
             collisionSphereData.AllOverlapCheckers = arr;
-            //collisionSphereData.AllOverlapCheckers.AddRange(arr);
         }
 
         void Reposition_FrontSpheres()

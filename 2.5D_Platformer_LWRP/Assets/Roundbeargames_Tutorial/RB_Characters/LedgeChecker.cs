@@ -24,7 +24,6 @@ namespace Roundbeargames
 
             subComponentProcessor.ledgeGrabData = ledgeGrabData;
             subComponentProcessor.ArrSubComponents[(int)SubComponentType.LEDGECHECKER] = this;
-            //subComponentProcessor.ComponentsDic.Add(SubComponentType.LEDGECHECKER, this);
         }
 
         public override void OnUpdate()
@@ -64,15 +63,6 @@ namespace Roundbeargames
                     return true;
                 }
             }
-
-            //foreach(KeyValuePair<Ledge_Trigger_States, int> data in HashManager.Instance.DicLedgeTriggerStates)
-            //{
-            //    AnimatorStateInfo info = control.SkinnedMeshAnimator.GetCurrentAnimatorStateInfo(0);
-            //    if (info.shortNameHash == data.Value)
-            //    {
-            //        return true;
-            //    }
-            //}
 
             return false;
         }

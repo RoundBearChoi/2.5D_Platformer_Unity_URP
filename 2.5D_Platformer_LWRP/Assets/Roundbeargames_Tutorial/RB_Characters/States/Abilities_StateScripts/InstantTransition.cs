@@ -39,20 +39,20 @@ namespace Roundbeargames
             if (CrossFade <= 0f)
             {
                 control.SkinnedMeshAnimator.Play(
-                    HashManager.Instance.DicInstantTransitionStates[TransitionTo], 0);
+                    HashManager.Instance.ArrInstantTransitionStates[(int)TransitionTo], 0);
             }
             else
             {
                 if (Offset <= 0f)
                 {
                     control.SkinnedMeshAnimator.CrossFade(
-                        HashManager.Instance.DicInstantTransitionStates[TransitionTo],
+                        HashManager.Instance.ArrInstantTransitionStates[(int)TransitionTo],
                         CrossFade, 0);
                 }
                 else
                 {
                     control.SkinnedMeshAnimator.CrossFade(
-                        HashManager.Instance.DicInstantTransitionStates[TransitionTo],
+                        HashManager.Instance.ArrInstantTransitionStates[(int)TransitionTo],
                         CrossFade, 0, Offset);
                 }
             }
@@ -83,7 +83,7 @@ namespace Roundbeargames
 
             AnimatorStateInfo nextInfo = control.SkinnedMeshAnimator.GetNextAnimatorStateInfo(0);
 
-            if (nextInfo.shortNameHash == HashManager.Instance.DicInstantTransitionStates[TransitionTo])
+            if (nextInfo.shortNameHash == HashManager.Instance.ArrInstantTransitionStates[(int)TransitionTo])
             {
                 return true;
             }

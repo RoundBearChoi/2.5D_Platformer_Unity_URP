@@ -62,6 +62,8 @@ namespace Roundbeargames
 
         Running_Jump = 3,
         Run_Stop_InPlace = 7,
+
+        COUNT,
     }
 
     public enum Ledge_Trigger_States
@@ -92,9 +94,7 @@ namespace Roundbeargames
 
     public class HashManager : Singleton<HashManager>
     {
-        public int[] ArrMainParams;
-        //public Dictionary<TransitionParameter, int> DicMainParams =
-        //    new Dictionary<TransitionParameter, int>();
+        public int[] ArrMainParams = new int[(int)MainParameterType.COUNT];
 
         public Dictionary<CameraTrigger, int> DicCameraTriggers =
             new Dictionary<CameraTrigger, int>();
@@ -108,12 +108,8 @@ namespace Roundbeargames
         public Dictionary<Hit_Reaction_States, int> DicHitReactionStates =
             new Dictionary<Hit_Reaction_States, int>();
 
-        public Dictionary<Instant_Transition_States, int> DicInstantTransitionStates =
-            new Dictionary<Instant_Transition_States, int>();
-
-        public int[] ArrLedgeTriggerStates;
-        //public Dictionary<Ledge_Trigger_States, int> DicLedgeTriggerStates =
-        //    new Dictionary<Ledge_Trigger_States, int>();
+        public int[] ArrInstantTransitionStates = new int[(int)Instant_Transition_States.COUNT];
+        public int[] ArrLedgeTriggerStates = new int[(int)Ledge_Trigger_States.COUNT];
 
         public Dictionary<Camera_States, int> DicCameraStates =
             new Dictionary<Camera_States, int>();
@@ -121,20 +117,10 @@ namespace Roundbeargames
         private void Awake()
         {
             // animation transitions
-            ArrMainParams = new int[(int)MainParameterType.COUNT];
-
             for (int i = 0; i < (int)MainParameterType.COUNT; i++)
             {
                 ArrMainParams[i] = Animator.StringToHash(((MainParameterType)i).ToString());
             }
-
-            //TransitionParameter[] arrParams = System.Enum.GetValues(typeof(TransitionParameter))
-            //    as TransitionParameter[];
-            //    
-            //foreach(TransitionParameter t in arrParams)
-            //{
-            //    DicMainParams.Add(t, Animator.StringToHash(t.ToString()));
-            //}
 
             // camera transitions
             CameraTrigger[] arrCamTrans = System.Enum.GetValues(typeof(CameraTrigger))
@@ -172,30 +158,17 @@ namespace Roundbeargames
                 DicHitReactionStates.Add(t, Animator.StringToHash(t.ToString()));
             }
 
-            // animation states
-            Instant_Transition_States[] arrInstantTransitionStates = System.Enum.GetValues(typeof(Instant_Transition_States))
-                as Instant_Transition_States[];
-
-            foreach(Instant_Transition_States t in arrInstantTransitionStates)
+            // instant transition states
+            for (int i = 0; i < ArrInstantTransitionStates.Length; i++)
             {
-                DicInstantTransitionStates.Add(t, Animator.StringToHash(t.ToString()));
+                ArrInstantTransitionStates[i] = Animator.StringToHash(((Instant_Transition_States)i).ToString());
             }
 
             // ledge trigger states
-            ArrLedgeTriggerStates = new int[(int)Ledge_Trigger_States.COUNT];
-
             for (int i = 0; i < ArrLedgeTriggerStates.Length; i++)
             {
                 ArrLedgeTriggerStates[i] = Animator.StringToHash(((Ledge_Trigger_States)i).ToString());
             }
-
-            //Ledge_Trigger_States[] arrLedgeTriggerStates = System.Enum.GetValues(typeof(Ledge_Trigger_States))
-            //    as Ledge_Trigger_States[];
-            //
-            //foreach(Ledge_Trigger_States t in arrLedgeTriggerStates)
-            //{
-            //    DicLedgeTriggerStates.Add(t, Animator.StringToHash(t.ToString()));
-            //}
 
             // camera states
             Camera_States[] arrCameraStates = System.Enum.GetValues(typeof(Camera_States))

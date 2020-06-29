@@ -21,7 +21,6 @@ namespace Roundbeargames
 
             subComponentProcessor.rotationData = rotationData;
             subComponentProcessor.ArrSubComponents[(int)SubComponentType.PLAYER_ROTATION] = this;
-            //subComponentProcessor.ComponentsDic.Add(SubComponentType.PLAYER_ROTATION, this);
         }
 
         public override void OnFixedUpdate()
