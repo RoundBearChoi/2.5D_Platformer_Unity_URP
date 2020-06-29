@@ -94,7 +94,7 @@ namespace Roundbeargames
                         continue;
                     }
 
-                    Debug.Log("instaKill");
+                    //Debug.Log("instaKill");
                     //c.INSTA_KILL_DATA.DeathByInstaKill(control);
 
                     return;

@@ -219,7 +219,7 @@ namespace Roundbeargames
         {
             if (IsDead())
             {
-                CauseCollateralDamage(info);
+                ProcessDeadBodyPhysics(info);
             }
             else
             {
@@ -230,14 +230,14 @@ namespace Roundbeargames
             }
         }
 
-        void CauseCollateralDamage(AttackCondition info)
+        void ProcessDeadBodyPhysics(AttackCondition info)
         {
             if (!info.RegisteredTargets.Contains(this.control))
             {
                 if (info.AttackAbility.collateralDamageInfo.CreateCollateral)
                 {
                     ShowHitParticles(info.Attacker, info.AttackAbility.ParticleType);
-                    control.RAGDOLL_DATA.FlyingRagdoll = true;
+                    ProcessFlyingRagdoll(info);
                 }
 
                 info.RegisteredTargets.Add(this.control);
@@ -266,6 +266,8 @@ namespace Roundbeargames
                 int randomIndex = Random.Range(0, (int)Hit_Reaction_States.COUNT);
                 control.SkinnedMeshAnimator.Play(HashManager.Instance.DicHitReactionStates[(Hit_Reaction_States)randomIndex], 0, 0f);
             }
+
+            ProcessFlyingRagdoll(info);
 
             if (!info.RegisteredTargets.Contains(this.control))
             {
@@ -305,6 +307,14 @@ namespace Roundbeargames
             else
             {
                 vfx.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+        }
+
+        void ProcessFlyingRagdoll(AttackCondition info)
+        {
+            if (info.AttackAbility.collateralDamageInfo.CreateCollateral)
+            {
+                control.RAGDOLL_DATA.FlyingRagdoll = true;
             }
         }
     }

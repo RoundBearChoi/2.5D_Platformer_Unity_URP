@@ -51,6 +51,8 @@ namespace Roundbeargames
                 return;
             }
 
+            // add to dictionary
+
             if (!control.animationProgress.CollidingBodyParts.ContainsKey(this))
             {
                 control.animationProgress.CollidingBodyParts.Add(this, new List<Collider>());
@@ -59,6 +61,13 @@ namespace Roundbeargames
             if (!control.animationProgress.CollidingBodyParts[this].Contains(col))
             {
                 control.animationProgress.CollidingBodyParts[this].Add(col);
+            }
+
+            // check if flying ragdoll
+
+            if (attacker.RAGDOLL_DATA.FlyingRagdoll)
+            {
+                Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name);
             }
         }
 
