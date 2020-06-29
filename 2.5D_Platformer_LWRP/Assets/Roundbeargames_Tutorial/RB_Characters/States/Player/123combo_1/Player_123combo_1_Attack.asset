@@ -21,10 +21,10 @@ MonoBehaviour:
   LethalRange: 0
   MaxHits: 1
   Damage: 1
-  ComboStartTime: 0.2
-  ComboEndTime: 0.8
   ForwardForce: 1500
   RightForce: 0
   UpForce: 500
   UseDeathParticles: 1
   ParticleType: 3
+  collateralDamageInfo:
+    CreateCollateral: 0

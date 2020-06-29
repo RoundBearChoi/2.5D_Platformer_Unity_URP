@@ -37,6 +37,9 @@ namespace Roundbeargames
         public bool UseDeathParticles;
         public PoolObjectType ParticleType;
 
+        [Space(10)]
+        public CollateralDamageInfo collateralDamageInfo;
+
         private List<AttackCondition> FinishedAttacks = new List<AttackCondition>();
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

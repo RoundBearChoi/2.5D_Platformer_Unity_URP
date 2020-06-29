@@ -234,6 +234,11 @@ namespace Roundbeargames
         {
             if (!info.RegisteredTargets.Contains(this.control))
             {
+                if (info.AttackAbility.collateralDamageInfo.CreateCollateral)
+                {
+                    ShowHitParticles(info.Attacker, info.AttackAbility.ParticleType);
+                }
+
                 info.RegisteredTargets.Add(this.control);
                 control.RAGDOLL_DATA.AddForceToDamagedPart(true);
             }

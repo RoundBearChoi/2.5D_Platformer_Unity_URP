@@ -26,3 +26,5 @@ MonoBehaviour:
   UpForce: 0
   UseDeathParticles: 1
   ParticleType: 3
+  collateralDamageInfo:
+    CreateCollateral: 1
