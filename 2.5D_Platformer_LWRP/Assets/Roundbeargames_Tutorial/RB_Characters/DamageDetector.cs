@@ -237,6 +237,7 @@ namespace Roundbeargames
                 if (info.AttackAbility.collateralDamageInfo.CreateCollateral)
                 {
                     ShowHitParticles(info.Attacker, info.AttackAbility.ParticleType);
+                    control.RAGDOLL_DATA.FlyingRagdoll = true;
                 }
 
                 info.RegisteredTargets.Add(this.control);
