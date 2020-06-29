@@ -22,7 +22,6 @@ namespace Roundbeargames
             SetupBodyParts();
             subComponentProcessor.ragdollData = ragdollData;
             subComponentProcessor.ArrSubComponents[(int)SubComponentType.RAGDOLL] = this;
-            //subComponentProcessor.ComponentsDic.Add(SubComponentType.RAGDOLL, this);
         }
 
         public override void OnFixedUpdate()

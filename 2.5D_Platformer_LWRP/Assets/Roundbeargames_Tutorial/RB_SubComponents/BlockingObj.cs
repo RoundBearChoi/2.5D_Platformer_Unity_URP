@@ -18,7 +18,6 @@ namespace Roundbeargames
         List<GameObject> FrontBlockingCharacters = new List<GameObject>();
 
         GameObject[] FrontSpheresArray;
-        //List<GameObject> FrontSpheresList;
         float DirBlock;
 
         private void Start()
@@ -36,7 +35,6 @@ namespace Roundbeargames
 
             subComponentProcessor.blockingData = blockingData;
             subComponentProcessor.ArrSubComponents[(int)SubComponentType.BLOCKINGOBJECTS] = this;
-            //subComponentProcessor.ComponentsDic.Add(SubComponentType.BLOCKINGOBJECTS, this);
         }
 
         public override void OnFixedUpdate()
@@ -215,22 +213,6 @@ namespace Roundbeargames
                     RemoveBlockingObjFromDic(FrontBlockingObjs, FrontSpheresArray[i]);
                 }
             }
-
-            //foreach (GameObject o in FrontSpheresList)
-            //{
-            //    GameObject blockingObj = CollisionDetection.GetCollidingObject(control, o, this.transform.forward * DirBlock,
-            //        control.animationProgress.LatestMoveForward.BlockDistance,
-            //        ref control.BLOCKING_DATA.RaycastContact);
-            //
-            //    if (blockingObj != null)
-            //    {
-            //        AddBlockingObjToDic(FrontBlockingObjs, o, blockingObj);
-            //    }
-            //    else
-            //    {
-            //        RemoveBlockingObjFromDic(FrontBlockingObjs, o);
-            //    }
-            //}
         }
 
         void CheckDownBlocking()
@@ -266,8 +248,6 @@ namespace Roundbeargames
                 {
                     RemoveBlockingObjFromDic(UpBlockingObjs, o);
                 }
-
-                //CheckRaycastCollision(o, this.transform.up, 0.3f, UpBlockingObjs);
             }
         }
 
@@ -320,30 +300,6 @@ namespace Roundbeargames
         void ClearFrontBlockingObjDic()
         {
             FrontBlockingObjs.Clear();
-        }
-
-        bool UpBlockingObjDicIsEmpty()
-        {
-            if (UpBlockingObjs.Count == 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        bool FrontBlockingObjDicIsEmpty()
-        {
-            if (FrontBlockingObjs.Count == 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
 
         List<GameObject> GetFrontBlockingCharacterList()
