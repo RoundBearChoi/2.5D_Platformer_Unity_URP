@@ -23,12 +23,12 @@ namespace Roundbeargames
 
             foreach (CharacterState state in arr)
             {
-                foreach(StateData ability in state.ListAbilityData)
+                foreach(StateData ability in state.ArrAbilities)
                 {
                     if (ability == AbilityToSearch)
                     {
                         Debug.Log("---Ability Found---");
-                        foreach(StateData a in state.ListAbilityData)
+                        foreach(StateData a in state.ArrAbilities)
                         {
                             Debug.Log(a.name);
                         }

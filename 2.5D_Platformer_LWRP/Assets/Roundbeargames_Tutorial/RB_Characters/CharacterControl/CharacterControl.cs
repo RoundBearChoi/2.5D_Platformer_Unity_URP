@@ -119,7 +119,7 @@ namespace Roundbeargames
             foreach(CharacterState c in arr)
             {
                 c.characterControl = this;
-                c.PutStatesInArray();
+                //c.PutStatesInArray();
             }
         }
 
