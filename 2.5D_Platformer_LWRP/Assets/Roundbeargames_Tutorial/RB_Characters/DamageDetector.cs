@@ -28,7 +28,7 @@ namespace Roundbeargames
                 AxeThrow = AxeThrow,
 
                 IsDead = IsDead,
-                TakeDamage = TakeDamage,
+                TakeDamage = ProcessDamage,
             };
 
             subComponentProcessor.damageData = damageData;
@@ -104,7 +104,7 @@ namespace Roundbeargames
                         {
                             if (IsCollided(info))
                             {
-                                TakeDamage(info);
+                                ProcessDamage(info);
                             }
                         }
                     }
@@ -112,7 +112,7 @@ namespace Roundbeargames
                     {
                         if (IsInLethalRange(info))
                         {
-                            TakeDamage(info);
+                            ProcessDamage(info);
                         }
                     }
                 }
@@ -168,25 +168,6 @@ namespace Roundbeargames
                 }
             }
 
-            //foreach(Collider c in control.RAGDOLL_DATA.BodyParts)
-            //{
-            //    float dist = Vector3.SqrMagnitude(c.transform.position - info.Attacker.transform.position);
-            //
-            //    if (dist <= info.LethalRange)
-            //    {
-            //        int index = Random.Range(0, control.RAGDOLL_DATA.BodyParts.Count);
-            //        TriggerDetector triggerDetector = control.RAGDOLL_DATA.BodyParts[index].GetComponent<TriggerDetector>();
-            //
-            //        damageData.SetData(
-            //            info.Attacker,
-            //            info.AttackAbility,
-            //            triggerDetector,
-            //            null);
-            //
-            //        return true;
-            //    }
-            //}
-
             return false;
         }
 
@@ -232,25 +213,34 @@ namespace Roundbeargames
             return false;
         }
 
-        void TakeDamage(AttackCondition info)
+        void ProcessDamage(AttackCondition info)
         {
             if (IsDead())
             {
-                if (!info.RegisteredTargets.Contains(this.control))
-                {
-                    info.RegisteredTargets.Add(this.control);
-                    control.RAGDOLL_DATA.AddForceToDamagedPart(true);
-                }
-
-                return;
+                CauseCollateralDamage(info);
             }
-
-            if (IsBlocked(info))
+            else
             {
-                damageData.BlockedAttack = info;
-                return;
+                if (!IsBlocked(info))
+                {
+                    TakeDamage(info);
+                }
+            }
+        }
+
+        void CauseCollateralDamage(AttackCondition info)
+        {
+            if (!info.RegisteredTargets.Contains(this.control))
+            {
+                info.RegisteredTargets.Add(this.control);
+                control.RAGDOLL_DATA.AddForceToDamagedPart(true);
             }
 
+            return;
+        }
+
+        void TakeDamage(AttackCondition info)
+        {
             if (info.MustCollide)
             {
                 CameraManager.Instance.ShakeCamera(0.3f);
@@ -282,8 +272,6 @@ namespace Roundbeargames
                     }
                 }
             }
-
-            //Debug.Log(info.Attacker.gameObject.name + " hits: " + this.gameObject.name);
 
             info.CurrentHits++;
             damageData.hp -= info.AttackAbility.Damage;

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b3f1b8ce5c3fd459fa3cc0cf33eaf5, type: 3}
   m_Name: AbilityListToArray
   m_EditorClassIdentifier: 
-  TargetAnimator: {fileID: 9100000, guid: 0e564ea52cdf7dd43ae8952d1e745437, type: 2}
+  TargetAnimator: {fileID: 9100000, guid: 93fee6bbec8ab1f4a814b4ef18bfe060, type: 2}

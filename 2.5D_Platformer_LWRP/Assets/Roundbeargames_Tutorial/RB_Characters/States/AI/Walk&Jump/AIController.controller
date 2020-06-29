@@ -17,10 +17,10 @@ AnimatorStateMachine:
     m_Position: {x: 250, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3232753163783350856}
-    m_Position: {x: 160, y: 360, z: 0}
+    m_Position: {x: 140, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2176693517168043330}
-    m_Position: {x: 400, y: 360, z: 0}
+    m_Position: {x: 410, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7327913044148723154}
     m_Position: {x: 600, y: 170, z: 0}
@@ -75,7 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterControl: {fileID: 0}
-  ListAbilityData:
+  ListAbilityData: []
+  ArrAbilities:
   - {fileID: 11400000, guid: a0349eea3b01eea4c9d68873c09065f2, type: 2}
   - {fileID: 11400000, guid: c9b986519be1e404c9ec9a4e09bdd6f3, type: 2}
 --- !u!1101 &-4266120656944635002
@@ -145,7 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterControl: {fileID: 0}
-  ListAbilityData:
+  ListAbilityData: []
+  ArrAbilities:
   - {fileID: 11400000, guid: dd3abb3e372edc145a2341041c6b1094, type: 2}
   - {fileID: 11400000, guid: c9b986519be1e404c9ec9a4e09bdd6f3, type: 2}
   - {fileID: 11400000, guid: ce9873c5ad7af2941b0760eea3654a22, type: 2}
@@ -155,7 +157,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WalkController
+  m_Name: AIController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: start_walking
@@ -281,7 +283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterControl: {fileID: 0}
-  ListAbilityData:
+  ListAbilityData: []
+  ArrAbilities:
   - {fileID: 11400000, guid: facb37d09119c2948bcf614741e8b075, type: 2}
   - {fileID: 11400000, guid: c9b986519be1e404c9ec9a4e09bdd6f3, type: 2}
   - {fileID: 11400000, guid: ce9873c5ad7af2941b0760eea3654a22, type: 2}
@@ -298,7 +301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterControl: {fileID: 0}
-  ListAbilityData:
+  ListAbilityData: []
+  ArrAbilities:
   - {fileID: 11400000, guid: 1d0e9c6c324681045837d2994d29f4f2, type: 2}
   - {fileID: 11400000, guid: c9b986519be1e404c9ec9a4e09bdd6f3, type: 2}
   - {fileID: 11400000, guid: ce9873c5ad7af2941b0760eea3654a22, type: 2}
@@ -342,7 +346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterControl: {fileID: 0}
-  ListAbilityData:
+  ListAbilityData: []
+  ArrAbilities:
   - {fileID: 11400000, guid: f4c5a116b8a687d4d805d46fbf6b9af7, type: 2}
 --- !u!1101 &8832693915650058466
 AnimatorStateTransition:

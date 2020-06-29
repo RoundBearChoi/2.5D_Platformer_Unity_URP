@@ -26,8 +26,15 @@ namespace Roundbeargames
 
         private void Awake()
         {
-            animatorController = this.gameObject.GetComponentInChildren<Animator>();
             control = this.gameObject.GetComponentInParent<CharacterControl>();
+            animatorController = this.gameObject.GetComponentInChildren<Animator>();
+
+            CharacterState[] arr = animatorController.GetBehaviours<CharacterState>();
+
+            foreach(CharacterState aiState in arr)
+            {
+                aiState.characterControl = control;
+            }
         }
 
         public void InitializeAI()
