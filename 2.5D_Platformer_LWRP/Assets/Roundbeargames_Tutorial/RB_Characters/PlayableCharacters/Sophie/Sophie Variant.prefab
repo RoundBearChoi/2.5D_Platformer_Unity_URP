@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6044121531228593063}
-  - component: {fileID: 6861336595096014611}
+  - component: {fileID: 8127379893958566578}
   - component: {fileID: 1372987228833283888}
   m_Layer: 0
   m_Name: mixamorig:Hips
@@ -35,7 +35,7 @@ Transform:
   m_Father: {fileID: 6060677883382741281}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6861336595096014611
+--- !u!65 &8127379893958566578
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2713750727122234777}
-  - component: {fileID: 840983466852005762}
+  - component: {fileID: 1525220437895715784}
   - component: {fileID: 8182109160421831013}
   - component: {fileID: 6331390018947866567}
   m_Layer: 0
@@ -316,7 +316,7 @@ Transform:
   m_Father: {fileID: 9188501116501780033}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &840983466852005762
+--- !u!135 &1525220437895715784
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,7 +356,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000009564464, y: 0.25064653, z: -0.00000009449128}
+  m_ConnectedAnchor: {x: 0.000000012386856, y: 0.25064653, z: -0.00000009384622}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -578,7 +578,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4768835761510743618}
-  - component: {fileID: 7155503618300975823}
+  - component: {fileID: 5529736613228650179}
   - component: {fileID: 9199677654122933789}
   - component: {fileID: 1825130110576998442}
   m_Layer: 0
@@ -607,7 +607,7 @@ Transform:
   m_Father: {fileID: 8635708503764126174}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &7155503618300975823
+--- !u!135 &5529736613228650179
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -782,7 +782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7488002996514973299}
-  - component: {fileID: 4878509908755356303}
+  - component: {fileID: 4150430347688845374}
   - component: {fileID: 3496478158496027993}
   - component: {fileID: 9106051277820868982}
   m_Layer: 0
@@ -807,7 +807,7 @@ Transform:
   m_Father: {fileID: 6037630959921847809}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4878509908755356303
+--- !u!65 &4150430347688845374
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -847,7 +847,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000023809574, y: 0.21522674, z: -0.025047567}
+  m_ConnectedAnchor: {x: -0.000023809574, y: 0.21522674, z: -0.025047682}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -890,7 +890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5439979215165822022}
-  - component: {fileID: 4026031505598180236}
+  - component: {fileID: 4500272266790752021}
   - component: {fileID: 2668572399910602566}
   - component: {fileID: 1068275017310528073}
   m_Layer: 0
@@ -915,7 +915,7 @@ Transform:
   m_Father: {fileID: 1031273912865774625}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &4026031505598180236
+--- !u!136 &4500272266790752021
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -956,7 +956,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.18066396, y: 0.22724241, z: -0.0062555256}
+  m_ConnectedAnchor: {x: 0.18066396, y: 0.22724238, z: -0.00625541}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -1208,7 +1208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5241177994722901966}
-  - component: {fileID: 6919085751742788177}
+  - component: {fileID: 2599721076796292681}
   - component: {fileID: 7083644990400890453}
   - component: {fileID: 899894753634838354}
   m_Layer: 0
@@ -1233,7 +1233,7 @@ Transform:
   m_Father: {fileID: 3324100563098224462}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &6919085751742788177
+--- !u!136 &2599721076796292681
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1274,7 +1274,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000006519258, y: 0.44335777, z: -0.000000074040145}
+  m_ConnectedAnchor: {x: 0.000000007450581, y: 0.44335777, z: 0.000000042375177}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1348,7 +1348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4043356158135640022}
-  - component: {fileID: 1427855507616505823}
+  - component: {fileID: 2895462755303795715}
   - component: {fileID: 1824325941980651302}
   - component: {fileID: 8961461033794597193}
   m_Layer: 0
@@ -1373,7 +1373,7 @@ Transform:
   m_Father: {fileID: 5002351646519945398}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1427855507616505823
+--- !u!135 &2895462755303795715
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1413,7 +1413,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -2.1357109e-11, y: 0.34662992, z: 0.01841709}
+  m_ConnectedAnchor: {x: -2.1357109e-11, y: 0.3466299, z: 0.018417321}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1548,7 +1548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9012791833835860678}
-  - component: {fileID: 7261721157800082648}
+  - component: {fileID: 5966239726592168141}
   - component: {fileID: 1388635146433764834}
   - component: {fileID: 3688558111861858234}
   m_Layer: 0
@@ -1573,7 +1573,7 @@ Transform:
   m_Father: {fileID: 6044121531228593063}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7261721157800082648
+--- !u!136 &5966239726592168141
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1614,7 +1614,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.10287785, y: -0.05513746, z: 0.0032595242}
+  m_ConnectedAnchor: {x: 0.10287785, y: -0.05513746, z: 0.0032596407}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1719,7 +1719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7439929119126325146}
-  - component: {fileID: 1142827393709779829}
+  - component: {fileID: 3604289070773197116}
   - component: {fileID: 5613386911935208713}
   - component: {fileID: 6093687138701796188}
   m_Layer: 0
@@ -1744,7 +1744,7 @@ Transform:
   m_Father: {fileID: 150066531085246660}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1142827393709779829
+--- !u!136 &3604289070773197116
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1828,7 +1828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9188501116501780033}
-  - component: {fileID: 8453458848924210767}
+  - component: {fileID: 3529583231248314446}
   - component: {fileID: 7162130384947103481}
   - component: {fileID: 5898773510458144077}
   m_Layer: 0
@@ -1853,7 +1853,7 @@ Transform:
   m_Father: {fileID: 7439929119126325146}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &8453458848924210767
+--- !u!136 &3529583231248314446
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1894,7 +1894,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000024214387, y: 0.21864684, z: -0.000000014901161}
+  m_ConnectedAnchor: {x: 0.000000010244548, y: 0.21864687, z: -0.000000044703484}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -2486,7 +2486,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3324100563098224462}
-  - component: {fileID: 1369239755078385486}
+  - component: {fileID: 5863428561649206655}
   - component: {fileID: 8415519167591170186}
   - component: {fileID: 3295363618568965532}
   m_Layer: 0
@@ -2511,7 +2511,7 @@ Transform:
   m_Father: {fileID: 6044121531228593063}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1369239755078385486
+--- !u!136 &5863428561649206655
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2552,7 +2552,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.10287785, y: -0.05513751, z: 0.0024033436}
+  m_ConnectedAnchor: {x: -0.10287785, y: -0.05513751, z: 0.002403227}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3015,7 +3015,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4053353372027853351}
-  - component: {fileID: 2999635606416120608}
+  - component: {fileID: 2583794164226611284}
   - component: {fileID: 3275386042384918821}
   - component: {fileID: 42787681707658367}
   m_Layer: 0
@@ -3040,7 +3040,7 @@ Transform:
   m_Father: {fileID: 1774646149604808326}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2999635606416120608
+--- !u!136 &2583794164226611284
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3247,7 +3247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8635708503764126174}
-  - component: {fileID: 4965458682921736952}
+  - component: {fileID: 2335800639436156916}
   - component: {fileID: 496948424086776248}
   - component: {fileID: 3672931584657981529}
   m_Layer: 0
@@ -3272,7 +3272,7 @@ Transform:
   m_Father: {fileID: 5439979215165822022}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &4965458682921736952
+--- !u!136 &2335800639436156916
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3313,7 +3313,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000010197982, y: 0.21873643, z: -0.00000020116568}
+  m_ConnectedAnchor: {x: 0.000000017229468, y: 0.21873644, z: -0.00000020116568}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -3356,7 +3356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1774646149604808326}
-  - component: {fileID: 6713958843429359285}
+  - component: {fileID: 143410727868956941}
   - component: {fileID: 1882653878918563093}
   - component: {fileID: 3043160252144000687}
   m_Layer: 0
@@ -3381,7 +3381,7 @@ Transform:
   m_Father: {fileID: 9012791833835860678}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &6713958843429359285
+--- !u!136 &143410727868956941
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3422,7 +3422,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000000055879354, y: 0.44351205, z: 0.0000001238659}
+  m_ConnectedAnchor: {x: -0.000000004656613, y: 0.44351205, z: 0.000000007450581}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3496,7 +3496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 558656107755078489}
-  - component: {fileID: 337135088522350855}
+  - component: {fileID: 636900819892475251}
   - component: {fileID: 5383188315599282370}
   - component: {fileID: 99052020690925111}
   m_Layer: 0
@@ -3521,7 +3521,7 @@ Transform:
   m_Father: {fileID: 5241177994722901966}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &337135088522350855
+--- !u!136 &636900819892475251
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3562,7 +3562,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000006519258, y: 0.36119124, z: -0.000000092200935}
+  m_ConnectedAnchor: {x: 0.000000007450581, y: 0.36119124, z: 0.000000023283064}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3927,77 +3927,77 @@ PrefabInstance:
         type: 3}
       propertyPath: BodyParts.Array.data[0]
       value: 
-      objectReference: {fileID: 6861336595096014611}
+      objectReference: {fileID: 4020185048314443943}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[1]
       value: 
-      objectReference: {fileID: 1369239755078385486}
+      objectReference: {fileID: 8653964790345234791}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[2]
       value: 
-      objectReference: {fileID: 6919085751742788177}
+      objectReference: {fileID: 2095074302247642432}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[3]
       value: 
-      objectReference: {fileID: 337135088522350855}
+      objectReference: {fileID: 3515506784383865705}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[4]
       value: 
-      objectReference: {fileID: 7261721157800082648}
+      objectReference: {fileID: 458789501926684330}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[5]
       value: 
-      objectReference: {fileID: 6713958843429359285}
+      objectReference: {fileID: 6870303226598492156}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[6]
       value: 
-      objectReference: {fileID: 2999635606416120608}
+      objectReference: {fileID: 3308014544634891563}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[7]
       value: 
-      objectReference: {fileID: 4878509908755356303}
+      objectReference: {fileID: 1329693175950692767}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[8]
       value: 
-      objectReference: {fileID: 1142827393709779829}
+      objectReference: {fileID: 230206122413948904}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[9]
       value: 
-      objectReference: {fileID: 8453458848924210767}
+      objectReference: {fileID: 268433606243067124}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[10]
       value: 
-      objectReference: {fileID: 840983466852005762}
+      objectReference: {fileID: 2745610678666533826}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[11]
       value: 
-      objectReference: {fileID: 1427855507616505823}
+      objectReference: {fileID: 1989231357932239891}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[12]
       value: 
-      objectReference: {fileID: 4026031505598180236}
+      objectReference: {fileID: 1320444979285216484}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[13]
       value: 
-      objectReference: {fileID: 4965458682921736952}
+      objectReference: {fileID: 5956071156739336463}
     - target: {fileID: 7097633973097604586, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: BodyParts.Array.data[14]
       value: 
-      objectReference: {fileID: 7155503618300975823}
+      objectReference: {fileID: 3421475736012113868}
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4006,12 +4006,12 @@ PrefabInstance:
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: -0.996
       objectReference: {fileID: 0}
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.25
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
@@ -4021,7 +4021,7 @@ PrefabInstance:
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
@@ -4031,7 +4031,7 @@ PrefabInstance:
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
@@ -4046,7 +4046,7 @@ PrefabInstance:
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7198515055300973108, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
@@ -4076,7 +4076,7 @@ PrefabInstance:
     - target: {fileID: 7200667830176523006, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
       propertyPath: m_Name
-      value: Sophie Variant
+      value: Sophie
       objectReference: {fileID: 0}
     - target: {fileID: 8457966283628990782, guid: 50f426c0cc43c0c43b72737d9fd8b1f2,
         type: 3}
