@@ -71,6 +71,9 @@ namespace Roundbeargames
                 {
                     Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name +
                     "\n" + "Velocity: " + col.attachedRigidbody.velocity);
+
+                    control.DAMAGE_DATA.hp = 0;
+                    control.RAGDOLL_DATA.RagdollTriggered = true;
                 }
             }
         }
