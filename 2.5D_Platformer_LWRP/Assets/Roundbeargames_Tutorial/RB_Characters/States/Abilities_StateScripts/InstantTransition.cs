@@ -7,6 +7,8 @@ namespace Roundbeargames
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/InstantTransition")]
     public class InstantTransition : StateData
     {
+        bool DebugTransitionTiming = false;
+
         public Instant_Transition_States TransitionTo;
         public List<TransitionConditionType> transitionConditions = new List<TransitionConditionType>();
         public float CrossFade;
@@ -43,6 +45,11 @@ namespace Roundbeargames
             }
             else
             {
+                if (DebugTransitionTiming)
+                {
+                    Debug.Log("Instant transition to: " + TransitionTo.ToString() + " - CrossFade: " + CrossFade);
+                }
+                
                 if (Offset <= 0f)
                 {
                     control.SkinnedMeshAnimator.CrossFade(
