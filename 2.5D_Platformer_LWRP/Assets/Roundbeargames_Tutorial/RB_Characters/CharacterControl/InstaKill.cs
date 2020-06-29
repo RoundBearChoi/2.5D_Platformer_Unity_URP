@@ -37,7 +37,8 @@ namespace Roundbeargames
             //    return;
             //}
 
-            if (!control.SkinnedMeshAnimator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]))
+            if (!control.SkinnedMeshAnimator.
+                GetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Grounded]))
             {
                 return;
             }
@@ -63,7 +64,7 @@ namespace Roundbeargames
                     //    continue;
                     //}
 
-                    if (!c.SkinnedMeshAnimator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]))
+                    if (!c.SkinnedMeshAnimator.GetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Grounded]))
                     {
                         continue;
                     }

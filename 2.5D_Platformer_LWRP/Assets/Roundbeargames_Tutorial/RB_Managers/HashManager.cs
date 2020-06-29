@@ -4,6 +4,25 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
+    public enum MainParameterType
+    {
+        Move,
+        Left,
+        Right,
+        Up,
+        Down,
+        Jump,
+        ForceTransition,
+        Grounded,
+        ClickAnimation,
+        TransitionIndex,
+        Turbo,
+        Turn,
+        LockTransition,
+
+        COUNT,
+    }
+
     public enum CameraTrigger
     {
         Default,
@@ -71,8 +90,9 @@ namespace Roundbeargames
 
     public class HashManager : Singleton<HashManager>
     {
-        public Dictionary<TransitionParameter, int> DicMainParams =
-            new Dictionary<TransitionParameter, int>();
+        public int[] ArrMainParams;
+        //public Dictionary<TransitionParameter, int> DicMainParams =
+        //    new Dictionary<TransitionParameter, int>();
 
         public Dictionary<CameraTrigger, int> DicCameraTriggers =
             new Dictionary<CameraTrigger, int>();
@@ -98,13 +118,20 @@ namespace Roundbeargames
         private void Awake()
         {
             // animation transitions
-            TransitionParameter[] arrParams = System.Enum.GetValues(typeof(TransitionParameter))
-                as TransitionParameter[];
-                
-            foreach(TransitionParameter t in arrParams)
+            ArrMainParams = new int[(int)MainParameterType.COUNT];
+
+            for (int i = 0; i < (int)MainParameterType.COUNT; i++)
             {
-                DicMainParams.Add(t, Animator.StringToHash(t.ToString()));
+                ArrMainParams[i] = Animator.StringToHash(((MainParameterType)i).ToString());
             }
+
+            //TransitionParameter[] arrParams = System.Enum.GetValues(typeof(TransitionParameter))
+            //    as TransitionParameter[];
+            //    
+            //foreach(TransitionParameter t in arrParams)
+            //{
+            //    DicMainParams.Add(t, Animator.StringToHash(t.ToString()));
+            //}
 
             // camera transitions
             CameraTrigger[] arrCamTrans = System.Enum.GetValues(typeof(CameraTrigger))
@@ -168,6 +195,16 @@ namespace Roundbeargames
             {
                 DicCameraStates.Add(t, Animator.StringToHash(t.ToString()));
             }
+        }
+
+        public int GetHash(System.Type type, int index)
+        {
+            if (type == typeof(MainParameterType))
+            {
+                return ArrMainParams[index];
+            }
+
+            return 0;
         }
     }
 }

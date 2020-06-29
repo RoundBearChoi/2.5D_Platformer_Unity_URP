@@ -49,7 +49,7 @@ namespace Roundbeargames
             if (stateInfo.shortNameHash == HashManager.Instance.DicCameraStates[Camera_States.Default])
             {
                 if (MainCharacter.SkinnedMeshAnimator.GetBool(
-                    HashManager.Instance.DicMainParams[TransitionParameter.Grounded]))
+                    HashManager.Instance.ArrMainParams[(int)MainParameterType.Grounded]))
                 {
                     LerpNormal(CameraManager.Instance.CAM_CONTROLLER);
                 }

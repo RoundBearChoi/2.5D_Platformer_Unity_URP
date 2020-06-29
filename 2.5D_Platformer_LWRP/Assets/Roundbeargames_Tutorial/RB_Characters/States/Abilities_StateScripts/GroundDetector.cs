@@ -18,11 +18,11 @@ namespace Roundbeargames
         {
             if (IsGrounded(characterState.characterControl))
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded], true);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Grounded], true);
             }
             else
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded], false);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Grounded], false);
             }
         }
 

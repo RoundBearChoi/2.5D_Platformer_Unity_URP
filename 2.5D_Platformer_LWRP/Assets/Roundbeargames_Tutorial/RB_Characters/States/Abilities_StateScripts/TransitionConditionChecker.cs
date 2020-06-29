@@ -92,7 +92,9 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.GROUNDED:
                         {
-                            if (control.SkinnedMeshAnimator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]) == false)
+                            if (control.SkinnedMeshAnimator.
+                                GetBool(HashManager.Instance.ArrMainParams[
+                                    (int)MainParameterType.Grounded]) == false)
                             {
                                 return false;
                             }
@@ -118,7 +120,9 @@ namespace Roundbeargames
                         break;
                     case TransitionConditionType.NOT_GROUNDED:
                         {
-                            if (!control.SkinnedMeshAnimator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]) == false)
+                            if (!control.SkinnedMeshAnimator.
+                                GetBool(HashManager.Instance.ArrMainParams[
+                                    (int)MainParameterType.Grounded]) == false)
                             {
                                 return false;
                             }

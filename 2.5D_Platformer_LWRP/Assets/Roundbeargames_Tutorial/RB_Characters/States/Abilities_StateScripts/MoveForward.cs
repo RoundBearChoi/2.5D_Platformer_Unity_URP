@@ -84,11 +84,11 @@ namespace Roundbeargames
 
             if (characterState.characterControl.Turbo)
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], true);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Turbo], true);
             }
             else
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], false);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Turbo], false);
             }
 
             if (UseMomentum)

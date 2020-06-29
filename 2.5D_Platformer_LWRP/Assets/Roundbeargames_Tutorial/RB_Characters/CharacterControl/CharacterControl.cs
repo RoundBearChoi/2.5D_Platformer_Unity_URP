@@ -5,23 +5,6 @@ using UnityEngine.AI;
 
 namespace Roundbeargames
 {
-    public enum TransitionParameter
-    {
-        Move,
-        Left,
-        Right,
-        Up,
-        Down,
-        Jump,
-        ForceTransition,
-        Grounded,
-        ClickAnimation,
-        TransitionIndex,
-        Turbo,
-        Turn,
-        LockTransition,
-    }
-
     public enum RBScenes
     {
         TutorialScene_CharacterSelect,

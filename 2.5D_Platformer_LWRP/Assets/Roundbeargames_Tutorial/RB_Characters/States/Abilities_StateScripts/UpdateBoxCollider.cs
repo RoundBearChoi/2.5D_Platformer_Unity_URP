@@ -36,7 +36,7 @@ namespace Roundbeargames
             {
                 if (stateInfo.normalizedTime > 0.7f)
                 {
-                    if (animator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]) == true)
+                    if (animator.GetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Grounded]) == true)
                     {
                         characterState.BOX_COLLIDER_DATA.IsLanding = true;
                     }

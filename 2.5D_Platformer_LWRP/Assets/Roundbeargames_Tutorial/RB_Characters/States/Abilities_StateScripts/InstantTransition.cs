@@ -71,7 +71,7 @@ namespace Roundbeargames
             }
 
             if (control.SkinnedMeshAnimator.GetInteger(
-                HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex]) != 0)
+                HashManager.Instance.ArrMainParams[(int)MainParameterType.TransitionIndex]) != 0)
             {
                 return true;
             }

@@ -17,13 +17,13 @@ namespace Roundbeargames
             if ((characterState.characterControl.MoveLeft || characterState.characterControl.MoveRight) &&
                 characterState.characterControl.Turbo)
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], true);
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], true);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Move], true);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Turbo], true);
             }
             else
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], false);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Move], false);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Turbo], false);
             }
         }
 

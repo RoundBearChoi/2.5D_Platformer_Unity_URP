@@ -19,13 +19,13 @@ namespace Roundbeargames
         {
             if (stateInfo.normalizedTime >= TransitionTiming)
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.ForceTransition], true);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.ForceTransition], true);
             }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.ForceTransition], false);
+            animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.ForceTransition], false);
         }
     }
 }

@@ -34,7 +34,8 @@ namespace Roundbeargames
 
         public override void OnFixedUpdate()
         {
-            if (control.SkinnedMeshAnimator.GetBool(HashManager.Instance.DicMainParams[TransitionParameter.Grounded]))
+            if (control.SkinnedMeshAnimator.
+                GetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Grounded]))
             {
                 if (control.RIGID_BODY.useGravity)
                 {
@@ -70,7 +71,7 @@ namespace Roundbeargames
         void ProcLedgeGrab()
         {
             if (!control.SkinnedMeshAnimator.GetBool(
-                HashManager.Instance.DicMainParams[TransitionParameter.Grounded]))
+                HashManager.Instance.ArrMainParams[(int)MainParameterType.Grounded]))
             {
                 foreach (GameObject obj in Collider1.CollidedObjects)
                 {

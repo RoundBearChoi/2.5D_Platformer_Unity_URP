@@ -16,7 +16,7 @@ namespace Roundbeargames
         {
             if (characterState.ROTATION_DATA.LockTurn)
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turn], false);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Turn], false);
                 return;
             }
 
@@ -24,7 +24,7 @@ namespace Roundbeargames
             {
                 if (characterState.characterControl.MoveLeft)
                 {
-                    animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turn], true);
+                    animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Turn], true);
                 }
             }
 
@@ -32,14 +32,14 @@ namespace Roundbeargames
             {
                 if (characterState.characterControl.MoveRight)
                 {
-                    animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turn], true);
+                    animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Turn], true);
                 }
             }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turn], false);
+            animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Turn], false);
         }
     }
 }

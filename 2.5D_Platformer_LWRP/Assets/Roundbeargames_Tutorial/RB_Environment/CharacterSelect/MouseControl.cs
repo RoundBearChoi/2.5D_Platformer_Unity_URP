@@ -68,11 +68,13 @@ namespace Roundbeargames
                 {
                     if (c.playableCharacterType == selectedCharacterType)
                     {
-                        c.SkinnedMeshAnimator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.ClickAnimation], true);
+                        c.SkinnedMeshAnimator.
+                            SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.ClickAnimation], true);
                     }
                     else
                     {
-                        c.SkinnedMeshAnimator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.ClickAnimation], false);
+                        c.SkinnedMeshAnimator.
+                            SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.ClickAnimation], false);
                     }
                 }
 

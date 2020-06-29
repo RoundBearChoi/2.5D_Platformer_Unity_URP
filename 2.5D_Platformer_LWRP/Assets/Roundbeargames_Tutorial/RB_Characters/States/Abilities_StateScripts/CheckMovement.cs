@@ -18,20 +18,20 @@ namespace Roundbeargames
 
             if (characterState.characterControl.MoveLeft || characterState.characterControl.MoveRight)
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], true);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Move], true);
             }
             else
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Move], false);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Move], false);
             }
 
             if (characterState.characterControl.Turbo)
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], true);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Turbo], true);
             }
             else
             {
-                animator.SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Turbo], false);
+                animator.SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Turbo], false);
             }
         }
 
@@ -45,45 +45,45 @@ namespace Roundbeargames
             if (control.MoveLeft)
             {
                 control.SkinnedMeshAnimator.
-                    SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Left], true);
+                    SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Left], true);
             }
             else
             {
                 control.SkinnedMeshAnimator.
-                    SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Left], false);
+                    SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Left], false);
             }
 
             if (control.MoveRight)
             {
                 control.SkinnedMeshAnimator.
-                    SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Right], true);
+                    SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Right], true);
             }
             else
             {
                 control.SkinnedMeshAnimator.
-                    SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Right], false);
+                    SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Right], false);
             }
 
             if (control.MoveUp)
             {
                 control.SkinnedMeshAnimator.
-                    SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Up], true);
+                    SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Up], true);
             }
             else
             {
                 control.SkinnedMeshAnimator.
-                    SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Up], false);
+                    SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Up], false);
             }
 
             if (control.MoveDown)
             {
                 control.SkinnedMeshAnimator.
-                    SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Down], true);
+                    SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Down], true);
             }
             else
             {
                 control.SkinnedMeshAnimator.
-                    SetBool(HashManager.Instance.DicMainParams[TransitionParameter.Down], false);
+                    SetBool(HashManager.Instance.ArrMainParams[(int)MainParameterType.Down], false);
             }
         }
     }

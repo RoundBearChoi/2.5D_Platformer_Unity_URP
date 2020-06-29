@@ -55,7 +55,7 @@ namespace Roundbeargames
         {
             if (TransitionConditionChecker.MakeTransition(characterState.characterControl, transitionConditions))
             {
-                animator.SetInteger(HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex], Index);
+                animator.SetInteger(HashManager.Instance.ArrMainParams[(int)MainParameterType.TransitionIndex], Index);
             }
         }
 
@@ -63,13 +63,13 @@ namespace Roundbeargames
         {
             characterState.JUMP_DATA.CheckWallBlock = StartCheckingWallBlock();
 
-            if (animator.GetInteger(HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex]) == 0)
+            if (animator.GetInteger(HashManager.Instance.ArrMainParams[(int)MainParameterType.TransitionIndex]) == 0)
             {
                 if (!characterState.characterControl.animationProgress.LockTransition)
                 {
                     if (TransitionConditionChecker.MakeTransition(characterState.characterControl, transitionConditions))
                     {
-                        animator.SetInteger(HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex], Index);
+                        animator.SetInteger(HashManager.Instance.ArrMainParams[(int)MainParameterType.TransitionIndex], Index);
                     }
                 }
             }
@@ -77,7 +77,7 @@ namespace Roundbeargames
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            animator.SetInteger(HashManager.Instance.DicMainParams[TransitionParameter.TransitionIndex], 0);
+            animator.SetInteger(HashManager.Instance.ArrMainParams[(int)MainParameterType.TransitionIndex], 0);
         }
 
         private bool StartCheckingWallBlock()
