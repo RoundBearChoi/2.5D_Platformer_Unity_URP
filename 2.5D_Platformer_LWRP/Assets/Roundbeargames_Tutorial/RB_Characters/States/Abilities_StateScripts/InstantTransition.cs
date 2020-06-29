@@ -7,7 +7,7 @@ namespace Roundbeargames
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/InstantTransition")]
     public class InstantTransition : StateData
     {
-        static bool DebugTransitionTiming = false;
+        static bool DebugTransitionTiming = true;
 
         public Instant_Transition_States TransitionTo;
         public List<TransitionConditionType> transitionConditions = new List<TransitionConditionType>();
