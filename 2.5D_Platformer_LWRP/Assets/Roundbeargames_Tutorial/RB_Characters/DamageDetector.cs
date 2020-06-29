@@ -23,7 +23,7 @@ namespace Roundbeargames
                 DamagedTrigger = null,
                 AttackingPart = null,
                 BlockedAttack = null,
-                hp = 3f,
+                hp = 1f,
                 MarioStompAttack = MarioStompAttack,
                 AxeThrow = AxeThrow,
 
@@ -33,7 +33,6 @@ namespace Roundbeargames
 
             subComponentProcessor.damageData = damageData;
             subComponentProcessor.ArrSubComponents[(int)SubComponentType.DAMAGE_DETECTOR] = this;
-            //subComponentProcessor.ComponentsDic.Add(SubComponentType.DAMAGE_DETECTOR, this);
         }
 
         public override void OnFixedUpdate()

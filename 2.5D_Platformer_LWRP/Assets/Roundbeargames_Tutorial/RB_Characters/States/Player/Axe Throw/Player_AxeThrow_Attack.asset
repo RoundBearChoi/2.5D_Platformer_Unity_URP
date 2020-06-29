@@ -10,21 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 223373fed4d14a94588b3694fc5a992e, type: 3}
-  m_Name: Player_Attack_AxeStandingAttack
+  m_Name: Player_AxeThrow_Attack
   m_EditorClassIdentifier: 
   debug: 0
-  StartAttackTime: 0.3
-  EndAttackTime: 0.7
-  AttackParts: 04000000
-  MustCollide: 1
+  StartAttackTime: 0
+  EndAttackTime: 0
+  AttackParts: 
+  MustCollide: 0
   MustFaceAttacker: 0
   LethalRange: 0
-  MaxHits: 3
-  Damage: 1
-  ComboStartTime: 0
-  ComboEndTime: 0
-  ForwardForce: 3000
-  RightForce: -2000
-  UpForce: 0
-  UseDeathParticles: 1
-  ParticleType: 3
+  MaxHits: 0
+  Damage: 3
+  ForwardForce: 2500
+  RightForce: 0
+  UpForce: 2500
+  UseDeathParticles: 0
+  ParticleType: 0
