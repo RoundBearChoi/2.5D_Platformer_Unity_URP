@@ -12,7 +12,7 @@ namespace Roundbeargames
         {
             jumpData = new JumpData
             {
-                Jumped = false,
+                DicJumped = new Dictionary<int, bool>(),
                 CanWallJump = false,
                 CheckWallBlock = false,
             };
