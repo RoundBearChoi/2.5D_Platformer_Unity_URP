@@ -51,7 +51,7 @@ namespace Roundbeargames
                 return;
             }
 
-            // add to dictionary
+            // add collider to dictionary
 
             if (!control.animationProgress.CollidingBodyParts.ContainsKey(this))
             {
@@ -63,11 +63,12 @@ namespace Roundbeargames
                 control.animationProgress.CollidingBodyParts[this].Add(col);
             }
 
-            // check if flying ragdoll
+            // check if collider is flying ragdoll
 
             if (attacker.RAGDOLL_DATA.FlyingRagdoll)
             {
-                Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name);
+                Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name + 
+                    "\n" + "Velocity: " + col.attachedRigidbody.velocity);
             }
         }
 
