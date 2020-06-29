@@ -149,14 +149,15 @@ namespace Roundbeargames
 
         bool IsInLethalRange(AttackCondition info)
         {
-            foreach(Collider c in control.RAGDOLL_DATA.BodyParts)
+            for (int i = 0; i < control.RAGDOLL_DATA.ArrBodyParts.Length; i++)
             {
-                float dist = Vector3.SqrMagnitude(c.transform.position - info.Attacker.transform.position);
+                float dist = Vector3.SqrMagnitude(
+                    control.RAGDOLL_DATA.ArrBodyParts[i].transform.position - info.Attacker.transform.position);
 
                 if (dist <= info.LethalRange)
                 {
-                    int index = Random.Range(0, control.RAGDOLL_DATA.BodyParts.Count);
-                    TriggerDetector triggerDetector = control.RAGDOLL_DATA.BodyParts[index].GetComponent<TriggerDetector>();
+                    int index = Random.Range(0, control.RAGDOLL_DATA.ArrBodyParts.Length);
+                    TriggerDetector triggerDetector = control.RAGDOLL_DATA.ArrBodyParts[index].GetComponent<TriggerDetector>();
 
                     damageData.SetData(
                         info.Attacker,
@@ -167,6 +168,25 @@ namespace Roundbeargames
                     return true;
                 }
             }
+
+            //foreach(Collider c in control.RAGDOLL_DATA.BodyParts)
+            //{
+            //    float dist = Vector3.SqrMagnitude(c.transform.position - info.Attacker.transform.position);
+            //
+            //    if (dist <= info.LethalRange)
+            //    {
+            //        int index = Random.Range(0, control.RAGDOLL_DATA.BodyParts.Count);
+            //        TriggerDetector triggerDetector = control.RAGDOLL_DATA.BodyParts[index].GetComponent<TriggerDetector>();
+            //
+            //        damageData.SetData(
+            //            info.Attacker,
+            //            info.AttackAbility,
+            //            triggerDetector,
+            //            null);
+            //
+            //        return true;
+            //    }
+            //}
 
             return false;
         }

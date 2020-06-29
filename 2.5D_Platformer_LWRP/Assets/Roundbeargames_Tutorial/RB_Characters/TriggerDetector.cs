@@ -29,10 +29,18 @@ namespace Roundbeargames
                 return;
             }
 
-            if (control.RAGDOLL_DATA.BodyParts.Contains(col))
+            for (int i = 0; i < control.RAGDOLL_DATA.ArrBodyParts.Length; i++)
             {
-                return;
+                if (control.RAGDOLL_DATA.ArrBodyParts[i].Equals(col))
+                {
+                    return;
+                }
             }
+
+            //if (control.RAGDOLL_DATA.BodyParts.Contains(col))
+            //{
+            //    return;
+            //}
 
             CharacterControl attacker = col.transform.root.GetComponent<CharacterControl>();
 

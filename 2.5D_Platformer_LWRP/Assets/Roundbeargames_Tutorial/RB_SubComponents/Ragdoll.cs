@@ -13,7 +13,7 @@ namespace Roundbeargames
             ragdollData = new RagdollData
             {
                 RagdollTriggered = false,
-                BodyParts = new List<Collider>(),
+                //BodyParts = new List<Collider>(),
 
                 GetBody = GetBodyPart,
                 AddForceToDamagedPart = AddForceToDamagedPart,
@@ -39,8 +39,7 @@ namespace Roundbeargames
 
         public void SetupBodyParts()
         {
-            ragdollData.BodyParts.Clear();
-
+            List<Collider> BodyParts = new List<Collider>();
             Collider[] colliders = control.gameObject.GetComponentsInChildren<Collider>();
 
             foreach (Collider c in colliders)
@@ -51,7 +50,7 @@ namespace Roundbeargames
                         c.gameObject.GetComponent<LedgeCollider>() == null)
                     {
                         c.isTrigger = true;
-                        ragdollData.BodyParts.Add(c);
+                        BodyParts.Add(c);
                         c.attachedRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
                         c.attachedRigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
@@ -67,6 +66,13 @@ namespace Roundbeargames
                         }
                     }
                 }
+            }
+
+            ragdollData.ArrBodyParts = new Collider[BodyParts.Count];
+
+            for (int i = 0; i < ragdollData.ArrBodyParts.Length; i++)
+            {
+                ragdollData.ArrBodyParts[i] = BodyParts[i];
             }
         }
 
@@ -87,12 +93,19 @@ namespace Roundbeargames
             }
 
             //save bodypart positions
-            foreach (Collider c in ragdollData.BodyParts)
+            for (int i = 0; i < ragdollData.ArrBodyParts.Length; i++)
             {
-                TriggerDetector det = c.GetComponent<TriggerDetector>();
-                det.LastPosition = c.gameObject.transform.position;
-                det.LastRotation = c.gameObject.transform.rotation;
+                TriggerDetector det = ragdollData.ArrBodyParts[i].GetComponent<TriggerDetector>();
+                det.LastPosition = ragdollData.ArrBodyParts[i].gameObject.transform.position;
+                det.LastRotation = ragdollData.ArrBodyParts[i].gameObject.transform.rotation;
             }
+
+            //foreach (Collider c in ragdollData.BodyParts)
+            //{
+            //    TriggerDetector det = c.GetComponent<TriggerDetector>();
+            //    det.LastPosition = c.gameObject.transform.position;
+            //    det.LastRotation = c.gameObject.transform.rotation;
+            //}
 
             //turn off animator/avatar
             control.RIGID_BODY.useGravity = false;
@@ -112,29 +125,47 @@ namespace Roundbeargames
             }
 
             //turn on ragdoll
-            foreach (Collider c in ragdollData.BodyParts)
+            for (int i = 0; i < ragdollData.ArrBodyParts.Length; i++)
             {
-                c.isTrigger = false;
+                ragdollData.ArrBodyParts[i].isTrigger = false;
 
-                TriggerDetector det = c.GetComponent<TriggerDetector>();
-                c.attachedRigidbody.MovePosition(det.LastPosition);
-                c.attachedRigidbody.MoveRotation(det.LastRotation);
-
-                c.attachedRigidbody.velocity = Vector3.zero;
+                TriggerDetector det = ragdollData.ArrBodyParts[i].GetComponent<TriggerDetector>();
+                ragdollData.ArrBodyParts[i].attachedRigidbody.MovePosition(det.LastPosition);
+                ragdollData.ArrBodyParts[i].attachedRigidbody.MoveRotation(det.LastRotation);
+                ragdollData.ArrBodyParts[i].attachedRigidbody.velocity = Vector3.zero;
             }
+
+            //foreach (Collider c in ragdollData.BodyParts)
+            //{
+            //    c.isTrigger = false;
+            //
+            //    TriggerDetector det = c.GetComponent<TriggerDetector>();
+            //    c.attachedRigidbody.MovePosition(det.LastPosition);
+            //    c.attachedRigidbody.MoveRotation(det.LastRotation);
+            //
+            //    c.attachedRigidbody.velocity = Vector3.zero;
+            //}
 
             AddForceToDamagedPart(false);
         }
 
         Collider GetBodyPart(string name)
         {
-            foreach (Collider c in ragdollData.BodyParts)
+            for (int i = 0; i < ragdollData.ArrBodyParts.Length; i++)
             {
-                if (c.name.Contains(name))
+                if (ragdollData.ArrBodyParts[i].name.Contains(name))
                 {
-                    return c;
+                    return ragdollData.ArrBodyParts[i];
                 }
             }
+
+            //foreach (Collider c in ragdollData.BodyParts)
+            //{
+            //    if (c.name.Contains(name))
+            //    {
+            //        return c;
+            //    }
+            //}
 
             return null;
         }
@@ -145,10 +176,15 @@ namespace Roundbeargames
             {
                 if (zeroVelocity)
                 {
-                    foreach (Collider c in ragdollData.BodyParts)
+                    for (int i = 0; i < ragdollData.ArrBodyParts.Length; i++)
                     {
-                        c.attachedRigidbody.velocity = Vector3.zero;
+                        ragdollData.ArrBodyParts[i].attachedRigidbody.velocity = Vector3.zero;
                     }
+
+                    //foreach (Collider c in ragdollData.BodyParts)
+                    //{
+                    //    c.attachedRigidbody.velocity = Vector3.zero;
+                    //}
                 }
 
                 control.DAMAGE_DATA.DamagedTrigger.GetComponent<Rigidbody>().

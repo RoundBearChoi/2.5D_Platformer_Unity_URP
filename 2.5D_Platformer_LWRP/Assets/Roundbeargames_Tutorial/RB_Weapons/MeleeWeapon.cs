@@ -132,37 +132,27 @@ namespace Roundbeargames
 
         public void RemoveWeaponFromDictionary(CharacterControl c)
         {
-            foreach(Collider col in c.RAGDOLL_DATA.BodyParts)
+            for (int i = 0; i < c.RAGDOLL_DATA.ArrBodyParts.Length; i++)
             {
-                TriggerDetector t = col.GetComponent<TriggerDetector>();
+                TriggerDetector t = c.RAGDOLL_DATA.ArrBodyParts[i].GetComponent<TriggerDetector>();
 
                 if (t != null)
                 {
                     ProcRemove(c.animationProgress.CollidingWeapons, t);
                     ProcRemove(c.animationProgress.CollidingBodyParts, t);
                 }
-
-                //if (t != null)
-                //{
-                //    if (c.animationProgress.CollidingWeapons.ContainsKey(t))
-                //    {
-                //        if (c.animationProgress.CollidingWeapons[t].Contains(PickUpCollider))
-                //        {
-                //            c.animationProgress.CollidingWeapons[t].Remove(PickUpCollider);
-                //        }
-                //
-                //        if (c.animationProgress.CollidingWeapons[t].Contains(AttackCollider))
-                //        {
-                //            c.animationProgress.CollidingWeapons[t].Remove(AttackCollider);
-                //        }
-                //
-                //        if (c.animationProgress.CollidingWeapons[t].Count == 0)
-                //        {
-                //            c.animationProgress.CollidingWeapons.Remove(t);
-                //        }
-                //    }
-                //}
             }
+
+            //foreach(Collider col in c.RAGDOLL_DATA.BodyParts)
+            //{
+            //    TriggerDetector t = col.GetComponent<TriggerDetector>();
+            //
+            //    if (t != null)
+            //    {
+            //        ProcRemove(c.animationProgress.CollidingWeapons, t);
+            //        ProcRemove(c.animationProgress.CollidingBodyParts, t);
+            //    }
+            //}
         }
 
         void ProcRemove(Dictionary<TriggerDetector, List<Collider>> d, TriggerDetector t)

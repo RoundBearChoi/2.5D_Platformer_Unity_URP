@@ -8,7 +8,8 @@ namespace Roundbeargames
     public class RagdollData
     {
         public bool RagdollTriggered;
-        public List<Collider> BodyParts;
+        public Collider[] ArrBodyParts;
+        //public List<Collider> BodyParts;
 
         public delegate Collider GetCollider(string name);
         public delegate void DoSomething(bool boolData);

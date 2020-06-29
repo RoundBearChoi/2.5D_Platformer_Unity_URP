@@ -126,8 +126,8 @@ namespace Roundbeargames
                     AttackCondition info = new AttackCondition();
                     info.CopyInfo(c.DAMAGE_DATA.MarioStompAttack, control);
 
-                    int index = Random.Range(0, c.RAGDOLL_DATA.BodyParts.Count);
-                    TriggerDetector randomPart = c.RAGDOLL_DATA.BodyParts[index].GetComponent<TriggerDetector>();
+                    int index = Random.Range(0, c.RAGDOLL_DATA.ArrBodyParts.Length);
+                    TriggerDetector randomPart = c.RAGDOLL_DATA.ArrBodyParts[index].GetComponent<TriggerDetector>();
 
                     c.DAMAGE_DATA.SetData(
                         control,
