@@ -70,7 +70,7 @@ namespace Roundbeargames
                 if (attacker.RAGDOLL_DATA.flyingRagdollData.Attacker != control)
                 {
                     Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name +
-                    "\n" + "Velocity: " + col.attachedRigidbody.velocity);
+                    "\n" + "Velocity: " + Vector3.SqrMagnitude(col.attachedRigidbody.velocity));
 
                     control.DAMAGE_DATA.hp = 0;
                     control.RAGDOLL_DATA.RagdollTriggered = true;
