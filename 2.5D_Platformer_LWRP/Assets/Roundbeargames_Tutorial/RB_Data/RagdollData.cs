@@ -9,13 +9,19 @@ namespace Roundbeargames
     {
         public bool RagdollTriggered;
         public Collider[] ArrBodyParts;
-        //public List<Collider> BodyParts;
-        public bool FlyingRagdoll;
+        public FlyingRagdollData flyingRagdollData;
 
         public delegate Collider GetCollider(string name);
         public delegate void DoSomething(bool boolData);
 
         public GetCollider GetBody;
         public DoSomething AddForceToDamagedPart;
+    }
+
+    [System.Serializable]
+    public class FlyingRagdollData
+    {
+        public bool IsTriggered = false;
+        public CharacterControl Attacker = null;
     }
 }

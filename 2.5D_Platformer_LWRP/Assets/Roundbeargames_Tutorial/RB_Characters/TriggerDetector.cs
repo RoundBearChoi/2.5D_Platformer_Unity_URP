@@ -65,10 +65,13 @@ namespace Roundbeargames
 
             // check if collider is flying ragdoll
 
-            if (attacker.RAGDOLL_DATA.FlyingRagdoll)
+            if (attacker.RAGDOLL_DATA.flyingRagdollData.IsTriggered)
             {
-                Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name + 
+                if (attacker.RAGDOLL_DATA.flyingRagdollData.Attacker != control)
+                {
+                    Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name +
                     "\n" + "Velocity: " + col.attachedRigidbody.velocity);
+                }
             }
         }
 

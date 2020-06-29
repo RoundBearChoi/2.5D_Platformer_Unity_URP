@@ -13,8 +13,7 @@ namespace Roundbeargames
             ragdollData = new RagdollData
             {
                 RagdollTriggered = false,
-                FlyingRagdoll = false,
-                //BodyParts = new List<Collider>(),
+                flyingRagdollData = new FlyingRagdollData(),
 
                 GetBody = GetBodyPart,
                 AddForceToDamagedPart = AddForceToDamagedPart,

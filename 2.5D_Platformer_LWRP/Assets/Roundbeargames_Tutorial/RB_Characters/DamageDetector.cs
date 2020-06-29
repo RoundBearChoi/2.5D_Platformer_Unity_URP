@@ -314,7 +314,8 @@ namespace Roundbeargames
         {
             if (info.AttackAbility.collateralDamageInfo.CreateCollateral)
             {
-                control.RAGDOLL_DATA.FlyingRagdoll = true;
+                control.RAGDOLL_DATA.flyingRagdollData.IsTriggered = true;
+                control.RAGDOLL_DATA.flyingRagdollData.Attacker = info.Attacker;
             }
         }
     }
