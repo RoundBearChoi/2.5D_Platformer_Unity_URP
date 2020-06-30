@@ -28,11 +28,8 @@ namespace Roundbeargames
         public int MaxHits;
         public float Damage;
 
-        //[Header("Ragdoll Death")]
-        //public float ForwardForce;
-        //public float RightForce;
-        //public float UpForce;
         public NormalRagdollVelocity normalRagdollVelocity;
+        public CollateralRagdollVelocity collateralRagdollVelocity;
 
         [Header("Death Particles")]
         public bool UseDeathParticles;
