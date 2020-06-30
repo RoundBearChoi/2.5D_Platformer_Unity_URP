@@ -17,6 +17,7 @@ namespace Roundbeargames
 
                 GetBody = GetBodyPart,
                 AddForceToDamagedPart = AddForceToDamagedPart,
+                ClearExistingVelocity = ClearExistingVelocity,
             };
 
             SetupBodyParts();
@@ -100,13 +101,6 @@ namespace Roundbeargames
                 det.LastRotation = ragdollData.ArrBodyParts[i].gameObject.transform.rotation;
             }
 
-            //foreach (Collider c in ragdollData.BodyParts)
-            //{
-            //    TriggerDetector det = c.GetComponent<TriggerDetector>();
-            //    det.LastPosition = c.gameObject.transform.position;
-            //    det.LastRotation = c.gameObject.transform.rotation;
-            //}
-
             //turn off animator/avatar
             control.RIGID_BODY.useGravity = false;
             control.RIGID_BODY.velocity = Vector3.zero;
@@ -135,18 +129,8 @@ namespace Roundbeargames
                 ragdollData.ArrBodyParts[i].attachedRigidbody.velocity = Vector3.zero;
             }
 
-            //foreach (Collider c in ragdollData.BodyParts)
-            //{
-            //    c.isTrigger = false;
-            //
-            //    TriggerDetector det = c.GetComponent<TriggerDetector>();
-            //    c.attachedRigidbody.MovePosition(det.LastPosition);
-            //    c.attachedRigidbody.MoveRotation(det.LastRotation);
-            //
-            //    c.attachedRigidbody.velocity = Vector3.zero;
-            //}
-
-            AddForceToDamagedPart(false);
+            ragdollData.ClearExistingVelocity();
+            ragdollData.AddForceToDamagedPart();
         }
 
         Collider GetBodyPart(string name)
@@ -159,38 +143,35 @@ namespace Roundbeargames
                 }
             }
 
-            //foreach (Collider c in ragdollData.BodyParts)
-            //{
-            //    if (c.name.Contains(name))
-            //    {
-            //        return c;
-            //    }
-            //}
-
             return null;
         }
 
-        void AddForceToDamagedPart(bool zeroVelocity)
+        void AddForceToDamagedPart()
         {
-            if (control.DAMAGE_DATA.DamagedTrigger != null)
+            if (control.DAMAGE_DATA.normalDamageTaken.Damagee == null)
             {
-                if (zeroVelocity)
-                {
-                    for (int i = 0; i < ragdollData.ArrBodyParts.Length; i++)
-                    {
-                        ragdollData.ArrBodyParts[i].attachedRigidbody.velocity = Vector3.zero;
-                    }
+                return;
+            }
 
-                    //foreach (Collider c in ragdollData.BodyParts)
-                    //{
-                    //    c.attachedRigidbody.velocity = Vector3.zero;
-                    //}
-                }
+            DamageData damageData = control.DAMAGE_DATA;
 
-                control.DAMAGE_DATA.DamagedTrigger.GetComponent<Rigidbody>().
-                    AddForce(control.DAMAGE_DATA.Attacker.transform.forward * control.DAMAGE_DATA.Attack.ForwardForce +
-                    control.DAMAGE_DATA.Attacker.transform.right * control.DAMAGE_DATA.Attack.RightForce +
-                    control.DAMAGE_DATA.Attacker.transform.up * control.DAMAGE_DATA.Attack.UpForce);
+            Vector3 forwardDir = damageData.normalDamageTaken.Attacker.transform.forward;
+            Vector3 rightDir = damageData.normalDamageTaken.Attacker.transform.right;
+            Vector3 upDir = damageData.normalDamageTaken.Attacker.transform.up;
+
+            Rigidbody body = control.DAMAGE_DATA.normalDamageTaken.Damagee.GetComponent<Rigidbody>();
+
+            body.AddForce(
+                forwardDir * damageData.normalDamageTaken.Attack.ForwardForce +
+                rightDir * damageData.normalDamageTaken.Attack.RightForce +
+                upDir * damageData.normalDamageTaken.Attack.UpForce);
+        }
+
+        void ClearExistingVelocity()
+        {
+            for (int i = 0; i < ragdollData.ArrBodyParts.Length; i++)
+            {
+                ragdollData.ArrBodyParts[i].attachedRigidbody.velocity = Vector3.zero;
             }
         }
     }

@@ -12,10 +12,11 @@ namespace Roundbeargames
         public FlyingRagdollData flyingRagdollData;
 
         public delegate Collider GetCollider(string name);
-        public delegate void DoSomething(bool boolData);
+        public delegate void DoSomething();
 
         public GetCollider GetBody;
         public DoSomething AddForceToDamagedPart;
+        public DoSomething ClearExistingVelocity;
     }
 
     [System.Serializable]

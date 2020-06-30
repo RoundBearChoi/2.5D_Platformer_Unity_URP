@@ -7,14 +7,13 @@ namespace Roundbeargames
     [System.Serializable]
     public class DamageData
     {
-        public CharacterControl Attacker;
-        public Attack Attack;
-        public TriggerDetector DamagedTrigger;
-        public GameObject AttackingPart;
         public AttackCondition BlockedAttack;
         public float hp;
         public Attack MarioStompAttack;
         public Attack AxeThrow;
+
+        public NormalDamageTaken normalDamageTaken;
+        public CollateralDamageTaken collateralDamageTaken;
 
         public delegate bool ReturnBool();
         public delegate void DoSomething(AttackCondition info);
@@ -22,16 +21,31 @@ namespace Roundbeargames
         public ReturnBool IsDead;
         public DoSomething TakeDamage;
 
-        public void SetData(
-            CharacterControl attacker,
-            Attack attack,
-            TriggerDetector damagedTrigger,
-            GameObject attackingPart)
+        [System.Serializable]
+        public class NormalDamageTaken
         {
-            Attacker = attacker;
-            Attack = attack;
-            DamagedTrigger = damagedTrigger;
-            AttackingPart = attackingPart;
+            public NormalDamageTaken(CharacterControl attacker,
+                Attack attack,
+                TriggerDetector damagee,
+                GameObject damager)
+            {
+                Attacker = attacker;
+                Attack = attack;
+                Damagee = damagee;
+                Damager = damager;
+            }
+
+            public CharacterControl Attacker = null;
+            public Attack Attack = null;
+            public GameObject Damager = null;
+            public TriggerDetector Damagee = null;
+        }
+
+        [System.Serializable]
+        public class CollateralDamageTaken
+        {
+            public Vector3 Velocity = Vector3.zero;
+            public TriggerDetector Damagee = null;
         }
     }
 }

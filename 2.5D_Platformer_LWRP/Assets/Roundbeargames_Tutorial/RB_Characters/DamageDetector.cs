@@ -20,14 +20,13 @@ namespace Roundbeargames
         {
             damageData = new DamageData
             {
-                Attacker = null,
-                Attack = null,
-                DamagedTrigger = null,
-                AttackingPart = null,
                 BlockedAttack = null,
                 hp = 1f,
                 MarioStompAttack = MarioStompAttack,
                 AxeThrow = AxeThrow,
+
+                normalDamageTaken = new DamageData.NormalDamageTaken(null, null, null, null),
+                collateralDamageTaken = new DamageData.CollateralDamageTaken(),
 
                 IsDead = IsDead,
                 TakeDamage = ProcessDamage,
@@ -133,7 +132,7 @@ namespace Roundbeargames
                         if (info.Attacker.GetAttackingPart(part) ==
                             collider.gameObject)
                         {
-                            damageData.SetData(
+                            damageData.normalDamageTaken = new DamageData.NormalDamageTaken(
                                 info.Attacker,
                                 info.AttackAbility,
                                 data.Key,
@@ -160,7 +159,7 @@ namespace Roundbeargames
                     int index = Random.Range(0, control.RAGDOLL_DATA.ArrBodyParts.Length);
                     TriggerDetector triggerDetector = control.RAGDOLL_DATA.ArrBodyParts[index].GetComponent<TriggerDetector>();
 
-                    damageData.SetData(
+                    damageData.normalDamageTaken = new DamageData.NormalDamageTaken(
                         info.Attacker,
                         info.AttackAbility,
                         triggerDetector,
@@ -241,7 +240,8 @@ namespace Roundbeargames
                 }
 
                 info.RegisteredTargets.Add(this.control);
-                control.RAGDOLL_DATA.AddForceToDamagedPart(true);
+                control.RAGDOLL_DATA.ClearExistingVelocity();
+                control.RAGDOLL_DATA.AddForceToDamagedPart();
             }
 
             return;
@@ -296,7 +296,7 @@ namespace Roundbeargames
             GameObject vfx = PoolManager.Instance.GetObject(EffectsType);
 
             vfx.transform.position =
-                control.DAMAGE_DATA.DamagedTrigger.triggerCollider.bounds.center;
+                control.DAMAGE_DATA.normalDamageTaken.Damagee.triggerCollider.bounds.center;
 
             vfx.SetActive(true);
 

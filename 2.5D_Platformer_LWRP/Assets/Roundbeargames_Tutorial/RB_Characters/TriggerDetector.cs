@@ -72,7 +72,10 @@ namespace Roundbeargames
                     Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name +
                     "\n" + "Velocity: " + Vector3.SqrMagnitude(col.attachedRigidbody.velocity));
 
+                    control.DAMAGE_DATA.normalDamageTaken.Damagee = null;
                     control.DAMAGE_DATA.hp = 0;
+                    control.DAMAGE_DATA.collateralDamageTaken.Velocity = col.attachedRigidbody.velocity;
+                    control.DAMAGE_DATA.collateralDamageTaken.Damagee = this;
                     control.RAGDOLL_DATA.RagdollTriggered = true;
                 }
             }
@@ -94,7 +97,7 @@ namespace Roundbeargames
                     AttackCondition info = new AttackCondition();
                     info.CopyInfo(control.DAMAGE_DATA.AxeThrow, control);
 
-                    control.DAMAGE_DATA.SetData(
+                    control.DAMAGE_DATA.normalDamageTaken = new DamageData.NormalDamageTaken(
                         w.Thrower,
                         control.DAMAGE_DATA.AxeThrow,
                         this,
