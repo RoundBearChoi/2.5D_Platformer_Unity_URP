@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilitySearch/AbilitySearch")]
+    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/Tools/AbilitySearch")]
     public class AbilitySearch : ScriptableObject
     {
         public AnimatorController ControllerToSearch;

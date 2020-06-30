@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityListToArray/AbilityListToArray")]
+    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/Tools/AbilityListToArray")]
     public class AbilityListToArray : ScriptableObject
     {
         public AnimatorController TargetAnimator;
