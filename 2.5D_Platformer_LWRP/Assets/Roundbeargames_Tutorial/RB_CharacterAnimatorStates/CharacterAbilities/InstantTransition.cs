@@ -13,6 +13,7 @@ namespace Roundbeargames
         public List<TransitionConditionType> transitionConditions = new List<TransitionConditionType>();
         public float CrossFade;
         public float Offset;
+        public bool IgnoreAttackAbility;
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
@@ -83,9 +84,12 @@ namespace Roundbeargames
                 return true;
             }
 
-            if (control.ANIMATION_DATA.IsRunning(typeof(Attack)))
+            if (!IgnoreAttackAbility)
             {
-                return true;
+                if (control.ANIMATION_DATA.IsRunning(typeof(Attack)))
+                {
+                    return true;
+                }
             }
 
             AnimatorStateInfo nextInfo = control.SkinnedMeshAnimator.GetNextAnimatorStateInfo(0);
