@@ -69,14 +69,18 @@ namespace Roundbeargames
             {
                 if (attacker.RAGDOLL_DATA.flyingRagdollData.Attacker != control)
                 {
+                    float mag = Vector3.SqrMagnitude(col.attachedRigidbody.velocity);
                     Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name +
-                    "\n" + "Velocity: " + Vector3.SqrMagnitude(col.attachedRigidbody.velocity));
+                    "\n" + "Velocity: " + mag);
 
-                    control.DAMAGE_DATA.normalDamageTaken = null;
-                    control.DAMAGE_DATA.hp = 0;
-                    control.DAMAGE_DATA.collateralDamageTaken.Velocity = col.attachedRigidbody.velocity;
-                    control.DAMAGE_DATA.collateralDamageTaken.Damagee = this;
-                    control.RAGDOLL_DATA.RagdollTriggered = true;
+                    if (mag >= 10f)
+                    {
+                        control.DAMAGE_DATA.normalDamageTaken = null;
+                        control.DAMAGE_DATA.hp = 0;
+                        control.DAMAGE_DATA.collateralDamageTaken.Velocity = col.attachedRigidbody.velocity;
+                        control.DAMAGE_DATA.collateralDamageTaken.Damagee = this;
+                        control.RAGDOLL_DATA.RagdollTriggered = true;
+                    }
                 }
             }
         }

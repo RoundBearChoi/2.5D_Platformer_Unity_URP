@@ -21,7 +21,7 @@ MonoBehaviour:
   LethalRange: 0
   MaxHits: 1
   Damage: 1
-  ForwardForce: 6000
+  ForwardForce: 6500
   RightForce: 0
   UpForce: 3000
   UseDeathParticles: 1
