@@ -24,5 +24,11 @@ MonoBehaviour:
   ForwardForce: 2500
   RightForce: 0
   UpForce: 2500
+  normalRagdollVelocity:
+    ForwardForce: 2500
+    RightForce: 0
+    UpForce: 2500
   UseDeathParticles: 0
   ParticleType: 0
+  collateralDamageInfo:
+    CreateCollateral: 0

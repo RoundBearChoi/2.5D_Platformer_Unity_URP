@@ -160,11 +160,12 @@ namespace Roundbeargames
             Vector3 upDir = damageData.normalDamageTaken.ATTACKER.transform.up;
 
             Rigidbody body = control.DAMAGE_DATA.normalDamageTaken.DAMAGEE.GetComponent<Rigidbody>();
+            Attack attack = damageData.normalDamageTaken.ATTACK;
 
             body.AddForce(
-                forwardDir * damageData.normalDamageTaken.ATTACK.ForwardForce +
-                rightDir * damageData.normalDamageTaken.ATTACK.RightForce +
-                upDir * damageData.normalDamageTaken.ATTACK.UpForce);
+                forwardDir * attack.normalRagdollVelocity.ForwardForce +
+                rightDir * attack.normalRagdollVelocity.RightForce +
+                upDir * attack.normalRagdollVelocity.UpForce);
         }
 
         void ClearExistingVelocity()

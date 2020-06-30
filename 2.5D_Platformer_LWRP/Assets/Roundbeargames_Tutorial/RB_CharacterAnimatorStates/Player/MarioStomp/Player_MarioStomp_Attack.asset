@@ -21,10 +21,14 @@ MonoBehaviour:
   LethalRange: 0
   MaxHits: 1
   Damage: 3
-  ComboStartTime: 0
-  ComboEndTime: 0
   ForwardForce: 1000
   RightForce: 0
   UpForce: 2000
+  normalRagdollVelocity:
+    ForwardForce: 1000
+    RightForce: 0
+    UpForce: 2000
   UseDeathParticles: 1
   ParticleType: 3
+  collateralDamageInfo:
+    CreateCollateral: 0
