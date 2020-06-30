@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/Idle")]
+    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/CharacterAbilities/Idle")]
     public class Idle : CharacterAbility
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

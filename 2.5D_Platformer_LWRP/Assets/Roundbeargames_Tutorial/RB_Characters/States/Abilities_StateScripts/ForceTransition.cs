@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/ForceTransition")]
+    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/CharacterAbilities/ForceTransition")]
     public class ForceTransition : CharacterAbility
     {
         [Range(0.01f, 1f)]

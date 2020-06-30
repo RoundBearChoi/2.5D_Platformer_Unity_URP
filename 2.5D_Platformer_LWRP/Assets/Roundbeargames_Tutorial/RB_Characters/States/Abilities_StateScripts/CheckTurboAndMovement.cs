@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/CheckTurboAndMovement")]
+    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/CharacterAbilities/CheckTurboAndMovement")]
     public class CheckTurboAndMovement : CharacterAbility
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)

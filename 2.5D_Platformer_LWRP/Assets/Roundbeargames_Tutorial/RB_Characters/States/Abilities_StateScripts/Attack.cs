@@ -15,7 +15,7 @@ namespace Roundbeargames
         MELEE_WEAPON,
     }
 
-    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/Attack")]
+    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/CharacterAbilities/Attack")]
     public class Attack : CharacterAbility
     {
         public bool debug;

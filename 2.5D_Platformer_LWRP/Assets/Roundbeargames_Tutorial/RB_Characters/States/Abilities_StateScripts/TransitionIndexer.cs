@@ -45,7 +45,7 @@ namespace Roundbeargames
         ATTACK_IS_BLOCKED = 27,
     }
 
-    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
+    [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/CharacterAbilities/TransitionIndexer")]
     public class TransitionIndexer : CharacterAbility
     {
         public int Index;
