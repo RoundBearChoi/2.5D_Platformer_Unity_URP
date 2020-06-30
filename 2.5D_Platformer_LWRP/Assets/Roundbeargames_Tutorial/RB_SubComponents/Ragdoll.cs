@@ -136,7 +136,22 @@ namespace Roundbeargames
             }
 
             ragdollData.ClearExistingVelocity();
-            ragdollData.AddForceToDamagedPart(RagdollPushType.NORMAL);
+            
+            //take damage from ragdoll
+            Vector3 incomingVelocity = control.DAMAGE_DATA.damageTaken.INCOMING_VELOCITY;
+            TriggerDetector damagedPart = control.DAMAGE_DATA.damageTaken.DAMAGEE;
+
+            if (Vector3.SqrMagnitude(incomingVelocity) > 0.0001f)
+            {
+                Debug.Log(control.gameObject.name + ": taking damage from ragdoll");
+                damagedPart.body.AddForce(incomingVelocity * 0.7f);
+            }
+
+            //take damage from attack
+            else
+            {
+                ragdollData.AddForceToDamagedPart(RagdollPushType.NORMAL);
+            }
         }
 
         Collider GetBodyPart(string name)
@@ -155,6 +170,11 @@ namespace Roundbeargames
         void AddForceToDamagedPart(RagdollPushType pushType)
         {
             if (control.DAMAGE_DATA.damageTaken == null)
+            {
+                return;
+            }
+
+            if (control.DAMAGE_DATA.damageTaken.ATTACKER == null)
             {
                 return;
             }

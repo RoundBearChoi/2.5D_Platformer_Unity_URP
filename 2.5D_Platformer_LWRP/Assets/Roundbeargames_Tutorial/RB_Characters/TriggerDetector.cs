@@ -8,6 +8,7 @@ namespace Roundbeargames
     {
         public CharacterControl control;
         public Collider triggerCollider;
+        public Rigidbody body;
 
         public Vector3 LastPosition;
         public Quaternion LastRotation;
@@ -16,6 +17,7 @@ namespace Roundbeargames
         {
             control = this.GetComponentInParent<CharacterControl>();
             triggerCollider = this.gameObject.GetComponent<Collider>();
+            body = this.gameObject.GetComponent<Rigidbody>();
         }
 
         private void OnTriggerEnter(Collider col)
@@ -182,12 +184,17 @@ namespace Roundbeargames
                 if (attacker.RAGDOLL_DATA.flyingRagdollData.Attacker != control)
                 {
                     float mag = Vector3.SqrMagnitude(col.attachedRigidbody.velocity);
-                    Debug.Log("coming ragdoll: " + attacker.gameObject.name +
-                    "\n" + "Velocity: " + mag);
+                    Debug.Log("incoming ragdoll: " + attacker.gameObject.name + "\n" + "Velocity: " + mag);
 
                     if (mag >= 10f)
                     {
-                        control.DAMAGE_DATA.damageTaken = null;
+                        control.DAMAGE_DATA.damageTaken = new DamageTaken(
+                            null,
+                            null,
+                            this,
+                            null,
+                            col.attachedRigidbody.velocity);
+
                         control.DAMAGE_DATA.hp = 0;
                         control.RAGDOLL_DATA.RagdollTriggered = true;
                     }
