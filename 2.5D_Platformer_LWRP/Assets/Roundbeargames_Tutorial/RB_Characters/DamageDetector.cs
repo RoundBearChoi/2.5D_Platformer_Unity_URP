@@ -25,7 +25,7 @@ namespace Roundbeargames
                 MarioStompAttack = MarioStompAttack,
                 AxeThrow = AxeThrow,
 
-                damageTaken = new DamageData.DamageTaken(null, null, null, null),
+                damageTaken = new DamageTaken(null, null, null, null, Vector3.zero),
 
                 IsDead = IsDead,
                 TakeDamage = ProcessDamage,
@@ -131,11 +131,12 @@ namespace Roundbeargames
                         if (info.Attacker.GetAttackingPart(part) ==
                             collider.gameObject)
                         {
-                            damageData.damageTaken = new DamageData.DamageTaken(
+                            damageData.damageTaken = new DamageTaken(
                                 info.Attacker,
                                 info.AttackAbility,
                                 data.Key,
-                                info.Attacker.GetAttackingPart(part));
+                                info.Attacker.GetAttackingPart(part),
+                                Vector3.zero);
 
                             return true;
                         }
@@ -158,11 +159,12 @@ namespace Roundbeargames
                     int index = Random.Range(0, control.RAGDOLL_DATA.ArrBodyParts.Length);
                     TriggerDetector triggerDetector = control.RAGDOLL_DATA.ArrBodyParts[index].GetComponent<TriggerDetector>();
 
-                    damageData.damageTaken = new DamageData.DamageTaken(
+                    damageData.damageTaken = new DamageTaken(
                         info.Attacker,
                         info.AttackAbility,
                         triggerDetector,
-                        null);
+                        null,
+                        Vector3.zero);
 
                     return true;
                 }

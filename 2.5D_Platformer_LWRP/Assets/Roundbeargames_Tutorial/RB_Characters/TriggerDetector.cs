@@ -88,11 +88,12 @@ namespace Roundbeargames
                     AttackCondition info = new AttackCondition();
                     info.CopyInfo(control.DAMAGE_DATA.AxeThrow, control);
 
-                    control.DAMAGE_DATA.damageTaken = new DamageData.DamageTaken(
+                    control.DAMAGE_DATA.damageTaken = new DamageTaken(
                         w.Thrower,
                         control.DAMAGE_DATA.AxeThrow,
                         this,
-                        null);
+                        null,
+                        Vector3.zero);
 
                     control.DAMAGE_DATA.TakeDamage(info);
 
@@ -181,7 +182,7 @@ namespace Roundbeargames
                 if (attacker.RAGDOLL_DATA.flyingRagdollData.Attacker != control)
                 {
                     float mag = Vector3.SqrMagnitude(col.attachedRigidbody.velocity);
-                    Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name +
+                    Debug.Log("coming ragdoll: " + attacker.gameObject.name +
                     "\n" + "Velocity: " + mag);
 
                     if (mag >= 10f)

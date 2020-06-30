@@ -129,11 +129,12 @@ namespace Roundbeargames
                     int index = Random.Range(0, c.RAGDOLL_DATA.ArrBodyParts.Length);
                     TriggerDetector randomPart = c.RAGDOLL_DATA.ArrBodyParts[index].GetComponent<TriggerDetector>();
 
-                    c.DAMAGE_DATA.damageTaken = new DamageData.DamageTaken(
+                    c.DAMAGE_DATA.damageTaken = new DamageTaken(
                         control,
                         c.DAMAGE_DATA.MarioStompAttack,
                         randomPart,
-                        control.RightFoot_Attack);
+                        control.RightFoot_Attack,
+                        Vector3.zero);
 
                     c.DAMAGE_DATA.TakeDamage(info);
                 }
