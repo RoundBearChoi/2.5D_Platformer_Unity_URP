@@ -63,6 +63,8 @@ namespace Roundbeargames
         Running_Jump = 3,
         Run_Stop_InPlace = 7,
 
+        AirCombo_Smash = 100,
+
         COUNT,
     }
 
