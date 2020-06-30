@@ -25,6 +25,10 @@ MonoBehaviour:
     ForwardForce: 3500
     RightForce: 0
     UpForce: 3000
+  collateralRagdollVelocity:
+    ForwardForce: 8000
+    RightForce: 0
+    UpForce: 1000
   UseDeathParticles: 1
   ParticleType: 3
   collateralDamageInfo:

@@ -240,7 +240,7 @@ namespace Roundbeargames
 
                 info.RegisteredTargets.Add(this.control);
                 control.RAGDOLL_DATA.ClearExistingVelocity();
-                control.RAGDOLL_DATA.AddForceToDamagedPart(RagdollPushType.NORMAL);
+                control.RAGDOLL_DATA.AddForceToDamagedPart(RagdollPushType.DEAD_BODY);
             }
 
             return;
