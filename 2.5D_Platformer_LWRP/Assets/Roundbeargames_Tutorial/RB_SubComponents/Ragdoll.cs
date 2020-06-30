@@ -4,6 +4,12 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
+    public enum RagdollPushType
+    {
+        NORMAL,
+        DEAD_BODY,
+    }
+
     public class Ragdoll : SubComponent
     {
         public RagdollData ragdollData;
@@ -130,7 +136,7 @@ namespace Roundbeargames
             }
 
             ragdollData.ClearExistingVelocity();
-            ragdollData.AddForceToDamagedPart();
+            ragdollData.AddForceToDamagedPart(RagdollPushType.NORMAL);
         }
 
         Collider GetBodyPart(string name)
@@ -146,7 +152,7 @@ namespace Roundbeargames
             return null;
         }
 
-        void AddForceToDamagedPart()
+        void AddForceToDamagedPart(RagdollPushType pushType)
         {
             if (control.DAMAGE_DATA.damageTaken == null)
             {
@@ -162,10 +168,20 @@ namespace Roundbeargames
             Rigidbody body = control.DAMAGE_DATA.damageTaken.DAMAGEE.GetComponent<Rigidbody>();
             Attack attack = damageData.damageTaken.ATTACK;
 
-            body.AddForce(
-                forwardDir * attack.normalRagdollVelocity.ForwardForce +
-                rightDir * attack.normalRagdollVelocity.RightForce +
-                upDir * attack.normalRagdollVelocity.UpForce);
+            if (pushType == RagdollPushType.NORMAL)
+            {
+                body.AddForce(
+                    forwardDir * attack.normalRagdollVelocity.ForwardForce +
+                    rightDir * attack.normalRagdollVelocity.RightForce +
+                    upDir * attack.normalRagdollVelocity.UpForce);
+            }
+            else if (pushType == RagdollPushType.DEAD_BODY)
+            {
+                body.AddForce(
+                    forwardDir * attack.collateralRagdollVelocity.ForwardForce +
+                    rightDir * attack.collateralRagdollVelocity.RightForce +
+                    upDir * attack.collateralRagdollVelocity.UpForce);
+            }
         }
 
         void ClearExistingVelocity()
