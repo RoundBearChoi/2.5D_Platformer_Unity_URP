@@ -88,7 +88,7 @@ namespace Roundbeargames
                     AttackCondition info = new AttackCondition();
                     info.CopyInfo(control.DAMAGE_DATA.AxeThrow, control);
 
-                    control.DAMAGE_DATA.normalDamageTaken = new DamageData.NormalDamageTaken(
+                    control.DAMAGE_DATA.damageTaken = new DamageData.DamageTaken(
                         w.Thrower,
                         control.DAMAGE_DATA.AxeThrow,
                         this,
@@ -186,9 +186,8 @@ namespace Roundbeargames
 
                     if (mag >= 10f)
                     {
-                        control.DAMAGE_DATA.normalDamageTaken = null;
+                        control.DAMAGE_DATA.damageTaken = null;
                         control.DAMAGE_DATA.hp = 0;
-                        control.DAMAGE_DATA.collateralDamageTaken.Damagee = this;
                         control.RAGDOLL_DATA.RagdollTriggered = true;
                     }
                 }

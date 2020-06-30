@@ -44,7 +44,7 @@ namespace Roundbeargames
 
         public bool IsFacingAttacker()
         {
-            Vector3 vec = control.DAMAGE_DATA.normalDamageTaken.ATTACKER.transform.position -
+            Vector3 vec = control.DAMAGE_DATA.damageTaken.ATTACKER.transform.position -
                 control.transform.position;
 
             if (vec.z < 0f)

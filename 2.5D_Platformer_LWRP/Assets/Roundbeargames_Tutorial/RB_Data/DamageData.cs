@@ -12,8 +12,7 @@ namespace Roundbeargames
         public Attack MarioStompAttack;
         public Attack AxeThrow;
 
-        public NormalDamageTaken normalDamageTaken;
-        public CollateralDamageTaken collateralDamageTaken;
+        public DamageTaken damageTaken;
 
         public delegate bool ReturnBool();
         public delegate void DoSomething(AttackCondition info);
@@ -22,9 +21,9 @@ namespace Roundbeargames
         public DoSomething TakeDamage;
 
         [System.Serializable]
-        public class NormalDamageTaken
+        public class DamageTaken
         {
-            public NormalDamageTaken(CharacterControl attacker,
+            public DamageTaken(CharacterControl attacker,
                 Attack attack,
                 TriggerDetector damagee,
                 GameObject damager)

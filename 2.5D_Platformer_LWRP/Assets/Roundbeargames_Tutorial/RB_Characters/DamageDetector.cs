@@ -25,8 +25,7 @@ namespace Roundbeargames
                 MarioStompAttack = MarioStompAttack,
                 AxeThrow = AxeThrow,
 
-                normalDamageTaken = new DamageData.NormalDamageTaken(null, null, null, null),
-                collateralDamageTaken = new DamageData.CollateralDamageTaken(),
+                damageTaken = new DamageData.DamageTaken(null, null, null, null),
 
                 IsDead = IsDead,
                 TakeDamage = ProcessDamage,
@@ -132,7 +131,7 @@ namespace Roundbeargames
                         if (info.Attacker.GetAttackingPart(part) ==
                             collider.gameObject)
                         {
-                            damageData.normalDamageTaken = new DamageData.NormalDamageTaken(
+                            damageData.damageTaken = new DamageData.DamageTaken(
                                 info.Attacker,
                                 info.AttackAbility,
                                 data.Key,
@@ -159,7 +158,7 @@ namespace Roundbeargames
                     int index = Random.Range(0, control.RAGDOLL_DATA.ArrBodyParts.Length);
                     TriggerDetector triggerDetector = control.RAGDOLL_DATA.ArrBodyParts[index].GetComponent<TriggerDetector>();
 
-                    damageData.normalDamageTaken = new DamageData.NormalDamageTaken(
+                    damageData.damageTaken = new DamageData.DamageTaken(
                         info.Attacker,
                         info.AttackAbility,
                         triggerDetector,
@@ -218,7 +217,7 @@ namespace Roundbeargames
         {
             if (IsDead())
             {
-                ProcessDeadBodyPhysics(info);
+                PushDeadBody(info);
             }
             else
             {
@@ -229,7 +228,7 @@ namespace Roundbeargames
             }
         }
 
-        void ProcessDeadBodyPhysics(AttackCondition info)
+        void PushDeadBody(AttackCondition info)
         {
             if (!info.RegisteredTargets.Contains(this.control))
             {
@@ -296,7 +295,7 @@ namespace Roundbeargames
             GameObject vfx = PoolManager.Instance.GetObject(EffectsType);
 
             vfx.transform.position =
-                control.DAMAGE_DATA.normalDamageTaken.DAMAGEE.triggerCollider.bounds.center;
+                control.DAMAGE_DATA.damageTaken.DAMAGEE.triggerCollider.bounds.center;
 
             vfx.SetActive(true);
 

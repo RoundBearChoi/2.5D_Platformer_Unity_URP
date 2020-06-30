@@ -43,7 +43,7 @@ namespace Roundbeargames
                             {
                                 ListSpikeVictims.Add(control);
                                 control.DAMAGE_DATA.hp = 0f;
-                                control.DAMAGE_DATA.normalDamageTaken = null;
+                                control.DAMAGE_DATA.damageTaken = null;
                             }
                         }
                     }

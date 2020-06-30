@@ -148,19 +148,19 @@ namespace Roundbeargames
 
         void AddForceToDamagedPart()
         {
-            if (control.DAMAGE_DATA.normalDamageTaken == null)
+            if (control.DAMAGE_DATA.damageTaken == null)
             {
                 return;
             }
 
             DamageData damageData = control.DAMAGE_DATA;
 
-            Vector3 forwardDir = damageData.normalDamageTaken.ATTACKER.transform.forward;
-            Vector3 rightDir = damageData.normalDamageTaken.ATTACKER.transform.right;
-            Vector3 upDir = damageData.normalDamageTaken.ATTACKER.transform.up;
+            Vector3 forwardDir = damageData.damageTaken.ATTACKER.transform.forward;
+            Vector3 rightDir = damageData.damageTaken.ATTACKER.transform.right;
+            Vector3 upDir = damageData.damageTaken.ATTACKER.transform.up;
 
-            Rigidbody body = control.DAMAGE_DATA.normalDamageTaken.DAMAGEE.GetComponent<Rigidbody>();
-            Attack attack = damageData.normalDamageTaken.ATTACK;
+            Rigidbody body = control.DAMAGE_DATA.damageTaken.DAMAGEE.GetComponent<Rigidbody>();
+            Attack attack = damageData.damageTaken.ATTACK;
 
             body.AddForce(
                 forwardDir * attack.normalRagdollVelocity.ForwardForce +
