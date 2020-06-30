@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/SwitchAnimator")]
-    public class SwitchAnimator : StateData
+    public class SwitchAnimator : CharacterAbility
     {
         public float SwitchTiming;
         public RuntimeAnimatorController TargetAnimator;

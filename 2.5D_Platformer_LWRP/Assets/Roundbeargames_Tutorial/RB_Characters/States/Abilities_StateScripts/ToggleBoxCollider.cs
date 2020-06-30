@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/ToggleBoxCollider")]
-    public class ToggleBoxCollider : StateData
+    public class ToggleBoxCollider : CharacterAbility
     {
         public bool On;
         public bool OnStart;

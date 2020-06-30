@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/InstantTransition")]
-    public class InstantTransition : StateData
+    public class InstantTransition : CharacterAbility
     {
         static bool DebugTransitionTiming = true;
 

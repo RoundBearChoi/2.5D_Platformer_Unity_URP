@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/MoveUp")]
-    public class MoveUp : StateData
+    public class MoveUp : CharacterAbility
     {
         public AnimationCurve SpeedGraph;
         public float Speed;

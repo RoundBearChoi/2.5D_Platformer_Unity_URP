@@ -8,7 +8,7 @@ namespace Roundbeargames
     {
         public bool InstantTransitionMade;
 
-        public Dictionary<StateData, int> CurrentRunningAbilities = new Dictionary<StateData, int>();
+        public Dictionary<CharacterAbility, int> CurrentRunningAbilities = new Dictionary<CharacterAbility, int>();
 
         public delegate bool bool_type(System.Type type);
 

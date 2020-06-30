@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/Death/TriggerRagdoll")]
-    public class TriggerRagdoll : StateData
+    public class TriggerRagdoll : CharacterAbility
     {
         public float TriggerTiming;
 

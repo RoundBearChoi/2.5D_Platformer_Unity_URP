@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/MoveForward")]
-    public class MoveForward : StateData
+    public class MoveForward : CharacterAbility
     {
         public bool debug;
 

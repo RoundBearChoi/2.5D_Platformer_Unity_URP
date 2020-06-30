@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/ResetLocalPosition")]
-    public class ResetLocalPosition : StateData
+    public class ResetLocalPosition : CharacterAbility
     {
         public bool OnStart;
         public bool OnEnd;

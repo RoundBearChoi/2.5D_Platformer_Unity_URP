@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/LockTransition")]
-    public class LockTransition : StateData
+    public class LockTransition : CharacterAbility
     {
         public float UnlockTime;
 

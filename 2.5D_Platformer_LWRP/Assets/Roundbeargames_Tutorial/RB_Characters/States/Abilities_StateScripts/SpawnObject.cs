@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/SpawnObject")]
-    public class SpawnObject : StateData
+    public class SpawnObject : CharacterAbility
     {
         public PoolObjectType ObjectType;
         [Range(0f, 1f)]

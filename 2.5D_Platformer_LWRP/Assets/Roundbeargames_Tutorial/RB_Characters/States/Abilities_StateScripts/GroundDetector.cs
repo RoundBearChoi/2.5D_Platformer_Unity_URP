@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/GroundDetector")]
-    public class GroundDetector : StateData
+    public class GroundDetector : CharacterAbility
     {
         public float Distance;
 

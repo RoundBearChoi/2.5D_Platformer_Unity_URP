@@ -7,7 +7,7 @@ using UnityEngine.AI;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AI/RestartAI")]
-    public class RestartAI : StateData
+    public class RestartAI : CharacterAbility
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {

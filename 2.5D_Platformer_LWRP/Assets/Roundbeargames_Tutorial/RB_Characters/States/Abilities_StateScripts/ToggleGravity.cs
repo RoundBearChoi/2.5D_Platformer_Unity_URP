@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/ToggleGravity")]
-    public class ToggleGravity : StateData
+    public class ToggleGravity : CharacterAbility
     {
         public bool On;
         public bool OnStart;

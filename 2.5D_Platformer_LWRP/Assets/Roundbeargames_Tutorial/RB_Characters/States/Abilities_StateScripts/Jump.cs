@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/Jump")]
-    public class Jump : StateData
+    public class Jump : CharacterAbility
     {
         static bool debug = false;
 

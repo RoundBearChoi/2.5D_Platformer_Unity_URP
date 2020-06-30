@@ -6,7 +6,7 @@ using UnityEngine.AI;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AI/JumpPlatform")]
-    public class JumpPlatform : StateData
+    public class JumpPlatform : CharacterAbility
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {

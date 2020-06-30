@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/LockTurn")]
-    public class LockTurn : StateData
+    public class LockTurn : CharacterAbility
     {
         [Range(0f, 1f)]
         public float LockTiming;

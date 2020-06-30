@@ -16,7 +16,7 @@ namespace Roundbeargames
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/Attack")]
-    public class Attack : StateData
+    public class Attack : CharacterAbility
     {
         public bool debug;
         public float StartAttackTime;

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/UpdateBoxCollider")]
-    public class UpdateBoxCollider : StateData
+    public class UpdateBoxCollider : CharacterAbility
     {
         public Vector3 TargetCenter;
         public float CenterUpdateSpeed;

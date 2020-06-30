@@ -6,7 +6,7 @@ using UnityEngine.AI;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AI/AITriggerAttack")]
-    public class AITriggerAttack : StateData
+    public class AITriggerAttack : CharacterAbility
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {

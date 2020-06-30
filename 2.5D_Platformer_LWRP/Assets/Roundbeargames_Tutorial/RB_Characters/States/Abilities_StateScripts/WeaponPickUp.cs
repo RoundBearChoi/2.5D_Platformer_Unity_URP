@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/WeaponPickUp")]
-    public class WeaponPickUp : StateData
+    public class WeaponPickUp : CharacterAbility
     {
         public float PickUpTiming;
 

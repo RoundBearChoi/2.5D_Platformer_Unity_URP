@@ -6,7 +6,7 @@ using UnityEngine.AI;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AI/SendPathfindingAgent")]
-    public class SendPathfindingAgent : StateData
+    public class SendPathfindingAgent : CharacterAbility
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {

@@ -46,7 +46,7 @@ namespace Roundbeargames
     }
 
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/TransitionIndexer")]
-    public class TransitionIndexer : StateData
+    public class TransitionIndexer : CharacterAbility
     {
         public int Index;
         public List<TransitionConditionType> transitionConditions = new List<TransitionConditionType>();

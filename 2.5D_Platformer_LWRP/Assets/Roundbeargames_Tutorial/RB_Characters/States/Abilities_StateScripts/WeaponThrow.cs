@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/WeaponThrow")]
-    public class WeaponThrow : StateData
+    public class WeaponThrow : CharacterAbility
     {
         public float ThrowTiming;
 

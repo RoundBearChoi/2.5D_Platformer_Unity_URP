@@ -13,7 +13,7 @@ namespace Roundbeargames
             animationData = new AnimationData
             {
                 InstantTransitionMade = false,
-                CurrentRunningAbilities = new Dictionary<StateData, int>(),
+                CurrentRunningAbilities = new Dictionary<CharacterAbility, int>(),
                 IsRunning = IsRunning,
             };
 
@@ -55,7 +55,7 @@ namespace Roundbeargames
 
         bool IsRunning(System.Type type)
         {
-            foreach (KeyValuePair<StateData, int> data in animationData.CurrentRunningAbilities)
+            foreach (KeyValuePair<CharacterAbility, int> data in animationData.CurrentRunningAbilities)
             {
                 if (data.Key.GetType() == type)
                 {

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/WallSlide")]
-    public class WallSlide : StateData
+    public class WallSlide : CharacterAbility
     {
         public Vector3 MaxFallVelocity;
 

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AI/StartWalking")]
-    public class StartWalking : StateData
+    public class StartWalking : CharacterAbility
     {
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {

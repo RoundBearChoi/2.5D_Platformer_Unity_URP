@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/WeaponPutDown")]
-    public class WeaponPutDown : StateData
+    public class WeaponPutDown : CharacterAbility
     {
         public float PutDownTiming;
 

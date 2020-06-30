@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Roundbeargames
 {
     [CreateAssetMenu(fileName = "New State", menuName = "Roundbeargames/AbilityData/CheckTurbo")]
-    public class CheckTurbo : StateData
+    public class CheckTurbo : CharacterAbility
     {
         public bool MustRequireMovement;
 

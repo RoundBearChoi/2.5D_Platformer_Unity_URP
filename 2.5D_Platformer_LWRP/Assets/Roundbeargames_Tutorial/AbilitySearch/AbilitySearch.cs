@@ -9,7 +9,7 @@ namespace Roundbeargames
     public class AbilitySearch : ScriptableObject
     {
         public AnimatorController ControllerToSearch;
-        public StateData AbilityToSearch;
+        public CharacterAbility AbilityToSearch;
         public List<List<CharacterState>> Lists;
 
         public void Search()
@@ -23,12 +23,12 @@ namespace Roundbeargames
 
             foreach (CharacterState state in arr)
             {
-                foreach(StateData ability in state.ArrAbilities)
+                foreach(CharacterAbility ability in state.ArrAbilities)
                 {
                     if (ability == AbilityToSearch)
                     {
                         Debug.Log("---Ability Found---");
-                        foreach(StateData a in state.ArrAbilities)
+                        foreach(CharacterAbility a in state.ArrAbilities)
                         {
                             Debug.Log(a.name);
                         }

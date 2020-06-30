@@ -9,9 +9,9 @@ namespace Roundbeargames
         public CharacterControl characterControl;
 
         [Space(10)]
-        public List<StateData> ListAbilityData = new List<StateData>();
+        public List<CharacterAbility> ListAbilityData = new List<CharacterAbility>();
         [Space(10)]
-        public StateData[] ArrAbilities;
+        public CharacterAbility[] ArrAbilities;
 
         public BlockingObjData BLOCKING_DATA => characterControl.subComponentProcessor.blockingData;
         public RagdollData RAGDOLL_DATA => characterControl.subComponentProcessor.ragdollData;
@@ -28,7 +28,7 @@ namespace Roundbeargames
 
         public void PutStatesInArray()
         {
-            ArrAbilities = new StateData[ListAbilityData.Count];
+            ArrAbilities = new CharacterAbility[ListAbilityData.Count];
             
             for(int i = 0; i < ListAbilityData.Count; i++)
             {
