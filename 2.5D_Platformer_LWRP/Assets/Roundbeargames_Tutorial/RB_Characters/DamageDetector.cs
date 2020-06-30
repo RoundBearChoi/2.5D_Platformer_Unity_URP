@@ -296,7 +296,7 @@ namespace Roundbeargames
             GameObject vfx = PoolManager.Instance.GetObject(EffectsType);
 
             vfx.transform.position =
-                control.DAMAGE_DATA.normalDamageTaken.Damagee.triggerCollider.bounds.center;
+                control.DAMAGE_DATA.normalDamageTaken.DAMAGEE.triggerCollider.bounds.center;
 
             vfx.SetActive(true);
 

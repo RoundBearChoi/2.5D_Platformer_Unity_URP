@@ -148,23 +148,23 @@ namespace Roundbeargames
 
         void AddForceToDamagedPart()
         {
-            if (control.DAMAGE_DATA.normalDamageTaken.Damagee == null)
+            if (control.DAMAGE_DATA.normalDamageTaken == null)
             {
                 return;
             }
 
             DamageData damageData = control.DAMAGE_DATA;
 
-            Vector3 forwardDir = damageData.normalDamageTaken.Attacker.transform.forward;
-            Vector3 rightDir = damageData.normalDamageTaken.Attacker.transform.right;
-            Vector3 upDir = damageData.normalDamageTaken.Attacker.transform.up;
+            Vector3 forwardDir = damageData.normalDamageTaken.ATTACKER.transform.forward;
+            Vector3 rightDir = damageData.normalDamageTaken.ATTACKER.transform.right;
+            Vector3 upDir = damageData.normalDamageTaken.ATTACKER.transform.up;
 
-            Rigidbody body = control.DAMAGE_DATA.normalDamageTaken.Damagee.GetComponent<Rigidbody>();
+            Rigidbody body = control.DAMAGE_DATA.normalDamageTaken.DAMAGEE.GetComponent<Rigidbody>();
 
             body.AddForce(
-                forwardDir * damageData.normalDamageTaken.Attack.ForwardForce +
-                rightDir * damageData.normalDamageTaken.Attack.RightForce +
-                upDir * damageData.normalDamageTaken.Attack.UpForce);
+                forwardDir * damageData.normalDamageTaken.ATTACK.ForwardForce +
+                rightDir * damageData.normalDamageTaken.ATTACK.RightForce +
+                upDir * damageData.normalDamageTaken.ATTACK.UpForce);
         }
 
         void ClearExistingVelocity()

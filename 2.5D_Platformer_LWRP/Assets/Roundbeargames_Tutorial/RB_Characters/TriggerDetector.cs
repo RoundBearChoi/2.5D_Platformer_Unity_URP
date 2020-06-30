@@ -72,7 +72,7 @@ namespace Roundbeargames
                     Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name +
                     "\n" + "Velocity: " + Vector3.SqrMagnitude(col.attachedRigidbody.velocity));
 
-                    control.DAMAGE_DATA.normalDamageTaken.Damagee = null;
+                    control.DAMAGE_DATA.normalDamageTaken = null;
                     control.DAMAGE_DATA.hp = 0;
                     control.DAMAGE_DATA.collateralDamageTaken.Velocity = col.attachedRigidbody.velocity;
                     control.DAMAGE_DATA.collateralDamageTaken.Damagee = this;

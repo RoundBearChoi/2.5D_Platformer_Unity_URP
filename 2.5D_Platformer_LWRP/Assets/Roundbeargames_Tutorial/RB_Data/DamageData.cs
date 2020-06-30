@@ -29,16 +29,21 @@ namespace Roundbeargames
                 TriggerDetector damagee,
                 GameObject damager)
             {
-                Attacker = attacker;
-                Attack = attack;
-                Damagee = damagee;
-                Damager = damager;
+                mAttacker = attacker;
+                mAttack = attack;
+                mDamagee = damagee;
+                mDamager = damager;
             }
 
-            public CharacterControl Attacker = null;
-            public Attack Attack = null;
-            public GameObject Damager = null;
-            public TriggerDetector Damagee = null;
+            [SerializeField] CharacterControl mAttacker = null;
+            [SerializeField] Attack mAttack = null;
+            [SerializeField] GameObject mDamager = null;
+            [SerializeField] TriggerDetector mDamagee = null;
+
+            public CharacterControl ATTACKER { get { return mAttacker; } }
+            public Attack ATTACK { get { return mAttack; } }
+            public GameObject DAMAGER { get { return mDamager; } }
+            public TriggerDetector DAMAGEE { get { return mDamagee; } }
         }
 
         [System.Serializable]
