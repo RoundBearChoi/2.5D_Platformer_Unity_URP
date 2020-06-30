@@ -20,22 +20,28 @@ namespace Roundbeargames
 
         private void OnTriggerEnter(Collider col)
         {
-            CheckCollidingBodyParts(col);
+            CharacterControl attacker = CheckCollidingBodyParts(col);
+
+            if (attacker != null)
+            {
+                StartRagdollCollateral(attacker, col);
+            }
+
             CheckCollidingWeapons(col);
         }
 
-        void CheckCollidingBodyParts(Collider col)
+        CharacterControl CheckCollidingBodyParts(Collider col)
         {
             if (control == null)
             {
-                return;
+                return null;
             }
 
             for (int i = 0; i < control.RAGDOLL_DATA.ArrBodyParts.Length; i++)
             {
                 if (control.RAGDOLL_DATA.ArrBodyParts[i].Equals(col))
                 {
-                    return;
+                    return null;
                 }
             }
 
@@ -43,12 +49,12 @@ namespace Roundbeargames
 
             if (attacker == null)
             {
-                return;
+                return null;
             }
 
             if (col.gameObject == attacker.gameObject)
             {
-                return;
+                return null;
             }
 
             // add collider to dictionary
@@ -63,26 +69,7 @@ namespace Roundbeargames
                 control.animationProgress.CollidingBodyParts[this].Add(col);
             }
 
-            // check if collider is flying ragdoll
-
-            if (attacker.RAGDOLL_DATA.flyingRagdollData.IsTriggered)
-            {
-                if (attacker.RAGDOLL_DATA.flyingRagdollData.Attacker != control)
-                {
-                    float mag = Vector3.SqrMagnitude(col.attachedRigidbody.velocity);
-                    Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name +
-                    "\n" + "Velocity: " + mag);
-
-                    if (mag >= 10f)
-                    {
-                        control.DAMAGE_DATA.normalDamageTaken = null;
-                        control.DAMAGE_DATA.hp = 0;
-                        control.DAMAGE_DATA.collateralDamageTaken.Velocity = col.attachedRigidbody.velocity;
-                        control.DAMAGE_DATA.collateralDamageTaken.Damagee = this;
-                        control.RAGDOLL_DATA.RagdollTriggered = true;
-                    }
-                }
-            }
+            return attacker;
         }
 
         void CheckCollidingWeapons(Collider col)
@@ -183,6 +170,30 @@ namespace Roundbeargames
                 if (control.animationProgress.CollidingWeapons[this].Count == 0)
                 {
                     control.animationProgress.CollidingWeapons.Remove(this);
+                }
+            }
+        }
+
+        void StartRagdollCollateral(CharacterControl attacker, Collider col)
+        {
+            // check if collider is flying ragdoll
+
+            if (attacker.RAGDOLL_DATA.flyingRagdollData.IsTriggered)
+            {
+                if (attacker.RAGDOLL_DATA.flyingRagdollData.Attacker != control)
+                {
+                    float mag = Vector3.SqrMagnitude(col.attachedRigidbody.velocity);
+                    Debug.Log(control.gameObject.name + " taking collateral damage from: " + attacker.gameObject.name +
+                    "\n" + "Velocity: " + mag);
+
+                    if (mag >= 10f)
+                    {
+                        control.DAMAGE_DATA.normalDamageTaken = null;
+                        control.DAMAGE_DATA.hp = 0;
+                        control.DAMAGE_DATA.collateralDamageTaken.Velocity = col.attachedRigidbody.velocity;
+                        control.DAMAGE_DATA.collateralDamageTaken.Damagee = this;
+                        control.RAGDOLL_DATA.RagdollTriggered = true;
+                    }
                 }
             }
         }
