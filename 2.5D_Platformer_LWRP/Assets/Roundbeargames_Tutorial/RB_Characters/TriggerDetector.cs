@@ -24,7 +24,7 @@ namespace Roundbeargames
 
             if (attacker != null)
             {
-                StartRagdollCollateral(attacker, col);
+                TakeCollateralDamage(attacker, col);
             }
 
             CheckCollidingWeapons(col);
@@ -174,10 +174,8 @@ namespace Roundbeargames
             }
         }
 
-        void StartRagdollCollateral(CharacterControl attacker, Collider col)
+        void TakeCollateralDamage(CharacterControl attacker, Collider col)
         {
-            // check if collider is flying ragdoll
-
             if (attacker.RAGDOLL_DATA.flyingRagdollData.IsTriggered)
             {
                 if (attacker.RAGDOLL_DATA.flyingRagdollData.Attacker != control)
@@ -190,7 +188,6 @@ namespace Roundbeargames
                     {
                         control.DAMAGE_DATA.normalDamageTaken = null;
                         control.DAMAGE_DATA.hp = 0;
-                        control.DAMAGE_DATA.collateralDamageTaken.Velocity = col.attachedRigidbody.velocity;
                         control.DAMAGE_DATA.collateralDamageTaken.Damagee = this;
                         control.RAGDOLL_DATA.RagdollTriggered = true;
                     }

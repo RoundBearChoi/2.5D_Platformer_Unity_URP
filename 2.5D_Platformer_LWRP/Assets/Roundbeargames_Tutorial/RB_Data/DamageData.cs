@@ -49,7 +49,6 @@ namespace Roundbeargames
         [System.Serializable]
         public class CollateralDamageTaken
         {
-            public Vector3 Velocity = Vector3.zero;
             public TriggerDetector Damagee = null;
         }
     }
