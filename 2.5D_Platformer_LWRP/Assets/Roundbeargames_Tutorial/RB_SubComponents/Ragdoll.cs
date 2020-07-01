@@ -128,29 +128,41 @@ namespace Roundbeargames
             for (int i = 0; i < ragdollData.ArrBodyParts.Length; i++)
             {
                 ragdollData.ArrBodyParts[i].isTrigger = false;
+                ragdollData.ArrBodyParts[i].attachedRigidbody.isKinematic = true;
+            }
 
+            for (int i = 0; i < ragdollData.ArrBodyParts.Length; i++)
+            {
                 TriggerDetector det = ragdollData.ArrBodyParts[i].GetComponent<TriggerDetector>();
                 ragdollData.ArrBodyParts[i].attachedRigidbody.MovePosition(det.LastPosition);
                 ragdollData.ArrBodyParts[i].attachedRigidbody.MoveRotation(det.LastRotation);
                 ragdollData.ArrBodyParts[i].attachedRigidbody.velocity = Vector3.zero;
             }
 
+            for (int i = 0; i < ragdollData.ArrBodyParts.Length; i++)
+            {
+                ragdollData.ArrBodyParts[i].attachedRigidbody.isKinematic = false;
+            }
+            
             ragdollData.ClearExistingVelocity();
             
-            //take damage from ragdoll
-            Vector3 incomingVelocity = control.DAMAGE_DATA.damageTaken.INCOMING_VELOCITY;
-            TriggerDetector damagedPart = control.DAMAGE_DATA.damageTaken.DAMAGEE;
-
-            if (Vector3.SqrMagnitude(incomingVelocity) > 0.0001f)
+            if (control.DAMAGE_DATA.damageTaken != null)
             {
-                Debug.Log(control.gameObject.name + ": taking damage from ragdoll");
-                damagedPart.body.AddForce(incomingVelocity * 0.7f);
-            }
+                //take damage from ragdoll
+                Vector3 incomingVelocity = control.DAMAGE_DATA.damageTaken.INCOMING_VELOCITY;
+                TriggerDetector damagedPart = control.DAMAGE_DATA.damageTaken.DAMAGEE;
 
-            //take damage from attack
-            else
-            {
-                ragdollData.AddForceToDamagedPart(RagdollPushType.NORMAL);
+                if (Vector3.SqrMagnitude(incomingVelocity) > 0.0001f)
+                {
+                    Debug.Log(control.gameObject.name + ": taking damage from ragdoll");
+                    damagedPart.body.AddForce(incomingVelocity * 0.7f);
+                }
+
+                //take damage from attack
+                else
+                {
+                    ragdollData.AddForceToDamagedPart(RagdollPushType.NORMAL);
+                }
             }
         }
 
