@@ -8,6 +8,7 @@
 2. Open "TutorialScene" (Under "LatestScene")
 
 For more details, watch the videos here:
+
 https://youtube.com/playlist?list=PLWYGofN_jX5BupV2xLjU1HUvujl_yDIN6 (tutorials)
 https://www.youtube.com/playlist?list=PLWYGofN_jX5CNMI6tqlxNtTc7v9DkfNbC (devlog)
 
