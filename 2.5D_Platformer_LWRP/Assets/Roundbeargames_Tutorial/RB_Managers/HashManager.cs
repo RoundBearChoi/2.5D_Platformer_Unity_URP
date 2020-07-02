@@ -27,6 +27,8 @@ namespace Roundbeargames
     {
         Default,
         Shake,
+
+        COUNT,
     }
 
     public enum AI_Transitions
@@ -97,9 +99,7 @@ namespace Roundbeargames
     public class HashManager : Singleton<HashManager>
     {
         public int[] ArrMainParams = new int[(int)MainParameterType.COUNT];
-
-        public Dictionary<CameraTrigger, int> DicCameraTriggers =
-            new Dictionary<CameraTrigger, int>();
+        public int[] ArrCameraParams = new int[(int)CameraTrigger.COUNT];
 
         public Dictionary<AI_Transitions, int> DicAITrans =
             new Dictionary<AI_Transitions, int>();
@@ -125,12 +125,9 @@ namespace Roundbeargames
             }
 
             // camera transitions
-            CameraTrigger[] arrCamTrans = System.Enum.GetValues(typeof(CameraTrigger))
-                as CameraTrigger[];
-
-            foreach (CameraTrigger t in arrCamTrans)
+            for (int i = 0; i < (int)CameraTrigger.COUNT; i++)
             {
-                DicCameraTriggers.Add(t, Animator.StringToHash(t.ToString()));
+                ArrCameraParams[i] = Animator.StringToHash(((CameraTrigger)i).ToString());
             }
 
             // ai transitions

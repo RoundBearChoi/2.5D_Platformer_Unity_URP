@@ -22,12 +22,10 @@ namespace Roundbeargames
                 ZoomOutOffsetX = DefaultOffsetX * 10f;
             }
 
-            CameraTrigger[] arr = System.Enum.GetValues(typeof(CameraTrigger)) as CameraTrigger[];
-
-            foreach (CameraTrigger t in arr)
+            for (int i = 0; i < (int)CameraTrigger.COUNT; i++)
             {
                 CameraManager.Instance.CAM_CONTROLLER.ANIMATOR.
-                    ResetTrigger(HashManager.Instance.DicCameraTriggers[t]);
+                    ResetTrigger(HashManager.Instance.ArrCameraParams[(int)i]);
             }
         }
 
@@ -37,7 +35,7 @@ namespace Roundbeargames
             {
                 if (stateInfo.normalizedTime > 0.7f)
                 {
-                    animator.SetTrigger(HashManager.Instance.DicCameraTriggers[CameraTrigger.Default]);
+                    animator.SetTrigger(HashManager.Instance.ArrCameraParams[(int)CameraTrigger.Default]);
                 }
             }
             
