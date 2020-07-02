@@ -30,15 +30,13 @@ namespace Roundbeargames
         {
             if (characterState.characterControl.aiProgress.pathfindingAgent.StartWalk)
             {
-                animator.SetBool(HashManager.Instance.
-                    DicAITrans[AI_Transitions.start_walking], true);
+                animator.SetBool(HashManager.Instance.ArrAITransitionParams[(int)AI_Transitions.start_walking], true);
             }
         }
 
         public override void OnExit(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
-            animator.SetBool(HashManager.Instance.
-                DicAITrans[AI_Transitions.start_walking], false);
+            animator.SetBool(HashManager.Instance.ArrAITransitionParams[(int)AI_Transitions.start_walking], false);
         }
     }
 }

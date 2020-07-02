@@ -36,6 +36,8 @@ namespace Roundbeargames
         start_walking,
         jump_platform,
         fall_platform,
+
+        COUNT,
     }
 
     public enum AI_States
@@ -100,10 +102,8 @@ namespace Roundbeargames
     {
         public int[] ArrMainParams = new int[(int)MainParameterType.COUNT];
         public int[] ArrCameraParams = new int[(int)CameraTrigger.COUNT];
-
-        public Dictionary<AI_Transitions, int> DicAITrans =
-            new Dictionary<AI_Transitions, int>();
-
+        public int[] ArrAITransitionParams = new int[(int)AI_Transitions.COUNT];
+        
         public Dictionary<AI_States, int> DicAIStates =
             new Dictionary<AI_States, int>();
 
@@ -131,12 +131,9 @@ namespace Roundbeargames
             }
 
             // ai transitions
-            AI_Transitions[] arrAITrans = System.Enum.GetValues(typeof(AI_Transitions))
-                as AI_Transitions[];
-
-            foreach (AI_Transitions t in arrAITrans)
+            for (int i = 0; i < (int)AI_Transitions.COUNT; i++)
             {
-                DicAITrans.Add(t, Animator.StringToHash(t.ToString()));
+                ArrAITransitionParams[i] = Animator.StringToHash(((AI_Transitions)i).ToString());
             }
 
             // ai states
