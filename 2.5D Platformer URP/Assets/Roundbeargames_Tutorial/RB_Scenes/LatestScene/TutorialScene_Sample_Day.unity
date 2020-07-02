@@ -2216,7 +2216,7 @@ PrefabInstance:
     - target: {fileID: 9121508171078132951, guid: c24ecf896a9f1dc40904a24f03f4d4d8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.56
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 9121508171078132951, guid: c24ecf896a9f1dc40904a24f03f4d4d8,
         type: 3}
@@ -2348,7 +2348,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.053702336, y: -0.6862503, z: 0.05093137, w: 0.7235901}
+  m_LocalRotation: {x: 0.053702496, y: -0.68625027, z: 0.05093125, w: 0.72359014}
   m_LocalPosition: {x: 10.000032, y: 1.871009, z: -4.759026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3265,7 +3265,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765881197}
-  m_LocalRotation: {x: 0.053702336, y: -0.6862503, z: 0.05093137, w: 0.7235901}
+  m_LocalRotation: {x: 0.053702496, y: -0.68625027, z: 0.05093125, w: 0.72359014}
   m_LocalPosition: {x: 10.000032, y: -13.128991, z: -4.759026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3285,7 +3285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FocusTracksTarget: 1
+  m_FocusTracksTarget: 0
+  m_FocusTracking: 1
+  m_FocusTarget: {fileID: 0}
   m_FocusOffset: 0
   m_Profile: {fileID: 11400000, guid: 67144916fb79ff34baa2f6e71a519c5b, type: 2}
 --- !u!1 &770737206
@@ -5770,7 +5772,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284027272}
-  m_LocalRotation: {x: 0.053702362, y: -0.68625027, z: 0.05093139, w: 0.72359014}
+  m_LocalRotation: {x: 0.053702496, y: -0.68625027, z: 0.05093125, w: 0.72359014}
   m_LocalPosition: {x: 10.000032, y: -13.128991, z: -4.759026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5790,7 +5792,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FocusTracksTarget: 1
+  m_FocusTracksTarget: 0
+  m_FocusTracking: 1
+  m_FocusTarget: {fileID: 0}
   m_FocusOffset: 0
   m_Profile: {fileID: 11400000, guid: 67144916fb79ff34baa2f6e71a519c5b, type: 2}
 --- !u!43 &1310681011
@@ -6090,7 +6094,7 @@ PrefabInstance:
     - target: {fileID: 9121508171078132951, guid: c24ecf896a9f1dc40904a24f03f4d4d8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.07
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: 9121508171078132951, guid: c24ecf896a9f1dc40904a24f03f4d4d8,
         type: 3}
