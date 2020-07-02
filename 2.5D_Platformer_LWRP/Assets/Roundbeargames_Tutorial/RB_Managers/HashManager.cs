@@ -70,8 +70,6 @@ namespace Roundbeargames
         Run_Stop_InPlace = 7,
 
         AirCombo_Smash = 100,
-
-        COUNT,
     }
 
     public enum Ledge_Trigger_States
@@ -110,7 +108,7 @@ namespace Roundbeargames
         public Dictionary<Hit_Reaction_States, int> DicHitReactionStates =
             new Dictionary<Hit_Reaction_States, int>();
 
-        public int[] ArrInstantTransitionStates = new int[(int)Instant_Transition_States.COUNT];
+        public int[] ArrInstantTransitionStates;
         public int[] ArrLedgeTriggerStates = new int[(int)Ledge_Trigger_States.COUNT];
 
         public Dictionary<Camera_States, int> DicCameraStates =
@@ -150,6 +148,11 @@ namespace Roundbeargames
             {
                 DicHitReactionStates.Add(t, Animator.StringToHash(t.ToString()));
             }
+
+            Instant_Transition_States[] arrAll = 
+                System.Enum.GetValues(typeof(Instant_Transition_States)) as Instant_Transition_States[];
+
+            ArrInstantTransitionStates = new int[arrAll.Length];
 
             // instant transition states
             for (int i = 0; i < ArrInstantTransitionStates.Length; i++)
