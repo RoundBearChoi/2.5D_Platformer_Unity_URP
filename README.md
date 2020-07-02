@@ -4,10 +4,10 @@
 
 **(Make sure you're using Unity 2019.4)**
 
-1. "Download ZIP" and open project in Unity
-2. Open "TutorialScene" (Under "LatestScene")
+1. "Download ZIP" or clone
+2. Open project in Unity
 
-For more details, watch the videos here:
+For more details, watch videos here:
 
 https://youtube.com/playlist?list=PLWYGofN_jX5BupV2xLjU1HUvujl_yDIN6 (tutorials)
 
