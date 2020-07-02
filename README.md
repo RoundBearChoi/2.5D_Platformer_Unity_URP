@@ -7,7 +7,9 @@
 1. "Download ZIP" and open project in Unity
 2. Open "TutorialScene" (Under "LatestScene")
 
-For more details, watch the video here: https://youtube.com/playlist?list=PLWYGofN_jX5BupV2xLjU1HUvujl_yDIN6
+For more details, watch the videos here:
+https://youtube.com/playlist?list=PLWYGofN_jX5BupV2xLjU1HUvujl_yDIN6 (tutorials)
+https://www.youtube.com/playlist?list=PLWYGofN_jX5CNMI6tqlxNtTc7v9DkfNbC (devlog)
 
 ----
 
@@ -15,8 +17,11 @@ OR you can download my Unity packages (exported after recording each video)
 
 https://drive.google.com/drive/folders/17Lfpa5r-3zeR1jaT0eJ4nqIR3pkU9ABE?usp=sharing
 
-Create a brand new project (check folder names for LWRP or 3D template) and import the package
+Create a brand new project and import the package
 (Assets -> Import Package -> Custom Package)
+
+Video instructions:
+https://youtu.be/JFiiOTA1Mnc
 
 ----
 
