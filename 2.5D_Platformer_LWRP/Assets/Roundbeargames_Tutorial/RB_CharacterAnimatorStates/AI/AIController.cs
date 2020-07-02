@@ -39,7 +39,7 @@ namespace Roundbeargames
 
         public void InitializeAI()
         {
-            ANIMATOR.Play(HashManager.Instance.DicAIStates[AI_States.SendPathfindingAgent], 0);
+            ANIMATOR.Play(HashManager.Instance.ArrAIStateNames[(int)AI_State_Name.SendPathfindingAgent], 0);
         }
 
         public void WalkStraightToStartSphere()
@@ -98,7 +98,7 @@ namespace Roundbeargames
         {
             AnimatorStateInfo info = control.aiController.ANIMATOR.GetCurrentAnimatorStateInfo(0);
 
-            if (info.shortNameHash == HashManager.Instance.DicAIStates[AI_States.AI_Attack])
+            if (info.shortNameHash == HashManager.Instance.ArrAIStateNames[(int)AI_State_Name.AI_Attack])
             {
                 return true;
             }

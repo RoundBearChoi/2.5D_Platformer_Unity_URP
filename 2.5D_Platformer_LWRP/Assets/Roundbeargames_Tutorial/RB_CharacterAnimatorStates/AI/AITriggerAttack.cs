@@ -56,7 +56,7 @@ namespace Roundbeargames
 
         void TriggerAttack(CharacterControl control)
         {
-            control.aiController.ANIMATOR.Play(HashManager.Instance.DicAIStates[AI_States.AI_Attack], 0);
+            control.aiController.ANIMATOR.Play(HashManager.Instance.ArrAIStateNames[(int)AI_State_Name.AI_Attack], 0);
         }
     }
 }

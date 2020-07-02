@@ -31,7 +31,7 @@ namespace Roundbeargames
         COUNT,
     }
 
-    public enum AI_Transitions
+    public enum AI_Transition
     {
         start_walking,
         jump_platform,
@@ -40,10 +40,12 @@ namespace Roundbeargames
         COUNT,
     }
 
-    public enum AI_States
+    public enum AI_State_Name
     {
         SendPathfindingAgent,
         AI_Attack,
+
+        COUNT,
     }
 
     public enum Hit_Reaction_States
@@ -102,10 +104,8 @@ namespace Roundbeargames
     {
         public int[] ArrMainParams = new int[(int)MainParameterType.COUNT];
         public int[] ArrCameraParams = new int[(int)CameraTrigger.COUNT];
-        public int[] ArrAITransitionParams = new int[(int)AI_Transitions.COUNT];
-        
-        public Dictionary<AI_States, int> DicAIStates =
-            new Dictionary<AI_States, int>();
+        public int[] ArrAITransitionParams = new int[(int)AI_Transition.COUNT];
+        public int[] ArrAIStateNames = new int[(int)AI_State_Name.COUNT];
 
         public Dictionary<Hit_Reaction_States, int> DicHitReactionStates =
             new Dictionary<Hit_Reaction_States, int>();
@@ -131,18 +131,15 @@ namespace Roundbeargames
             }
 
             // ai transitions
-            for (int i = 0; i < (int)AI_Transitions.COUNT; i++)
+            for (int i = 0; i < (int)AI_Transition.COUNT; i++)
             {
-                ArrAITransitionParams[i] = Animator.StringToHash(((AI_Transitions)i).ToString());
+                ArrAITransitionParams[i] = Animator.StringToHash(((AI_Transition)i).ToString());
             }
 
             // ai states
-            AI_States[] arrAIStates = System.Enum.GetValues(typeof(AI_States))
-                as AI_States[];
-
-            foreach(AI_States t in arrAIStates)
+            for (int i = 0; i < (int)AI_State_Name.COUNT; i++)
             {
-                DicAIStates.Add(t, Animator.StringToHash(t.ToString()));
+                ArrAIStateNames[i] = Animator.StringToHash(((AI_State_Name)i).ToString());
             }
 
             // hit reaction states
