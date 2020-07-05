@@ -1522,6 +1522,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2016,7 +2017,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.22562051, y: -0.6701688, z: 0.2256375, w: 0.67011714}
+  m_LocalRotation: {x: 0.22401325, y: -0.6749078, z: 0.22723326, w: 0.66534406}
   m_LocalPosition: {x: 8.500002, y: 6.7626085, z: 0.9735037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2834,7 +2835,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765881197}
-  m_LocalRotation: {x: 0.22562051, y: -0.6701688, z: 0.2256375, w: 0.67011714}
+  m_LocalRotation: {x: 0.22401325, y: -0.6749078, z: 0.22723326, w: 0.66534406}
   m_LocalPosition: {x: 8.500002, y: -8.237391, z: 0.9735037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3638,7 +3639,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944571762}
-  m_LocalRotation: {x: 0.031052532, y: -0.6640353, z: 0.02761994, w: 0.7465454}
+  m_LocalRotation: {x: 0.030856226, y: -0.6692957, z: 0.027839076, w: 0.741833}
   m_LocalPosition: {x: 12.000002, y: -13.737391, z: -0.026496276}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4252,6 +4253,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5897,6 +5899,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6603,6 +6606,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8414,6 +8418,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8761,6 +8766,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8376118707760611932, guid: b2eb1363388b123479e5fa6cac5ae56d,
+        type: 3}
+      propertyPath: DefaultCam
+      value: 
+      objectReference: {fileID: 765881198}
     - target: {fileID: 8511869977288984868, guid: b2eb1363388b123479e5fa6cac5ae56d,
         type: 3}
       propertyPath: m_Name
