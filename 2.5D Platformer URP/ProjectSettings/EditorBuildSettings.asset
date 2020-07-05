@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/2.5D Platformer/RB_Scenes/LatestScene/TutorialScene_Sample_Day.unity
+    path: Assets/2.5D Platformer/Scenes/LatestScene/TutorialScene_Sample_Day.unity
     guid: 2db1fe4118b4d2048a65c93ca3f5b44f
   - enabled: 1
-    path: Assets/2.5D Platformer/RB_Scenes/Night (deprecated)/TutorialScene_Sample_Night.unity
+    path: Assets/2.5D Platformer/Scenes/Night (deprecated)/TutorialScene_Sample_Night.unity
     guid: 897150e833e037441b2fca701a6f8b87
   m_configObjects: {}
