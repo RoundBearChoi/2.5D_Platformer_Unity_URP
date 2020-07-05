@@ -4,14 +4,6 @@ using UnityEngine;
 
 namespace Roundbeargames
 {
-    public enum PlayableCharacterType
-    {
-        NONE,
-        YELLOW,
-        RED,
-        GREEN,
-    }
-
     [CreateAssetMenu(fileName = "CharacterSelect", menuName = "Roundbeargames/CharacterSelect/CharacterSelect")]
     public class CharacterSelect : ScriptableObject
     {

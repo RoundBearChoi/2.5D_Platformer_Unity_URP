@@ -6,6 +6,7 @@ namespace Roundbeargames
 {
     public class AttackManager : Singleton<AttackManager>
     {
+        public GameObject ActiveAttacks;
         public List<AttackCondition> CurrentAttacks = new List<AttackCondition>();
 
         public void ForceDeregister(CharacterControl control)

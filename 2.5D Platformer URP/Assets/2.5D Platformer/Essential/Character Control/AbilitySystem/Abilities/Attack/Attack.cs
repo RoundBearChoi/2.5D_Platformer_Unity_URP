@@ -39,7 +39,6 @@ namespace Roundbeargames
         public CollateralDamageInfo collateralDamageInfo;
 
         private List<AttackCondition> FinishedAttacks = new List<AttackCondition>();
-        private GameObject ActiveAttacks;
 
         public override void OnEnter(CharacterState characterState, Animator animator, AnimatorStateInfo stateInfo)
         {
@@ -48,14 +47,17 @@ namespace Roundbeargames
             GameObject obj = PoolManager.Instance.GetObject(PoolObjectType.ATTACK_CONDITION); 
             AttackCondition info = obj.GetComponent<AttackCondition>();
 
-            if (ActiveAttacks == null)
+            if (AttackManager.Instance.ActiveAttacks == null)
             {
-                ActiveAttacks = GameObject.Find("ActiveAttacks");
+                AttackManager.Instance.ActiveAttacks = new GameObject();
+                AttackManager.Instance.ActiveAttacks.name = "ActiveAttacks";
+                AttackManager.Instance.ActiveAttacks.transform.position = Vector3.zero;
+                AttackManager.Instance.ActiveAttacks.transform.rotation = Quaternion.identity;
             }
 
             if (info.transform.parent == null)
             {
-                info.transform.parent = ActiveAttacks.transform;
+                info.transform.parent = AttackManager.Instance.ActiveAttacks.transform;
             }
 
             obj.SetActive(true);
