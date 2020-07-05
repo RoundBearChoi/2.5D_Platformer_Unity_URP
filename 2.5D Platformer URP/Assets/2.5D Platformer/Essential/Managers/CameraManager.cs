@@ -9,15 +9,17 @@ namespace Roundbeargames
         public Camera MainCamera;
 
         private Coroutine routine;
-
+        private bool CamControllerInitiated = false;
         private CameraController cameraController;
+
         public CameraController CAM_CONTROLLER
         {
             get
             {
-                if (cameraController == null)
+                if (!CamControllerInitiated)
                 {
                     cameraController = GameObject.FindObjectOfType<CameraController>();
+                    CamControllerInitiated = true;
                 }
                 return cameraController;
             }
@@ -31,9 +33,12 @@ namespace Roundbeargames
 
         IEnumerator _CamShake(float sec)
         {
-            CAM_CONTROLLER.TriggerCamera(CameraTrigger.Shake);
-            yield return new WaitForSeconds(sec);
-            CAM_CONTROLLER.TriggerCamera(CameraTrigger.Default);
+            if (CAM_CONTROLLER != null)
+            {
+                CAM_CONTROLLER.TriggerCamera(CameraTrigger.Shake);
+                yield return new WaitForSeconds(sec);
+                CAM_CONTROLLER.TriggerCamera(CameraTrigger.Default);
+            }
         }
 
         public void ShakeCamera(float sec)
