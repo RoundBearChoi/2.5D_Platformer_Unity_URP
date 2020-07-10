@@ -27,6 +27,12 @@ https://youtu.be/JFiiOTA1Mnc
 
 ----
 
+**HDRP Version**
+
+https://github.com/RoundBearChoi/2.5D-Platformer-HDRP
+
+----
+
 **YouTube**
 
 https://youtube.com/roundbeargames
