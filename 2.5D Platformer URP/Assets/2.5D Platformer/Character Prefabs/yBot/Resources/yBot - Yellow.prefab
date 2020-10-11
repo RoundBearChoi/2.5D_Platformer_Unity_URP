@@ -1059,8 +1059,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationData:
-    LockEarlyTurn: 0
-    LockDirectionNextState: 0
+    LockTurn: 0
+    UnlockTiming: 0
 --- !u!1 &2284176468906571315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpData:
-    Jumped: 0
     CanWallJump: 0
     CheckWallBlock: 0
 --- !u!1 &2334154454243288051
@@ -1856,6 +1855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0b081e242c4ed478fc91208b9e457b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrSubComponents: []
   control: {fileID: 0}
   blockingData:
     RaycastContact: {x: 0, y: 0, z: 0}
@@ -1865,7 +1865,10 @@ MonoBehaviour:
     isGrabbingLedge: 0
   ragdollData:
     RagdollTriggered: 0
-    BodyParts: []
+    ArrBodyParts: []
+    flyingRagdollData:
+      IsTriggered: 0
+      Attacker: {fileID: 0}
   boxColliderData:
     IsUpdatingSpheres: 0
     IsLanding: 0
@@ -1878,21 +1881,22 @@ MonoBehaviour:
     NoJumpCancel: 0
     MaxWallSlideVelocity: {x: 0, y: 0, z: 0}
   damageData:
-    Attacker: {fileID: 0}
-    Attack: {fileID: 0}
-    DamagedTrigger: {fileID: 0}
-    AttackingPart: {fileID: 0}
     BlockedAttack: {fileID: 0}
     hp: 0
     MarioStompAttack: {fileID: 0}
     AxeThrow: {fileID: 0}
+    damageTaken:
+      mAttacker: {fileID: 0}
+      mAttack: {fileID: 0}
+      mDamager: {fileID: 0}
+      mDamagee: {fileID: 0}
+      mIncomingVelocity: {x: 0, y: 0, z: 0}
   momentumData:
     Momentum: 0
   rotationData:
-    LockEarlyTurn: 0
-    LockDirectionNextState: 0
+    LockTurn: 0
+    UnlockTiming: 0
   jumpData:
-    Jumped: 0
     CanWallJump: 0
     CheckWallBlock: 0
   collisionSphereData:
@@ -2579,7 +2583,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ragdollData:
     RagdollTriggered: 0
-    BodyParts: []
+    ArrBodyParts: []
+    flyingRagdollData:
+      IsTriggered: 0
+      Attacker: {fileID: 0}
 --- !u!1 &4213738526981836892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2991,13 +2998,6 @@ MonoBehaviour:
   LedgeCalibration: {x: 0, y: -2.3, z: -0.1}
   Collider1: {fileID: 6935082071955424662}
   Collider2: {fileID: 18895733413753873}
-  LedgeTriggerStateNames:
-  - Jump_Running_Fall
-  - Jump_Normal
-  - Jump_Running
-  - Fall
-  - WallSlide
-  - WallJump
 --- !u!1 &5729298009361987041
 GameObject:
   m_ObjectHideFlags: 0
@@ -4081,7 +4081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8174262158065827851
 Transform:
   m_ObjectHideFlags: 0
@@ -4339,17 +4339,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageData:
-    Attacker: {fileID: 0}
-    Attack: {fileID: 0}
-    DamagedTrigger: {fileID: 0}
-    AttackingPart: {fileID: 0}
     BlockedAttack: {fileID: 0}
     hp: 0
     MarioStompAttack: {fileID: 0}
     AxeThrow: {fileID: 0}
-  HitReactionList:
-  - {fileID: 9100000, guid: f8173f94fbcc5144ea70d64c6b0662b3, type: 2}
-  - {fileID: 9100000, guid: 1fde60ddf602e4841aceed73d676a341, type: 2}
+    damageTaken:
+      mAttacker: {fileID: 0}
+      mAttack: {fileID: 0}
+      mDamager: {fileID: 0}
+      mDamagee: {fileID: 0}
+      mIncomingVelocity: {x: 0, y: 0, z: 0}
   MarioStompAttack: {fileID: 11400000, guid: 92ce7c8391eaac44d87d389d84d90066, type: 2}
   AxeThrow: {fileID: 11400000, guid: 053e61407dc88804e92699c3fb3162be, type: 2}
 --- !u!1 &8213854393442678034
