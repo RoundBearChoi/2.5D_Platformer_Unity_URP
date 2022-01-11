@@ -27,7 +27,7 @@ https://youtu.be/JFiiOTA1Mnc
 
 ----
 
-**Latest version is being updated here (HDRP)**
+**HDRP version**
 
 https://github.com/RoundBearChoi/2.5D-Platformer-HDRP
 
